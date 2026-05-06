@@ -1,8 +1,8 @@
 # 广告列表 adblock rules
 # 内容：EasyListChina列表，只包含ABP中的 EasyListChina 内容
 # 来源：https://easylist-downloads.adblockplus.org/easylistchina.txt
-# 更新：2026-05-05 02:36:43
-# 数量：5964条
+# 更新：2026-05-06 02:41:43
+# 数量：5970条
 
 DOMAIN-SUFFIX,003store.com
 DOMAIN-SUFFIX,00k456wyh.com
@@ -889,6 +889,7 @@ DOMAIN-SUFFIX,agricultural64.top
 DOMAIN-SUFFIX,ahfaihethh.com
 DOMAIN-SUFFIX,ahm.135320.com
 DOMAIN-SUFFIX,ahqihkm.top
+DOMAIN-SUFFIX,ahtjhe1bka.com
 DOMAIN-SUFFIX,ahupio.icu
 DOMAIN-SUFFIX,ai.bioon.com
 DOMAIN-SUFFIX,aiamok.icu
@@ -972,6 +973,7 @@ DOMAIN-SUFFIX,apparatus49.top
 DOMAIN-SUFFIX,appimg.0575bbs.com
 DOMAIN-SUFFIX,apple.www.letv.com
 DOMAIN-SUFFIX,appoint38.com
+DOMAIN-SUFFIX,aq0vs4ftni.com
 DOMAIN-SUFFIX,aqc.gucheng.com
 DOMAIN-SUFFIX,aqftgalqig.com
 DOMAIN-SUFFIX,aqgjqy.icu
@@ -2082,6 +2084,7 @@ DOMAIN-SUFFIX,fkfovt.icu
 DOMAIN-SUFFIX,fkhagviev.com
 DOMAIN-SUFFIX,fktaxk.top
 DOMAIN-SUFFIX,fl0hg5wlr.com
+DOMAIN-SUFFIX,fl4md7mm8.com
 DOMAIN-SUFFIX,fl7i15bxzr.com
 DOMAIN-SUFFIX,fldlxx.icu
 DOMAIN-SUFFIX,flkgjlfghm.com
@@ -2802,6 +2805,7 @@ DOMAIN-SUFFIX,iugvoo.icu
 DOMAIN-SUFFIX,ivcfsi3dr0.com
 DOMAIN-SUFFIX,ivdtruneda.com
 DOMAIN-SUFFIX,ivhv.cn
+DOMAIN-SUFFIX,ivizbbqma.com
 DOMAIN-SUFFIX,ivonnurb.com
 DOMAIN-SUFFIX,ivrokpyr.com
 DOMAIN-SUFFIX,ivy.pconline.com.cn
@@ -4061,6 +4065,7 @@ DOMAIN-SUFFIX,pztnzqwz.icu
 DOMAIN-SUFFIX,q06g.com
 DOMAIN-SUFFIX,q1.yyxwzx.com
 DOMAIN-SUFFIX,q1txsah8s.com
+DOMAIN-SUFFIX,q1yv4669q6.com
 DOMAIN-SUFFIX,q29k22vpu.com
 DOMAIN-SUFFIX,q2fwgl4q8.com
 DOMAIN-SUFFIX,q2tqrsh02.com
@@ -5774,6 +5779,7 @@ DOMAIN-SUFFIX,z1.pclady.com.cn
 DOMAIN-SUFFIX,z198vxfuy3.com
 DOMAIN-SUFFIX,z1e2vp1gw.com
 DOMAIN-SUFFIX,z1el6lgol.com
+DOMAIN-SUFFIX,z1fl848ft.com
 DOMAIN-SUFFIX,z1hihu.xmcimg.com
 DOMAIN-SUFFIX,z2ke56999.com
 DOMAIN-SUFFIX,z2ubj8bpk.com
