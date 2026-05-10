@@ -1,7 +1,7 @@
 # 广告列表 adblock rules
 # 内容：EasyPrivacy列表，隐私保护，屏蔽隐私追踪
 # 来源：https://easylist-downloads.adblockplus.org/easyprivacy.txt
-# 更新：2026-05-09 02:42:38
+# 更新：2026-05-10 02:48:40
 # 数量：40470条
 
 DOMAIN-SUFFIX,0.myikas.com
@@ -8184,6 +8184,7 @@ DOMAIN-SUFFIX,cdnlogs.org
 DOMAIN-SUFFIX,cdns.brsrvr.com
 DOMAIN-SUFFIX,cdnwidget.com
 DOMAIN-SUFFIX,cdp.cifinancial.com
+DOMAIN-SUFFIX,cdp.howtotrade.com
 DOMAIN-SUFFIX,cdrive.compellent.com
 DOMAIN-SUFFIX,cdtm.cdiscount.com
 DOMAIN-SUFFIX,ceggfe.msc-kreuzfahrten.de
@@ -10925,7 +10926,6 @@ DOMAIN-SUFFIX,dmcc.actonservice.com
 DOMAIN-SUFFIX,dmcnyf.nevzatonay.com
 DOMAIN-SUFFIX,dmdgdu.atmosphera.com
 DOMAIN-SUFFIX,dmepyodjotcuks.com
-DOMAIN-SUFFIX,dmg-libs.anm.co.uk
 DOMAIN-SUFFIX,dmkt.solutions.cas.org
 DOMAIN-SUFFIX,dmndfrcstng.com
 DOMAIN-SUFFIX,dmp.citynews.ovh
