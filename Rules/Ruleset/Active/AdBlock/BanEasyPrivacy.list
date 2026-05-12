@@ -1,8 +1,8 @@
 # 广告列表 adblock rules
 # 内容：EasyPrivacy列表，隐私保护，屏蔽隐私追踪
 # 来源：https://easylist-downloads.adblockplus.org/easyprivacy.txt
-# 更新：2026-05-11 02:57:52
-# 数量：40470条
+# 更新：2026-05-12 02:49:38
+# 数量：40472条
 
 DOMAIN-SUFFIX,0.myikas.com
 DOMAIN-SUFFIX,0.net.easyjet.com
@@ -5763,6 +5763,7 @@ DOMAIN-SUFFIX,apiwmda.58.com.cn
 DOMAIN-SUFFIX,apllogistics.actonservice.com
 DOMAIN-SUFFIX,aplobv.xexymix.com
 DOMAIN-SUFFIX,aplus.alibaba.com
+DOMAIN-SUFFIX,apm.qwant.com
 DOMAIN-SUFFIX,apm.tnet.nl
 DOMAIN-SUFFIX,app-branch.yummybazaar-qa.com
 DOMAIN-SUFFIX,app-clicks-corporate.firstrepublic.com
@@ -10346,6 +10347,7 @@ DOMAIN-SUFFIX,dd.g2.com
 DOMAIN-SUFFIX,dd.garena.com
 DOMAIN-SUFFIX,dd.leboncoin.fr
 DOMAIN-SUFFIX,dd.nytimes.com
+DOMAIN-SUFFIX,dd.qwant.com
 DOMAIN-SUFFIX,dd.seloger-bureaux-commerces.com
 DOMAIN-SUFFIX,dd.seloger.com
 DOMAIN-SUFFIX,dd.selogerneuf.com
