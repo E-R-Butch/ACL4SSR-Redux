@@ -1,8 +1,8 @@
 # 广告列表 adblock rules
 # 内容：EasyListChina列表，只包含ABP中的 EasyListChina 内容
 # 来源：https://easylist-downloads.adblockplus.org/easylistchina.txt
-# 更新：2026-05-12 02:49:36
-# 数量：6044条
+# 更新：2026-05-13 02:54:41
+# 数量：6053条
 
 DOMAIN-SUFFIX,003store.com
 DOMAIN-SUFFIX,00k456wyh.com
@@ -498,6 +498,7 @@ DOMAIN-SUFFIX,6o719vq4x.com
 DOMAIN-SUFFIX,6p2g1kk03.com
 DOMAIN-SUFFIX,6p6vcukqz.com
 DOMAIN-SUFFIX,6pctuhriw.com
+DOMAIN-SUFFIX,6q77vsjez1.com
 DOMAIN-SUFFIX,6s0zo8jzbb.com
 DOMAIN-SUFFIX,6s8w2ck1g.com
 DOMAIN-SUFFIX,6spczz2hj1.com
@@ -1680,6 +1681,7 @@ DOMAIN-SUFFIX,derivative10.top
 DOMAIN-SUFFIX,designx08.com
 DOMAIN-SUFFIX,devll8j4n.com
 DOMAIN-SUFFIX,devpz.cn
+DOMAIN-SUFFIX,df33iyey8.com
 DOMAIN-SUFFIX,df888.eastday.com
 DOMAIN-SUFFIX,dfangalti.com
 DOMAIN-SUFFIX,dfevpkzy6u.com
@@ -2308,6 +2310,7 @@ DOMAIN-SUFFIX,ghgietuthz.com
 DOMAIN-SUFFIX,ghovvadv.com
 DOMAIN-SUFFIX,ght2bvin1.com
 DOMAIN-SUFFIX,ghwmbue.icu
+DOMAIN-SUFFIX,giaumusnsj.com
 DOMAIN-SUFFIX,gigptruetlop.com
 DOMAIN-SUFFIX,gigtoy.icu
 DOMAIN-SUFFIX,gin77czkt.com
@@ -3036,6 +3039,7 @@ DOMAIN-SUFFIX,k7m4co459k.com
 DOMAIN-SUFFIX,k8mb640mta.com
 DOMAIN-SUFFIX,k8velr77p.com
 DOMAIN-SUFFIX,k90ey77nx.com
+DOMAIN-SUFFIX,k98033ewp.com
 DOMAIN-SUFFIX,k9egtgh8v.com
 DOMAIN-SUFFIX,k9zxbudgix.com
 DOMAIN-SUFFIX,kaboodle49.com
@@ -3239,6 +3243,7 @@ DOMAIN-SUFFIX,llxjrt.icu
 DOMAIN-SUFFIX,lm.ijq.tv
 DOMAIN-SUFFIX,lm1.tuliu.com
 DOMAIN-SUFFIX,lm1.wkpcw.cn
+DOMAIN-SUFFIX,lm4u6e80f.com
 DOMAIN-SUFFIX,lmhrchi.com
 DOMAIN-SUFFIX,lmldxd.icu
 DOMAIN-SUFFIX,lmlmvip.com
@@ -3551,6 +3556,7 @@ DOMAIN-SUFFIX,n0usvkb1x.com
 DOMAIN-SUFFIX,n0zwlat83.com
 DOMAIN-SUFFIX,n1yy6blznk.com
 DOMAIN-SUFFIX,n26iiffw9.com
+DOMAIN-SUFFIX,n2bqyqg5u3.com
 DOMAIN-SUFFIX,n2d79v41a3.com
 DOMAIN-SUFFIX,n2ivsbik2.com
 DOMAIN-SUFFIX,n2xj2mxg3z.com
@@ -3800,6 +3806,7 @@ DOMAIN-SUFFIX,ofettail.com
 DOMAIN-SUFFIX,ofincm.icu
 DOMAIN-SUFFIX,ofja.cn
 DOMAIN-SUFFIX,ofkccsp35i.com
+DOMAIN-SUFFIX,ofmxtlbgqp.com
 DOMAIN-SUFFIX,ofoltekbn.com
 DOMAIN-SUFFIX,ofwq.cn
 DOMAIN-SUFFIX,og7231kq7.com
@@ -4410,6 +4417,7 @@ DOMAIN-SUFFIX,rvdkjn.icu
 DOMAIN-SUFFIX,rvkhazel.com
 DOMAIN-SUFFIX,rvr3psha.xyz
 DOMAIN-SUFFIX,rvrl1srlq.com
+DOMAIN-SUFFIX,rw56y62bgg.com
 DOMAIN-SUFFIX,rwbqll.top
 DOMAIN-SUFFIX,rwtezd.icu
 DOMAIN-SUFFIX,rwtraqur.com
@@ -4689,6 +4697,7 @@ DOMAIN-SUFFIX,tgdlqeqpbh.com
 DOMAIN-SUFFIX,tggrurcutf.com
 DOMAIN-SUFFIX,tghigvud.com
 DOMAIN-SUFFIX,tgjxzf.top
+DOMAIN-SUFFIX,tgurcoinei.com
 DOMAIN-SUFFIX,tgxpdr.icu
 DOMAIN-SUFFIX,thaadotyvrf.com
 DOMAIN-SUFFIX,thaincoth.com
