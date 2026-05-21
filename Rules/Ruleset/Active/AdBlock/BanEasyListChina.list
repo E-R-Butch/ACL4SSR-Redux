@@ -1,8 +1,8 @@
 # 广告列表 adblock rules
 # 内容：EasyListChina列表，只包含ABP中的 EasyListChina 内容
 # 来源：https://easylist-downloads.adblockplus.org/easylistchina.txt
-# 更新：2026-05-20 03:26:16
-# 数量：5761条
+# 更新：2026-05-21 03:32:53
+# 数量：5769条
 
 DOMAIN-SUFFIX,003store.com
 DOMAIN-SUFFIX,00k456wyh.com
@@ -380,6 +380,7 @@ DOMAIN-SUFFIX,4xicd08qs.com
 DOMAIN-SUFFIX,4y13js.work
 DOMAIN-SUFFIX,4yduy53ik.com
 DOMAIN-SUFFIX,4yl3e3fmv.com
+DOMAIN-SUFFIX,4z48fqo12n.com
 DOMAIN-SUFFIX,4z50jczq2.com
 DOMAIN-SUFFIX,4zm6p17ppr.com
 DOMAIN-SUFFIX,5.ccutu.com
@@ -984,6 +985,7 @@ DOMAIN-SUFFIX,apparatus49.top
 DOMAIN-SUFFIX,appimg.0575bbs.com
 DOMAIN-SUFFIX,apple.www.letv.com
 DOMAIN-SUFFIX,appoint38.com
+DOMAIN-SUFFIX,apricot48.com
 DOMAIN-SUFFIX,aq0vs4ftni.com
 DOMAIN-SUFFIX,aqc.gucheng.com
 DOMAIN-SUFFIX,aqftgalqig.com
@@ -1370,6 +1372,7 @@ DOMAIN-SUFFIX,calistaadama.com
 DOMAIN-SUFFIX,callosity19.top
 DOMAIN-SUFFIX,cameleer.top
 DOMAIN-SUFFIX,camerain.top
+DOMAIN-SUFFIX,cancellation10.top
 DOMAIN-SUFFIX,cancellation39.com
 DOMAIN-SUFFIX,cancellation58.top
 DOMAIN-SUFFIX,caomeixz7.xyz
@@ -2633,6 +2636,7 @@ DOMAIN-SUFFIX,i4320rdrta.com
 DOMAIN-SUFFIX,i5le8m3qxs.com
 DOMAIN-SUFFIX,i5q1t8vj9.com
 DOMAIN-SUFFIX,i5qquywfz.com
+DOMAIN-SUFFIX,i5rd6bukys.com
 DOMAIN-SUFFIX,i5rp73ne9h.com
 DOMAIN-SUFFIX,i6nnwepgm.com
 DOMAIN-SUFFIX,i73u6dnnh.com
@@ -3142,6 +3146,7 @@ DOMAIN-SUFFIX,lm.ijq.tv
 DOMAIN-SUFFIX,lm1.tuliu.com
 DOMAIN-SUFFIX,lm1.wkpcw.cn
 DOMAIN-SUFFIX,lm4u6e80f.com
+DOMAIN-SUFFIX,lmd6dc1aq7.com
 DOMAIN-SUFFIX,lmhrchi.com
 DOMAIN-SUFFIX,lmldxd.icu
 DOMAIN-SUFFIX,lmlmvip.com
@@ -3694,6 +3699,7 @@ DOMAIN-SUFFIX,oiscuy.icu
 DOMAIN-SUFFIX,oiu132jhz.com
 DOMAIN-SUFFIX,oizs.cn
 DOMAIN-SUFFIX,oj2c0dkk4.com
+DOMAIN-SUFFIX,oj95rctd5.com
 DOMAIN-SUFFIX,ojg8sflgl.com
 DOMAIN-SUFFIX,ojh9bc9puh.com
 DOMAIN-SUFFIX,ojizau.icu
@@ -4393,6 +4399,7 @@ DOMAIN-SUFFIX,ssp.kdnet.net
 DOMAIN-SUFFIX,ssp.moeli.net
 DOMAIN-SUFFIX,ssp.zf313.com
 DOMAIN-SUFFIX,sssvd.china.com
+DOMAIN-SUFFIX,ssyegkbu0g.com
 DOMAIN-SUFFIX,staircase59.com
 DOMAIN-SUFFIX,staitcfile.org
 DOMAIN-SUFFIX,stamenbs4.com
@@ -5040,6 +5047,7 @@ DOMAIN-SUFFIX,w11.zhongkaohelp.com
 DOMAIN-SUFFIX,w18.9939.com
 DOMAIN-SUFFIX,w1irjtvdt4.com
 DOMAIN-SUFFIX,w2j4kdjma.com
+DOMAIN-SUFFIX,w2q5p09n8.com
 DOMAIN-SUFFIX,w3.ting55.com
 DOMAIN-SUFFIX,w3019cdt.top
 DOMAIN-SUFFIX,w3cfba6ufr.com
