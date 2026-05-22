@@ -46,6 +46,7 @@ DOMAIN,api-ubiservices.ubi.com
 DOMAIN,lb-upc-dmx.ubisoft.com
 DOMAIN,msr-api-ubiservices.ubi.com
 DOMAIN,dmx.upc.ubisoft.com
+DOMAIN,api.paradox-interactive.com
 
 # 游戏下载
 DOMAIN-SUFFIX,dl.steam.ksyna.com

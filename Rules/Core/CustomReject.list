@@ -8,3 +8,6 @@ DOMAIN-SUFFIX,hockeyapp.net
 DOMAIN,sentry.io
 DOMAIN-SUFFIX,ingest.us.sentry.io
 DOMAIN,otel.gitkraken.com
+
+# Shared engagement/marketing assets
+DOMAIN-SUFFIX,braze-images.com
