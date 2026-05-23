@@ -4289,6 +4289,7 @@ DOMAIN-SUFFIX,zyxel.com
 DOMAIN-SUFFIX,zzcloud.me
 
 # GFW list (Synced from official gfwlist/gfwlist)
+DOMAIN-SUFFIX,24hbook.com
 DOMAIN-SUFFIX,acg.mn
 DOMAIN-SUFFIX,annas-archive.gd
 DOMAIN-SUFFIX,annas-archive.gl
@@ -4315,9 +4316,11 @@ DOMAIN-SUFFIX,lantern.io
 DOMAIN-SUFFIX,lemonde.fr
 DOMAIN-SUFFIX,leonardo.ai
 DOMAIN-SUFFIX,libgen.is
+DOMAIN-SUFFIX,mas.to
 DOMAIN-SUFFIX,mediamatters.org
 DOMAIN-SUFFIX,mjj.today
 DOMAIN-SUFFIX,music.amazon.com
+DOMAIN-SUFFIX,neodb.social
 DOMAIN-SUFFIX,newshub.co.nz
 DOMAIN-SUFFIX,newstimes.com
 DOMAIN-SUFFIX,nfsc.press

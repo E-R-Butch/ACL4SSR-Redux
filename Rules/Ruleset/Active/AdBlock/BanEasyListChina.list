@@ -1,8 +1,8 @@
 # 广告列表 adblock rules
 # 内容：EasyListChina列表，只包含ABP中的 EasyListChina 内容
 # 来源：https://easylist-downloads.adblockplus.org/easylistchina.txt
-# 更新：2026-05-22 03:31:34
-# 数量：5773条
+# 更新：2026-05-23 02:49:49
+# 数量：5781条
 
 DOMAIN-SUFFIX,003store.com
 DOMAIN-SUFFIX,00k456wyh.com
@@ -784,6 +784,7 @@ DOMAIN-SUFFIX,a2pfs5k90i.com
 DOMAIN-SUFFIX,a2put.chinaz.com
 DOMAIN-SUFFIX,a3.jandan.net
 DOMAIN-SUFFIX,a4bbltm3u2.com
+DOMAIN-SUFFIX,a4j126meg3.com
 DOMAIN-SUFFIX,a4xvv2g18l.com
 DOMAIN-SUFFIX,a51wzxssu.com
 DOMAIN-SUFFIX,a65vocvbfe.com
@@ -1968,6 +1969,7 @@ DOMAIN-SUFFIX,f5g8ouidvf.com
 DOMAIN-SUFFIX,f5nn75ozf.com
 DOMAIN-SUFFIX,f6jd4k4xgo.com
 DOMAIN-SUFFIX,f7eiavl95.com
+DOMAIN-SUFFIX,f7qhnenfbo.com
 DOMAIN-SUFFIX,f7tkpjw6v.com
 DOMAIN-SUFFIX,f7ugx6b863.com
 DOMAIN-SUFFIX,f8c2gftcsj.com
@@ -2106,6 +2108,7 @@ DOMAIN-SUFFIX,free-cdn.oss-cn-shanghai.aliyuncs.com
 DOMAIN-SUFFIX,freshet40.top
 DOMAIN-SUFFIX,frhi5v6ez1.com
 DOMAIN-SUFFIX,frhopo.cn
+DOMAIN-SUFFIX,frp8r3le9c.com
 DOMAIN-SUFFIX,frzlftr9y.com
 DOMAIN-SUFFIX,fsmnmorgb.com
 DOMAIN-SUFFIX,fsnazsmk.icu
@@ -2165,6 +2168,7 @@ DOMAIN-SUFFIX,g8ygkqhm9p.com
 DOMAIN-SUFFIX,g9cvic3khh.com
 DOMAIN-SUFFIX,ga1.3dmgame.com
 DOMAIN-SUFFIX,ganjituiguang.ganji.com
+DOMAIN-SUFFIX,gardenia25.com
 DOMAIN-SUFFIX,gardenian8.top
 DOMAIN-SUFFIX,gawnaze.com
 DOMAIN-SUFFIX,gb0143odqh.com
@@ -2966,6 +2970,7 @@ DOMAIN-SUFFIX,kasgge.icu
 DOMAIN-SUFFIX,kasgnh7xwl.com
 DOMAIN-SUFFIX,kawf.cn
 DOMAIN-SUFFIX,kawxkg.icu
+DOMAIN-SUFFIX,kb894lngt.com
 DOMAIN-SUFFIX,kbkvmeg.com
 DOMAIN-SUFFIX,kbr23k89xz.com
 DOMAIN-SUFFIX,kbygma.icu
@@ -4090,6 +4095,7 @@ DOMAIN-SUFFIX,qtqv3cy43w.com
 DOMAIN-SUFFIX,qttroiey.com
 DOMAIN-SUFFIX,qucxwvt.com
 DOMAIN-SUFFIX,qudajie.com
+DOMAIN-SUFFIX,quince22.top
 DOMAIN-SUFFIX,qujishu.com
 DOMAIN-SUFFIX,qunphoty.com
 DOMAIN-SUFFIX,quoits96.top
@@ -4473,6 +4479,7 @@ DOMAIN-SUFFIX,t6ec3seyq.com
 DOMAIN-SUFFIX,t78obxl4h1.com
 DOMAIN-SUFFIX,t7ywa5ai3.com
 DOMAIN-SUFFIX,t8t8jyxsr.com
+DOMAIN-SUFFIX,t9x2gu6it3.com
 DOMAIN-SUFFIX,ta7088hrd.com
 DOMAIN-SUFFIX,ta7tfk0o2h.com
 DOMAIN-SUFFIX,tableland06.top
@@ -5036,6 +5043,7 @@ DOMAIN-SUFFIX,vxrdwo.cn
 DOMAIN-SUFFIX,vxydbok.com
 DOMAIN-SUFFIX,vyczp.cn
 DOMAIN-SUFFIX,vyqn.cn
+DOMAIN-SUFFIX,vysr4o0eg.com
 DOMAIN-SUFFIX,vyxw.cn
 DOMAIN-SUFFIX,vzia.cn
 DOMAIN-SUFFIX,vzorzilmf.com
