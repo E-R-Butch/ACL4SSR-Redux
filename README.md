@@ -45,6 +45,9 @@ Rules/
 scripts/
 ├── fetch_assets.py      # 同步 GFWList / China / AdBlock 上游数据
 ├── build_rules.py       # 合并广告规则并输出 MergedADBan.list
+├── sync_guard.py        # 自动同步后的轻量护栏，拦截空文件/异常小文件/错误页
+├── dedupe_rules.py      # 去除 .list 文件内重复有效规则
+├── audit_rules.py       # 可选手动审计：跨文件重复、覆盖关系、私有规则泄漏等
 └── validate_rules.py    # 校验主配置引用和 .list 基础格式
 ```
 
@@ -61,6 +64,14 @@ https://raw.githubusercontent.com/E-R-Butch/ACL4SSR-Neo/master/Config/ACL4SSR_On
 ```
 
 然后填入你的节点订阅地址，即可生成完整 Clash 配置。
+
+---
+
+## 🛠️ 维护与自动同步
+
+每日同步会先拉取上游规则，再通过 `sync_guard.py` 做轻量护栏检查，避免空文件、异常小文件或 HTML 错误页被自动提交。构建完成后会继续执行去重与基础格式校验。
+
+如需更深入地排查规则质量，可手动运行 `python3 scripts/audit_rules.py`。该工具默认只输出报告，不参与每日 CI；需要让发现项返回失败状态时，可加 `--strict`。
 
 ---
 
