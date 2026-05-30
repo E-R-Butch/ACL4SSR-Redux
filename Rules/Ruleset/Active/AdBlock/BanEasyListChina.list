@@ -1,8 +1,8 @@
 # 广告列表 adblock rules
 # 内容：EasyListChina列表，只包含ABP中的 EasyListChina 内容
 # 来源：https://easylist-downloads.adblockplus.org/easylistchina.txt
-# 更新：2026-05-29 03:27:33
-# 数量：5840条
+# 更新：2026-05-30 02:54:15
+# 数量：5849条
 
 DOMAIN-SUFFIX,003store.com
 DOMAIN-SUFFIX,00k456wyh.com
@@ -160,6 +160,7 @@ DOMAIN-SUFFIX,1gj8lhfa1.com
 DOMAIN-SUFFIX,1gp3p6fkio.com
 DOMAIN-SUFFIX,1gqd0o687z.com
 DOMAIN-SUFFIX,1gvzhr49e.com
+DOMAIN-SUFFIX,1hcgomshd.com
 DOMAIN-SUFFIX,1hhwyb4vl.com
 DOMAIN-SUFFIX,1hmklj60i.com
 DOMAIN-SUFFIX,1hotu9uyll.com
@@ -284,6 +285,7 @@ DOMAIN-SUFFIX,35lnvz97cg.com
 DOMAIN-SUFFIX,35wo96wkjs.com
 DOMAIN-SUFFIX,360640.com
 DOMAIN-SUFFIX,37lwjdaua.com
+DOMAIN-SUFFIX,37nu0riwfd.com
 DOMAIN-SUFFIX,39jz.com
 DOMAIN-SUFFIX,39q0imqo0.com
 DOMAIN-SUFFIX,3bzsoex618.com
@@ -1174,6 +1176,7 @@ DOMAIN-SUFFIX,beatricecandanceyd.com
 DOMAIN-SUFFIX,beautiful45.com
 DOMAIN-SUFFIX,becode.xiao84.com
 DOMAIN-SUFFIX,becomeo21.com
+DOMAIN-SUFFIX,begonia20.com
 DOMAIN-SUFFIX,behavior65.top
 DOMAIN-SUFFIX,beijing.buzhi5.com
 DOMAIN-SUFFIX,benchmark84.top
@@ -1705,6 +1708,7 @@ DOMAIN-SUFFIX,dgnqrl.icu
 DOMAIN-SUFFIX,dgxjxeuzm.com
 DOMAIN-SUFFIX,dh5t3pyb6r.com
 DOMAIN-SUFFIX,dh8ypn3lq8.com
+DOMAIN-SUFFIX,dhckj73qr3.com
 DOMAIN-SUFFIX,dhduc.com
 DOMAIN-SUFFIX,dheblxw.com
 DOMAIN-SUFFIX,dhl.135320.com
@@ -1820,6 +1824,7 @@ DOMAIN-SUFFIX,dwjlxiuio.com
 DOMAIN-SUFFIX,dwyeeunm.com
 DOMAIN-SUFFIX,dxdxfl.icu
 DOMAIN-SUFFIX,dxix.cn
+DOMAIN-SUFFIX,dxq8uuq0d.com
 DOMAIN-SUFFIX,dxuxtb.com
 DOMAIN-SUFFIX,dxzgwti.com
 DOMAIN-SUFFIX,dydab.com
@@ -1898,6 +1903,7 @@ DOMAIN-SUFFIX,eitorawrdo.com
 DOMAIN-SUFFIX,eiv.baidu.com
 DOMAIN-SUFFIX,ejiwvof.icu
 DOMAIN-SUFFIX,ejunshi.com
+DOMAIN-SUFFIX,ek946br7uy.com
 DOMAIN-SUFFIX,ekdtywtkc.com
 DOMAIN-SUFFIX,eklzt1bvv.com
 DOMAIN-SUFFIX,ekpafzj.com
@@ -2214,6 +2220,7 @@ DOMAIN-SUFFIX,generation456.com
 DOMAIN-SUFFIX,generation74.com
 DOMAIN-SUFFIX,geqetreadyf.com
 DOMAIN-SUFFIX,geqzt6tkg.top
+DOMAIN-SUFFIX,geranium35.top
 DOMAIN-SUFFIX,germinate06.top
 DOMAIN-SUFFIX,gexq.cn
 DOMAIN-SUFFIX,gf6axe5bdb.com
@@ -4588,6 +4595,7 @@ DOMAIN-SUFFIX,tjfavx.icu
 DOMAIN-SUFFIX,tjfskxz0t6.com
 DOMAIN-SUFFIX,tjv250730ads.com
 DOMAIN-SUFFIX,tjv251109ads.com
+DOMAIN-SUFFIX,tjv260529xxx.com
 DOMAIN-SUFFIX,tjvpnh.icu
 DOMAIN-SUFFIX,tk.504pk.com
 DOMAIN-SUFFIX,tkdjrsee.icu
@@ -4896,6 +4904,7 @@ DOMAIN-SUFFIX,uwtewvalgil.com
 DOMAIN-SUFFIX,uwxez.com
 DOMAIN-SUFFIX,uxfe.cn
 DOMAIN-SUFFIX,uxjw.cn
+DOMAIN-SUFFIX,uxnsiyuew.com
 DOMAIN-SUFFIX,uxtlrah.com
 DOMAIN-SUFFIX,uxx1sawfwm.com
 DOMAIN-SUFFIX,uy8f8z9uy.com
