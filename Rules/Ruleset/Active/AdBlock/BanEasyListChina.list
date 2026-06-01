@@ -1,8 +1,8 @@
 # 广告列表 adblock rules
 # 内容：EasyListChina列表，只包含ABP中的 EasyListChina 内容
 # 来源：https://easylist-downloads.adblockplus.org/easylistchina.txt
-# 更新：2026-05-31 03:39:58
-# 数量：5859条
+# 更新：2026-06-01 03:54:29
+# 数量：5869条
 
 DOMAIN-SUFFIX,003store.com
 DOMAIN-SUFFIX,00k456wyh.com
@@ -659,6 +659,7 @@ DOMAIN-SUFFIX,8yuwd5lpj.com
 DOMAIN-SUFFIX,8z1eg6o2j.com
 DOMAIN-SUFFIX,90q0tq3bwo.com
 DOMAIN-SUFFIX,90qxskdmn9.com
+DOMAIN-SUFFIX,90tsdpml6.com
 DOMAIN-SUFFIX,9112rj8wo.com
 DOMAIN-SUFFIX,918000.xyz
 DOMAIN-SUFFIX,91glqt27.xyz
@@ -810,6 +811,7 @@ DOMAIN-SUFFIX,a8h4zhbmxi.com
 DOMAIN-SUFFIX,a8qwjt7dwi.com
 DOMAIN-SUFFIX,aa.gushiwen.org
 DOMAIN-SUFFIX,aa.xiangxiangmf.com
+DOMAIN-SUFFIX,aa2hzrmu9.com
 DOMAIN-SUFFIX,aa3zx8wko.top
 DOMAIN-SUFFIX,aa52jm08ly.com
 DOMAIN-SUFFIX,aa7hzjsow.com
@@ -1507,6 +1509,7 @@ DOMAIN-SUFFIX,cn6x.com
 DOMAIN-SUFFIX,cnaiuks.icu
 DOMAIN-SUFFIX,cnbd1.appmobile.cn
 DOMAIN-SUFFIX,cnzz.trafficmanager.net
+DOMAIN-SUFFIX,co4scosu6.com
 DOMAIN-SUFFIX,cod.southmoney.com
 DOMAIN-SUFFIX,code.ditiezu.net
 DOMAIN-SUFFIX,code.geonamebase.com
@@ -2137,6 +2140,7 @@ DOMAIN-SUFFIX,fr701hx5vi.com
 DOMAIN-SUFFIX,fracture46.com
 DOMAIN-SUFFIX,frchavvati.com
 DOMAIN-SUFFIX,free-cdn.oss-cn-shanghai.aliyuncs.com
+DOMAIN-SUFFIX,freesia45.top
 DOMAIN-SUFFIX,freshet40.top
 DOMAIN-SUFFIX,frhi5v6ez1.com
 DOMAIN-SUFFIX,frhopo.cn
@@ -2704,6 +2708,7 @@ DOMAIN-SUFFIX,ibns3ibgf.com
 DOMAIN-SUFFIX,ibqh.cn
 DOMAIN-SUFFIX,ibwvky.icu
 DOMAIN-SUFFIX,ichc1.xinglinpukang.com
+DOMAIN-SUFFIX,ichfzso7f.com
 DOMAIN-SUFFIX,idavmk1276.com
 DOMAIN-SUFFIX,idcot.com
 DOMAIN-SUFFIX,identity39.com
@@ -2850,6 +2855,7 @@ DOMAIN-SUFFIX,j85izots6.com
 DOMAIN-SUFFIX,j8tzoy3xwn.com
 DOMAIN-SUFFIX,jab88.com
 DOMAIN-SUFFIX,jaimbai2b1.com
+DOMAIN-SUFFIX,jasmine33.top
 DOMAIN-SUFFIX,jasmined544.com
 DOMAIN-SUFFIX,javdtezk7.com
 DOMAIN-SUFFIX,jazppd.icu
@@ -4037,6 +4043,7 @@ DOMAIN-SUFFIX,pybmulveaz.com
 DOMAIN-SUFFIX,pyntbz.icu
 DOMAIN-SUFFIX,pyonbrj41b.com
 DOMAIN-SUFFIX,pyrfpb.icu
+DOMAIN-SUFFIX,pz0d6zc6n.com
 DOMAIN-SUFFIX,pznnvt.top
 DOMAIN-SUFFIX,pzpcbt.icu
 DOMAIN-SUFFIX,pzq7ilwvv.com
@@ -4153,6 +4160,7 @@ DOMAIN-SUFFIX,quince22.top
 DOMAIN-SUFFIX,qujishu.com
 DOMAIN-SUFFIX,qunphoty.com
 DOMAIN-SUFFIX,quoits96.top
+DOMAIN-SUFFIX,quu175kt3.com
 DOMAIN-SUFFIX,quudraidfg.com
 DOMAIN-SUFFIX,qvdn.cn
 DOMAIN-SUFFIX,qvzabbhovve.com
@@ -5537,6 +5545,7 @@ DOMAIN-SUFFIX,yetacdn.net
 DOMAIN-SUFFIX,yetacdn.org
 DOMAIN-SUFFIX,yfmwnkd1ti.com
 DOMAIN-SUFFIX,yg0051thk.com
+DOMAIN-SUFFIX,yg4j3py9b.com
 DOMAIN-SUFFIX,ygg1e0gmc.com
 DOMAIN-SUFFIX,yghonola.com
 DOMAIN-SUFFIX,ygx2myq993.com
@@ -5545,6 +5554,7 @@ DOMAIN-SUFFIX,yhak0o7rtz.com
 DOMAIN-SUFFIX,yhcca8h69o.com
 DOMAIN-SUFFIX,yhcu.cn
 DOMAIN-SUFFIX,yhecauig.com
+DOMAIN-SUFFIX,yhgqxkjz9.com
 DOMAIN-SUFFIX,yhrh.cn
 DOMAIN-SUFFIX,yhtohtbql.com
 DOMAIN-SUFFIX,yhtpsy8888.cc
