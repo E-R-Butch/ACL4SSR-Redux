@@ -18,5 +18,8 @@ DOMAIN-SUFFIX,akile.ai
 # GitKraken
 DOMAIN,configs.gitkraken.dev
 
+# Browser extensions
+DOMAIN-SUFFIX,tampermonkey.net
+
 # OpenSCAD
 DOMAIN,files.openscad.org
