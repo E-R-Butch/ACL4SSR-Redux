@@ -1,8 +1,8 @@
 # 广告列表 adblock rules
 # 内容：EasyListChina列表，只包含ABP中的 EasyListChina 内容
 # 来源：https://easylist-downloads.adblockplus.org/easylistchina.txt
-# 更新：2026-06-01 03:54:29
-# 数量：5869条
+# 更新：2026-06-02 03:48:25
+# 数量：5879条
 
 DOMAIN-SUFFIX,003store.com
 DOMAIN-SUFFIX,00k456wyh.com
@@ -153,6 +153,7 @@ DOMAIN-SUFFIX,1buu1.penyouw.com
 DOMAIN-SUFFIX,1dgfd.cc
 DOMAIN-SUFFIX,1dm6ccvy8.com
 DOMAIN-SUFFIX,1dor1d6vc.com
+DOMAIN-SUFFIX,1ehioxpqe.com
 DOMAIN-SUFFIX,1f0l.top
 DOMAIN-SUFFIX,1fp9k4zrm.com
 DOMAIN-SUFFIX,1futnsio0.com
@@ -708,6 +709,7 @@ DOMAIN-SUFFIX,9o29nhxgp.com
 DOMAIN-SUFFIX,9oru1vh0w.com
 DOMAIN-SUFFIX,9oxhstb2m2.com
 DOMAIN-SUFFIX,9p81m19kr.com
+DOMAIN-SUFFIX,9pyn42z6d.com
 DOMAIN-SUFFIX,9pzoz6taf.com
 DOMAIN-SUFFIX,9r0v0go0el.com
 DOMAIN-SUFFIX,9soefyenw.com
@@ -1097,6 +1099,7 @@ DOMAIN-SUFFIX,baidujs.cnys.com
 DOMAIN-SUFFIX,baifen.music.baidu.com
 DOMAIN-SUFFIX,baj.fanwenzhan.com
 DOMAIN-SUFFIX,bakrathtfa.com
+DOMAIN-SUFFIX,balsam18.com
 DOMAIN-SUFFIX,balvehgmhw.com
 DOMAIN-SUFFIX,bandages84.com
 DOMAIN-SUFFIX,bannoillt.com
@@ -1909,6 +1912,7 @@ DOMAIN-SUFFIX,eiphirnutdd.com
 DOMAIN-SUFFIX,eiszgw.icu
 DOMAIN-SUFFIX,eitorawrdo.com
 DOMAIN-SUFFIX,eiv.baidu.com
+DOMAIN-SUFFIX,ej8f5vk381.com
 DOMAIN-SUFFIX,ejiwvof.icu
 DOMAIN-SUFFIX,ejunshi.com
 DOMAIN-SUFFIX,ek946br7uy.com
@@ -2672,6 +2676,7 @@ DOMAIN-SUFFIX,hyyfarqre.com
 DOMAIN-SUFFIX,hz.shouyoutv.com
 DOMAIN-SUFFIX,hzhyhm.com
 DOMAIN-SUFFIX,hziridqp.com
+DOMAIN-SUFFIX,hzyolohcz6.com
 DOMAIN-SUFFIX,i06s7yrhn1.com
 DOMAIN-SUFFIX,i0y0i9vz0.com
 DOMAIN-SUFFIX,i12het785.com
@@ -3306,6 +3311,7 @@ DOMAIN-SUFFIX,m8zgls6zt.com
 DOMAIN-SUFFIX,m9s3h265lq.com
 DOMAIN-SUFFIX,m9sz0hh3f7.com
 DOMAIN-SUFFIX,ma1.meishij.net
+DOMAIN-SUFFIX,magnolia77.top
 DOMAIN-SUFFIX,magnolian07.top
 DOMAIN-SUFFIX,maideatp.com
 DOMAIN-SUFFIX,main.jiukang.org
@@ -4278,6 +4284,7 @@ DOMAIN-SUFFIX,rkozoima.com
 DOMAIN-SUFFIX,rkrhfl.icu
 DOMAIN-SUFFIX,rl1vypwyd2.com
 DOMAIN-SUFFIX,rl6b3zvtsk.com
+DOMAIN-SUFFIX,rl8yj74pr.com
 DOMAIN-SUFFIX,rlavvoeo.com
 DOMAIN-SUFFIX,rlduhmakdm.com
 DOMAIN-SUFFIX,rlhhlp.icu
@@ -4590,6 +4597,7 @@ DOMAIN-SUFFIX,thdjtp.icu
 DOMAIN-SUFFIX,theretenoned.com
 DOMAIN-SUFFIX,theta.sogoucdn.com
 DOMAIN-SUFFIX,thetestpage.39.net
+DOMAIN-SUFFIX,thgh902ny.com
 DOMAIN-SUFFIX,thj36m3dm.com
 DOMAIN-SUFFIX,thljnv.top
 DOMAIN-SUFFIX,thpvrn.icu
@@ -4967,6 +4975,7 @@ DOMAIN-SUFFIX,vbw3q6jxn.com
 DOMAIN-SUFFIX,vcjzjnef.icu
 DOMAIN-SUFFIX,vclunl.icu
 DOMAIN-SUFFIX,vcz9kuhac.com
+DOMAIN-SUFFIX,vd09de2i0.com
 DOMAIN-SUFFIX,vdfgjn.icu
 DOMAIN-SUFFIX,vdhatq0co.com
 DOMAIN-SUFFIX,vdnh.cn
@@ -5500,6 +5509,7 @@ DOMAIN-SUFFIX,xyzcvx.icu
 DOMAIN-SUFFIX,xzblht.icu
 DOMAIN-SUFFIX,xzkumjdqj.com
 DOMAIN-SUFFIX,xzswn87hm.com
+DOMAIN-SUFFIX,xzv5vu7wl.com
 DOMAIN-SUFFIX,y.photoint.net
 DOMAIN-SUFFIX,y0af0gwpdb.com
 DOMAIN-SUFFIX,y1.junshitt.com
