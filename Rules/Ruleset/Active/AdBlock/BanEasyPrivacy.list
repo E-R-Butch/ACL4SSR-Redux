@@ -1,8 +1,8 @@
 # 广告列表 adblock rules
 # 内容：EasyPrivacy列表，隐私保护，屏蔽隐私追踪
 # 来源：https://easylist-downloads.adblockplus.org/easyprivacy.txt
-# 更新：2026-06-04 03:51:43
-# 数量：40484条
+# 更新：2026-06-05 03:36:40
+# 数量：40488条
 
 DOMAIN-SUFFIX,0.myikas.com
 DOMAIN-SUFFIX,0.net.easyjet.com
@@ -11163,6 +11163,7 @@ DOMAIN-SUFFIX,e.unchealthcare.org
 DOMAIN-SUFFIX,e.usesneakpeek.com
 DOMAIN-SUFFIX,e.vcty.co
 DOMAIN-SUFFIX,e.viously.com
+DOMAIN-SUFFIX,e.zg-api.com
 DOMAIN-SUFFIX,e035.pandasuite.io
 DOMAIN-SUFFIX,e045f561.b-cdn.net
 DOMAIN-SUFFIX,e10.verticurl.com
@@ -24229,6 +24230,7 @@ DOMAIN-SUFFIX,pixel.kknews.cc
 DOMAIN-SUFFIX,pixel.leadlovers.app
 DOMAIN-SUFFIX,pixel.lilystyle.ai
 DOMAIN-SUFFIX,pixel.locker2.com
+DOMAIN-SUFFIX,pixel.marqo-ep.ai
 DOMAIN-SUFFIX,pixel.mintigo.com
 DOMAIN-SUFFIX,pixel.mtrcs.samba.tv
 DOMAIN-SUFFIX,pixel.newscred.com
@@ -24982,6 +24984,7 @@ DOMAIN-SUFFIX,qtxxdm.levi.jp
 DOMAIN-SUFFIX,qtycwy.modivo.cz
 DOMAIN-SUFFIX,qualitas-app.hotdoc.com.au
 DOMAIN-SUFFIX,qubitanalytics.appspot.com
+DOMAIN-SUFFIX,queen-one.net
 DOMAIN-SUFFIX,query1.petametrics.com
 DOMAIN-SUFFIX,quest.epoise.com
 DOMAIN-SUFFIX,questintegrity.actonservice.com
@@ -39940,6 +39943,7 @@ DOMAIN-SUFFIX,wzzhvn.hammer.de
 DOMAIN-SUFFIX,x.allabout.co.jp
 DOMAIN-SUFFIX,x.babe.today
 DOMAIN-SUFFIX,x.bloggurat.net
+DOMAIN-SUFFIX,x.designboom.com
 DOMAIN-SUFFIX,x.disq.us
 DOMAIN-SUFFIX,x.gldn.io
 DOMAIN-SUFFIX,x.timesunion.com
