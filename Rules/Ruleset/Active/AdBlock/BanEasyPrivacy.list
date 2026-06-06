@@ -1,8 +1,8 @@
 # 广告列表 adblock rules
 # 内容：EasyPrivacy列表，隐私保护，屏蔽隐私追踪
 # 来源：https://easylist-downloads.adblockplus.org/easyprivacy.txt
-# 更新：2026-06-05 03:36:40
-# 数量：40488条
+# 更新：2026-06-06 02:57:25
+# 数量：40489条
 
 DOMAIN-SUFFIX,0.myikas.com
 DOMAIN-SUFFIX,0.net.easyjet.com
@@ -8437,6 +8437,7 @@ DOMAIN-SUFFIX,client-log.box.com
 DOMAIN-SUFFIX,client-log.karte.io
 DOMAIN-SUFFIX,client-logger.beta.salemove.com
 DOMAIN-SUFFIX,client-logger.salemove.com
+DOMAIN-SUFFIX,client-logs-a.wbx2.com
 DOMAIN-SUFFIX,client-metrics.chess.com
 DOMAIN-SUFFIX,client.perimeterx.net
 DOMAIN-SUFFIX,client.trustaff.com

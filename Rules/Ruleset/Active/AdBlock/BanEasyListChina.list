@@ -1,8 +1,8 @@
 # 广告列表 adblock rules
 # 内容：EasyListChina列表，只包含ABP中的 EasyListChina 内容
 # 来源：https://easylist-downloads.adblockplus.org/easylistchina.txt
-# 更新：2026-06-05 03:36:38
-# 数量：5912条
+# 更新：2026-06-06 02:57:22
+# 数量：5927条
 
 DOMAIN-SUFFIX,003store.com
 DOMAIN-SUFFIX,00k456wyh.com
@@ -256,6 +256,7 @@ DOMAIN-SUFFIX,2orln75bry.com
 DOMAIN-SUFFIX,2osq127yy.com
 DOMAIN-SUFFIX,2pqma2nuv.com
 DOMAIN-SUFFIX,2r1jqii2c.com
+DOMAIN-SUFFIX,2r2zhs64a7.com
 DOMAIN-SUFFIX,2r69dkb1a.com
 DOMAIN-SUFFIX,2u1h56851n.top
 DOMAIN-SUFFIX,2vcb9onxjm.com
@@ -301,6 +302,7 @@ DOMAIN-SUFFIX,3ge064tt79.com
 DOMAIN-SUFFIX,3hads4i5hm.com
 DOMAIN-SUFFIX,3hfmrv8d45.com
 DOMAIN-SUFFIX,3hg6yh6h0.com
+DOMAIN-SUFFIX,3hrv7yijx.com
 DOMAIN-SUFFIX,3hx1ui2vt.com
 DOMAIN-SUFFIX,3i3w8hl6do.com
 DOMAIN-SUFFIX,3ikcnjvsx.com
@@ -390,6 +392,7 @@ DOMAIN-SUFFIX,4wmiuiyd70.com
 DOMAIN-SUFFIX,4wym8gups.com
 DOMAIN-SUFFIX,4xdma060ad.com
 DOMAIN-SUFFIX,4xicd08qs.com
+DOMAIN-SUFFIX,4xr7sy3gu.com
 DOMAIN-SUFFIX,4y13js.work
 DOMAIN-SUFFIX,4yduy53ik.com
 DOMAIN-SUFFIX,4yl3e3fmv.com
@@ -498,6 +501,7 @@ DOMAIN-SUFFIX,6c34boi06m.com
 DOMAIN-SUFFIX,6c641lgikp.top
 DOMAIN-SUFFIX,6cjdya3djn.com
 DOMAIN-SUFFIX,6cmxoje5k.com
+DOMAIN-SUFFIX,6ejvq6ykg2.com
 DOMAIN-SUFFIX,6f42v90nz.com
 DOMAIN-SUFFIX,6fm4dcpj31.com
 DOMAIN-SUFFIX,6ggstcmglf.com
@@ -2590,6 +2594,7 @@ DOMAIN-SUFFIX,hiad.myweb.hinet.net
 DOMAIN-SUFFIX,hiad.vmall.com
 DOMAIN-SUFFIX,hiaphrilloig.com
 DOMAIN-SUFFIX,hibiscus76.com
+DOMAIN-SUFFIX,hickory27.top
 DOMAIN-SUFFIX,hidzrf.icu
 DOMAIN-SUFFIX,highwayfk.com
 DOMAIN-SUFFIX,hingidnaa.com
@@ -3093,6 +3098,7 @@ DOMAIN-SUFFIX,kmcjai.icu
 DOMAIN-SUFFIX,kmdjdu5cc.com
 DOMAIN-SUFFIX,kmmgoogle.oss-ap-southeast-1.aliyuncs.com
 DOMAIN-SUFFIX,kmqaek.icu
+DOMAIN-SUFFIX,knie8wmsk.com
 DOMAIN-SUFFIX,knnfkwf.com
 DOMAIN-SUFFIX,ko1d85gjgp.com
 DOMAIN-SUFFIX,ko5cniwbmh.com
@@ -3163,6 +3169,7 @@ DOMAIN-SUFFIX,lcgcrldp6m.com
 DOMAIN-SUFFIX,lcqbi7nsv.com
 DOMAIN-SUFFIX,lcugzodfdo.com
 DOMAIN-SUFFIX,ldbwxo.cn
+DOMAIN-SUFFIX,lddvxfmswnnxny.com
 DOMAIN-SUFFIX,ldrerirbuaou.com
 DOMAIN-SUFFIX,le4le.com
 DOMAIN-SUFFIX,leabd.douguo.com
@@ -3544,6 +3551,7 @@ DOMAIN-SUFFIX,n72bn5s7uu.top
 DOMAIN-SUFFIX,n8bpikx1mt.com
 DOMAIN-SUFFIX,n906n29tm.com
 DOMAIN-SUFFIX,naarnurm.com
+DOMAIN-SUFFIX,nahdlvqwqkzxby.com
 DOMAIN-SUFFIX,nahg4lhbr.com
 DOMAIN-SUFFIX,naivety48.com
 DOMAIN-SUFFIX,naivtyu.icu
@@ -3566,6 +3574,7 @@ DOMAIN-SUFFIX,ncnwmwomz.com
 DOMAIN-SUFFIX,ndbgngx6m.com
 DOMAIN-SUFFIX,ndd3wvq0cw.com
 DOMAIN-SUFFIX,ndja.cn
+DOMAIN-SUFFIX,ndpfxnu.com
 DOMAIN-SUFFIX,nebzrn.icu
 DOMAIN-SUFFIX,necessitate22.com
 DOMAIN-SUFFIX,needle058.top
@@ -3750,6 +3759,7 @@ DOMAIN-SUFFIX,o1fhfeu6qa.com
 DOMAIN-SUFFIX,o28wg9kq8i.com
 DOMAIN-SUFFIX,o2x4h2txrc.com
 DOMAIN-SUFFIX,o40d17vln.com
+DOMAIN-SUFFIX,o5y2zd1lq8.com
 DOMAIN-SUFFIX,o6oxvugdl.com
 DOMAIN-SUFFIX,o8u3n4q7fe.com
 DOMAIN-SUFFIX,o9qdqbu6nu.com
@@ -4433,6 +4443,7 @@ DOMAIN-SUFFIX,sdnc.top
 DOMAIN-SUFFIX,seaquake54.com
 DOMAIN-SUFFIX,secondly74.com
 DOMAIN-SUFFIX,seductive37.top
+DOMAIN-SUFFIX,seijlfsx.com
 DOMAIN-SUFFIX,senior82.com
 DOMAIN-SUFFIX,sentiment39.top
 DOMAIN-SUFFIX,sentinelol.com
@@ -4504,6 +4515,7 @@ DOMAIN-SUFFIX,ss494hpnq.com
 DOMAIN-SUFFIX,ssb.ah499.com
 DOMAIN-SUFFIX,ssc9v54oew.com
 DOMAIN-SUFFIX,ssgg.chazidian.com
+DOMAIN-SUFFIX,sskuwzv.com
 DOMAIN-SUFFIX,ssp.21ic.com
 DOMAIN-SUFFIX,ssp.hinet.net
 DOMAIN-SUFFIX,ssp.kdnet.net
@@ -4726,6 +4738,7 @@ DOMAIN-SUFFIX,tshmhp.icu
 DOMAIN-SUFFIX,tsuh.cn
 DOMAIN-SUFFIX,tt.biquge.la
 DOMAIN-SUFFIX,tt123.eastday.com
+DOMAIN-SUFFIX,tt144jrfu.com
 DOMAIN-SUFFIX,tthelitnfv.com
 DOMAIN-SUFFIX,tthrirgud.com
 DOMAIN-SUFFIX,ttimhethzm.com
@@ -5003,6 +5016,7 @@ DOMAIN-SUFFIX,vbunpfvdn.com
 DOMAIN-SUFFIX,vbw3q6jxn.com
 DOMAIN-SUFFIX,vcjzjnef.icu
 DOMAIN-SUFFIX,vclunl.icu
+DOMAIN-SUFFIX,vcsc1fp2f.com
 DOMAIN-SUFFIX,vcz9kuhac.com
 DOMAIN-SUFFIX,vd09de2i0.com
 DOMAIN-SUFFIX,vdfgjn.icu
@@ -5630,6 +5644,7 @@ DOMAIN-SUFFIX,ymmiyun.com
 DOMAIN-SUFFIX,ympl9l9b.xyz
 DOMAIN-SUFFIX,ymtwmhh43.com
 DOMAIN-SUFFIX,yn0mbg4p1.com
+DOMAIN-SUFFIX,yn68b5vn9.com
 DOMAIN-SUFFIX,yn9k86cpsf.com
 DOMAIN-SUFFIX,ynkunarlg.com
 DOMAIN-SUFFIX,ynpkjip43x.com
