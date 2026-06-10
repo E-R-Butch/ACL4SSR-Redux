@@ -1,8 +1,8 @@
 # 广告列表 adblock rules
 # 内容：EasyPrivacy列表，隐私保护，屏蔽隐私追踪
 # 来源：https://easylist-downloads.adblockplus.org/easyprivacy.txt
-# 更新：2026-06-09 02:56:28
-# 数量：40490条
+# 更新：2026-06-10 03:34:33
+# 数量：40472条
 
 DOMAIN-SUFFIX,0.myikas.com
 DOMAIN-SUFFIX,0.net.easyjet.com
@@ -51,7 +51,6 @@ DOMAIN-SUFFIX,1baq2nvd6n7.www.keevowallet.com
 DOMAIN-SUFFIX,1bliq.io
 DOMAIN-SUFFIX,1bpmtrvkqkj.pettoonies.com
 DOMAIN-SUFFIX,1bw7etm93lf.www.woodbrass.com
-DOMAIN-SUFFIX,1cros.net
 DOMAIN-SUFFIX,1ctc.sfr.fr
 DOMAIN-SUFFIX,1e90.pandasuite.io
 DOMAIN-SUFFIX,1eusy6.boxoffice.adventuretix.com
@@ -110,7 +109,6 @@ DOMAIN-SUFFIX,3plworldwide.actonservice.com
 DOMAIN-SUFFIX,3skickasurf.tre.se
 DOMAIN-SUFFIX,3wn3w3skxpym.round.t3.gg
 DOMAIN-SUFFIX,40caidaylimpia.catzolab.net
-DOMAIN-SUFFIX,4251.tech
 DOMAIN-SUFFIX,4399stat.5054399.com
 DOMAIN-SUFFIX,46rtpw.ru
 DOMAIN-SUFFIX,48z7wyjdsywu.www.revistaferramental.com.br
@@ -1024,7 +1022,6 @@ DOMAIN-SUFFIX,a19895.actonservice.com
 DOMAIN-SUFFIX,a19930.actonservice.com
 DOMAIN-SUFFIX,a19997.actonservice.com
 DOMAIN-SUFFIX,a1at.mno.link
-DOMAIN-SUFFIX,a1webstrategy.com
 DOMAIN-SUFFIX,a2.slotxbros.com
 DOMAIN-SUFFIX,a20022.actonservice.com
 DOMAIN-SUFFIX,a20204.actonservice.com
@@ -4002,7 +3999,6 @@ DOMAIN-SUFFIX,aas.mclaren.com
 DOMAIN-SUFFIX,aas.neom.com
 DOMAIN-SUFFIX,aas.visitsaudi.com
 DOMAIN-SUFFIX,aaucna.casasbahia.com.br
-DOMAIN-SUFFIX,aaxwall.com
 DOMAIN-SUFFIX,aazfby.auto.de
 DOMAIN-SUFFIX,aazmiw.reisenthel.com
 DOMAIN-SUFFIX,ab-machine.forbes.com
@@ -4910,7 +4906,6 @@ DOMAIN-SUFFIX,allvideometrika.com
 DOMAIN-SUFFIX,almalasers.actonservice.com
 DOMAIN-SUFFIX,alp1.drimki.fr
 DOMAIN-SUFFIX,alpha.go.levelbank.com
-DOMAIN-SUFFIX,alpha1trk.com
 DOMAIN-SUFFIX,alphasimplex.actonservice.com
 DOMAIN-SUFFIX,alquiler.aldflex.es
 DOMAIN-SUFFIX,alquiler.carflex.es
@@ -8130,7 +8125,6 @@ DOMAIN-SUFFIX,caterpillarsigns.coversandall.eu
 DOMAIN-SUFFIX,catracking.cubiq.com
 DOMAIN-SUFFIX,catracking.finning.com
 DOMAIN-SUFFIX,cats.d20.rs
-DOMAIN-SUFFIX,catsunrunjam.com
 DOMAIN-SUFFIX,cattell.loanzify.app
 DOMAIN-SUFFIX,cb-mms.carbuyer.co.uk
 DOMAIN-SUFFIX,cbc.pnc.com
@@ -10235,7 +10229,6 @@ DOMAIN-SUFFIX,datadome.maisonsdumonde.com
 DOMAIN-SUFFIX,datafiletechnologies.actonservice.com
 DOMAIN-SUFFIX,datalayer.orange.fr
 DOMAIN-SUFFIX,datanoticias.prisasd.com
-DOMAIN-SUFFIX,dataofpages.com
 DOMAIN-SUFFIX,datas.connectingthreads.com
 DOMAIN-SUFFIX,datas.knitpicks.com
 DOMAIN-SUFFIX,datas3ntinel.com
@@ -12013,7 +12006,6 @@ DOMAIN-SUFFIX,emails.tlc.com
 DOMAIN-SUFFIX,emails.travelchannel.com
 DOMAIN-SUFFIX,emails.verishop.com
 DOMAIN-SUFFIX,emails.watchown.tv
-DOMAIN-SUFFIX,emailsnow.info
 DOMAIN-SUFFIX,emarketing.landisgyr.com
 DOMAIN-SUFFIX,emarketing.moveo.com
 DOMAIN-SUFFIX,emarketing.zulkiepartners.com
@@ -14742,7 +14734,6 @@ DOMAIN-SUFFIX,i.toywords.games
 DOMAIN-SUFFIX,i.upoker.net
 DOMAIN-SUFFIX,i.viafoura.co
 DOMAIN-SUFFIX,i218435.net
-DOMAIN-SUFFIX,ia-dmp.com
 DOMAIN-SUFFIX,ia.51.la
 DOMAIN-SUFFIX,ia.ekstrabladet.dk
 DOMAIN-SUFFIX,ia84berzxy7v.de.themoneytizer.com
@@ -16581,7 +16572,6 @@ DOMAIN-SUFFIX,ja-jp-a8.etudehouse.com
 DOMAIN-SUFFIX,ja-jp.siemensplmevents.com
 DOMAIN-SUFFIX,jagransolutions.com.actonservice.com
 DOMAIN-SUFFIX,jambwe.transsibinfo.com
-DOMAIN-SUFFIX,jams.wiki
 DOMAIN-SUFFIX,janzoz.1001pneus.fr
 DOMAIN-SUFFIX,jaomlf.giftmall.co.jp
 DOMAIN-SUFFIX,japan.secureforms.partnermcafee.com
@@ -22345,7 +22335,6 @@ DOMAIN-SUFFIX,mini-site.larksuite-marketing.com
 DOMAIN-SUFFIX,minstats.xyz
 DOMAIN-SUFFIX,miqeuu.timberland.it
 DOMAIN-SUFFIX,mirabelanalytics.com
-DOMAIN-SUFFIX,mircheigeshoa.com
 DOMAIN-SUFFIX,mirec.ubmmexico.com
 DOMAIN-SUFFIX,mirvso.boggi.com
 DOMAIN-SUFFIX,missionrs.actonservice.com
@@ -22529,7 +22518,6 @@ DOMAIN-SUFFIX,moreinfo.powerpro360.com
 DOMAIN-SUFFIX,moreinfo.sdmyers.com
 DOMAIN-SUFFIX,morganfranklin.actonservice.com
 DOMAIN-SUFFIX,mormont.gamer-network.net
-DOMAIN-SUFFIX,mors22.com
 DOMAIN-SUFFIX,mortgage.equifax.com
 DOMAIN-SUFFIX,mortgage.inform.equifax.com
 DOMAIN-SUFFIX,mortgage.leads360.com
@@ -24781,7 +24769,6 @@ DOMAIN-SUFFIX,purpose.maxizoo.pl
 DOMAIN-SUFFIX,pushd.netky.tech
 DOMAIN-SUFFIX,pushmaster-cdn.xyz
 DOMAIN-SUFFIX,pushspring.actonservice.com
-DOMAIN-SUFFIX,pushvisit.xyz
 DOMAIN-SUFFIX,putphc.zuhre.com.tr
 DOMAIN-SUFFIX,puzzle.spiriteq.com
 DOMAIN-SUFFIX,pv.hd.sohu.com
@@ -25077,7 +25064,6 @@ DOMAIN-SUFFIX,r1ztni.oui.sncf
 DOMAIN-SUFFIX,r2r.utas.edu.au
 DOMAIN-SUFFIX,r42tag.com
 DOMAIN-SUFFIX,r4nds.absorba.com
-DOMAIN-SUFFIX,raac33.net
 DOMAIN-SUFFIX,rabbit.donald.cat
 DOMAIN-SUFFIX,rac.ruutu.fi
 DOMAIN-SUFFIX,racemanager-app.sapsailing.com
@@ -32009,7 +31995,6 @@ DOMAIN-SUFFIX,statistic.audima.co
 DOMAIN-SUFFIX,statistic.jac-systeme.de
 DOMAIN-SUFFIX,statistic.qzone.qq.com
 DOMAIN-SUFFIX,statistic2.reichelt.de
-DOMAIN-SUFFIX,statisticplatform.com
 DOMAIN-SUFFIX,statistics.csob.cz
 DOMAIN-SUFFIX,statistics.daktilo.com
 DOMAIN-SUFFIX,statistics.darkreader.app
@@ -34347,7 +34332,6 @@ DOMAIN-SUFFIX,test.swa.info
 DOMAIN-SUFFIX,test.takedwn.ws
 DOMAIN-SUFFIX,test.thei.co
 DOMAIN-SUFFIX,test.thomsonreuters.com
-DOMAIN-SUFFIX,test.vast
 DOMAIN-SUFFIX,test.zeus-wifi.jp
 DOMAIN-SUFFIX,test2.majelan.com
 DOMAIN-SUFFIX,testa8wifi.dokoyorimo.com
@@ -35958,7 +35942,6 @@ DOMAIN-SUFFIX,track-e.cypress.com
 DOMAIN-SUFFIX,track-e.infineon.com
 DOMAIN-SUFFIX,track-e.infineoncommunity.com
 DOMAIN-SUFFIX,track-mail.homage.co
-DOMAIN-SUFFIX,track-selectmedia.com
 DOMAIN-SUFFIX,track-srv.vietnamnet.vn
 DOMAIN-SUFFIX,track-test.workframe.com
 DOMAIN-SUFFIX,track-v4.ipadpresence.com
@@ -36998,7 +36981,6 @@ DOMAIN-SUFFIX,training.hager.co.uk
 DOMAIN-SUFFIX,training.indigobusiness.co.uk
 DOMAIN-SUFFIX,training.thunderhead.com
 DOMAIN-SUFFIX,traka8.crypto-mall.org
-DOMAIN-SUFFIX,trakle01.online
 DOMAIN-SUFFIX,transact.blackboard.com
 DOMAIN-SUFFIX,transit.ncsecu.org
 DOMAIN-SUFFIX,transmapp.com
