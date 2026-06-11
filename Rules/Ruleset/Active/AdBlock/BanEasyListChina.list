@@ -1,8 +1,8 @@
 # 广告列表 adblock rules
 # 内容：EasyListChina列表，只包含ABP中的 EasyListChina 内容
 # 来源：https://easylist-downloads.adblockplus.org/easylistchina.txt
-# 更新：2026-06-10 03:34:31
-# 数量：5968条
+# 更新：2026-06-11 03:49:33
+# 数量：5978条
 
 DOMAIN-SUFFIX,003store.com
 DOMAIN-SUFFIX,00k456wyh.com
@@ -371,6 +371,7 @@ DOMAIN-SUFFIX,4fd0jlybx.com
 DOMAIN-SUFFIX,4fptsi5zxo.com
 DOMAIN-SUFFIX,4fzfc1irq.com
 DOMAIN-SUFFIX,4h87y9pc59.com
+DOMAIN-SUFFIX,4i2q0y9wv.com
 DOMAIN-SUFFIX,4ifhpfi1.xyz
 DOMAIN-SUFFIX,4jh1le34m.com
 DOMAIN-SUFFIX,4kxczstxil.com
@@ -1414,6 +1415,7 @@ DOMAIN-SUFFIX,cacafly.net
 DOMAIN-SUFFIX,cadence33.top
 DOMAIN-SUFFIX,cai75tp.com
 DOMAIN-SUFFIX,caitlinagathami.com
+DOMAIN-SUFFIX,calculation94.top
 DOMAIN-SUFFIX,calistaadama.com
 DOMAIN-SUFFIX,callosity19.top
 DOMAIN-SUFFIX,cameleer.top
@@ -1857,6 +1859,7 @@ DOMAIN-SUFFIX,dvser.china.com
 DOMAIN-SUFFIX,dvvv9ld5b0.com
 DOMAIN-SUFFIX,dwbaazotho.com
 DOMAIN-SUFFIX,dwchovra.com
+DOMAIN-SUFFIX,dwh3rjyzxj.com
 DOMAIN-SUFFIX,dwjlxiuio.com
 DOMAIN-SUFFIX,dwyeeunm.com
 DOMAIN-SUFFIX,dxdxfl.icu
@@ -2498,6 +2501,7 @@ DOMAIN-SUFFIX,guessrp50.com
 DOMAIN-SUFFIX,gusp.cn
 DOMAIN-SUFFIX,guu0bfmpf5.com
 DOMAIN-SUFFIX,guuia6hxf.com
+DOMAIN-SUFFIX,guulgakv.com
 DOMAIN-SUFFIX,guurniuvgo.com
 DOMAIN-SUFFIX,guwd.cn
 DOMAIN-SUFFIX,gv0oi9ecji.com
@@ -2919,8 +2923,10 @@ DOMAIN-SUFFIX,jddaw.com
 DOMAIN-SUFFIX,jdhsx357.com
 DOMAIN-SUFFIX,jdpbpd.icu
 DOMAIN-SUFFIX,jds4i5gcfv.com
+DOMAIN-SUFFIX,je3zdrcua.com
 DOMAIN-SUFFIX,jerhzr.icu
 DOMAIN-SUFFIX,jesfsf.top
+DOMAIN-SUFFIX,jfffe1o97b.com
 DOMAIN-SUFFIX,jfpo.cn
 DOMAIN-SUFFIX,jfxefv.icu
 DOMAIN-SUFFIX,jg0y00ciyr.com
@@ -3082,6 +3088,7 @@ DOMAIN-SUFFIX,kduwvaq3dt.com
 DOMAIN-SUFFIX,kegll5mwl2.com
 DOMAIN-SUFFIX,keyboard88.top
 DOMAIN-SUFFIX,kf2038zvxt.com
+DOMAIN-SUFFIX,kf4kwomxhl.com
 DOMAIN-SUFFIX,kfa9grestp.com
 DOMAIN-SUFFIX,kfjbitxzlhijfcenxejc.top
 DOMAIN-SUFFIX,kgaviuu42.com
@@ -3850,6 +3857,7 @@ DOMAIN-SUFFIX,om1aq1t27.com
 DOMAIN-SUFFIX,omelette12.top
 DOMAIN-SUFFIX,onchilurg.com
 DOMAIN-SUFFIX,ondrotnw.com
+DOMAIN-SUFFIX,onttsrh5i.com
 DOMAIN-SUFFIX,onxuegm38t.com
 DOMAIN-SUFFIX,onzj79fce.com
 DOMAIN-SUFFIX,oogqem.icu
@@ -4376,6 +4384,7 @@ DOMAIN-SUFFIX,rpvkpz.icu
 DOMAIN-SUFFIX,rpvqhicca.com
 DOMAIN-SUFFIX,rrpaafci9i.com
 DOMAIN-SUFFIX,rstdfyerm.icu
+DOMAIN-SUFFIX,rstqbtoqrxbvpk.com
 DOMAIN-SUFFIX,rt5x78mhcq.com
 DOMAIN-SUFFIX,rta4z4ncsl.com
 DOMAIN-SUFFIX,rtau9pif4.com
@@ -5480,6 +5489,7 @@ DOMAIN-SUFFIX,xinxinmingml.com
 DOMAIN-SUFFIX,xitongku.cc
 DOMAIN-SUFFIX,xj63rov3m.com
 DOMAIN-SUFFIX,xj8z427gxz.com
+DOMAIN-SUFFIX,xjl2ts2q6a.com
 DOMAIN-SUFFIX,xjoiteee8.com
 DOMAIN-SUFFIX,xjwhad.com
 DOMAIN-SUFFIX,xjx11191ts.com

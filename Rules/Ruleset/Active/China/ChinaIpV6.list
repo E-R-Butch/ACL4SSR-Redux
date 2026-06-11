@@ -1,5 +1,5 @@
 # 内容：中国IPv6地址段
-# 更新：2026-06-10 03:34:33
+# 更新：2026-06-11 03:49:36
 
 IP-CIDR6,2001:250::/35,no-resolve
 IP-CIDR6,2001:250:2000::/35,no-resolve
@@ -771,6 +771,7 @@ IP-CIDR6,2402:5f40::/32,no-resolve
 IP-CIDR6,2402:6060::/32,no-resolve
 IP-CIDR6,2402:6280::/32,no-resolve
 IP-CIDR6,2402:62c0::/32,no-resolve
+IP-CIDR6,2402:6320::/32,no-resolve
 IP-CIDR6,2402:64c0::/32,no-resolve
 IP-CIDR6,2402:66c0::/32,no-resolve
 IP-CIDR6,2402:6740::/32,no-resolve

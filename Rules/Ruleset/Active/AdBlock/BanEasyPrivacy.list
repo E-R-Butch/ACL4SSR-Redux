@@ -1,8 +1,8 @@
 # 广告列表 adblock rules
 # 内容：EasyPrivacy列表，隐私保护，屏蔽隐私追踪
 # 来源：https://easylist-downloads.adblockplus.org/easyprivacy.txt
-# 更新：2026-06-10 03:34:33
-# 数量：40472条
+# 更新：2026-06-11 03:49:35
+# 数量：40475条
 
 DOMAIN-SUFFIX,0.myikas.com
 DOMAIN-SUFFIX,0.net.easyjet.com
@@ -7933,6 +7933,7 @@ DOMAIN-SUFFIX,bzr.openai.com
 DOMAIN-SUFFIX,bzrcdn.openai.com
 DOMAIN-SUFFIX,bzuaqh.roan.nl
 DOMAIN-SUFFIX,c-c-l.actonservice.com
+DOMAIN-SUFFIX,c-stat.eu
 DOMAIN-SUFFIX,c-t.topya.com
 DOMAIN-SUFFIX,c.albss.com
 DOMAIN-SUFFIX,c.amazinglybrilliant.com.au
@@ -32382,6 +32383,7 @@ DOMAIN-SUFFIX,stats.jerickson.net
 DOMAIN-SUFFIX,stats.jetzt-aktivieren.de
 DOMAIN-SUFFIX,stats.jhsheridan.com
 DOMAIN-SUFFIX,stats.jjude.com
+DOMAIN-SUFFIX,stats.jkdesa.com
 DOMAIN-SUFFIX,stats.joaopedro.dev
 DOMAIN-SUFFIX,stats.jsbible.com
 DOMAIN-SUFFIX,stats.jtrees.io
@@ -37595,6 +37597,7 @@ DOMAIN-SUFFIX,ucmetrics.unicreditgroup.eu
 DOMAIN-SUFFIX,ucounter.ucoz.net
 DOMAIN-SUFFIX,ucppeo.silux.hr
 DOMAIN-SUFFIX,uct.service.usercentrics.eu
+DOMAIN-SUFFIX,ud.galaxus.ch
 DOMAIN-SUFFIX,ud.galaxus.de
 DOMAIN-SUFFIX,udblog.huya.com
 DOMAIN-SUFFIX,udgrbq.malwarebytes.com
