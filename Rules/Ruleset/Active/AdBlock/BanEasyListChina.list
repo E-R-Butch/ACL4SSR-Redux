@@ -1,8 +1,8 @@
 # 广告列表 adblock rules
 # 内容：EasyListChina列表，只包含ABP中的 EasyListChina 内容
 # 来源：https://easylist-downloads.adblockplus.org/easylistchina.txt
-# 更新：2026-06-12 03:47:09
-# 数量：5993条
+# 更新：2026-06-13 03:34:02
+# 数量：6009条
 
 DOMAIN-SUFFIX,003store.com
 DOMAIN-SUFFIX,00k456wyh.com
@@ -21,6 +21,7 @@ DOMAIN-SUFFIX,06hkgn0jl3.com
 DOMAIN-SUFFIX,07pv7k61z.com
 DOMAIN-SUFFIX,086123.xyz
 DOMAIN-SUFFIX,08pkgxft0u.com
+DOMAIN-SUFFIX,08su45co5x.com
 DOMAIN-SUFFIX,0941.org
 DOMAIN-SUFFIX,0a0atz2sh.top
 DOMAIN-SUFFIX,0a66kw9r8.com
@@ -136,6 +137,7 @@ DOMAIN-SUFFIX,12ypksztq.com
 DOMAIN-SUFFIX,13afemc28.com
 DOMAIN-SUFFIX,148a0hqnen.com
 DOMAIN-SUFFIX,14pbmfzci.com
+DOMAIN-SUFFIX,151xrobgqz.com
 DOMAIN-SUFFIX,15ftgllk1.com
 DOMAIN-SUFFIX,15mxfnk6sw.com
 DOMAIN-SUFFIX,165tchuang.com
@@ -260,6 +262,7 @@ DOMAIN-SUFFIX,2pqma2nuv.com
 DOMAIN-SUFFIX,2r1jqii2c.com
 DOMAIN-SUFFIX,2r2zhs64a7.com
 DOMAIN-SUFFIX,2r69dkb1a.com
+DOMAIN-SUFFIX,2top98spp.shop
 DOMAIN-SUFFIX,2u1h56851n.top
 DOMAIN-SUFFIX,2vcb9onxjm.com
 DOMAIN-SUFFIX,2wq9u06jq.com
@@ -451,6 +454,7 @@ DOMAIN-SUFFIX,5hu7hee0pt.com
 DOMAIN-SUFFIX,5ipifco2tf.com
 DOMAIN-SUFFIX,5j45n3f6r.com
 DOMAIN-SUFFIX,5k1cyldc9.com
+DOMAIN-SUFFIX,5kjpa028wo.com
 DOMAIN-SUFFIX,5kmqy60r7.com
 DOMAIN-SUFFIX,5lf5cujc5.com
 DOMAIN-SUFFIX,5lz3u8s5uq.com
@@ -721,6 +725,7 @@ DOMAIN-SUFFIX,9hyf6wsiv5.com
 DOMAIN-SUFFIX,9i5x05ovp7.com
 DOMAIN-SUFFIX,9j9gc694o4.com
 DOMAIN-SUFFIX,9jk7puqza.com
+DOMAIN-SUFFIX,9kqh3r24zv.com
 DOMAIN-SUFFIX,9l4i9edu.top
 DOMAIN-SUFFIX,9l9ck7mdd2.com
 DOMAIN-SUFFIX,9ma1sr1tb1.com
@@ -832,6 +837,7 @@ DOMAIN-SUFFIX,a7wiuh3she.com
 DOMAIN-SUFFIX,a85t9mxnj.com
 DOMAIN-SUFFIX,a8h4zhbmxi.com
 DOMAIN-SUFFIX,a8qwjt7dwi.com
+DOMAIN-SUFFIX,a8wqu3fbmk.com
 DOMAIN-SUFFIX,aa.gushiwen.org
 DOMAIN-SUFFIX,aa.xiangxiangmf.com
 DOMAIN-SUFFIX,aa2hzrmu9.com
@@ -1033,6 +1039,7 @@ DOMAIN-SUFFIX,aqc.gucheng.com
 DOMAIN-SUFFIX,aqftgalqig.com
 DOMAIN-SUFFIX,aqxh9x1o7m.com
 DOMAIN-SUFFIX,archetype32.top
+DOMAIN-SUFFIX,arithmetic48.top
 DOMAIN-SUFFIX,arlavilqyt.com
 DOMAIN-SUFFIX,arullelb.com
 DOMAIN-SUFFIX,as1.m.hao123.com
@@ -1886,6 +1893,7 @@ DOMAIN-SUFFIX,e2fpulacx.com
 DOMAIN-SUFFIX,e2icbtrs1g.com
 DOMAIN-SUFFIX,e2jda3h01.com
 DOMAIN-SUFFIX,e2us4880k.com
+DOMAIN-SUFFIX,e3j60qqdk.com
 DOMAIN-SUFFIX,e4iwtfza99.com
 DOMAIN-SUFFIX,e4jdb7k8j.com
 DOMAIN-SUFFIX,e59x4phq3a.com
@@ -2919,6 +2927,7 @@ DOMAIN-SUFFIX,jb.ecar168.cn
 DOMAIN-SUFFIX,jbbydz.icu
 DOMAIN-SUFFIX,jbdch1.appmobile.cn
 DOMAIN-SUFFIX,jbiwvt6x1e.com
+DOMAIN-SUFFIX,jbriyba0f.com
 DOMAIN-SUFFIX,jbw4kkuf2y.com
 DOMAIN-SUFFIX,jc1.dayfund.com.cn
 DOMAIN-SUFFIX,jc7t7it24.com
@@ -3238,6 +3247,7 @@ DOMAIN-SUFFIX,ljvt4pnl9.com
 DOMAIN-SUFFIX,lk0v8teerw.com
 DOMAIN-SUFFIX,lkdqrtsj6g.com
 DOMAIN-SUFFIX,lkhmlx.icu
+DOMAIN-SUFFIX,lkpda6xuy.com
 DOMAIN-SUFFIX,lkpjbr.icu
 DOMAIN-SUFFIX,lkpseyc3d.com
 DOMAIN-SUFFIX,lkthfpii.xyz
@@ -3311,6 +3321,7 @@ DOMAIN-SUFFIX,ltuzz346m.com
 DOMAIN-SUFFIX,lu.sogou.com
 DOMAIN-SUFFIX,lu.sogoucdn.com
 DOMAIN-SUFFIX,luaccakfoo.com
+DOMAIN-SUFFIX,luujhia.com
 DOMAIN-SUFFIX,luwkhuku.com
 DOMAIN-SUFFIX,luxrbx.icu
 DOMAIN-SUFFIX,lv.myapks.com
@@ -3709,6 +3720,7 @@ DOMAIN-SUFFIX,nl1d8gzi5.com
 DOMAIN-SUFFIX,nl2v1uw9e.com
 DOMAIN-SUFFIX,nlbb3dvqh.com
 DOMAIN-SUFFIX,nlkylpo.com
+DOMAIN-SUFFIX,nllgzvgoudbdnq.com
 DOMAIN-SUFFIX,nly9u12pi.com
 DOMAIN-SUFFIX,nlzyp.cn
 DOMAIN-SUFFIX,nm68kgmnf1.com
@@ -4524,6 +4536,7 @@ DOMAIN-SUFFIX,siodgs.icu
 DOMAIN-SUFFIX,sirsplajp.com
 DOMAIN-SUFFIX,siutaodka.com
 DOMAIN-SUFFIX,sjbaiduadv1.redou.com
+DOMAIN-SUFFIX,sjbbsja.forum
 DOMAIN-SUFFIX,sjhgfrvbxrbbr.com
 DOMAIN-SUFFIX,skfgnsvkjfgvv.com
 DOMAIN-SUFFIX,skirmish33.top
@@ -4969,6 +4982,7 @@ DOMAIN-SUFFIX,umqigvethe.com
 DOMAIN-SUFFIX,umrr.cn
 DOMAIN-SUFFIX,un.ubaike.cn
 DOMAIN-SUFFIX,un1.lawyernet.cn
+DOMAIN-SUFFIX,un8hlx.com
 DOMAIN-SUFFIX,undergoon.com
 DOMAIN-SUFFIX,underhand19.com
 DOMAIN-SUFFIX,undertow52.top
@@ -5232,6 +5246,7 @@ DOMAIN-SUFFIX,vyczp.cn
 DOMAIN-SUFFIX,vyqn.cn
 DOMAIN-SUFFIX,vysr4o0eg.com
 DOMAIN-SUFFIX,vyxw.cn
+DOMAIN-SUFFIX,vz95953ow5.com
 DOMAIN-SUFFIX,vzia.cn
 DOMAIN-SUFFIX,vzorzilmf.com
 DOMAIN-SUFFIX,vzrhwmsj.icu
@@ -5371,6 +5386,7 @@ DOMAIN-SUFFIX,wowad.wow-classic.com
 DOMAIN-SUFFIX,wozlx.cn
 DOMAIN-SUFFIX,wph2zu9rlb.com
 DOMAIN-SUFFIX,wpizqi.icu
+DOMAIN-SUFFIX,wpsxwkz.com
 DOMAIN-SUFFIX,wpuzzcudultv.com
 DOMAIN-SUFFIX,wpy6xuq4.xyz
 DOMAIN-SUFFIX,wq26xa0tr.com
