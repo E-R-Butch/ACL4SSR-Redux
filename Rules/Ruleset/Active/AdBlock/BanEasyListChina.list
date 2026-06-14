@@ -1,8 +1,8 @@
 # 广告列表 adblock rules
 # 内容：EasyListChina列表，只包含ABP中的 EasyListChina 内容
 # 来源：https://easylist-downloads.adblockplus.org/easylistchina.txt
-# 更新：2026-06-13 03:34:02
-# 数量：6009条
+# 更新：2026-06-14 03:55:06
+# 数量：6022条
 
 DOMAIN-SUFFIX,003store.com
 DOMAIN-SUFFIX,00k456wyh.com
@@ -39,6 +39,7 @@ DOMAIN-SUFFIX,0h9yewgei.com
 DOMAIN-SUFFIX,0hagal2csg.com
 DOMAIN-SUFFIX,0hagz9mdc.com
 DOMAIN-SUFFIX,0hasprzzu.com
+DOMAIN-SUFFIX,0hqq3dnjf.com
 DOMAIN-SUFFIX,0iem8mw1lx.com
 DOMAIN-SUFFIX,0ihw4ipvm5.com
 DOMAIN-SUFFIX,0jghm60qg.com
@@ -199,6 +200,7 @@ DOMAIN-SUFFIX,1rwa5e8a6.com
 DOMAIN-SUFFIX,1s8hpetv3.com
 DOMAIN-SUFFIX,1s8zfj6p4.com
 DOMAIN-SUFFIX,1tvg524vih.com
+DOMAIN-SUFFIX,1u6hvoykk3.com
 DOMAIN-SUFFIX,1ub29e88i.com
 DOMAIN-SUFFIX,1uo9djbnsr.com
 DOMAIN-SUFFIX,1vd2esrss.com
@@ -592,12 +594,14 @@ DOMAIN-SUFFIX,7iwxojx1s.com
 DOMAIN-SUFFIX,7jf3kxi6bq.com
 DOMAIN-SUFFIX,7jqi6um1g.com
 DOMAIN-SUFFIX,7lavkpncj.com
+DOMAIN-SUFFIX,7mus3aqqv.com
 DOMAIN-SUFFIX,7mx63ygcti.com
 DOMAIN-SUFFIX,7mxn77h4vr.com
 DOMAIN-SUFFIX,7na721c64.com
 DOMAIN-SUFFIX,7nb71ub2xi.com
 DOMAIN-SUFFIX,7o2l520r0a.com
 DOMAIN-SUFFIX,7p5ruxflv0.com
+DOMAIN-SUFFIX,7q2701vx8e.com
 DOMAIN-SUFFIX,7qxv9s5q16.com
 DOMAIN-SUFFIX,7r4jkbpol.com
 DOMAIN-SUFFIX,7rag9q1on.com
@@ -2513,6 +2517,7 @@ DOMAIN-SUFFIX,guanjiabo.net
 DOMAIN-SUFFIX,guekoe.icu
 DOMAIN-SUFFIX,guess.h.qhimg.com
 DOMAIN-SUFFIX,guessrp50.com
+DOMAIN-SUFFIX,gummy-debt.com
 DOMAIN-SUFFIX,gusp.cn
 DOMAIN-SUFFIX,guu0bfmpf5.com
 DOMAIN-SUFFIX,guuia6hxf.com
@@ -2545,7 +2550,9 @@ DOMAIN-SUFFIX,h1.cfxinxi.cn
 DOMAIN-SUFFIX,h1.kukuw.com
 DOMAIN-SUFFIX,h1.wk2.com
 DOMAIN-SUFFIX,h1883c5wn.com
+DOMAIN-SUFFIX,h1cn8nwng.com
 DOMAIN-SUFFIX,h1yfrt.com
+DOMAIN-SUFFIX,h27aq0mc6.com
 DOMAIN-SUFFIX,h4htfgrei0.com
 DOMAIN-SUFFIX,h57vpulpu.com
 DOMAIN-SUFFIX,h5vem1jjft.com
@@ -3289,6 +3296,7 @@ DOMAIN-SUFFIX,lnme1q1qa.com
 DOMAIN-SUFFIX,lnwe.cn
 DOMAIN-SUFFIX,lo42y56tmy.com
 DOMAIN-SUFFIX,lodipq3zb.com
+DOMAIN-SUFFIX,lohylfnkagnlzw.com
 DOMAIN-SUFFIX,loleteal.com
 DOMAIN-SUFFIX,lonarzelq.com
 DOMAIN-SUFFIX,love.furenkeji.com
@@ -3826,6 +3834,7 @@ DOMAIN-SUFFIX,obgk.cn
 DOMAIN-SUFFIX,obiknmm.icu
 DOMAIN-SUFFIX,obstetrician36.com
 DOMAIN-SUFFIX,obv3epx22d.com
+DOMAIN-SUFFIX,ocvdi0rum.com
 DOMAIN-SUFFIX,odhivvin.com
 DOMAIN-SUFFIX,odmerorlzo.com
 DOMAIN-SUFFIX,odxupm909y.com
@@ -4612,6 +4621,7 @@ DOMAIN-SUFFIX,stsgus.icu
 DOMAIN-SUFFIX,stubborn80.top
 DOMAIN-SUFFIX,su0k43kcy.com
 DOMAIN-SUFFIX,sub.powerapple.com
+DOMAIN-SUFFIX,subtraction59.com
 DOMAIN-SUFFIX,suhfnjm.com
 DOMAIN-SUFFIX,suitcase890.top
 DOMAIN-SUFFIX,summerwm1.com
@@ -4728,6 +4738,7 @@ DOMAIN-SUFFIX,titroikan.com
 DOMAIN-SUFFIX,tizdfz.icu
 DOMAIN-SUFFIX,tjfavx.icu
 DOMAIN-SUFFIX,tjfskxz0t6.com
+DOMAIN-SUFFIX,tjgssn.com
 DOMAIN-SUFFIX,tjv250730ads.com
 DOMAIN-SUFFIX,tjv251109ads.com
 DOMAIN-SUFFIX,tjv260529xxx.com
@@ -4972,6 +4983,7 @@ DOMAIN-SUFFIX,uks8suop4b.com
 DOMAIN-SUFFIX,ukx6umuvu.com
 DOMAIN-SUFFIX,ulatammyspb.com
 DOMAIN-SUFFIX,ulgroiklf.com
+DOMAIN-SUFFIX,ulk8je1fv9.com
 DOMAIN-SUFFIX,ulny.cn
 DOMAIN-SUFFIX,ulpsd9qmja.com
 DOMAIN-SUFFIX,ulwzinqlh0.com
@@ -5375,6 +5387,7 @@ DOMAIN-SUFFIX,wmcurwxrjc.com
 DOMAIN-SUFFIX,wmeng.feihuadns.com
 DOMAIN-SUFFIX,wmnqifp98t.com
 DOMAIN-SUFFIX,wmwcym.icu
+DOMAIN-SUFFIX,wn4x4bzhx.com
 DOMAIN-SUFFIX,wnacammull.com
 DOMAIN-SUFFIX,wneia.iaskhot.com
 DOMAIN-SUFFIX,wnwkt6206g.com
