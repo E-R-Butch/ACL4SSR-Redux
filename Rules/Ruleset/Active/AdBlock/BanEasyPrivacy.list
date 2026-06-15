@@ -1,8 +1,8 @@
 # 广告列表 adblock rules
 # 内容：EasyPrivacy列表，隐私保护，屏蔽隐私追踪
 # 来源：https://easylist-downloads.adblockplus.org/easyprivacy.txt
-# 更新：2026-06-14 03:55:07
-# 数量：40477条
+# 更新：2026-06-15 04:07:24
+# 数量：40476条
 
 DOMAIN-SUFFIX,0.myikas.com
 DOMAIN-SUFFIX,0.net.easyjet.com
@@ -14771,6 +14771,7 @@ DOMAIN-SUFFIX,icslearn.actonsoftware.com
 DOMAIN-SUFFIX,ictrjw.barcastores.com
 DOMAIN-SUFFIX,id-ward.com
 DOMAIN-SUFFIX,id.a-mx.com
+DOMAIN-SUFFIX,id.nbcuni.com
 DOMAIN-SUFFIX,idbkfy.kango-roo.com
 DOMAIN-SUFFIX,iddu1vvb7sk8-a.akamaihd.net
 DOMAIN-SUFFIX,ideadevice.actonservice.com
@@ -18266,7 +18267,6 @@ DOMAIN-SUFFIX,linkvet.insights.md
 DOMAIN-SUFFIX,linkvetdev.insights.md
 DOMAIN-SUFFIX,lio8.destinia.com.pa
 DOMAIN-SUFFIX,liosix.mtvuutiset.fi
-DOMAIN-SUFFIX,lipstat.com
 DOMAIN-SUFFIX,liquid.agora.pl
 DOMAIN-SUFFIX,listen.trakks.com
 DOMAIN-SUFFIX,listen.tunein.com
@@ -24653,7 +24653,6 @@ DOMAIN-SUFFIX,profiling.outokumpu.com
 DOMAIN-SUFFIX,profiling.plannja.com
 DOMAIN-SUFFIX,profiling.ruukki.com
 DOMAIN-SUFFIX,profit.edc.ca
-DOMAIN-SUFFIX,proftrafficcounter.com
 DOMAIN-SUFFIX,progmxs.com
 DOMAIN-SUFFIX,programmes-skema.skema-bs.fr
 DOMAIN-SUFFIX,programmes-skema.skema.edu
