@@ -1,8 +1,8 @@
 # 广告列表 adblock rules
 # 内容：EasyListChina列表，只包含ABP中的 EasyListChina 内容
 # 来源：https://easylist-downloads.adblockplus.org/easylistchina.txt
-# 更新：2026-06-17 03:58:10
-# 数量：6054条
+# 更新：2026-06-18 03:45:52
+# 数量：6062条
 
 DOMAIN-SUFFIX,003store.com
 DOMAIN-SUFFIX,00k456wyh.com
@@ -1283,6 +1283,7 @@ DOMAIN-SUFFIX,bjk08260ip.com
 DOMAIN-SUFFIX,bjk08261ip.com
 DOMAIN-SUFFIX,bjnyfav.xyz
 DOMAIN-SUFFIX,bjs.faxingzhan.com
+DOMAIN-SUFFIX,bjsr03odzu.com
 DOMAIN-SUFFIX,bk2l4eidc.com
 DOMAIN-SUFFIX,bkad13gfu.com
 DOMAIN-SUFFIX,bkam33lsr.com
@@ -2402,6 +2403,7 @@ DOMAIN-SUFFIX,gk1.582582.com
 DOMAIN-SUFFIX,gk1.zjbiz.net
 DOMAIN-SUFFIX,gkgktibd.com
 DOMAIN-SUFFIX,gkhergik.com
+DOMAIN-SUFFIX,gklsfigkom.com
 DOMAIN-SUFFIX,gkryjuqq3.com
 DOMAIN-SUFFIX,gkuresx.com
 DOMAIN-SUFFIX,gkvjmx3xf.com
@@ -2416,6 +2418,7 @@ DOMAIN-SUFFIX,glevvoqy.com
 DOMAIN-SUFFIX,glmeilgroi.com
 DOMAIN-SUFFIX,gmendanln.com
 DOMAIN-SUFFIX,gn01.top
+DOMAIN-SUFFIX,gn4yz5v9z.com
 DOMAIN-SUFFIX,gn6u494hn.com
 DOMAIN-SUFFIX,gndrzx.cn
 DOMAIN-SUFFIX,gnfr03906.com
@@ -2646,6 +2649,7 @@ DOMAIN-SUFFIX,hhdus.com
 DOMAIN-SUFFIX,hhr3ybjsoy.com
 DOMAIN-SUFFIX,hi.xiunm.cn
 DOMAIN-SUFFIX,hi.xiunm.com
+DOMAIN-SUFFIX,hi2gmx3e1.com
 DOMAIN-SUFFIX,hi2pv3e9pr.com
 DOMAIN-SUFFIX,hi407ezyz.com
 DOMAIN-SUFFIX,hi4c61mi8d.com
@@ -3765,6 +3769,7 @@ DOMAIN-SUFFIX,novikanidf.com
 DOMAIN-SUFFIX,npgjij.cn
 DOMAIN-SUFFIX,nplvdodbja.com
 DOMAIN-SUFFIX,npunr.cn
+DOMAIN-SUFFIX,npuwalz.com
 DOMAIN-SUFFIX,npvcfn.icu
 DOMAIN-SUFFIX,npzc1yzag7.com
 DOMAIN-SUFFIX,nq49x3m8g.com
@@ -4131,6 +4136,7 @@ DOMAIN-SUFFIX,prndgif.com
 DOMAIN-SUFFIX,pro.iweihai.cn
 DOMAIN-SUFFIX,probing34.com
 DOMAIN-SUFFIX,proceedings33.top
+DOMAIN-SUFFIX,product28.top
 DOMAIN-SUFFIX,profitablecpmratenetwork.com
 DOMAIN-SUFFIX,progress12.com
 DOMAIN-SUFFIX,prologue23.com
@@ -4397,6 +4403,7 @@ DOMAIN-SUFFIX,rgaagnida.com
 DOMAIN-SUFFIX,rgcrunzozp.com
 DOMAIN-SUFFIX,rgoxcknehm.com
 DOMAIN-SUFFIX,rgpxop.cn
+DOMAIN-SUFFIX,rhaol5omof.com
 DOMAIN-SUFFIX,rhiolf.cn
 DOMAIN-SUFFIX,rhmt1jjyo.com
 DOMAIN-SUFFIX,rhododendron15.top
@@ -4709,6 +4716,7 @@ DOMAIN-SUFFIX,tad.suning.com
 DOMAIN-SUFFIX,taf9vs2wz.com
 DOMAIN-SUFFIX,taiverturena.com
 DOMAIN-SUFFIX,taproot44.com
+DOMAIN-SUFFIX,tarbfjimpnnbvi.com
 DOMAIN-SUFFIX,tasgxk4ia6.com
 DOMAIN-SUFFIX,taunphoik.com
 DOMAIN-SUFFIX,tb1mdkeni.com
