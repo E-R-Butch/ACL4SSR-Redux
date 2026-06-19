@@ -3,3 +3,6 @@ DOMAIN,log.tailscale.com
 
 # Tailscale DERP Dallas (derp9d.tailscale.com)
 IP-CIDR,209.177.156.94/32,no-resolve
+
+# ZeroTier default peer/relay port
+DST-PORT,9993
