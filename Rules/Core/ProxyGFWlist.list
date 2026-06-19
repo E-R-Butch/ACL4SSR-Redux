@@ -4293,6 +4293,7 @@ DOMAIN-SUFFIX,zzcloud.me
 
 # GFW list (Synced from official gfwlist/gfwlist)
 DOMAIN-SUFFIX,24hbook.com
+DOMAIN-SUFFIX,accountboy.com
 DOMAIN-SUFFIX,acg.mn
 DOMAIN-SUFFIX,annas-archive.gd
 DOMAIN-SUFFIX,annas-archive.gl
@@ -4328,6 +4329,7 @@ DOMAIN-SUFFIX,libgen.is
 DOMAIN-SUFFIX,mas.to
 DOMAIN-SUFFIX,mediamatters.org
 DOMAIN-SUFFIX,mjj.today
+DOMAIN-SUFFIX,moomoo.com
 DOMAIN-SUFFIX,mozilla.ai
 DOMAIN-SUFFIX,music.amazon.com
 DOMAIN-SUFFIX,neodb.social
@@ -4363,4 +4365,5 @@ DOMAIN-SUFFIX,veed.io
 DOMAIN-SUFFIX,vox.com
 DOMAIN-SUFFIX,worldjournal.com
 DOMAIN-SUFFIX,wplace.live
+DOMAIN-SUFFIX,xn--vuqv2cf7wzyig79c.com
 DOMAIN-SUFFIX,zhangzhehan.net
