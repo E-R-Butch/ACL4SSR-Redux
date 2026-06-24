@@ -1,8 +1,8 @@
 # 广告列表 adblock rules
 # 内容：EasyPrivacy列表，隐私保护，屏蔽隐私追踪
 # 来源：https://easylist-downloads.adblockplus.org/easyprivacy.txt
-# 更新：2026-06-23 03:25:19
-# 数量：40481条
+# 更新：2026-06-24 03:27:12
+# 数量：40485条
 
 DOMAIN-SUFFIX,0.myikas.com
 DOMAIN-SUFFIX,0.net.easyjet.com
@@ -8674,6 +8674,7 @@ DOMAIN-SUFFIX,collector.cint.com
 DOMAIN-SUFFIX,collector.clareity.net
 DOMAIN-SUFFIX,collector.dgnet.ltd.uk
 DOMAIN-SUFFIX,collector.ex.co
+DOMAIN-SUFFIX,collector.feedzop.com
 DOMAIN-SUFFIX,collector.fiverr.com
 DOMAIN-SUFFIX,collector.getyourguide.com
 DOMAIN-SUFFIX,collector.github.com
@@ -8685,12 +8686,14 @@ DOMAIN-SUFFIX,collector.net-logger.com
 DOMAIN-SUFFIX,collector.pi.spectrum.net
 DOMAIN-SUFFIX,collector.pmc.com
 DOMAIN-SUFFIX,collector.quillbot.com
+DOMAIN-SUFFIX,collector.quizzop.com
 DOMAIN-SUFFIX,collector.schibsted.io
 DOMAIN-SUFFIX,collector.spankbang.party
 DOMAIN-SUFFIX,collector.sspinc.io
 DOMAIN-SUFFIX,collector.t-idr.com
 DOMAIN-SUFFIX,collector.taoxh.life
 DOMAIN-SUFFIX,collector.theconversation.com
+DOMAIN-SUFFIX,collector.umogames.com
 DOMAIN-SUFFIX,collector.xhaccess.com
 DOMAIN-SUFFIX,collector.xhamster.com
 DOMAIN-SUFFIX,collector.xhamster.desi
@@ -9711,6 +9714,7 @@ DOMAIN-SUFFIX,dajdnm.splits59.com
 DOMAIN-SUFFIX,dallas-content.cresa.com
 DOMAIN-SUFFIX,danielsmoving.actonservice.com
 DOMAIN-SUFFIX,danv01ao0kdr2.cloudfront.net
+DOMAIN-SUFFIX,dap.hindustantimes.com
 DOMAIN-SUFFIX,dart.onjoyri.de
 DOMAIN-SUFFIX,dash.getsitecontrol.com
 DOMAIN-SUFFIX,dashboardbntest.branchcustom.xyz
