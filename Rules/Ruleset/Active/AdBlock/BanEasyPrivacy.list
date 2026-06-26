@@ -1,8 +1,8 @@
 # 广告列表 adblock rules
 # 内容：EasyPrivacy列表，隐私保护，屏蔽隐私追踪
 # 来源：https://easylist-downloads.adblockplus.org/easyprivacy.txt
-# 更新：2026-06-25 03:24:37
-# 数量：40487条
+# 更新：2026-06-26 03:32:39
+# 数量：40495条
 
 DOMAIN-SUFFIX,0.myikas.com
 DOMAIN-SUFFIX,0.net.easyjet.com
@@ -9626,6 +9626,7 @@ DOMAIN-SUFFIX,d2cpw6kwpff7n5.cloudfront.net
 DOMAIN-SUFFIX,d2ezz24t9nm0vu.cloudfront.net
 DOMAIN-SUFFIX,d2fj3s7h83rb61.cloudfront.net
 DOMAIN-SUFFIX,d2gbtcuv3w9qyv.cloudfront.net
+DOMAIN-SUFFIX,d2gt2ux04o03l1.cloudfront.net
 DOMAIN-SUFFIX,d2i34c80a0ftze.cloudfront.net
 DOMAIN-SUFFIX,d2ibu2ug0mt5qp.cloudfront.net
 DOMAIN-SUFFIX,d2j1fszo1axgmp.cloudfront.net
@@ -14160,6 +14161,7 @@ DOMAIN-SUFFIX,gogovapps.actonservice.com
 DOMAIN-SUFFIX,goldencomm.actonservice.com
 DOMAIN-SUFFIX,goldenhelix.actonservice.com
 DOMAIN-SUFFIX,goldenpaints.actonservice.com
+DOMAIN-SUFFIX,gollum.monotote.com
 DOMAIN-SUFFIX,gomerchant.groupon.com
 DOMAIN-SUFFIX,gone.pronhub.fun
 DOMAIN-SUFFIX,google-analytics-cn.com
@@ -14431,6 +14433,7 @@ DOMAIN-SUFFIX,hellogain.actonservice.com
 DOMAIN-SUFFIX,helpdesk.thinkhdi.com
 DOMAIN-SUFFIX,hemblx.vans.cl
 DOMAIN-SUFFIX,herbgreencolumn.com
+DOMAIN-SUFFIX,herbstarsbuilding.com
 DOMAIN-SUFFIX,herpes2.pa-ruit.jp
 DOMAIN-SUFFIX,hesconet.actonservice.com
 DOMAIN-SUFFIX,hesprh.sony.jp
@@ -17342,6 +17345,7 @@ DOMAIN-SUFFIX,ledgeviewpartners.actonservice.com
 DOMAIN-SUFFIX,lednews.powerint.com
 DOMAIN-SUFFIX,leecompany.actonservice.com
 DOMAIN-SUFFIX,legalhold.ediscovery.com
+DOMAIN-SUFFIX,legolas.monotote.com
 DOMAIN-SUFFIX,lekfso.hitohana.tokyo
 DOMAIN-SUFFIX,lem.nouvelobs.com
 DOMAIN-SUFFIX,lemonpi.io
@@ -18416,6 +18420,7 @@ DOMAIN-SUFFIX,log.rutube.ru
 DOMAIN-SUFFIX,log.seekda.com
 DOMAIN-SUFFIX,log.sina.cn
 DOMAIN-SUFFIX,log.snapdeal.com
+DOMAIN-SUFFIX,log.strawpoll.com
 DOMAIN-SUFFIX,log.tagtic.cn
 DOMAIN-SUFFIX,log.targetpush.co.kr
 DOMAIN-SUFFIX,log.tossinvest.com
@@ -33609,6 +33614,7 @@ DOMAIN-SUFFIX,t.miamihurricanes.com
 DOMAIN-SUFFIX,t.miamiredhawks.com
 DOMAIN-SUFFIX,t.mktg.genesys.com
 DOMAIN-SUFFIX,t.mmaeast.com
+DOMAIN-SUFFIX,t.mmganalytics.com
 DOMAIN-SUFFIX,t.montecarlosbm.com
 DOMAIN-SUFFIX,t.msubobcats.com
 DOMAIN-SUFFIX,t.msuspartans.com
@@ -34242,6 +34248,7 @@ DOMAIN-SUFFIX,telemetry.adobe.io
 DOMAIN-SUFFIX,telemetry.algolia.com
 DOMAIN-SUFFIX,telemetry.api.playstation.com
 DOMAIN-SUFFIX,telemetry.boxt.co.uk
+DOMAIN-SUFFIX,telemetry.bydata.com
 DOMAIN-SUFFIX,telemetry.canva.com
 DOMAIN-SUFFIX,telemetry.chrobinson.com
 DOMAIN-SUFFIX,telemetry.commonspirit.org
@@ -37185,6 +37192,7 @@ DOMAIN-SUFFIX,trk.dvsystems.com
 DOMAIN-SUFFIX,trk.e.chooseumpquabank.com
 DOMAIN-SUFFIX,trk.e.mailchimp.com
 DOMAIN-SUFFIX,trk.e.underarmour.com
+DOMAIN-SUFFIX,trk.edf.fr
 DOMAIN-SUFFIX,trk.elmlea.com
 DOMAIN-SUFFIX,trk.elmorietschle.com
 DOMAIN-SUFFIX,trk.elq.mcphersonoil.com
