@@ -1,8 +1,8 @@
 # 广告列表 adblock rules
 # 内容：EasyPrivacy列表，隐私保护，屏蔽隐私追踪
 # 来源：https://easylist-downloads.adblockplus.org/easyprivacy.txt
-# 更新：2026-06-26 03:32:39
-# 数量：40495条
+# 更新：2026-06-27 02:55:10
+# 数量：40498条
 
 DOMAIN-SUFFIX,0.myikas.com
 DOMAIN-SUFFIX,0.net.easyjet.com
@@ -14408,6 +14408,7 @@ DOMAIN-SUFFIX,heartbeat-pearl.vercel.app
 DOMAIN-SUFFIX,heartbeat.pmd.444.hu
 DOMAIN-SUFFIX,heartflow.actonservice.com
 DOMAIN-SUFFIX,heatmaps.lcisoft.it
+DOMAIN-SUFFIX,heimdall.hearstapps.com
 DOMAIN-SUFFIX,hej.henriksommerfeld.se
 DOMAIN-SUFFIX,hekhnn.turnkeyvr.com
 DOMAIN-SUFFIX,helens.actonservice.com
@@ -17125,6 +17126,7 @@ DOMAIN-SUFFIX,l.dzfoot.com
 DOMAIN-SUFFIX,l.e.domain.com.au
 DOMAIN-SUFFIX,l.engage.canva.com
 DOMAIN-SUFFIX,l.entrenous.fr
+DOMAIN-SUFFIX,l.ffx.io
 DOMAIN-SUFFIX,l.football.fr
 DOMAIN-SUFFIX,l.football365.fr
 DOMAIN-SUFFIX,l.francetvinfo.fr
@@ -37465,6 +37467,7 @@ DOMAIN-SUFFIX,ts-analysis.shoalter.com
 DOMAIN-SUFFIX,ts.delfi.lt
 DOMAIN-SUFFIX,ts.popsugar.com
 DOMAIN-SUFFIX,ts.tradetracker.net
+DOMAIN-SUFFIX,tsa-f.webex.com
 DOMAIN-SUFFIX,tsa.taxslayer.com
 DOMAIN-SUFFIX,tsa.webex.com
 DOMAIN-SUFFIX,tsbkht.puritan.com
