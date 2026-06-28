@@ -1,8 +1,8 @@
 # 广告列表 adblock rules
 # 内容：EasyListChina列表，只包含ABP中的 EasyListChina 内容
 # 来源：https://easylist-downloads.adblockplus.org/easylistchina.txt
-# 更新：2026-06-27 02:55:08
-# 数量：5905条
+# 更新：2026-06-28 03:38:10
+# 数量：5914条
 
 DOMAIN-SUFFIX,003store.com
 DOMAIN-SUFFIX,00k456wyh.com
@@ -204,6 +204,7 @@ DOMAIN-SUFFIX,1tvg524vih.com
 DOMAIN-SUFFIX,1u6hvoykk3.com
 DOMAIN-SUFFIX,1ub29e88i.com
 DOMAIN-SUFFIX,1uo9djbnsr.com
+DOMAIN-SUFFIX,1urjtp1t6.com
 DOMAIN-SUFFIX,1vd2esrss.com
 DOMAIN-SUFFIX,1y55vfy87.com
 DOMAIN-SUFFIX,1ykbpp1jx.com
@@ -1382,6 +1383,7 @@ DOMAIN-SUFFIX,byirzeamuu.com
 DOMAIN-SUFFIX,byspvudwx.com
 DOMAIN-SUFFIX,byt73g6rrr.com
 DOMAIN-SUFFIX,bytytxkz.icu
+DOMAIN-SUFFIX,byuh78fy2m.com
 DOMAIN-SUFFIX,bz13t74nt.com
 DOMAIN-SUFFIX,bzabwir.icu
 DOMAIN-SUFFIX,bzkmqr6vo4.com
@@ -2475,6 +2477,7 @@ DOMAIN-SUFFIX,gsweum.icu
 DOMAIN-SUFFIX,gt.duowan.com
 DOMAIN-SUFFIX,gt.yy.com
 DOMAIN-SUFFIX,gtaqnnk.com
+DOMAIN-SUFFIX,gtavnhoxf.com
 DOMAIN-SUFFIX,gtethuui.com
 DOMAIN-SUFFIX,gtfccewpo.com
 DOMAIN-SUFFIX,gtj1myjla.com
@@ -3395,6 +3398,7 @@ DOMAIN-SUFFIX,mf6xyfh3c.com
 DOMAIN-SUFFIX,mfhxz0hz7.com
 DOMAIN-SUFFIX,mg.32r.com
 DOMAIN-SUFFIX,mg.glwxw.net
+DOMAIN-SUFFIX,mg0pfou5o.com
 DOMAIN-SUFFIX,mgfikuktpi.com
 DOMAIN-SUFFIX,mgir.cn
 DOMAIN-SUFFIX,mgky6yjwq.com
@@ -3826,6 +3830,7 @@ DOMAIN-SUFFIX,op9dbh1i0.com
 DOMAIN-SUFFIX,opendsp.vip
 DOMAIN-SUFFIX,operation67.com
 DOMAIN-SUFFIX,operetta17.com
+DOMAIN-SUFFIX,opev2lhm7h.com
 DOMAIN-SUFFIX,opwqkq.icu
 DOMAIN-SUFFIX,opzphurkro.com
 DOMAIN-SUFFIX,oqcw1f9yw.com
@@ -4218,6 +4223,7 @@ DOMAIN-SUFFIX,r4uj20yt2u.com
 DOMAIN-SUFFIX,r4uws5iu3g.com
 DOMAIN-SUFFIX,r5g13d8py3.com
 DOMAIN-SUFFIX,r5gcp9.com
+DOMAIN-SUFFIX,r5n8ic3on.com
 DOMAIN-SUFFIX,r6q4mtfno.com
 DOMAIN-SUFFIX,r6yigjfvp.com
 DOMAIN-SUFFIX,r7pnnukr.xyz
@@ -4255,6 +4261,7 @@ DOMAIN-SUFFIX,re41qiitb1.com
 DOMAIN-SUFFIX,receiptgg.top
 DOMAIN-SUFFIX,recognize04.top
 DOMAIN-SUFFIX,recount57.com
+DOMAIN-SUFFIX,rectangular18.com
 DOMAIN-SUFFIX,redtvxjmgjbtlw.com
 DOMAIN-SUFFIX,reflection67.top
 DOMAIN-SUFFIX,register04.top
@@ -5481,6 +5488,7 @@ DOMAIN-SUFFIX,xqoh.cn
 DOMAIN-SUFFIX,xqtcpf.icu
 DOMAIN-SUFFIX,xr40kfkxeo.com
 DOMAIN-SUFFIX,xrkbhl2cp.com
+DOMAIN-SUFFIX,xrnrplqcfmpxfg.com
 DOMAIN-SUFFIX,xrus.cn
 DOMAIN-SUFFIX,xs.houyi.baofeng.net
 DOMAIN-SUFFIX,xscp03091xq.com
@@ -5883,6 +5891,7 @@ DOMAIN-SUFFIX,zu9srbxg0t.com
 DOMAIN-SUFFIX,zujtlj.icu
 DOMAIN-SUFFIX,zujz.cn
 DOMAIN-SUFFIX,zulaedha.com
+DOMAIN-SUFFIX,zulphaqaq.in
 DOMAIN-SUFFIX,zumnervl.com
 DOMAIN-SUFFIX,zuowen.hydcd.com
 DOMAIN-SUFFIX,zvciaoan1k.com
