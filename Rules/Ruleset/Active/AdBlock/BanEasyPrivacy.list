@@ -1,8 +1,8 @@
 # 广告列表 adblock rules
 # 内容：EasyPrivacy列表，隐私保护，屏蔽隐私追踪
 # 来源：https://easylist-downloads.adblockplus.org/easyprivacy.txt
-# 更新：2026-06-28 03:38:12
-# 数量：40499条
+# 更新：2026-06-29 03:42:53
+# 数量：40505条
 
 DOMAIN-SUFFIX,0.myikas.com
 DOMAIN-SUFFIX,0.net.easyjet.com
@@ -5090,6 +5090,7 @@ DOMAIN-SUFFIX,analytics.archive.org
 DOMAIN-SUFFIX,analytics.argeton.com
 DOMAIN-SUFFIX,analytics.arunraghavan.net
 DOMAIN-SUFFIX,analytics.asml.com
+DOMAIN-SUFFIX,analytics.atlas5.co
 DOMAIN-SUFFIX,analytics.atom.com
 DOMAIN-SUFFIX,analytics.audioeye.com
 DOMAIN-SUFFIX,analytics.audionow.de
@@ -10314,6 +10315,7 @@ DOMAIN-SUFFIX,dcclaa.slowlyveggie.de
 DOMAIN-SUFFIX,dcinfos-cache.abtasty.com
 DOMAIN-SUFFIX,dckiwt.eataly.com
 DOMAIN-SUFFIX,dclnxirp001cou.net.jumia.co.tz
+DOMAIN-SUFFIX,dclsrv.com
 DOMAIN-SUFFIX,dcnkrd.baseballsavings.com
 DOMAIN-SUFFIX,dco.coupang.com
 DOMAIN-SUFFIX,dcs.audi.com
@@ -11069,6 +11071,7 @@ DOMAIN-SUFFIX,dsg.interia.pl
 DOMAIN-SUFFIX,dshcej.aosom.co.uk
 DOMAIN-SUFFIX,dsj4qf77pyncykf2dki6isfcuy0orwhc.lambda-url.eu-west-1.on.aws
 DOMAIN-SUFFIX,dsoxjxin5jji.controlconceptsusa.com
+DOMAIN-SUFFIX,dsp-track-global.zmaticoo.com
 DOMAIN-SUFFIX,dspx.tv
 DOMAIN-SUFFIX,dst05lp2.net.mydays.de
 DOMAIN-SUFFIX,dsvmgu.snipes.it
@@ -23678,6 +23681,7 @@ DOMAIN-SUFFIX,orhdev.com
 DOMAIN-SUFFIX,origin-smetrics.go365.com
 DOMAIN-SUFFIX,origin-target.humana.com
 DOMAIN-SUFFIX,origin.www.images.2.forms.healthcare.philips.com
+DOMAIN-SUFFIX,orion.bendingspoons.com
 DOMAIN-SUFFIX,orionmarketing.actonservice.com
 DOMAIN-SUFFIX,orlmarketing.nfp.com
 DOMAIN-SUFFIX,orlqtz.lampenwelt.ch
@@ -33333,6 +33337,7 @@ DOMAIN-SUFFIX,sync-a8.cocolocala.jp
 DOMAIN-SUFFIX,sync.adap.tv
 DOMAIN-SUFFIX,sync.rambler.ru
 DOMAIN-SUFFIX,sync.shinobi.jp
+DOMAIN-SUFFIX,syncingbridge.com
 DOMAIN-SUFFIX,syqhvv.vivense.com
 DOMAIN-SUFFIX,sys.hager.com
 DOMAIN-SUFFIX,sysmon.kakaku.com
@@ -36192,6 +36197,7 @@ DOMAIN-SUFFIX,tracker-rec.smart-bdash.com
 DOMAIN-SUFFIX,tracker-remp.active.radio
 DOMAIN-SUFFIX,tracker-remp.premiumtimesng.com
 DOMAIN-SUFFIX,tracker-server.high-cdn.com
+DOMAIN-SUFFIX,tracker-shr.ortb.net
 DOMAIN-SUFFIX,tracker-v4.gamedock.io
 DOMAIN-SUFFIX,tracker.3dissue.com
 DOMAIN-SUFFIX,tracker.520call.me
