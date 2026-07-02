@@ -1,8 +1,8 @@
 # 广告列表 adblock rules
 # 内容：EasyListChina列表，只包含ABP中的 EasyListChina 内容
 # 来源：https://easylist-downloads.adblockplus.org/easylistchina.txt
-# 更新：2026-07-01 03:39:42
-# 数量：5939条
+# 更新：2026-07-02 03:25:21
+# 数量：5946条
 
 DOMAIN-SUFFIX,003store.com
 DOMAIN-SUFFIX,00k456wyh.com
@@ -1163,7 +1163,6 @@ DOMAIN-SUFFIX,bd.ahsrst.cn
 DOMAIN-SUFFIX,bd.beimap.com
 DOMAIN-SUFFIX,bd.czxuexi.com
 DOMAIN-SUFFIX,bd.dhsz.cn
-DOMAIN-SUFFIX,bd.ershenghuo.com
 DOMAIN-SUFFIX,bd.watu.cn
 DOMAIN-SUFFIX,bd1-china.6789.com
 DOMAIN-SUFFIX,bd1.365qilu.com
@@ -1622,6 +1621,7 @@ DOMAIN-SUFFIX,cxy88.friok.com
 DOMAIN-SUFFIX,cyclamen46.com
 DOMAIN-SUFFIX,cylinder35.top
 DOMAIN-SUFFIX,cyq8vqq9s.com
+DOMAIN-SUFFIX,cyu6bl939o.com
 DOMAIN-SUFFIX,cz16vlh0la.com
 DOMAIN-SUFFIX,czt4gnz57.com
 DOMAIN-SUFFIX,d-test.39.net
@@ -1899,6 +1899,7 @@ DOMAIN-SUFFIX,e4iwtfza99.com
 DOMAIN-SUFFIX,e4jdb7k8j.com
 DOMAIN-SUFFIX,e59x4phq3a.com
 DOMAIN-SUFFIX,e75liqii98.com
+DOMAIN-SUFFIX,e81j0an3d.com
 DOMAIN-SUFFIX,e90m7tos2.com
 DOMAIN-SUFFIX,ea5s00h6oo.com
 DOMAIN-SUFFIX,eagb.cn
@@ -4312,6 +4313,7 @@ DOMAIN-SUFFIX,rhaol5omof.com
 DOMAIN-SUFFIX,rhiolf.cn
 DOMAIN-SUFFIX,rhmt1jjyo.com
 DOMAIN-SUFFIX,rhododendron15.top
+DOMAIN-SUFFIX,rhombus74.com
 DOMAIN-SUFFIX,rhrrf.cn
 DOMAIN-SUFFIX,richh.cn
 DOMAIN-SUFFIX,rio9s1zdpd.com
@@ -4360,6 +4362,7 @@ DOMAIN-SUFFIX,rpox.cn
 DOMAIN-SUFFIX,rpvkpz.icu
 DOMAIN-SUFFIX,rrpaafci9i.com
 DOMAIN-SUFFIX,rrsxes4oy.com
+DOMAIN-SUFFIX,rsfzjtdmbmxdfq.com
 DOMAIN-SUFFIX,rstdfyerm.icu
 DOMAIN-SUFFIX,rstqbtoqrxbvpk.com
 DOMAIN-SUFFIX,rt5x78mhcq.com
@@ -4851,6 +4854,7 @@ DOMAIN-SUFFIX,u6421d8aqt.com
 DOMAIN-SUFFIX,u6uy9lzdcj.com
 DOMAIN-SUFFIX,u6yzoru6u.com
 DOMAIN-SUFFIX,u7em9v4hp.com
+DOMAIN-SUFFIX,u7lb6db41.com
 DOMAIN-SUFFIX,u7ugo0jr3.com
 DOMAIN-SUFFIX,u833ij.com
 DOMAIN-SUFFIX,u8rnuky6e.com
@@ -4883,6 +4887,7 @@ DOMAIN-SUFFIX,uetx75ibcu.com
 DOMAIN-SUFFIX,ueuwvgco19.com
 DOMAIN-SUFFIX,uevrhqra7u.com
 DOMAIN-SUFFIX,uewzjy.xyz
+DOMAIN-SUFFIX,ueya0wo6m.com
 DOMAIN-SUFFIX,ueyuww.icu
 DOMAIN-SUFFIX,ufa9tt1n5.com
 DOMAIN-SUFFIX,ufeuca.icu
@@ -4912,6 +4917,7 @@ DOMAIN-SUFFIX,ujth40hl4i.com
 DOMAIN-SUFFIX,uk3eymh64c.com
 DOMAIN-SUFFIX,ukew6uo7u1.com
 DOMAIN-SUFFIX,ukfp.cn
+DOMAIN-SUFFIX,ukgm0qily.com
 DOMAIN-SUFFIX,uks8suop4b.com
 DOMAIN-SUFFIX,ukx6umuvu.com
 DOMAIN-SUFFIX,ulatammyspb.com
@@ -5590,6 +5596,7 @@ DOMAIN-SUFFIX,y6p7022ep4.com
 DOMAIN-SUFFIX,y7pcgacfn.com
 DOMAIN-SUFFIX,y9ppy0icw1.com
 DOMAIN-SUFFIX,yah3ph65tc.com
+DOMAIN-SUFFIX,yahzsa6o2o.com
 DOMAIN-SUFFIX,yakhaknog.com
 DOMAIN-SUFFIX,yanwz3t0pi.com
 DOMAIN-SUFFIX,yarcokme.com
