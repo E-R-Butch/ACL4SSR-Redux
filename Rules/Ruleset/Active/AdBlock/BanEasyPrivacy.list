@@ -1,8 +1,8 @@
 # 广告列表 adblock rules
 # 内容：EasyPrivacy列表，隐私保护，屏蔽隐私追踪
 # 来源：https://easylist-downloads.adblockplus.org/easyprivacy.txt
-# 更新：2026-07-04 02:43:59
-# 数量：40507条
+# 更新：2026-07-05 02:54:38
+# 数量：40508条
 
 DOMAIN-SUFFIX,0.myikas.com
 DOMAIN-SUFFIX,0.net.easyjet.com
@@ -5035,6 +5035,7 @@ DOMAIN-SUFFIX,analytics-collect.karakuri.ai
 DOMAIN-SUFFIX,analytics-consent-manager-v2-prod.azureedge.net
 DOMAIN-SUFFIX,analytics-dataplane.invideo.io
 DOMAIN-SUFFIX,analytics-fe.digital-cloud-prem.medallia.com
+DOMAIN-SUFFIX,analytics-fe.digital-cloud-prem.medallia.eu
 DOMAIN-SUFFIX,analytics-fe.digital-cloud.medallia.ca
 DOMAIN-SUFFIX,analytics-fe.digital-cloud.medallia.com
 DOMAIN-SUFFIX,analytics-gw.games.wanmei.com
