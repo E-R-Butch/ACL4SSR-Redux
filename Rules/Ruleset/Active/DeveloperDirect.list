@@ -8,7 +8,10 @@ DOMAIN-SUFFIX,gitlab.io
 DOMAIN-SUFFIX,jitpack.io
 DOMAIN-SUFFIX,maven.org
 DOMAIN-SUFFIX,mvnrepository.com
+DOMAIN-SUFFIX,npmjs.org
 DOMAIN-SUFFIX,obsproject.com
+DOMAIN-SUFFIX,pypi.org
+DOMAIN-SUFFIX,pythonhosted.org
 DOMAIN-SUFFIX,quay.io
 DOMAIN-SUFFIX,redhat.com
 DOMAIN-SUFFIX,sonatype.org
