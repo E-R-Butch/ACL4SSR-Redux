@@ -1,7 +1,7 @@
 # 广告列表 adblock rules
 # 内容：EasyPrivacy列表，隐私保护，屏蔽隐私追踪
 # 来源：https://easylist-downloads.adblockplus.org/easyprivacy.txt
-# 更新：2026-07-07 02:54:55
+# 更新：2026-07-08 02:31:47
 # 数量：40508条
 
 DOMAIN-SUFFIX,0.myikas.com
@@ -24537,7 +24537,6 @@ DOMAIN-SUFFIX,possibilities.theajinetwork.com
 DOMAIN-SUFFIX,post.carte-gr.total.fr
 DOMAIN-SUFFIX,postgraduate.smu.edu.sg
 DOMAIN-SUFFIX,postgraduate2.smu.edu.sg
-DOMAIN-SUFFIX,posthog.com
 DOMAIN-SUFFIX,power.viggo.com
 DOMAIN-SUFFIX,powerrobotflower.com
 DOMAIN-SUFFIX,powerup.rsaworks.com
