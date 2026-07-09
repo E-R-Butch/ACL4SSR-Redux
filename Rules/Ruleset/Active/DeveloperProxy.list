@@ -21,5 +21,9 @@ DOMAIN,configs.gitkraken.dev
 # Browser extensions
 DOMAIN-SUFFIX,tampermonkey.net
 
+# PyPI (too slow from China)
+DOMAIN-SUFFIX,pypi.org
+DOMAIN-SUFFIX,pythonhosted.org
+
 # OpenSCAD
 DOMAIN,files.openscad.org
