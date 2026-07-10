@@ -1,67 +1,107 @@
-"""Convert .list rule files to Clash rule-provider YAML format."""
-import os, sys, re
+"""Convert Clash .list files to generic Mihomo rule-provider YAML files."""
 
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-PROVIDERS_DIR = os.path.join(BASE_DIR, "providers")
-CHECK_MODE = "--check" in sys.argv
+import argparse
+import pathlib
+import re
+import sys
 
+
+REPO_ROOT = pathlib.Path(__file__).resolve().parents[1]
+DEFAULT_SOURCES = ("Rules/Outputs", "Rules/Core")
+SOURCE_ONLY_FILES = {"ProxyManual.list"}
 RULESET_PATTERN = re.compile(
-    r"^(DOMAIN(?:-SUFFIX|-KEYWORD)?|IP-CIDR(?:6)?|PROCESS-NAME|GEOIP|MATCH),"
+    r"^(DOMAIN(?:-SUFFIX|-KEYWORD)?|DST-PORT|IP-CIDR(?:6)?|PROCESS-NAME|URL-REGEX|USER-AGENT|GEOIP|MATCH),"
 )
 
-os.makedirs(PROVIDERS_DIR, exist_ok=True)
 
-sources = [
-    ("Rules/Outputs", PROVIDERS_DIR),
-    ("Rules/Core", PROVIDERS_DIR),
-]
-
-all_files_ok = True
-for src_dir, dst_dir in sources:
-    src_path = os.path.join(BASE_DIR, src_dir)
-    if not os.path.isdir(src_path):
-        continue
-    os.makedirs(dst_dir, exist_ok=True)
-    for fname in sorted(os.listdir(src_path)):
-        if not fname.endswith(".list"):
+def read_rules(path):
+    rules = []
+    for raw_line in path.read_text(encoding="utf-8").splitlines():
+        line = raw_line.strip()
+        if not line or line.startswith("#"):
             continue
-        src = os.path.join(src_path, fname)
-        dst = os.path.join(dst_dir, fname.replace(".list", ".yaml"))
+        if not RULESET_PATTERN.match(line):
+            raise ValueError(f"{path}: unsupported rule for classical provider: {line}")
+        rules.append(line)
+    return rules
 
-        with open(src, encoding="utf-8") as f:
-            lines = [l.strip() for l in f if l.strip() and not l.startswith("#")]
 
-        bad = [l for l in lines if not RULESET_PATTERN.match(l)]
-        if bad:
-            print(f"  WARNING: {fname} has {len(bad)} malformed rules: {bad[:3]}...")
-            lines = [l for l in lines if RULESET_PATTERN.match(l)]
+def render_provider(rules):
+    lines = ["payload:"]
+    for rule in rules:
+        escaped = rule.replace("\\", "\\\\").replace('"', '\\"')
+        lines.append(f'  - "{escaped}"')
+    return "\n".join(lines) + "\n"
 
-        if CHECK_MODE:
-            if os.path.exists(dst):
-                with open(dst, encoding="utf-8") as f:
-                    old_payload = set(
-                        l.strip().strip('"').strip('- ')
-                        for l in f if l.strip().startswith("-")
-                    )
-                new_payload = set(lines)
-                added = new_payload - old_payload
-                removed = old_payload - new_payload
-                if added or removed:
-                    print(f"  DIFF {fname}: +{len(added)} -{len(removed)}")
-                    all_files_ok = False
-            else:
-                print(f"  MISSING: {dst}")
-                all_files_ok = False
+
+def parse_provider(text):
+    payload = []
+    for raw_line in text.splitlines():
+        line = raw_line.strip()
+        if not line.startswith("- "):
+            continue
+        value = line[2:].strip()
+        if len(value) >= 2 and value[0] == value[-1] == '"':
+            value = value[1:-1].replace('\\"', '"').replace("\\\\", "\\")
+        payload.append(value)
+    return payload
+
+
+def iter_source_files(source_dirs):
+    for source_dir in source_dirs:
+        if not source_dir.is_dir():
+            continue
+        yield from (path for path in sorted(source_dir.glob("*.list")) if path.name not in SOURCE_ONLY_FILES)
+
+
+def display_path(path):
+    try:
+        return path.relative_to(REPO_ROOT)
+    except ValueError:
+        return path
+
+
+def run(source_dirs, output_dir, check=False):
+    differences = 0
+    for source in iter_source_files(source_dirs):
+        destination = output_dir / source.with_suffix(".yaml").name
+        rules = read_rules(source)
+
+        if check:
+            if not destination.is_file():
+                print(f"MISSING: {display_path(destination)}")
+                differences += 1
+                continue
+            existing = parse_provider(destination.read_text(encoding="utf-8"))
+            if existing != rules:
+                print(f"DIFF: {source.name}")
+                differences += 1
             continue
 
-        with open(dst, "w", encoding="utf-8") as f:
-            f.write("payload:\n")
-            for rule in lines:
-                escaped = rule.replace("\\", "\\\\").replace('"', '\\"')
-                f.write(f'  - "{escaped}"\n')
-            f.write("\n")
+        output_dir.mkdir(parents=True, exist_ok=True)
+        destination.write_text(render_provider(rules), encoding="utf-8")
+        print(f"{source.name} -> {display_path(destination)} ({len(rules)} rules)")
 
-        print(f"  {fname} -> {os.path.relpath(dst, BASE_DIR)} ({len(lines)} rules)")
+    return differences
 
-if CHECK_MODE and not all_files_ok:
-    sys.exit(1)
+
+def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument(
+        "--source",
+        action="append",
+        dest="sources",
+        help="Repository-relative source directory; repeat for multiple directories.",
+    )
+    parser.add_argument("--output-dir", default="providers")
+    parser.add_argument("--check", action="store_true", help="Compare only; never create or modify files.")
+    args = parser.parse_args()
+
+    source_dirs = [REPO_ROOT / source for source in (args.sources or DEFAULT_SOURCES)]
+    differences = run(source_dirs, REPO_ROOT / args.output_dir, check=args.check)
+    if differences:
+        sys.exit(1)
+
+
+if __name__ == "__main__":
+    main()

@@ -13,3 +13,6 @@
 # Python
 __pycache__/
 *.py[cod]
+
+# Locally generated Mihomo rule-providers
+providers/

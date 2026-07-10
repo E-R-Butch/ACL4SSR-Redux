@@ -1,5 +1,8 @@
 # 代理列表
-# 上半段为手工维护补充，下半段为官方 GFWList 同步产物
+# 由 ProxyManual.list 与官方 GFWList 构建
+
+# 仅包含人工维护的代理补充规则
+# ProxyGFWlist.list 由本文件与官方 GFWList 自动合并生成
 
 # 手工维护：通用代理站点
 DOMAIN-SUFFIX,openzlib.link
@@ -100,15 +103,15 @@ IP-CIDR,18.194.0.0/15,no-resolve
 IP-CIDR,34.224.0.0/12,no-resolve
 IP-CIDR,50.22.198.204/30,no-resolve
 IP-CIDR,54.242.0.0/15,no-resolve
-IP-CIDR,69.171.235.0/16,no-resolve
-IP-CIDR,75.126.150.0/16,no-resolve
-IP-CIDR,108.168.174.0/16,no-resolve
+IP-CIDR,69.171.0.0/16,no-resolve
+IP-CIDR,75.126.0.0/16,no-resolve
+IP-CIDR,108.168.0.0/16,no-resolve
 IP-CIDR,158.85.5.192/27,no-resolve
 IP-CIDR,158.85.46.128/27,no-resolve
 IP-CIDR,158.85.224.160/27,no-resolve
 IP-CIDR,173.192.222.160/27,no-resolve
 IP-CIDR,173.192.231.32/27,no-resolve
-IP-CIDR,174.37.243.0/16,no-resolve
+IP-CIDR,174.37.0.0/16,no-resolve
 IP-CIDR,208.43.122.128/27,no-resolve
 
 # 手工维护：Google 系域名与网段
@@ -155,7 +158,7 @@ IP-CIDR,108.160.165.9/32,no-resolve
 DOMAIN-SUFFIX,makerworld.com
 
 # 官方同步：GFWList 产物
-# 这一段由脚本生成，尽量不要手工改动
+# 这一段由脚本生成，请勿手工修改
 DOMAIN,0rz.tw
 DOMAIN,8-d.com
 DOMAIN,85cc.us

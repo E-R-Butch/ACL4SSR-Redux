@@ -1,9 +1,16 @@
-name: Daily Rule Sync & Build
+name: Daily Rule Sync And Build
 
 on:
   schedule:
-    - cron: '0 0 * * *' # 每天北京时间 08:00 (UTC 00:00) 运行
-  workflow_dispatch: # 支持手动触发
+    - cron: '0 0 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: daily-rule-sync
+  cancel-in-progress: false
 
 jobs:
   sync_and_build:
@@ -16,27 +23,47 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: '3.10'
+          cache: pip
 
-      - name: Fetch Core Assets
+      - name: Install validation dependencies
+        run: python3 -m pip install --disable-pip-version-check -r requirements-dev.txt
+
+      - name: Check repository scope
+        run: python3 scripts/check_repo_scope.py
+
+      - name: Fetch all upstream assets
         run: python3 scripts/fetch_assets.py
 
-      - name: Guard Synced Assets
+      - name: Guard synchronized assets
         run: python3 scripts/sync_guard.py
 
-      - name: Deduplicate Rule Lists
+      - name: Deduplicate source rule lists
         run: python3 scripts/dedupe_rules.py
 
-      - name: Run Smart Build System
+      - name: Build deterministic outputs
         run: python3 -u scripts/build_rules.py
 
-      - name: Deduplicate Built Rule Lists
-        run: python3 scripts/dedupe_rules.py
+      - name: Check duplicate built rules
+        run: python3 scripts/dedupe_rules.py --check
 
-      - name: Validate Config And Rule Lists
+      - name: Run unit tests
+        run: python3 -m unittest discover -s tests -v
+
+      - name: Validate config and rule lists
         run: python3 scripts/validate_rules.py
 
-      - name: Git Auto Commit & Push
-        uses: stefanzweifel/git-auto-commit-action@v5
-        with:
-          commit_message: "chore: daily auto sync & build rules"
-          file_pattern: 'Rules/Core/*.list Rules/Ruleset/Active/*.list Rules/Ruleset/Active/China/*.list Rules/Ruleset/Active/AdBlock/*.list Rules/Outputs/*.list'
+      - name: Commit semantic rule changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add Rules/Core/*.list
+          git add Rules/Ruleset/Active/*.list
+          git add Rules/Ruleset/Active/China/*.list
+          git add Rules/Ruleset/Active/AdBlock/*.list
+          git add Rules/Outputs/*.list
+          if git diff --cached --quiet; then
+            echo "No semantic rule changes detected."
+            exit 0
+          fi
+          git commit -m "chore: daily auto sync and build rules"
+          git push

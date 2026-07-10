@@ -1,0 +1,42 @@
+name: Validate Rules And Config
+
+on:
+  pull_request:
+  push:
+    branches:
+      - master
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+          cache: pip
+
+      - name: Install validation dependencies
+        run: python3 -m pip install --disable-pip-version-check -r requirements-dev.txt
+
+      - name: Check repository scope
+        run: python3 scripts/check_repo_scope.py
+
+      - name: Check Python syntax
+        run: python3 -m compileall -q scripts tests
+
+      - name: Run unit tests
+        run: python3 -m unittest discover -s tests -v
+
+      - name: Check duplicate rules
+        run: python3 scripts/dedupe_rules.py --check
+
+      - name: Validate config and rule lists
+        run: python3 scripts/validate_rules.py

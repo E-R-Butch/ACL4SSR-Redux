@@ -6,13 +6,28 @@
 
 ---
 
+## 项目边界
+
+本仓库是公开的代理规则与配置仓库，只维护 ACL4SSR/subconverter 配置、Clash/Mihomo 规则、通用构建脚本和自动同步流程。
+
+以下内容不属于本项目，禁止提交到本仓库：
+
+- 代理面板、订阅后端或控制平面的配置与修复脚本
+- VPS、Xray、REALITY、SSH、Docker 或防火墙部署操作
+- 实际面板域名、服务器地址、账号、令牌、密钥或私钥
+- 绑定某个私有部署环境的模板和 provider 拆分逻辑
+
+仓库 CI 会对代码和配置目录执行边界与明显敏感信息检查。
+
+---
+
 ## ✨ 特性
 
 - 🎯 **精细分流**：按服务类型独立分组，国内直连 / 国外代理 / 媒体解锁开箱即用
 - 🤖 **AI 深度优化**：针对 OpenAI、Claude、Gemini 独立分流，支持全节点独立手动/自动切换
 - 🛡️ **Claude 防漏风控**：Claude 组强制禁直连，彻底杜绝因代理失效导致的真实 IP 泄露封号风险
 - 🎬 **全球媒体解锁**：对齐 `RegionRestrictionCheck` 检测颗粒度，支持主流流媒体（Netflix/Disney+/HBO/PrimeVideo）及各国地区媒体独立分流
-- 🛑 **超强去广告**：整合 ACL4SSR + ConnersHua + lhie1 三大规则源，严格去重合并，拦截效果非常好
+- 🛑 **多源去广告**：整合仓库规则与持续维护的 EasyList 系列上游，经过确定性去重和冲突处理
 - 🎮 **Steam 专项优化**：针对前台社区与后台下载三级分流，强制代理与优先直连动态结合
 - 🗺️ **智能区域路由**：自动按节点名称匹配🇭🇰港 / 🇨🇳台 / 🇸🇬新 / 🇯🇵日 / 🇺🇸美 / 🇰🇷韩，自动测速选最优
 - ✏️ **自定义直连表**：`CustomDirect.list` 优先级最高，可随时追加你自己的直连域名
@@ -32,23 +47,25 @@ Legacy/
 
 ```text
 Rules/
-├── Core/                # 核心翻墙及直连代理规则 (CustomDirect, ProxyGFWlist 等)
+├── Core/                # 核心直连、代理规则和 GFWList 人工补充源
 ├── Ruleset/
 │   ├── Active/          # 当前主配置和构建链路真正使用的规则
 │   ├── Inactive/        # 保留但未接线的专题规则
 │   ├── Active/China/    # 中国直连相关基础规则
 │   └── Active/AdBlock/  # 广告与隐私原料规则
-└── Outputs/             # 加工后的成品列表 (如三源深度去重合并的 MergedADBan)
+└── Outputs/             # 广告与隐私成品列表（MergedADBan / MergedPrivacy）
 ```
 
 ```text
 scripts/
-├── fetch_assets.py      # 同步 GFWList / China / AdBlock 上游数据
-├── build_rules.py       # 合并广告规则并输出 MergedADBan.list
+├── fetch_assets.py      # 事务式同步 GFWList / China / AdBlock 上游数据
+├── build_rules.py       # 可复现地构建广告和隐私成品规则
 ├── sync_guard.py        # 自动同步后的轻量护栏，拦截空文件/异常小文件/错误页
 ├── dedupe_rules.py      # 去除 .list 文件内重复有效规则
 ├── audit_rules.py       # 可选手动审计：跨文件重复、覆盖关系、私有规则泄漏等
-└── validate_rules.py    # 校验主配置引用和 .list 基础格式
+├── validate_rules.py    # 校验配置引用、YAML、规则类型和 CIDR 语义
+├── check_repo_scope.py  # 阻止部署代码和明显敏感信息进入公开仓库
+└── list_to_yaml.py      # 通用 Mihomo classical rule-provider 转换工具
 ```
 
 ---
@@ -69,7 +86,7 @@ https://raw.githubusercontent.com/E-R-Butch/ACL4SSR-Neo/master/Config/ACL4SSR_On
 
 ## 🛠️ 维护与自动同步
 
-每日同步会先拉取上游规则，再通过 `sync_guard.py` 做轻量护栏检查，避免空文件、异常小文件或 HTML 错误页被自动提交。构建完成后会继续执行去重与基础格式校验。
+PR 和推送会运行只读 CI，检查仓库边界、单元测试、重复规则、配置引用、YAML、规则类型和 CIDR。每日同步会完整拉取全部上游数据，任一强制来源失败即停止；全部转换成功后才替换正式文件，再执行护栏、构建和校验。无规则语义变化时不会创建自动提交。
 
 如需更深入地排查规则质量，可手动运行 `python3 scripts/audit_rules.py`。该工具默认只输出报告，不参与每日 CI；需要让发现项返回失败状态时，可加 `--strict`。
 
@@ -102,7 +119,8 @@ https://raw.githubusercontent.com/E-R-Butch/ACL4SSR-Neo/master/Config/ACL4SSR_On
 | 🎮 游戏直连 | select | DIRECT | Steam 下载、Epic、Uplay、暴雪、PlayStation 等可直连平台域名 |
 | Ⓜ️ 微软云盘 | select | DIRECT | OneDrive 专用分组 |
 | 🍎 苹果服务 | select | DIRECT | Apple 相关服务 |
-| 🛑 广告拦截 | select | REJECT | 三方合并超强去广告 |
+| 🛑 广告拦截 | select | REJECT | 多源合并广告规则 |
+| 🔒 隐私保护 | select | REJECT-DROP | 隐私追踪与设备遥测拦截 |
 | 🎯 全球直连 | select | DIRECT | 国内 / 自定义直连 |
 | 🐟 漏网之鱼 | select | DIRECT | 未匹配规则兜底 |
 | 🇭🇰/🇨🇳/🇸🇬/🇯🇵/🇺🇸/🇰🇷 节点 | url-test | — | 按地区名自动归类的测速组 |

@@ -1,0 +1,155 @@
+# 仅包含人工维护的代理补充规则
+# ProxyGFWlist.list 由本文件与官方 GFWList 自动合并生成
+
+# 手工维护：通用代理站点
+DOMAIN-SUFFIX,openzlib.link
+DOMAIN-SUFFIX,servarr.com
+DOMAIN-SUFFIX,ssl-images-amazon.com
+DOMAIN-SUFFIX,cloudflare.com
+DOMAIN-SUFFIX,infinitynewtab.com
+DOMAIN-SUFFIX,1password.com
+DOMAIN-SUFFIX,bit.no.com
+DOMAIN-SUFFIX,btlibrary.me
+DOMAIN-SUFFIX,cccat.io
+DOMAIN-SUFFIX,clashverge.dev
+DOMAIN-SUFFIX,cloudcone.com
+DOMAIN-SUFFIX,gameloft.com
+DOMAIN-SUFFIX,darkreader.org
+DOMAIN-SUFFIX,hcaptcha.com
+DOMAIN-SUFFIX,inoreader.com
+DOMAIN-SUFFIX,ip138.com
+DOMAIN-SUFFIX,jscrambler.com
+DOMAIN-SUFFIX,nube.sh
+DOMAIN-SUFFIX,ping.pe
+DOMAIN-SUFFIX,reddit.com
+DOMAIN-SUFFIX,stripe.com
+DOMAIN-SUFFIX,stripe.network
+DOMAIN-SUFFIX,teddysun.com
+DOMAIN-SUFFIX,tumbex.com
+DOMAIN-SUFFIX,twdvd.com
+DOMAIN-SUFFIX,unsplash.com
+DOMAIN-SUFFIX,xn--i2ru8q2qg.com
+DOMAIN-SUFFIX,yunpanjingling.com
+
+# 手工维护：通用代理关键字
+DOMAIN-KEYWORD,1e100
+DOMAIN-KEYWORD,abema
+DOMAIN-KEYWORD,appledaily
+DOMAIN-KEYWORD,avtb
+DOMAIN-KEYWORD,beetalk
+DOMAIN-KEYWORD,blogspot
+DOMAIN-KEYWORD,dropbox
+DOMAIN-KEYWORD,facebook
+DOMAIN-KEYWORD,fbcdn
+DOMAIN-KEYWORD,github
+DOMAIN-KEYWORD,gmail
+DOMAIN-KEYWORD,google
+DOMAIN-KEYWORD,instagram
+DOMAIN-KEYWORD,porn
+DOMAIN-KEYWORD,sci-hub
+DOMAIN-KEYWORD,spotify
+DOMAIN-KEYWORD,telegram
+DOMAIN-KEYWORD,twitter
+DOMAIN-KEYWORD,whatsapp
+DOMAIN-KEYWORD,youtube
+
+# 手工维护：Meta 系服务与网段
+DOMAIN-SUFFIX,fbcdn.com
+IP-CIDR,31.13.24.0/21,no-resolve
+IP-CIDR,31.13.64.0/18,no-resolve
+IP-CIDR,45.64.40.0/22,no-resolve
+IP-CIDR,66.220.144.0/20,no-resolve
+IP-CIDR,69.63.176.0/20,no-resolve
+IP-CIDR,69.171.224.0/19,no-resolve
+IP-CIDR,74.119.76.0/22,no-resolve
+IP-CIDR,103.4.96.0/22,no-resolve
+IP-CIDR,129.134.0.0/17,no-resolve
+IP-CIDR,157.240.0.0/17,no-resolve
+IP-CIDR,173.252.64.0/18,no-resolve
+IP-CIDR,179.60.192.0/22,no-resolve
+IP-CIDR,184.173.128.0/17,no-resolve
+IP-CIDR,185.60.216.0/22,no-resolve
+IP-CIDR,204.15.20.0/22,no-resolve
+IP-CIDR6,2a03:2880::/32,no-resolve
+
+# 手工维护：KakaoTalk
+DOMAIN-SUFFIX,kakao.co.kr
+DOMAIN-SUFFIX,kakaocdn.net
+IP-CIDR,1.201.0.0/24,no-resolve
+IP-CIDR,27.0.236.0/22,no-resolve
+IP-CIDR,103.27.148.0/22,no-resolve
+IP-CIDR,103.246.56.0/22,no-resolve
+IP-CIDR,110.76.140.0/22,no-resolve
+IP-CIDR,113.61.104.0/22,no-resolve
+
+# 手工维护：LINE
+DOMAIN-SUFFIX,lin.ee
+DOMAIN-SUFFIX,line-cdn.net
+DOMAIN-SUFFIX,nhncorp.jp
+IP-CIDR,103.2.28.0/24,no-resolve
+IP-CIDR,103.2.30.0/23,no-resolve
+IP-CIDR,119.235.224.0/24,no-resolve
+IP-CIDR,119.235.232.0/24,no-resolve
+IP-CIDR,119.235.235.0/24,no-resolve
+IP-CIDR,119.235.236.0/23,no-resolve
+IP-CIDR,147.92.128.0/17,no-resolve
+IP-CIDR,203.104.128.0/19,no-resolve
+
+# 手工维护：WhatsApp
+IP-CIDR,18.194.0.0/15,no-resolve
+IP-CIDR,34.224.0.0/12,no-resolve
+IP-CIDR,50.22.198.204/30,no-resolve
+IP-CIDR,54.242.0.0/15,no-resolve
+IP-CIDR,69.171.0.0/16,no-resolve
+IP-CIDR,75.126.0.0/16,no-resolve
+IP-CIDR,108.168.0.0/16,no-resolve
+IP-CIDR,158.85.5.192/27,no-resolve
+IP-CIDR,158.85.46.128/27,no-resolve
+IP-CIDR,158.85.224.160/27,no-resolve
+IP-CIDR,173.192.222.160/27,no-resolve
+IP-CIDR,173.192.231.32/27,no-resolve
+IP-CIDR,174.37.0.0/16,no-resolve
+IP-CIDR,208.43.122.128/27,no-resolve
+
+# 手工维护：Google 系域名与网段
+DOMAIN-SUFFIX,app-measurement.net
+DOMAIN-SUFFIX,gstatic.cn
+DOMAIN-SUFFIX,gvt0.com
+IP-CIDR,74.125.0.0/16,no-resolve
+IP-CIDR,142.250.0.0/15,no-resolve
+IP-CIDR,173.194.0.0/16,no-resolve
+IP-CIDR6,2607:f8b0::/32,no-resolve
+
+# 手工维护：成人内容站点
+DOMAIN-SUFFIX,8teenxxx.com
+DOMAIN-SUFFIX,ahcdn.com
+DOMAIN-SUFFIX,bcvcdn.com
+DOMAIN-SUFFIX,bongacams.com
+DOMAIN-SUFFIX,dditscdn.com
+DOMAIN-SUFFIX,livejasmin.com
+DOMAIN-SUFFIX,rdtcdn.com
+DOMAIN-SUFFIX,redtube.com
+DOMAIN-SUFFIX,sb-cd.com
+DOMAIN-SUFFIX,xnxx-cdn.com
+DOMAIN-SUFFIX,ypncdn.com
+
+# 手工维护：Instagram 补充
+DOMAIN-SUFFIX,instagr.am
+
+# 手工维护：社区、协作与内容平台
+DOMAIN-SUFFIX,box.com
+DOMAIN-SUFFIX,disquscdn.com
+DOMAIN-SUFFIX,fastmail.com
+DOMAIN-SUFFIX,licdn.com
+DOMAIN-SUFFIX,macrumors.com
+DOMAIN-SUFFIX,nintendo.net
+DOMAIN-SUFFIX,slack-edge.com
+DOMAIN-SUFFIX,tumblr.co
+DOMAIN-SUFFIX,txmblr.com
+
+# 手工维护：GitHub 与 Dropbox 裸 IP
+IP-CIDR,20.205.243.166/32,no-resolve
+IP-CIDR,108.160.165.9/32,no-resolve
+
+# 手工维护：MakerWorld 国际站
+DOMAIN-SUFFIX,makerworld.com

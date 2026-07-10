@@ -1,7 +1,6 @@
 # 广告列表 adblock rules
 # 内容：EasyListChina列表，只包含ABP中的 EasyListChina 内容
 # 来源：https://easylist-downloads.adblockplus.org/easylistchina.txt
-# 更新：2026-07-09 02:49:21
 # 数量：6009条
 
 DOMAIN-SUFFIX,003store.com

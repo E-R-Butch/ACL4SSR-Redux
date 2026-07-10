@@ -27,7 +27,9 @@
   - 开发 Python 构建程序，负责 `Ruleset/Active/AdBlock -> Outputs` 的流水线加工。
   - 实现多源广告列表的去重、冲突检测与合并算法。
 - [x] **代码规范与 CI 校验**：
-  - 引入 Linter 对 `.list` 和 `.ini` 进行语法检查，防止 subconverter 转换失败。
+  - [x] 对 PR、Push、手动任务和每日同步执行自动校验。
+  - [x] 校验 `.list`、`.ini`、YAML、CIDR、本仓库引用和项目边界。
+  - [x] 为构建、同步转换和 provider 转换增加单元测试。
 
 ---
 

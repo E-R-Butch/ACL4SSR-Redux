@@ -13,12 +13,15 @@ https://raw.githubusercontent.com/E-R-Butch/ACL4SSR-Neo/master/Config/ACL4SSR_On
 
 `ACL4SSR-Neo` 现在是一个面向订阅转换与代理内核生态的规则仓库，当前主要适配 `Clash / Mihomo`。
 
+本仓库只维护公开规则、配置和通用构建工具，不承载代理面板、服务器、节点、账号、密钥或其他实际部署内容。
+
 仓库当前重点是：
 
 - 提供可直接用于订阅转换的远程配置
 - 维护核心代理、直连、服务分流规则
 - 自动同步上游基础数据
 - 自动合并广告规则并输出成品列表
+- 在 PR、Push 和每日同步中执行自动校验
 
 本文不再讨论早期已经放弃的 `ACL` 兼容路线，也不再把旧项目历史作为主要使用说明。
 
@@ -50,8 +53,8 @@ https://raw.githubusercontent.com/E-R-Butch/ACL4SSR-Neo/master/Config/ACL4SSR_On
 
 `scripts`
 
-- 自动同步、构建、校验脚本
-- 当前主要包括 `fetch_assets.py`、`build_rules.py`、`validate_rules.py`
+- 自动同步、构建、校验和公开仓库边界检查脚本
+- 通用 provider 转换由 `list_to_yaml.py` 提供，不绑定任何私有部署平台
 
 
 ## 3. 当前自动化状态
@@ -70,10 +73,15 @@ https://raw.githubusercontent.com/E-R-Butch/ACL4SSR-Neo/master/Config/ACL4SSR_On
 当前会自动构建：
 
 - `Rules/Outputs/MergedADBan.list`
+- `Rules/Outputs/MergedPrivacy.list`
 
 当前会自动校验：
 
 - 主配置里的规则组引用是否一致
+- 本仓库 Raw 引用对应的文件是否存在
+- 基础模板 YAML 是否可解析
+- CIDR 是否规范且地址族正确
+- 是否混入部署代码或明显敏感信息
 - `.list` 文件是否为空
 - `.list` 文件是否满足基础格式要求
 
@@ -101,7 +109,7 @@ https://raw.githubusercontent.com/E-R-Butch/ACL4SSR-Neo/master/Config/ACL4SSR_On
 
 它的组成方式是：
 
-- 仓库里手工维护的头部规则
+- `Rules/Core/ProxyManual.list` 中单独维护的人工补充规则
 - 自动同步的官方 `gfwlist`
 
 如果你要跟随仓库当前主工作流，优先使用 `ProxyGFWlist.list`，不再以 `ProxyLite` 作为主推荐入口。
@@ -141,6 +149,7 @@ https://raw.githubusercontent.com/E-R-Butch/ACL4SSR-Neo/master/Config/ACL4SSR_On
 产物层：
 
 - `MergedADBan.list`
+- `MergedPrivacy.list`（隐私追踪规则独立产物）
 
 日常使用建议：
 

@@ -17,6 +17,10 @@ PRIVATE_ALLOWED_FILES = {
     pathlib.Path("Rules/Core/LocalAreaNetwork.list"),
 }
 
+SOURCE_ONLY_FILES = {
+    pathlib.Path("Rules/Core/ProxyManual.list"),
+}
+
 PRIVATE_DOMAIN_SUFFIXES = (
     ".lan",
     ".local",
@@ -45,7 +49,9 @@ def iter_list_files():
     for list_dir in LIST_DIRS:
         if not list_dir.exists():
             continue
-        yield from sorted(list_dir.rglob("*.list"))
+        for path in sorted(list_dir.rglob("*.list")):
+            if path.relative_to(REPO_ROOT) not in SOURCE_ONLY_FILES:
+                yield path
 
 
 def parse_rule(raw_line):
