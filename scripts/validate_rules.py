@@ -43,7 +43,7 @@ ALLOWED_RULE_TOKENS = {
     "USER-AGENT",
 }
 GROUP_REF_RE = re.compile(r"\[\]([^`\n]+)")
-REPO_RAW_PREFIX = "/E-R-Butch/ACL4SSR-Neo/master/"
+REPO_RAW_PREFIX = "/E-R-Butch/ACL4SSR-Redux/master/"
 BLOCKED_RULES = {"DOMAIN,disabled.invalid,REJECT"}
 PRIVATE_NETWORKS = tuple(
     ipaddress.ip_network(value)

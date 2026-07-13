@@ -34,7 +34,7 @@ ABP_METADATA = {
 }
 REQUEST_TIMEOUT = 30
 REQUEST_ATTEMPTS = 3
-USER_AGENT = "ACL4SSR-Neo-Rules-Sync/1.0 (+https://github.com/E-R-Butch/ACL4SSR-Neo)"
+USER_AGENT = "ACL4SSR-Neo-Rules-Sync/1.0 (+https://github.com/E-R-Butch/ACL4SSR-Redux)"
 
 
 def log(message):

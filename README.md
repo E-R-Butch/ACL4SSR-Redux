@@ -80,7 +80,7 @@ scripts/
 将以下地址作为「远程配置」粘贴到转换面板的配置文件栏：
 
 ```text
-https://raw.githubusercontent.com/E-R-Butch/ACL4SSR-Neo/master/Config/ACL4SSR_Online_Full.ini
+https://raw.githubusercontent.com/E-R-Butch/ACL4SSR-Redux/master/Config/ACL4SSR_Online_Full.ini
 ```
 
 然后填入你的节点订阅地址，即可生成完整 Clash 配置。
