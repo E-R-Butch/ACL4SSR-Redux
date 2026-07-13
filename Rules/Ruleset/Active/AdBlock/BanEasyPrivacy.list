@@ -1,7 +1,7 @@
 # 广告列表 adblock rules
 # 内容：EasyPrivacy列表，隐私保护，屏蔽隐私追踪
 # 来源：https://easylist-downloads.adblockplus.org/easyprivacy.txt
-# 数量：40510条
+# 数量：40514条
 
 DOMAIN-SUFFIX,0.myikas.com
 DOMAIN-SUFFIX,0.net.easyjet.com
@@ -5279,6 +5279,7 @@ DOMAIN-SUFFIX,analytics.idfnet.net
 DOMAIN-SUFFIX,analytics.ifanrusercontent.com
 DOMAIN-SUFFIX,analytics.ihg.com
 DOMAIN-SUFFIX,analytics.ikyu.com
+DOMAIN-SUFFIX,analytics.infraloods.nl
 DOMAIN-SUFFIX,analytics.inquisitr.com
 DOMAIN-SUFFIX,analytics.iraiser.eu
 DOMAIN-SUFFIX,analytics.ishopchangi.com
@@ -24158,6 +24159,7 @@ DOMAIN-SUFFIX,phsmobile.actonservice.com
 DOMAIN-SUFFIX,phvylw.beurer-shop.de
 DOMAIN-SUFFIX,phyins.actonservice.com
 DOMAIN-SUFFIX,pi.ispot.tv
+DOMAIN-SUFFIX,pi.pdfjs.express
 DOMAIN-SUFFIX,pi.technik3d.com
 DOMAIN-SUFFIX,pibhjs.dongsuhfurniture.co.kr
 DOMAIN-SUFFIX,picarro.actonservice.com
@@ -25352,6 +25354,7 @@ DOMAIN-SUFFIX,research.gartner.com
 DOMAIN-SUFFIX,research.insidesales.com
 DOMAIN-SUFFIX,research.leads360.com
 DOMAIN-SUFFIX,research.velocify.com
+DOMAIN-SUFFIX,researchlog.dbresearch.com
 DOMAIN-SUFFIX,resetpassword.surepetcare.io
 DOMAIN-SUFFIX,resolution.taxdefensenetwork.com
 DOMAIN-SUFFIX,resolver.msg.global.xiaomi.net.iberostar.com
@@ -37448,6 +37451,7 @@ DOMAIN-SUFFIX,trklink.luisaviaroma.com
 DOMAIN-SUFFIX,trkn.us
 DOMAIN-SUFFIX,trkpzz.dcinside.com
 DOMAIN-SUFFIX,trkr.shoppingminds.net
+DOMAIN-SUFFIX,trkweb.clinch.co
 DOMAIN-SUFFIX,trovo-tag.com
 DOMAIN-SUFFIX,trpzjj.hrkgame.com
 DOMAIN-SUFFIX,tru.am
