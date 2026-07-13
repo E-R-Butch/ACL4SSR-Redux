@@ -1,0 +1,181 @@
+proxy-groups:
+  - name: 🚀 节点选择
+    type: select
+    proxies:
+{{ main_choices | yaml | indent(6, true) }}
+  - name: ♻️ 自动选择
+    type: url-test
+    url: https://www.gstatic.com/generate_204
+    interval: 300
+    proxies:
+{{ all_proxies | yaml | indent(6, true) }}
+  - name: 🚀 手动切换
+    type: select
+    proxies:
+{{ all_proxies | yaml | indent(6, true) }}
+  - name: 🤖 OpenAI
+    type: select
+    proxies:
+{{ general_choices | yaml | indent(6, true) }}
+  - name: 🎭 Claude
+    type: select
+    proxies:
+{{ claude_choices | yaml | indent(6, true) }}
+  - name: 🧠 Gemini
+    type: select
+    proxies:
+{{ general_choices | yaml | indent(6, true) }}
+  - name: 🚀 Grok
+    type: select
+    proxies:
+{{ general_choices | yaml | indent(6, true) }}
+  - name: 📲 电报消息
+    type: select
+    proxies:
+{{ general_choices | yaml | indent(6, true) }}
+  - name: 📹 油管视频
+    type: select
+    proxies:
+{{ general_choices | yaml | indent(6, true) }}
+  - name: 🎥 奈飞视频
+    type: select
+    proxies:
+{{ general_choices | yaml | indent(6, true) }}
+  - name: 🎬 迪士尼+
+    type: select
+    proxies:
+{{ general_choices | yaml | indent(6, true) }}
+  - name: 🎥 HBO Max
+    type: select
+    proxies:
+{{ general_choices | yaml | indent(6, true) }}
+  - name: 🎬 亚马逊视频
+    type: select
+    proxies:
+{{ general_choices | yaml | indent(6, true) }}
+  - name: 🎼 海外音乐平台
+    type: select
+    proxies:
+{{ general_choices | yaml | indent(6, true) }}
+  - name: 🇭🇰 香港媒体
+    type: select
+    proxies:
+{{ hk_media_choices | yaml | indent(6, true) }}
+  - name: 🇨🇳 台湾媒体
+    type: select
+    proxies:
+{{ tw_media_choices | yaml | indent(6, true) }}
+  - name: 🇯🇵 日本媒体
+    type: select
+    proxies:
+{{ jp_media_choices | yaml | indent(6, true) }}
+  - name: 🇰🇷 韩国媒体
+    type: select
+    proxies:
+{{ kr_media_choices | yaml | indent(6, true) }}
+  - name: 🇺🇸 北美媒体
+    type: select
+    proxies:
+{{ us_media_choices | yaml | indent(6, true) }}
+  - name: 🌍 国外媒体
+    type: select
+    proxies:
+{{ general_choices | yaml | indent(6, true) }}
+  - name: 🌏 国内媒体
+    type: select
+    proxies:
+{{ direct_choices | yaml | indent(6, true) }}
+  - name: 📢 谷歌FCM
+    type: select
+    proxies:
+{{ direct_choices | yaml | indent(6, true) }}
+  - name: Ⓜ️ 微软云盘
+    type: select
+    proxies:
+{{ direct_choices | yaml | indent(6, true) }}
+  - name: 🍎 苹果服务
+    type: select
+    proxies:
+{{ direct_choices | yaml | indent(6, true) }}
+  - name: 🎮 游戏代理
+    type: select
+    proxies:
+{{ general_choices | yaml | indent(6, true) }}
+  - name: 🎮 游戏直连
+    type: select
+    proxies:
+{{ direct_choices | yaml | indent(6, true) }}
+  - name: 🎯 全球直连
+    type: select
+    proxies:
+{{ direct_choices | yaml | indent(6, true) }}
+  - name: 🛑 广告拦截
+    type: select
+    proxies:
+      - REJECT
+      - DIRECT
+  - name: 🔒 隐私保护
+    type: select
+    proxies:
+      - REJECT
+      - DIRECT
+  - name: 🐟 漏网之鱼
+    type: select
+    proxies:
+{{ final_choices | yaml | indent(6, true) }}
+{% if regions.de %}
+  - name: 🇩🇪 德国节点
+    type: url-test
+    url: https://www.gstatic.com/generate_204
+    interval: 300
+    proxies:
+{{ regions.de | yaml | indent(6, true) }}
+{% endif %}
+{% if regions.jp %}
+  - name: 🇯🇵 日本节点
+    type: url-test
+    url: https://www.gstatic.com/generate_204
+    interval: 300
+    proxies:
+{{ regions.jp | yaml | indent(6, true) }}
+{% endif %}
+{% if regions.us %}
+  - name: 🇺🇸 美国节点
+    type: url-test
+    url: https://www.gstatic.com/generate_204
+    interval: 300
+    proxies:
+{{ regions.us | yaml | indent(6, true) }}
+{% endif %}
+{% if regions.hk %}
+  - name: 🇭🇰 香港节点
+    type: url-test
+    url: https://www.gstatic.com/generate_204
+    interval: 300
+    proxies:
+{{ regions.hk | yaml | indent(6, true) }}
+{% endif %}
+{% if regions.tw %}
+  - name: 🇨🇳 台湾节点
+    type: url-test
+    url: https://www.gstatic.com/generate_204
+    interval: 300
+    proxies:
+{{ regions.tw | yaml | indent(6, true) }}
+{% endif %}
+{% if regions.sg %}
+  - name: 🇸🇬 狮城节点
+    type: url-test
+    url: https://www.gstatic.com/generate_204
+    interval: 300
+    proxies:
+{{ regions.sg | yaml | indent(6, true) }}
+{% endif %}
+{% if regions.kr %}
+  - name: 🇰🇷 韩国节点
+    type: url-test
+    url: https://www.gstatic.com/generate_204
+    interval: 300
+    proxies:
+{{ regions.kr | yaml | indent(6, true) }}
+{% endif %}

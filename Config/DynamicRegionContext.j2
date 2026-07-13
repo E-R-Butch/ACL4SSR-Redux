@@ -1,0 +1,47 @@
+{% set all_proxies = proxy_remarks %}
+{% set regions = namespace(de=[], jp=[], us=[], hk=[], tw=[], sg=[], kr=[]) %}
+{% for proxy in all_proxies %}
+{% set proxy_l = proxy | lower %}
+{% set proxy_words = " " ~ (proxy_l | replace("-", " ") | replace("_", " ")) ~ " " %}
+{% if "德国" in proxy or "德國" in proxy or "germany" in proxy_l or "german" in proxy_l or " de " in proxy_words %}
+{% set regions.de = regions.de + [proxy] %}
+{% endif %}
+{% if "日本" in proxy or "japan" in proxy_l or proxy_l.startswith("jp") or " jp " in proxy_words %}
+{% set regions.jp = regions.jp + [proxy] %}
+{% endif %}
+{% if "美国" in proxy or "美國" in proxy or "united states" in proxy_l or "usa" in proxy_l or proxy_l.startswith("us") or " us " in proxy_words %}
+{% set regions.us = regions.us + [proxy] %}
+{% endif %}
+{% if "香港" in proxy or "hong kong" in proxy_l or proxy_l.startswith("hk") or " hk " in proxy_words %}
+{% set regions.hk = regions.hk + [proxy] %}
+{% endif %}
+{% if "台湾" in proxy or "台灣" in proxy or "taiwan" in proxy_l or proxy_l.startswith("tw") or " tw " in proxy_words %}
+{% set regions.tw = regions.tw + [proxy] %}
+{% endif %}
+{% if "新加坡" in proxy or "狮城" in proxy or "獅城" in proxy or "singapore" in proxy_l or proxy_l.startswith("sg") or " sg " in proxy_words %}
+{% set regions.sg = regions.sg + [proxy] %}
+{% endif %}
+{% if "韩国" in proxy or "韓國" in proxy or "korea" in proxy_l or proxy_l.startswith("kr") or " kr " in proxy_words %}
+{% set regions.kr = regions.kr + [proxy] %}
+{% endif %}
+{% endfor %}
+
+{% set available = namespace(groups=[]) %}
+{% if regions.de %}{% set available.groups = available.groups + ["🇩🇪 德国节点"] %}{% endif %}
+{% if regions.jp %}{% set available.groups = available.groups + ["🇯🇵 日本节点"] %}{% endif %}
+{% if regions.us %}{% set available.groups = available.groups + ["🇺🇸 美国节点"] %}{% endif %}
+{% if regions.hk %}{% set available.groups = available.groups + ["🇭🇰 香港节点"] %}{% endif %}
+{% if regions.tw %}{% set available.groups = available.groups + ["🇨🇳 台湾节点"] %}{% endif %}
+{% if regions.sg %}{% set available.groups = available.groups + ["🇸🇬 狮城节点"] %}{% endif %}
+{% if regions.kr %}{% set available.groups = available.groups + ["🇰🇷 韩国节点"] %}{% endif %}
+
+{% set main_choices = ["♻️ 自动选择", "🚀 手动切换", "DIRECT"] + available.groups %}
+{% set general_choices = ["🚀 节点选择", "🚀 手动切换"] + available.groups + ["DIRECT"] %}
+{% set claude_choices = ["🚀 节点选择", "🚀 手动切换"] + available.groups %}
+{% set direct_choices = ["DIRECT", "🚀 节点选择", "🚀 手动切换"] %}
+{% set final_choices = ["DIRECT", "🚀 节点选择", "♻️ 自动选择", "🚀 手动切换"] %}
+{% set hk_media_choices = ((["🇭🇰 香港节点"] if regions.hk else []) + ["🚀 节点选择", "🚀 手动切换", "DIRECT"]) %}
+{% set tw_media_choices = ((["🇨🇳 台湾节点"] if regions.tw else []) + ["🚀 节点选择", "🚀 手动切换", "DIRECT"]) %}
+{% set jp_media_choices = ((["🇯🇵 日本节点"] if regions.jp else []) + ["🚀 节点选择", "🚀 手动切换", "DIRECT"]) %}
+{% set kr_media_choices = ((["🇰🇷 韩国节点"] if regions.kr else []) + ["🚀 节点选择", "🚀 手动切换", "DIRECT"]) %}
+{% set us_media_choices = ((["🇺🇸 美国节点"] if regions.us else []) + ["🚀 节点选择", "🚀 手动切换", "DIRECT"]) %}

@@ -21,6 +21,16 @@ LIST_DIRS = [
 ]
 
 ALLOWED_SPECIAL_GROUPS = {"DIRECT", "REJECT", "REJECT-DROP"}
+REGION_GROUPS = {
+    "🇩🇪 德国节点",
+    "🇭🇰 香港节点",
+    "🇯🇵 日本节点",
+    "🇺🇸 美国节点",
+    "🇨🇳 台湾节点",
+    "🇸🇬 狮城节点",
+    "🇰🇷 韩国节点",
+}
+REGION_FALLBACK = "[]♻️ 自动选择"
 ALLOWED_RULE_TOKENS = {
     "DOMAIN",
     "DOMAIN-KEYWORD",
@@ -71,6 +81,18 @@ def parse_custom_groups(lines):
     return groups
 
 
+def parse_custom_group_definitions(lines):
+    definitions = {}
+    for line in lines:
+        if not line.startswith("custom_proxy_group="):
+            continue
+        body = line.split("=", 1)[1]
+        group_name = body.split("`", 1)[0].strip()
+        if group_name:
+            definitions[group_name] = body
+    return definitions
+
+
 def local_path_from_raw_url(value):
     parsed = urlparse(value)
     if parsed.netloc != "raw.githubusercontent.com" or not parsed.path.startswith(REPO_RAW_PREFIX):
@@ -82,6 +104,16 @@ def validate_ini(config_path):
     errors = []
     lines = config_path.read_text(encoding="utf-8").splitlines()
     groups = parse_custom_groups(lines)
+    definitions = parse_custom_group_definitions(lines)
+
+    for group_name in sorted(REGION_GROUPS):
+        definition = definitions.get(group_name)
+        if definition is None:
+            errors.append(f"{config_path} missing required region group '{group_name}'")
+        elif REGION_FALLBACK not in definition:
+            errors.append(
+                f"{config_path} region group '{group_name}' must include fallback '{REGION_FALLBACK}'"
+            )
 
     for lineno, line in enumerate(lines, start=1):
         stripped = line.strip()
