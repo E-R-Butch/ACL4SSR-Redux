@@ -1,7 +1,7 @@
 # 广告列表 adblock rules
 # 内容：EasyPrivacy列表，隐私保护，屏蔽隐私追踪
 # 来源：https://easylist-downloads.adblockplus.org/easyprivacy.txt
-# 数量：40521条
+# 数量：40527条
 
 DOMAIN-SUFFIX,0.myikas.com
 DOMAIN-SUFFIX,0.net.easyjet.com
@@ -9605,6 +9605,7 @@ DOMAIN-SUFFIX,d1k8sb4xbepqao.cloudfront.net
 DOMAIN-SUFFIX,d1l6p2sc9645hc.cloudfront.net
 DOMAIN-SUFFIX,d1m6l9dfulcyw7.cloudfront.net
 DOMAIN-SUFFIX,d1n00d49gkbray.cloudfront.net
+DOMAIN-SUFFIX,d1qmrxg9gbf226.cloudfront.net
 DOMAIN-SUFFIX,d1qnmu4nrib73p.cloudfront.net
 DOMAIN-SUFFIX,d1r27qvpjiaqj3.cloudfront.net
 DOMAIN-SUFFIX,d1r2sy6oc0ariq.cloudfront.net
@@ -9630,9 +9631,11 @@ DOMAIN-SUFFIX,d24cze5sab2jwg.cloudfront.net
 DOMAIN-SUFFIX,d24luoisenoi7j.cloudfront.net
 DOMAIN-SUFFIX,d24rtvkqjwgutp.cloudfront.net
 DOMAIN-SUFFIX,d276.ourmidland.com
+DOMAIN-SUFFIX,d27623md02evp.cloudfront.net
 DOMAIN-SUFFIX,d2cpw6kwpff7n5.cloudfront.net
 DOMAIN-SUFFIX,d2ezz24t9nm0vu.cloudfront.net
 DOMAIN-SUFFIX,d2fj3s7h83rb61.cloudfront.net
+DOMAIN-SUFFIX,d2fw3s7rfepszt.cloudfront.net
 DOMAIN-SUFFIX,d2gbtcuv3w9qyv.cloudfront.net
 DOMAIN-SUFFIX,d2gt2ux04o03l1.cloudfront.net
 DOMAIN-SUFFIX,d2i34c80a0ftze.cloudfront.net
@@ -9662,6 +9665,7 @@ DOMAIN-SUFFIX,d31y97ze264gaa.cloudfront.net
 DOMAIN-SUFFIX,d34ko97cxuv4p7.cloudfront.net
 DOMAIN-SUFFIX,d34r8q7sht0t9k.cloudfront.net
 DOMAIN-SUFFIX,d35u1vg1q28b3w.cloudfront.net
+DOMAIN-SUFFIX,d37l98t2r94go6.cloudfront.net
 DOMAIN-SUFFIX,d39ion77s0ucuz.cloudfront.net
 DOMAIN-SUFFIX,d39yds8oe4n4jq.cloudfront.net
 DOMAIN-SUFFIX,d3banl4fzuxsjl.cloudfront.net
@@ -10361,7 +10365,6 @@ DOMAIN-SUFFIX,dd.g2.com
 DOMAIN-SUFFIX,dd.garena.com
 DOMAIN-SUFFIX,dd.leboncoin.fr
 DOMAIN-SUFFIX,dd.nytimes.com
-DOMAIN-SUFFIX,dd.qwant.com
 DOMAIN-SUFFIX,dd.seloger-bureaux-commerces.com
 DOMAIN-SUFFIX,dd.seloger.com
 DOMAIN-SUFFIX,dd.selogerneuf.com
@@ -11092,6 +11095,7 @@ DOMAIN-SUFFIX,dtqcpx.eskor.se
 DOMAIN-SUFFIX,dtr-onsite-feed.datarize.ai
 DOMAIN-SUFFIX,dttrk.com
 DOMAIN-SUFFIX,dtxtngytz5im1.cloudfront.net
+DOMAIN-SUFFIX,dty0ycn35t4d2.cloudfront.net
 DOMAIN-SUFFIX,dtzrrz.green-japan.com
 DOMAIN-SUFFIX,du4rq1xqh3i1k.cloudfront.net
 DOMAIN-SUFFIX,dujgiq.trendhim.pl
@@ -14425,6 +14429,7 @@ DOMAIN-SUFFIX,heimdall.hearstapps.com
 DOMAIN-SUFFIX,hej.henriksommerfeld.se
 DOMAIN-SUFFIX,hekhnn.turnkeyvr.com
 DOMAIN-SUFFIX,helens.actonservice.com
+DOMAIN-SUFFIX,helios.g2a.com
 DOMAIN-SUFFIX,helix.bitformations.ca
 DOMAIN-SUFFIX,hello.bpost.be
 DOMAIN-SUFFIX,hello.bpost2.be
@@ -33403,6 +33408,7 @@ DOMAIN-SUFFIX,t-s.zelboraf.com
 DOMAIN-SUFFIX,t-test.esvdigital.com
 DOMAIN-SUFFIX,t.10er-tagesticket.de
 DOMAIN-SUFFIX,t.12thman.com
+DOMAIN-SUFFIX,t.2x.nz
 DOMAIN-SUFFIX,t.360.audion.fm
 DOMAIN-SUFFIX,t.360playvid.info
 DOMAIN-SUFFIX,t.91syun.com
