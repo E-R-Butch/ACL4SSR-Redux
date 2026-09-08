@@ -1,7 +1,7 @@
 # 广告列表 adblock rules
 # 内容：EasyPrivacy列表，隐私保护，屏蔽隐私追踪
 # 来源：https://easylist-downloads.adblockplus.org/easyprivacy.txt
-# 数量：40555条
+# 数量：40551条
 
 DOMAIN-SUFFIX,0.myikas.com
 DOMAIN-SUFFIX,0.net.easyjet.com
@@ -9354,7 +9354,6 @@ DOMAIN-SUFFIX,csvtr13.bmodelawaretrust.com
 DOMAIN-SUFFIX,csvtt.bmolife.com
 DOMAIN-SUFFIX,csvtu.bmolending.com
 DOMAIN-SUFFIX,csymrm.24mx.fr
-DOMAIN-SUFFIX,csyqts.tmon.co.kr
 DOMAIN-SUFFIX,ct-dev.taskhuman.com
 DOMAIN-SUFFIX,ct-errs.cartrawler.com
 DOMAIN-SUFFIX,ct.beslist.nl
@@ -10317,7 +10316,6 @@ DOMAIN-SUFFIX,dc.waylet.es
 DOMAIN-SUFFIX,dc01p-net-sslvpn0-ra.net.jumia.com.gh
 DOMAIN-SUFFIX,dc2.credit-suisse.com
 DOMAIN-SUFFIX,dc8na2hxrj29i.cloudfront.net
-DOMAIN-SUFFIX,dc8xl0ndzn2cb.cloudfront.net
 DOMAIN-SUFFIX,dcbpm.suning.cn
 DOMAIN-SUFFIX,dccfog.petco.com
 DOMAIN-SUFFIX,dcclaa.bunte.de
@@ -18478,7 +18476,6 @@ DOMAIN-SUFFIX,logapi.alza.cz
 DOMAIN-SUFFIX,logbak.hicloud.com
 DOMAIN-SUFFIX,logcollector.note.com
 DOMAIN-SUFFIX,logger-test.mno.link
-DOMAIN-SUFFIX,logger.bzu.kr
 DOMAIN-SUFFIX,logger.kataweb.it
 DOMAIN-SUFFIX,logger.nerdwallet.com
 DOMAIN-SUFFIX,logger.omio.com
@@ -25579,7 +25576,6 @@ DOMAIN-SUFFIX,rmhoffman.actonservice.com
 DOMAIN-SUFFIX,rmmskb.fnacspectacles.com
 DOMAIN-SUFFIX,rmp4.destinia.uy
 DOMAIN-SUFFIX,rmxhti.zpacks.com
-DOMAIN-SUFFIX,rnffgv.wemakeprice.com
 DOMAIN-SUFFIX,rnnstu.rentbeforeowning.com
 DOMAIN-SUFFIX,rnybul.gismeteo.lv
 DOMAIN-SUFFIX,rnybul.gismeteo.md
