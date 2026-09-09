@@ -1,5 +1,6 @@
 # Tailscale daemon underlay (dynamic DERP, STUN, and peer endpoints)
 PROCESS-NAME,tailscaled
+PROCESS-NAME,tailscaled.exe
 
 # Tailscale-operated domains (control plane, login, logs, and DERP hostnames)
 DOMAIN-SUFFIX,tailscale.com
