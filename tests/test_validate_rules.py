@@ -5,13 +5,14 @@ from scripts import validate_rules
 
 
 class ValidateRulesTests(unittest.TestCase):
-    def test_region_groups_have_nonempty_fallbacks(self):
+    def test_region_groups_fail_closed_without_global_members(self):
         lines = validate_rules.CONFIG_FILE.read_text(encoding="utf-8").splitlines()
         definitions = validate_rules.parse_custom_group_definitions(lines)
 
         for group_name in validate_rules.REGION_GROUPS:
             self.assertIn(group_name, definitions)
-            self.assertIn(validate_rules.REGION_FALLBACK, definitions[group_name])
+            selectors = validate_rules.group_selectors(definitions[group_name])
+            self.assertEqual([value for value in selectors if value.startswith("[]")], ["[]REJECT"])
 
     def test_rejects_noncanonical_network(self):
         with self.assertRaises(ValueError):

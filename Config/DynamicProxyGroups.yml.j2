@@ -21,6 +21,16 @@ proxy-groups:
     type: select
     proxies:
 {{ claude_choices | yaml | indent(6, true) }}
+  - name: 🎭 Claude 自动
+    type: url-test
+    url: https://www.gstatic.com/generate_204
+    interval: 300
+    proxies:
+{{ all_proxies | yaml | indent(6, true) }}
+  - name: 🎭 Claude 手动
+    type: select
+    proxies:
+{{ all_proxies | yaml | indent(6, true) }}
   - name: 🧠 Gemini
     type: select
     proxies:

@@ -28,6 +28,21 @@ def render_groups(proxy_remarks):
 
 
 class DynamicGroupsTests(unittest.TestCase):
+    def test_claude_has_no_transitive_direct_path(self):
+        for names in (["香港 Test", "日本 Test"], ["Unlabelled Node"], []):
+            with self.subTest(names=names):
+                config = render_groups(names)
+                groups = {group["name"]: group["proxies"] for group in config["proxy-groups"]}
+                self.assertTrue(all(groups.values()))
+                pending, visited = ["🎭 Claude"], set()
+                while pending:
+                    name = pending.pop()
+                    self.assertNotEqual(name, "DIRECT")
+                    if name in visited:
+                        continue
+                    visited.add(name)
+                    pending.extend(groups.get(name, []))
+
     def test_only_real_region_groups_are_rendered(self):
         config = render_groups(
             [

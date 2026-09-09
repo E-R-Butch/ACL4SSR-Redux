@@ -1,4 +1,4 @@
-{% set all_proxies = proxy_remarks %}
+{% set all_proxies = proxy_remarks if proxy_remarks else ["REJECT"] %}
 {% set regions = namespace(de=[], jp=[], us=[], hk=[], tw=[], sg=[], kr=[]) %}
 {% for proxy in all_proxies %}
 {% set proxy_l = proxy | lower %}
@@ -37,7 +37,7 @@
 
 {% set main_choices = ["♻️ 自动选择", "🚀 手动切换", "DIRECT"] + available.groups %}
 {% set general_choices = ["🚀 节点选择", "🚀 手动切换"] + available.groups + ["DIRECT"] %}
-{% set claude_choices = ["🚀 节点选择", "🚀 手动切换"] + available.groups %}
+{% set claude_choices = ["🎭 Claude 自动", "🎭 Claude 手动"] + available.groups %}
 {% set direct_choices = ["DIRECT", "🚀 节点选择", "🚀 手动切换"] %}
 {% set final_choices = ["DIRECT", "🚀 节点选择", "♻️ 自动选择", "🚀 手动切换"] %}
 {% set hk_media_choices = ((["🇭🇰 香港节点"] if regions.hk else []) + ["🚀 节点选择", "🚀 手动切换", "DIRECT"]) %}

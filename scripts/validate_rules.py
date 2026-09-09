@@ -30,7 +30,7 @@ REGION_GROUPS = {
     "🇸🇬 狮城节点",
     "🇰🇷 韩国节点",
 }
-REGION_FALLBACK = "[]♻️ 自动选择"
+REGION_FALLBACK = "[]REJECT"
 ALLOWED_RULE_TOKENS = {
     "DOMAIN",
     "DOMAIN-KEYWORD",
@@ -42,7 +42,6 @@ ALLOWED_RULE_TOKENS = {
     "URL-REGEX",
     "USER-AGENT",
 }
-GROUP_REF_RE = re.compile(r"\[\]([^`\n]+)")
 REPO_RAW_PREFIX = "/E-R-Butch/ACL4SSR-Redux/master/"
 BLOCKED_RULES = {"DOMAIN,disabled.invalid,REJECT"}
 PRIVATE_NETWORKS = tuple(
@@ -93,6 +92,61 @@ def parse_custom_group_definitions(lines):
     return definitions
 
 
+def group_selectors(definition):
+    """Read the plain-regex/literal selector subset used by this repository."""
+    parts = definition.split("`")
+    if len(parts) < 3:
+        raise ValueError("group is missing its type or selectors")
+    if parts[1] == "select":
+        return parts[2:]
+    if parts[1] in {"url-test", "fallback", "load-balance"}:
+        if len(parts) < 5:
+            raise ValueError("health-check group is missing selectors, URL or interval")
+        return parts[2:-2]
+    raise ValueError(f"unsupported group type '{parts[1]}'")
+
+
+def validate_proxy_only_groups(definitions, root="🎭 Claude"):
+    errors = []
+    pending = [(root, [root])]
+    visited = set()
+    while pending:
+        name, chain = pending.pop()
+        if name == "DIRECT":
+            errors.append("proxy-only group reaches DIRECT: " + " -> ".join(chain))
+            continue
+        if name in visited or name in {"REJECT", "REJECT-DROP"}:
+            continue
+        visited.add(name)
+        if name not in definitions:
+            errors.append(f"proxy-only group references missing '{name}'")
+            continue
+        try:
+            selectors = group_selectors(definitions[name])
+        except ValueError as error:
+            errors.append(f"{name}: {error}")
+            continue
+        references = [value[2:] for value in selectors if value.startswith("[]")]
+        # Subconverter inserts DIRECT if a regex-only group matches no nodes.
+        if not references:
+            errors.append(f"proxy-only group '{name}' can fall back to DIRECT when no nodes match")
+        pending.extend((ref, chain + [ref]) for ref in references)
+    return errors
+
+
+def validate_onedrive_precedence(lines):
+    positions = {}
+    for index, line in enumerate(lines):
+        if line.startswith("surge_ruleset="):
+            source = line.split(",", 1)[-1].strip()
+            positions.setdefault(urlparse(source).path.rsplit("/", 1)[-1], index)
+    one = positions.get("OneDrive.list")
+    microsoft = positions.get("MicrosoftDirect.list")
+    if one is None or microsoft is None or one >= microsoft:
+        return ["OneDrive.list must precede MicrosoftDirect.list so the dedicated group wins"]
+    return []
+
+
 def local_path_from_raw_url(value):
     parsed = urlparse(value)
     if parsed.netloc != "raw.githubusercontent.com" or not parsed.path.startswith(REPO_RAW_PREFIX):
@@ -105,15 +159,26 @@ def validate_ini(config_path):
     lines = config_path.read_text(encoding="utf-8").splitlines()
     groups = parse_custom_groups(lines)
     definitions = parse_custom_group_definitions(lines)
+    errors.extend(validate_proxy_only_groups(definitions))
+    errors.extend(validate_onedrive_precedence(lines))
 
     for group_name in sorted(REGION_GROUPS):
         definition = definitions.get(group_name)
         if definition is None:
             errors.append(f"{config_path} missing required region group '{group_name}'")
-        elif REGION_FALLBACK not in definition:
-            errors.append(
-                f"{config_path} region group '{group_name}' must include fallback '{REGION_FALLBACK}'"
-            )
+        else:
+            try:
+                selectors = group_selectors(definition)
+                references = [value for value in selectors if value.startswith("[]")]
+                if references != [REGION_FALLBACK]:
+                    errors.append(
+                        f"{config_path} region group '{group_name}' must use only {REGION_FALLBACK} "
+                        "as a literal member; global groups break region isolation"
+                    )
+                if not any(not value.startswith("[]") for value in selectors):
+                    errors.append(f"{config_path} region group '{group_name}' has no node filter")
+            except ValueError as error:
+                errors.append(f"{config_path} region group '{group_name}': {error}")
 
     for lineno, line in enumerate(lines, start=1):
         stripped = line.strip()
@@ -145,10 +210,21 @@ def validate_ini(config_path):
             if "``" in definition or definition.endswith("`"):
                 errors.append(f"{config_path}:{lineno} group '{group_name}' contains an empty segment")
 
-            for ref in GROUP_REF_RE.findall(definition):
-                ref = ref.strip()
-                if ref not in ALLOWED_SPECIAL_GROUPS and ref not in groups:
-                    errors.append(f"{config_path}:{lineno} group '{group_name}' references undefined '{ref}'")
+            try:
+                selectors = group_selectors(body)
+            except ValueError as error:
+                errors.append(f"{config_path}:{lineno} group '{group_name}': {error}")
+                continue
+            for selector in selectors:
+                if selector.startswith("[]"):
+                    ref = selector[2:]
+                    if ref not in ALLOWED_SPECIAL_GROUPS and ref not in groups:
+                        errors.append(f"{config_path}:{lineno} group '{group_name}' references undefined '{ref}'")
+                else:
+                    try:
+                        re.compile(selector)
+                    except re.error as error:
+                        errors.append(f"{config_path}:{lineno} group '{group_name}' invalid regex: {error}")
     return errors
 
 
