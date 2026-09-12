@@ -46,6 +46,9 @@ IP-CIDR,170.33.0.0/16,no-resolve
 IP-CIDR,198.11.128.0/18,no-resolve
 IP-CIDR,205.204.96.0/19,no-resolve
 # 腾讯 qq
+# 微信已核验服务端点，仅匹配单个地址
+IP-CIDR,43.130.30.247/32,no-resolve
+IP-CIDR,129.226.1.35/32,no-resolve
 IP-CIDR,19.28.0.0/23,no-resolve
 IP-CIDR,45.40.192.0/19,no-resolve
 IP-CIDR,49.51.0.0/16,no-resolve
