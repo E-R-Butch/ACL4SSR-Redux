@@ -1,5 +1,8 @@
 # 开发直连
 
+# OpenCode website and Zen gateway
+DOMAIN,opencode.ai
+
 DOMAIN-SUFFIX,apache.org
 DOMAIN-SUFFIX,elastic.co
 DOMAIN-SUFFIX,elastic.com

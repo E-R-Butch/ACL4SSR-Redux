@@ -7,3 +7,6 @@ DOMAIN,www.amd.com
 DOMAIN,www.asus.com
 DOMAIN,dsadata.intel.com
 DOMAIN,ops-gx.nvidia.com
+
+# Third-party hardware community downloads (vGPU drivers and documentation)
+DOMAIN,alist.homelabproject.cc

@@ -1,7 +1,8 @@
 # 内容：Adobe 直连
-# 说明：产品主域、下载链路、签名服务、证书与基础设施
+# 说明：产品主域、登录认证、下载链路、签名服务、证书与基础设施
 DOMAIN,cc-ext-prod-pkgs.s3.amazonaws.com
 DOMAIN,acrobat.adobe.com
+DOMAIN,auth.services.adobe.com
 DOMAIN-SUFFIX,acrobat.com
 DOMAIN-SUFFIX,adbecrsl.com
 DOMAIN-SUFFIX,businesscatalyst.com
