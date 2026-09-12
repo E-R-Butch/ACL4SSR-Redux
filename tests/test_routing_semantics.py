@@ -174,6 +174,8 @@ class RoutingSemanticsTests(unittest.TestCase):
             "cdn02.icims.com": "🎯 全球直连",
             "f2pool.zendesk.com": "🎯 全球直连",
             "api.oaistatsig.com": "REJECT",
+            "docs.macrocosmos.ai": "🎯 全球直连",
+            "iota.macrocosmos.ai": "🎯 全球直连",
         }
         for config_path in sorted((ROOT / "Config").glob("*.ini")):
             ordered = []
@@ -229,6 +231,7 @@ class RoutingSemanticsTests(unittest.TestCase):
                 "random.zendesk.com", "unverified.onetrust.io", "unverified.onetrust.com",
                 "unverified.cookielaw.org", "unverified.jibecdn.com", "unverified.icims.com",
                 "unverified.oaistatsig.com", *("child." + host for host in expected),
+                "macrocosmos.ai", "unverified.macrocosmos.ai",
             ):
                 with self.subTest(config=config_path.name, unverified_host=host):
                     self.assertIsNone(first_policy(host))
