@@ -17,6 +17,11 @@ proxy-groups:
     type: select
     proxies:
 {{ general_choices | yaml | indent(6, true) }}
+  - name: 📊 实验遥测
+    type: select
+    proxies:
+      - REJECT
+      - 🤖 OpenAI
   - name: 🎭 Claude
     type: select
     proxies:

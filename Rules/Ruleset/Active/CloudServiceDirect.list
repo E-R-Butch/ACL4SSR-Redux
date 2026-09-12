@@ -1,2 +1,5 @@
 # InfluxDB Cloud on AWS (eu-central-1-1)
 DOMAIN,eu-central-1-1.aws.cloud2.influxdata.com
+
+# F2Pool help center hosted by Zendesk; this tenant only
+DOMAIN,f2pool.zendesk.com

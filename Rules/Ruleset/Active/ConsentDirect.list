@@ -1,0 +1,5 @@
+# Cookie consent interface, domain configuration and regional consent rules
+# Keep advertising and privacy blocklists ahead of these exact service endpoints.
+DOMAIN,cdn.cookielaw.org
+DOMAIN,cookies-data.onetrust.io
+DOMAIN,geolocation.onetrust.com

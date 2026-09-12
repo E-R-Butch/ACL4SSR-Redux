@@ -162,6 +162,79 @@ class RoutingSemanticsTests(unittest.TestCase):
                                  "surge_ruleset=REJET,[]DOMAIN-SUFFIX,invalid")
         self.assertTrue(any("ruleset target 'REJET'" in error for error in self.check_mutation(text)))
 
+    def test_web_service_routes_preserve_privacy_blocks_and_dedicated_ai_policies(self):
+        expected = {
+            "cdn.cookielaw.org": "🎯 全球直连",
+            "cookies-data.onetrust.io": "🎯 全球直连",
+            "geolocation.onetrust.com": "🎯 全球直连",
+            "careers.amd.com": "🎯 全球直连",
+            "app.jibecdn.com": "🎯 全球直连",
+            "assets.jibecdn.com": "🎯 全球直连",
+            "cms.jibecdn.com": "🎯 全球直连",
+            "cdn02.icims.com": "🎯 全球直连",
+            "f2pool.zendesk.com": "🎯 全球直连",
+            "api.oaistatsig.com": "📊 实验遥测",
+        }
+        for config_path in sorted((ROOT / "Config").glob("*.ini")):
+            ordered = []
+            for line in config_path.read_text(encoding="utf-8").splitlines():
+                if not line.startswith("surge_ruleset="):
+                    continue
+                group, source = line.split("=", 1)[1].split(",", 1)
+                if source.startswith("[]"):
+                    rules = [source[2:]]
+                else:
+                    path = validate_rules.local_path_from_raw_url(source)
+                    self.assertIsNotNone(path, f"unsupported ruleset source in {config_path.name}")
+                    rules = path.read_text(encoding="utf-8").splitlines()
+                for rule in rules:
+                    if rule.startswith(("DOMAIN,", "DOMAIN-SUFFIX,", "DOMAIN-KEYWORD,")):
+                        kind, value = rule.split(",")[:2]
+                        ordered.append((kind, value, group))
+
+            def first_policy(host):
+                return next((
+                    group for kind, value, group in ordered
+                    if (kind == "DOMAIN" and host == value or
+                        kind == "DOMAIN-SUFFIX" and (host == value or host.endswith("." + value)) or
+                        kind == "DOMAIN-KEYWORD" and value in host)
+                ), None)
+
+            for host, policy in expected.items():
+                with self.subTest(config=config_path.name, service=host):
+                    self.assertEqual(first_policy(host), policy)
+
+            for host in (
+                "smetrics.onetrust.com", "metrics.amd.com", "link.global.amd.com",
+                "apac.zendesk.com", "go.zendesk.com", "join.zendesk.com",
+            ):
+                with self.subTest(config=config_path.name, privacy_block=host):
+                    self.assertEqual(first_policy(host), "🔒 隐私保护")
+
+            # Mixed-use blocking is independently reversible, including with no nodes.
+            definitions = validate_rules.parse_custom_group_definitions(
+                config_path.read_text(encoding="utf-8").splitlines())
+            for nodes in ([], ["日本 Test", "美国 Test"]):
+                self.assertEqual(render_members(definitions["📊 实验遥测"], nodes),
+                                 ["REJECT", "🤖 OpenAI"])
+            self.assertLess(
+                next(i for i, entry in enumerate(ordered) if entry[2] == "📊 实验遥测"),
+                next(i for i, entry in enumerate(ordered) if entry[2] == "🤖 OpenAI"))
+            self.assertEqual(first_policy("chatgpt.com"), "🤖 OpenAI")
+            self.assertEqual(first_policy("api.openai.com"), "🤖 OpenAI")
+
+            # The existing Claude suffix precedes the privacy list; retain that policy.
+            with self.subTest(config=config_path.name, dedicated_ai="statsig.anthropic.com"):
+                self.assertEqual(first_policy("statsig.anthropic.com"), "🎭 Claude")
+
+            for host in (
+                "random.zendesk.com", "unverified.onetrust.io", "unverified.onetrust.com",
+                "unverified.cookielaw.org", "unverified.jibecdn.com", "unverified.icims.com",
+                "unverified.oaistatsig.com", *("child." + host for host in expected),
+            ):
+                with self.subTest(config=config_path.name, unverified_host=host):
+                    self.assertIsNone(first_policy(host))
+
 
 if __name__ == "__main__":
     unittest.main()
