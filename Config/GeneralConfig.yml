@@ -67,6 +67,7 @@ dns:
   enhanced-mode: fake-ip
   fake-ip-range: 198.18.0.1/16
   fake-ip-filter:
+    - "+.invalid"
     - "*.lan"
     - "*.local"
     - localhost
@@ -81,6 +82,9 @@ dns:
   nameserver:
     - https://dns.alidns.com/dns-query
     - https://doh.pub/dns-query
+  nameserver-policy:
+    # Mihomo: .invalid 在本机返回否定结果，不生成 Fake-IP 或查询上游
+    "+.invalid": rcode://name_error
   fallback:
     - https://1.1.1.1/dns-query
     - https://8.8.8.8/dns-query

@@ -189,7 +189,7 @@ def validate_ini(config_path):
             body = stripped.split("=", 1)[1]
             target, _, source = body.partition(",")
             target = target.strip()
-            if target not in groups:
+            if target not in groups and target not in ALLOWED_SPECIAL_GROUPS:
                 errors.append(f"{config_path}:{lineno} ruleset target '{target}' has no matching group")
             local_path = local_path_from_raw_url(source.strip())
             if local_path is not None and not local_path.is_file():

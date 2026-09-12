@@ -112,6 +112,56 @@ class RoutingSemanticsTests(unittest.TestCase):
         lines[a], lines[b] = lines[b], lines[a]
         self.assertTrue(any("OneDrive.list must precede" in error for error in self.check_mutation("\n".join(lines))))
 
+    def test_explicit_service_routes_preserve_existing_tracking_blocks(self):
+        ordered = []
+        for line in self.text.splitlines():
+            if not line.startswith("surge_ruleset="):
+                continue
+            group, source = line.split("=", 1)[1].split(",", 1)
+            if source.startswith("[]"):
+                rules = [source[2:]]
+            else:
+                path = validate_rules.local_path_from_raw_url(source)
+                rules = path.read_text(encoding="utf-8").splitlines() if path else []
+            for rule in rules:
+                if rule.startswith(("DOMAIN,", "DOMAIN-SUFFIX,", "DOMAIN-KEYWORD,")):
+                    kind, value = rule.split(",")[:2]
+                    ordered.append((kind, value, group))
+
+        def first_policy(host):
+            return next((
+                group for kind, value, group in ordered
+                if (kind == "DOMAIN" and host == value or
+                    kind == "DOMAIN-SUFFIX" and (host == value or host.endswith("." + value)) or
+                    kind == "DOMAIN-KEYWORD" and value in host)
+            ), None)
+
+        expected = {
+            "www.ebay.com.hk": "🎯 全球直连",
+            "ocswf.ebay.com.hk": "🎯 全球直连",
+            "devicebind.ebay.com.hk": "🎯 全球直连",
+            "www.ebay.com": "🎯 全球直连",
+            "ir.ebaystatic.com": "🎯 全球直连",
+            "cas.avalon.perfdrive.com": "🎯 全球直连",
+            "global-help.ozon.com": "🎯 全球直连",
+            "zh.zlib.li": "🚀 节点选择",
+            "invalid": "REJECT",
+            "this-url-does-not-exist-probe.invalid": "REJECT",
+        }
+        for host, policy in expected.items():
+            with self.subTest(host=host):
+                self.assertEqual(first_policy(host), policy)
+
+        for host in ("epnt.ebay.com", "monitor.ebay.com", "pulsar.ebay.com"):
+            with self.subTest(tracking_host=host):
+                self.assertIn(first_policy(host), ("🛑 广告拦截", "🔒 隐私保护"))
+
+    def test_ruleset_targets_accept_builtins_but_reject_unknown_names(self):
+        self.assertEqual(self.check_mutation(self.text), [])
+        text = self.text.replace("surge_ruleset=REJECT,[]DOMAIN-SUFFIX,invalid",
+                                 "surge_ruleset=REJET,[]DOMAIN-SUFFIX,invalid")
+        self.assertTrue(any("ruleset target 'REJET'" in error for error in self.check_mutation(text)))
+
 
 if __name__ == "__main__":
     unittest.main()

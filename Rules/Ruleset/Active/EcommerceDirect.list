@@ -1,0 +1,12 @@
+# 电商页面、静态资源与验证服务；在广告/隐私拦截之后匹配
+
+# eBay 香港站、主站跳转及静态资源
+DOMAIN-SUFFIX,ebay.com.hk
+DOMAIN-SUFFIX,ebay.com
+DOMAIN-SUFFIX,ebaystatic.com
+
+# 页面中出现的 PerfDrive 验证端点，仅匹配这个主机
+DOMAIN,cas.avalon.perfdrive.com
+
+# Ozon 帮助中心；不扩大到其他 Ozon 业务
+DOMAIN,global-help.ozon.com
