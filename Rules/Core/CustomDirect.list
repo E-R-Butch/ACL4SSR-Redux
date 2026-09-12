@@ -23,7 +23,6 @@ DOMAIN-SUFFIX,smartmailcloud.com
 # 订阅转换
 DOMAIN,api.wcc.best
 DOMAIN,api.dler.io
-DOMAIN,sub.vaulttech.site
 
 # 证书吊销与更新检查
 DOMAIN,e8.c.lencr.org
