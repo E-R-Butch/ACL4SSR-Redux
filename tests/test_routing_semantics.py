@@ -173,7 +173,7 @@ class RoutingSemanticsTests(unittest.TestCase):
             "cms.jibecdn.com": "🎯 全球直连",
             "cdn02.icims.com": "🎯 全球直连",
             "f2pool.zendesk.com": "🎯 全球直连",
-            "api.oaistatsig.com": "📊 实验遥测",
+            "api.oaistatsig.com": "REJECT",
         }
         for config_path in sorted((ROOT / "Config").glob("*.ini")):
             ordered = []
@@ -211,14 +211,12 @@ class RoutingSemanticsTests(unittest.TestCase):
                 with self.subTest(config=config_path.name, privacy_block=host):
                     self.assertEqual(first_policy(host), "🔒 隐私保护")
 
-            # Mixed-use blocking is independently reversible, including with no nodes.
+            # This exact host must be rejected before broad service routing.
             definitions = validate_rules.parse_custom_group_definitions(
                 config_path.read_text(encoding="utf-8").splitlines())
-            for nodes in ([], ["日本 Test", "美国 Test"]):
-                self.assertEqual(render_members(definitions["📊 实验遥测"], nodes),
-                                 ["REJECT", "🤖 OpenAI"])
+            self.assertNotIn("📊 实验遥测", definitions)
             self.assertLess(
-                next(i for i, entry in enumerate(ordered) if entry[2] == "📊 实验遥测"),
+                next(i for i, entry in enumerate(ordered) if entry[1] == "api.oaistatsig.com"),
                 next(i for i, entry in enumerate(ordered) if entry[2] == "🤖 OpenAI"))
             self.assertEqual(first_policy("chatgpt.com"), "🤖 OpenAI")
             self.assertEqual(first_policy("api.openai.com"), "🤖 OpenAI")

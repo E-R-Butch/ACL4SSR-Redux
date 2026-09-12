@@ -1,6 +1,0 @@
-# Mixed-use feature configuration, experiments and event reporting.
-# Full-host blocking also blocks initialization; route through its own reversible policy.
-# Keep this source before broad AI service allowlists.
-# Evidence: https://github.com/hagezi/dns-blocklists/blob/main/wildcard/ultimate.txt
-# Path-level alternative: https://github.com/AdguardTeam/AdguardFilters/blob/master/SpywareFilter/sections/specific.txt
-DOMAIN,api.oaistatsig.com

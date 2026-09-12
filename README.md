@@ -99,9 +99,7 @@ PR 和推送会运行只读 CI，检查仓库边界、单元测试、重复规�
 
 公共网页服务按用途维护：`RecruitmentDirect.list` 收录已核实的招聘页面和申请人门户资源，`ConsentDirect.list` 收录 Cookie 同意界面及配置接口，帮助中心归入 `CloudServiceDirect.list`。新增规则使用精确域名，招聘与同意资源位于广告、隐私列表之后；能直连不代表该服务完全不收集数据。
 
-`ExperimentTelemetry.list` 单独收录配置与遥测混合服务，目前仅精确匹配 `api.oaistatsig.com`，先于 OpenAI 业务规则。`📊 实验遥测` 默认 `REJECT`，可单独切换到 `🤖 OpenAI` 恢复兼容，无需关闭全部隐私拦截。整域封锁同时阻止配置初始化，可能影响实验功能和 Codex 的部分功能；这不是无副作用的纯上报拦截。[HaGeZi Ultimate](https://github.com/hagezi/dns-blocklists/blob/main/wildcard/ultimate.txt) 已收录该域名；[Statsig 文档](https://docs.statsig.com/infrastructure/statsig_domains)说明配置与事件记录共用服务。
-
-需要网页端更精细的过滤时，可使用支持完整规则语法的 [AdGuard Tracking Protection](https://github.com/AdguardTeam/AdguardFilters/blob/master/SpywareFilter/sections/specific.txt)：其中 `/v1/rgstr?k=client-$xmlhttprequest,redirect=noopjson,domain=chatgpt.com` 针对 ChatGPT 页面发起的事件上报，并返回空 JSON。Mihomo 的域名规则不能区分 HTTPS 路径，也不能实现该响应替换；浏览器过滤不会自动覆盖原生应用。若采用此路径过滤方案，可将实验遥测组切回 OpenAI 以保留配置获取，但仍不能保证初始化请求不携带用户或设备属性。
+`api.oaistatsig.com` 在主 INI 中使用精确域名规则直接 `REJECT`，先于业务分流规则，不经过可切换策略组。[HaGeZi Ultimate](https://github.com/hagezi/dns-blocklists/blob/main/wildcard/ultimate.txt) 已收录该域名；[Statsig 文档](https://docs.statsig.com/infrastructure/statsig_domains)说明该服务包含配置与事件记录。
 
 ---
 
@@ -135,7 +133,6 @@ PR 和推送会运行只读 CI，检查仓库边界、单元测试、重复规�
 | 🍎 苹果服务 | select | DIRECT | Apple 相关服务 |
 | 🛑 广告拦截 | select | REJECT | 多源合并广告规则 |
 | 🔒 隐私保护 | select | REJECT-DROP | 隐私追踪与设备遥测拦截 |
-| 📊 实验遥测 | select | REJECT | 配置与遥测共用主机的独立拦截；可单独切回 OpenAI |
 | 🎯 全球直连 | select | DIRECT | 国内 / 自定义直连 |
 | 🐟 漏网之鱼 | select | DIRECT | 未匹配规则兜底 |
 | 🇩🇪/🇭🇰/🇨🇳/🇸🇬/🇯🇵/🇺🇸/🇰🇷 节点 | url-test | ♻️ 自动选择 | 按地区名自动归类；无匹配时保持非空 fallback |

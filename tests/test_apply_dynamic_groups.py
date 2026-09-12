@@ -34,7 +34,7 @@ class DynamicGroupsTests(unittest.TestCase):
                 config = render_groups(names)
                 groups = {group["name"]: group["proxies"] for group in config["proxy-groups"]}
                 self.assertTrue(all(groups.values()))
-                self.assertEqual(groups["📊 实验遥测"], ["REJECT", "🤖 OpenAI"])
+                self.assertNotIn("📊 实验遥测", groups)
                 pending, visited = ["🎭 Claude"], set()
                 while pending:
                     name = pending.pop()
