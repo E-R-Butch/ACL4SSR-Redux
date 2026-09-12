@@ -176,6 +176,17 @@ class RoutingSemanticsTests(unittest.TestCase):
             "api.oaistatsig.com": "REJECT",
             "docs.macrocosmos.ai": "🎯 全球直连",
             "iota.macrocosmos.ai": "🎯 全球直连",
+            "tah.iota.macrocosmos.ai": "🚀 节点选择",
+            "ams3.digitaloceanspaces.com": "🚀 节点选择",
+            "assets.crunchdao.com": "🚀 节点选择",
+            "astral.sh": "🎯 全球直连",
+            "releases.astral.sh": "🎯 全球直连",
+            "www.desearch.ai": "🎯 全球直连",
+            r"www\.desearch.ai": "🎯 全球直连",
+            "www.gigabyte.com": "🚀 节点选择",
+            r"www\.gigabyte.com": "🚀 节点选择",
+            "static.gigabyte.com": "🎯 全球直连",
+            "deprecated.png": "REJECT",
         }
         for config_path in sorted((ROOT / "Config").glob("*.ini")):
             ordered = []
@@ -232,6 +243,10 @@ class RoutingSemanticsTests(unittest.TestCase):
                 "unverified.cookielaw.org", "unverified.jibecdn.com", "unverified.icims.com",
                 "unverified.oaistatsig.com", *("child." + host for host in expected),
                 "macrocosmos.ai", "unverified.macrocosmos.ai",
+                "fra1.digitaloceanspaces.com", "sgp1.digitaloceanspaces.com",
+                "unverified.ams3.digitaloceanspaces.com", "unverified.crunchdao.com",
+                "api.desearch.ai", "unverified.gigabyte.com", "docs.astral.sh",
+                "another.png",
             ):
                 with self.subTest(config=config_path.name, unverified_host=host):
                     self.assertIsNone(first_policy(host))

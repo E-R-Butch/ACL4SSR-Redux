@@ -1,0 +1,5 @@
+# Hardware Proxy
+# GIGABYTE website: retain proxy routing; automated page requests returned 403
+# on both direct and proxy paths, so no direct-performance advantage was verified.
+DOMAIN,www.gigabyte.com
+DOMAIN,www\.gigabyte.com

@@ -8,5 +8,8 @@ DOMAIN,www.asus.com
 DOMAIN,dsadata.intel.com
 DOMAIN,ops-gx.nvidia.com
 
+# GIGABYTE static product resources
+DOMAIN,static.gigabyte.com
+
 # Third-party hardware community downloads (vGPU drivers and documentation)
 DOMAIN,alist.homelabproject.cc

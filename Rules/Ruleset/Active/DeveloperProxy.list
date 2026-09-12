@@ -1,5 +1,13 @@
 # 开发代理
 
+# IOTA Train at Home download redirect and its Amsterdam object-storage endpoint.
+# Exact regional host only: other Spaces regions and bucket subdomains are independent.
+DOMAIN,tah.iota.macrocosmos.ai
+DOMAIN,ams3.digitaloceanspaces.com
+
+# Crunch developer platform assets; retain proxy routing until a valid object is benchmarked.
+DOMAIN,assets.crunchdao.com
+
 # Homebrew
 DOMAIN,formulae.brew.sh
 

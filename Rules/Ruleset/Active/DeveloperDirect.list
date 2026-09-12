@@ -8,6 +8,15 @@ DOMAIN,opencode.ai
 DOMAIN,docs.macrocosmos.ai
 DOMAIN,iota.macrocosmos.ai
 
+# Astral uv installer and release downloads
+# https://docs.astral.sh/uv/getting-started/installation/
+DOMAIN,astral.sh
+DOMAIN,releases.astral.sh
+
+# Desearch public website
+DOMAIN,www.desearch.ai
+DOMAIN,www\.desearch.ai
+
 DOMAIN-SUFFIX,apache.org
 DOMAIN-SUFFIX,elastic.co
 DOMAIN-SUFFIX,elastic.com
