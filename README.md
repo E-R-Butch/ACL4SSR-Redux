@@ -101,6 +101,8 @@ PR 和推送会运行只读 CI，检查仓库边界、单元测试、重复规�
 
 下载分流比较同一实际文件在直连与代理下的传输耗时、吞吐和重复请求表现，并核对内容一致性；首页返回 200 只证明可达。文档、网站、下载跳转入口和最终文件主机分别判断。`DeveloperDirect.list` 收录 Astral 安装与发布下载，`DeveloperProxy.list` 收录 IOTA 下载入口及其使用的 Spaces 区域主机，采用精确域名匹配。技嘉静态资源归入 `HardwareDirect.list`，官网在自动请求均返回 403、尚无有效性能样本的情况下由 `HardwareProxy.list` 保留代理路径。`deprecated.png` 作为已观察到的无效主机精确拒绝，不扩大到其他文件名。
 
+服务的地区准入要求优先于直连可达性和速度。`opencode.ai` 同时承载官网与 Zen/Go API；[官方文档](https://opencode.ai/docs/go/#endpoints)列出的部分模型限制使用地区，因此该精确域名归入 `DeveloperProxy.list`，使用“🚀 节点选择”中的合适海外出口。
+
 `api.oaistatsig.com` 在主 INI 中使用精确域名规则直接 `REJECT`，先于业务分流规则，不经过可切换策略组。[HaGeZi Ultimate](https://github.com/hagezi/dns-blocklists/blob/main/wildcard/ultimate.txt) 已收录该域名；[Statsig 文档](https://docs.statsig.com/infrastructure/statsig_domains)说明该服务包含配置与事件记录。
 
 ---

@@ -1,5 +1,9 @@
 # 开发代理
 
+# OpenCode website and Zen/Go API share this host; some models require an eligible region.
+# https://opencode.ai/docs/go/#endpoints
+DOMAIN,opencode.ai
+
 # IOTA Train at Home download redirect and its Amsterdam object-storage endpoint.
 # Exact regional host only: other Spaces regions and bucket subdomains are independent.
 DOMAIN,tah.iota.macrocosmos.ai

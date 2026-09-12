@@ -1,8 +1,5 @@
 # 开发直连
 
-# OpenCode website and Zen gateway
-DOMAIN,opencode.ai
-
 # Macrocosmos developer documentation and IOTA training platform website
 # https://github.com/macrocosm-os/iota
 DOMAIN,docs.macrocosmos.ai

@@ -174,6 +174,7 @@ class RoutingSemanticsTests(unittest.TestCase):
             "cdn02.icims.com": "🎯 全球直连",
             "f2pool.zendesk.com": "🎯 全球直连",
             "api.oaistatsig.com": "REJECT",
+            "opencode.ai": "🚀 节点选择",
             "docs.macrocosmos.ai": "🎯 全球直连",
             "iota.macrocosmos.ai": "🎯 全球直连",
             "tah.iota.macrocosmos.ai": "🚀 节点选择",
