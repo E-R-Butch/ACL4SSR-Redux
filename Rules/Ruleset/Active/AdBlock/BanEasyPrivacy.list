@@ -1,7 +1,7 @@
 # 广告列表 adblock rules
 # 内容：EasyPrivacy列表，隐私保护，屏蔽隐私追踪
 # 来源：https://easylist-downloads.adblockplus.org/easyprivacy.txt
-# 数量：40551条
+# 数量：40560条
 
 DOMAIN-SUFFIX,0.myikas.com
 DOMAIN-SUFFIX,0.net.easyjet.com
@@ -5110,6 +5110,7 @@ DOMAIN-SUFFIX,analytics.belgacom.be
 DOMAIN-SUFFIX,analytics.bestreviews.com
 DOMAIN-SUFFIX,analytics.betterplaces.nl
 DOMAIN-SUFFIX,analytics.bgr.com
+DOMAIN-SUFFIX,analytics.bhaskarsaikia.in
 DOMAIN-SUFFIX,analytics.bigfishgames.com
 DOMAIN-SUFFIX,analytics.bitchute.com
 DOMAIN-SUFFIX,analytics.bitrix.info
@@ -8010,6 +8011,7 @@ DOMAIN-SUFFIX,ca.ssl.holdmybeerconsulting.com
 DOMAIN-SUFFIX,caamcs.julipet.it
 DOMAIN-SUFFIX,caapp.levi.com
 DOMAIN-SUFFIX,cache2.delvenetworks.com
+DOMAIN-SUFFIX,cactus.jd.com
 DOMAIN-SUFFIX,cactus.joybuy.com
 DOMAIN-SUFFIX,caderonline.bu.edu
 DOMAIN-SUFFIX,cadsuta.net
@@ -14469,6 +14471,7 @@ DOMAIN-SUFFIX,helpdesk.thinkhdi.com
 DOMAIN-SUFFIX,hemblx.vans.cl
 DOMAIN-SUFFIX,herbgreencolumn.com
 DOMAIN-SUFFIX,herbstarsbuilding.com
+DOMAIN-SUFFIX,hermes.jd.com
 DOMAIN-SUFFIX,herpes2.pa-ruit.jp
 DOMAIN-SUFFIX,hesconet.actonservice.com
 DOMAIN-SUFFIX,hesprh.sony.jp
@@ -18404,6 +18407,7 @@ DOMAIN-SUFFIX,log-2ffe60ee.westpac.com.au
 DOMAIN-SUFFIX,log-ads.r7.com
 DOMAIN-SUFFIX,log-api.cli.im
 DOMAIN-SUFFIX,log-gateway.zoom.us
+DOMAIN-SUFFIX,log-h5.imdada.cn
 DOMAIN-SUFFIX,log-lb.skyperfectv.co.jp
 DOMAIN-SUFFIX,log-pq.shopfully.cloud
 DOMAIN-SUFFIX,log-upload-os.hoyolab.com
@@ -20797,6 +20801,7 @@ DOMAIN-SUFFIX,mercadeo.promerica.fi.cr
 DOMAIN-SUFFIX,merchant-app.th3rdwave.coffee
 DOMAIN-SUFFIX,merchant-mail.neosurf.com
 DOMAIN-SUFFIX,merchant.libertycarz.com
+DOMAIN-SUFFIX,mercury.jd.com
 DOMAIN-SUFFIX,mesalabs.actonservice.com
 DOMAIN-SUFFIX,message.alldata.com
 DOMAIN-SUFFIX,message.sonicwall.com
@@ -22485,6 +22490,7 @@ DOMAIN-SUFFIX,mlinks.fluz.app
 DOMAIN-SUFFIX,mlinks.helloalfred.com
 DOMAIN-SUFFIX,mlkblr.la-becanerie.com
 DOMAIN-SUFFIX,mlkklg.suncamp.de
+DOMAIN-SUFFIX,mllog.jd.com
 DOMAIN-SUFFIX,mlmswk.janpara.co.jp
 DOMAIN-SUFFIX,mlqzau.koffer.com
 DOMAIN-SUFFIX,mluszz.eyelashgarage.jp
@@ -36080,6 +36086,7 @@ DOMAIN-SUFFIX,track.docusign.jp
 DOMAIN-SUFFIX,track.docusign.mx
 DOMAIN-SUFFIX,track.docusign.nl
 DOMAIN-SUFFIX,track.dunedinincomegrowth.co.uk
+DOMAIN-SUFFIX,track.dws.com
 DOMAIN-SUFFIX,track.dws.de
 DOMAIN-SUFFIX,track.eadv.it
 DOMAIN-SUFFIX,track.education.intostudy.com
@@ -37835,6 +37842,7 @@ DOMAIN-SUFFIX,uqckxr.chilli.se
 DOMAIN-SUFFIX,uqd.io
 DOMAIN-SUFFIX,uqhpej.wiberrentacar.com
 DOMAIN-SUFFIX,ur.b.inhaabit.com
+DOMAIN-SUFFIX,uranus.jd.com
 DOMAIN-SUFFIX,urbanairship.com
 DOMAIN-SUFFIX,urehgr.halekulani.com
 DOMAIN-SUFFIX,ureoaw.netthandelen.no
@@ -39131,6 +39139,7 @@ DOMAIN-SUFFIX,wkympu.agnesb.co.jp
 DOMAIN-SUFFIX,wl-analytics.tsp.li
 DOMAIN-SUFFIX,wl-pixel.index.digital
 DOMAIN-SUFFIX,wl.bl.frequentvalues.com.au
+DOMAIN-SUFFIX,wl.jd.com
 DOMAIN-SUFFIX,wlct-one.de
 DOMAIN-SUFFIX,wlct-two.de
 DOMAIN-SUFFIX,wlkojk.orange.ro
