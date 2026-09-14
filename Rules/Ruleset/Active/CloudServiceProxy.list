@@ -1,0 +1,6 @@
+# 云服务代理
+
+# Wasabi Oregon path-style object-storage endpoint used by CHM collection images.
+# Exact regional host only; do not cover unrelated regions or bucket subdomains.
+# https://docs.wasabi.com/docs/service-urls-for-wasabis-storage-regions
+DOMAIN,s3.us-west-1.wasabisys.com

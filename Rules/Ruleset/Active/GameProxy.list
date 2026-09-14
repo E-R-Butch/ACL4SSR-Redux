@@ -1,4 +1,7 @@
 # 游戏代理
+# Fallout Wiki image assets; access challenges prevent a valid direct-download benchmark.
+DOMAIN,images.fallout.wiki
+
 DOMAIN-SUFFIX,steamcommunity.com
 DOMAIN-SUFFIX,steam-chat.com
 DOMAIN-SUFFIX,s.team

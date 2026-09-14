@@ -1,5 +1,8 @@
 # 学术直连
 
+# Computer History Museum website and same-host static resources.
+DOMAIN,computerhistory.org
+
 DOMAIN-SUFFIX,cnki.net
 DOMAIN-SUFFIX,cqvip.com
 DOMAIN-SUFFIX,pkulaw.com

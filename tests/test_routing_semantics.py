@@ -176,6 +176,13 @@ class RoutingSemanticsTests(unittest.TestCase):
             "api.oaistatsig.com": "REJECT",
             "analytics.brew.sh": "REJECT",
             r"analytics.brew\.sh": "REJECT",
+            "fast.fonts.net": "REJECT",
+            "computerhistory.org": "🎯 全球直连",
+            "www.computerhistory.org": "🚀 节点选择",
+            r"www\.computerhistory.org": "🚀 节点选择",
+            "images.fallout.wiki": "🎮 游戏代理",
+            "commandcode.ai": "🚀 节点选择",
+            "s3.us-west-1.wasabisys.com": "🚀 节点选择",
             "opencode.ai": "🚀 节点选择",
             "docs.macrocosmos.ai": "🎯 全球直连",
             "iota.macrocosmos.ai": "🎯 全球直连",
@@ -252,6 +259,11 @@ class RoutingSemanticsTests(unittest.TestCase):
                 "api.desearch.ai", "unverified.gigabyte.com", "docs.astral.sh",
                 "another.png",
                 "brew.sh", "docs.brew.sh", "unverified.brew.sh", "analytics.brew.sh.example",
+                "fonts.net", "other.fonts.net", "fast.fonts.net.example",
+                "other.computerhistory.org", "fallout.wiki", "other.fallout.wiki",
+                "unverified.commandcode.ai", "commandcode.ai.example",
+                "wasabisys.com", "s3.us-east-1.wasabisys.com", "s3.ap-northeast-1.wasabisys.com",
+                "unverified.s3.us-west-1.wasabisys.com",
             ):
                 with self.subTest(config=config_path.name, unverified_host=host):
                     self.assertIsNone(first_policy(host))

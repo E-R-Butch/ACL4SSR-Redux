@@ -1,5 +1,9 @@
 # 学术代理
 
+# Computer History Museum collection catalog (distinct from the apex website).
+DOMAIN,www.computerhistory.org
+DOMAIN,www\.computerhistory.org
+
 # Z-Library 中文站
 DOMAIN,zh.zlib.li
 
