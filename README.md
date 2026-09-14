@@ -105,6 +105,8 @@ PR 和推送会运行只读 CI，检查仓库边界、单元测试、重复规�
 
 `api.oaistatsig.com` 在主 INI 中使用精确域名规则直接 `REJECT`，先于业务分流规则，不经过可切换策略组。[HaGeZi Ultimate](https://github.com/hagezi/dns-blocklists/blob/main/wildcard/ultimate.txt) 已收录该域名；[Statsig 文档](https://docs.statsig.com/infrastructure/statsig_domains)说明该服务包含配置与事件记录。
 
+`analytics.brew.sh` 是 [Homebrew 使用统计上报端点](https://docs.brew.sh/Analytics)，在主 INI 中精确 `REJECT`，同时覆盖日志中出现的 `analytics.brew\.sh` 写法。该规则只拦截统计上报，保留 `formulae.brew.sh` 的开发代理分流；Homebrew 会静默处理上报失败。
+
 ---
 
 ## 🗂️ 策略组一览

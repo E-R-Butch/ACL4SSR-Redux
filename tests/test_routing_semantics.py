@@ -174,6 +174,8 @@ class RoutingSemanticsTests(unittest.TestCase):
             "cdn02.icims.com": "🎯 全球直连",
             "f2pool.zendesk.com": "🎯 全球直连",
             "api.oaistatsig.com": "REJECT",
+            "analytics.brew.sh": "REJECT",
+            r"analytics.brew\.sh": "REJECT",
             "opencode.ai": "🚀 节点选择",
             "docs.macrocosmos.ai": "🎯 全球直连",
             "iota.macrocosmos.ai": "🎯 全球直连",
@@ -234,6 +236,7 @@ class RoutingSemanticsTests(unittest.TestCase):
                 next(i for i, entry in enumerate(ordered) if entry[2] == "🤖 OpenAI"))
             self.assertEqual(first_policy("chatgpt.com"), "🤖 OpenAI")
             self.assertEqual(first_policy("api.openai.com"), "🤖 OpenAI")
+            self.assertEqual(first_policy("formulae.brew.sh"), "🚀 节点选择")
 
             # The existing Claude suffix precedes the privacy list; retain that policy.
             with self.subTest(config=config_path.name, dedicated_ai="statsig.anthropic.com"):
@@ -248,6 +251,7 @@ class RoutingSemanticsTests(unittest.TestCase):
                 "unverified.ams3.digitaloceanspaces.com", "unverified.crunchdao.com",
                 "api.desearch.ai", "unverified.gigabyte.com", "docs.astral.sh",
                 "another.png",
+                "brew.sh", "docs.brew.sh", "unverified.brew.sh", "analytics.brew.sh.example",
             ):
                 with self.subTest(config=config_path.name, unverified_host=host):
                     self.assertIsNone(first_policy(host))
