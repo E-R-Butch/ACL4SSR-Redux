@@ -1,8 +1,19 @@
 # 开发代理
 
-# Command Code AI coding service; keep proxy routing pending authenticated API validation.
+# Command Code website and model API; public model-list latency favors proxy routing.
+# Authenticated model eligibility and streaming throughput are not established by that probe.
 # https://commandcode.ai/docs/provider
 DOMAIN,commandcode.ai
+DOMAIN,api.commandcode.ai
+
+# Jina Reader converts requested web pages to text; direct TLS probes were reset.
+# https://github.com/jina-ai/reader
+DOMAIN,r.jina.ai
+
+# PullPush Reddit archive/search API; preserve the existing proxy path explicitly.
+# HTTP 429 is a service/automation restriction, not proof of a regional block or a speed result.
+# https://www.pullpush.io/
+DOMAIN,api.pullpush.io
 
 # OpenCode website and Zen/Go API share this host; some models require an eligible region.
 # https://opencode.ai/docs/go/#endpoints

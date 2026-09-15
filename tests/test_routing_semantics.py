@@ -182,6 +182,11 @@ class RoutingSemanticsTests(unittest.TestCase):
             r"www\.computerhistory.org": "🚀 节点选择",
             "images.fallout.wiki": "🎮 游戏代理",
             "commandcode.ai": "🚀 节点选择",
+            "api.commandcode.ai": "🚀 节点选择",
+            "r.jina.ai": "🚀 节点选择",
+            "api.pullpush.io": "🚀 节点选择",
+            "linustechtips.com": "🚀 节点选择",
+            "forums.developer.nvidia.com": "🚀 节点选择",
             "s3.us-west-1.wasabisys.com": "🚀 节点选择",
             "opencode.ai": "🚀 节点选择",
             "docs.macrocosmos.ai": "🎯 全球直连",
@@ -230,6 +235,8 @@ class RoutingSemanticsTests(unittest.TestCase):
             for host in (
                 "smetrics.onetrust.com", "metrics.amd.com", "link.global.amd.com",
                 "apac.zendesk.com", "go.zendesk.com", "join.zendesk.com",
+                "metrics.nvidia.com", "smetrics.nvidia.com", "stt.nvidia.com",
+                "prod.otel.kaizen.nvidia.com",
             ):
                 with self.subTest(config=config_path.name, privacy_block=host):
                     self.assertEqual(first_policy(host), "🔒 隐私保护")
@@ -262,6 +269,9 @@ class RoutingSemanticsTests(unittest.TestCase):
                 "fonts.net", "other.fonts.net", "fast.fonts.net.example",
                 "other.computerhistory.org", "fallout.wiki", "other.fallout.wiki",
                 "unverified.commandcode.ai", "commandcode.ai.example",
+                "api.commandcode.ai.example", "pullpush.io", "other.pullpush.io",
+                "jina.ai", "s.jina.ai", "api.jina.ai",
+                "other.linustechtips.com", "developer.nvidia.com", "other.nvidia.com",
                 "wasabisys.com", "s3.us-east-1.wasabisys.com", "s3.ap-northeast-1.wasabisys.com",
                 "unverified.s3.us-west-1.wasabisys.com",
             ):

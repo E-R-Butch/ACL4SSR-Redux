@@ -109,7 +109,11 @@ PR 和推送会运行只读 CI，检查仓库边界、单元测试、重复规�
 
 Computer History Museum 按实际页面与资源区分：`computerhistory.org` 主站归入 `ScholarDirect.list`，`www.computerhistory.org` 藏品目录（含日志中的转义写法）归入 `ScholarProxy.list`。馆藏图片使用的 `s3.us-west-1.wasabisys.com` 是 Wasabi Oregon 共享对象存储入口，精确归入 `CloudServiceProxy.list`，不扩展到整个存储服务；有效图片测速需带页面的 Referer，并比较相同文件内容，缺失 Referer 导致的 403 不能用于判断下载速度。样本中美国代理快于直连，日本代理明显较慢且出现失败，代理地区选择仍影响实际表现。
 
-`fast.fonts.net` 在主 INI 中直接 `REJECT`：[Monotype 官方说明](https://www.monotype.com/legal/privacy-policy/web-font-tracking-privacy-policy)其字体授权访问量统计；博物馆样式表引用该主机的 `/lt/1.css` 统计请求，字体文件则托管在本站。该主机也可能为其他网站提供字体，域名级拒绝可能使那些页面回退到默认字体。`images.fallout.wiki` 归入游戏代理；访问挑战导致无有效图片测速样本，保留代理路径。`commandcode.ai` 归入开发代理；[模型 API 文档](https://commandcode.ai/docs/provider)与账号调用需单独验证，官网可达性不作为模型调用直连依据，也不据此扩大到所有子域名。
+`fast.fonts.net` 在主 INI 中直接 `REJECT`：[Monotype 官方说明](https://www.monotype.com/legal/privacy-policy/web-font-tracking-privacy-policy)其字体授权访问量统计；博物馆样式表引用该主机的 `/lt/1.css` 统计请求，字体文件则托管在本站。该主机也可能为其他网站提供字体，域名级拒绝可能使那些页面回退到默认字体。`images.fallout.wiki` 归入游戏代理；访问挑战导致无有效图片测速样本，保留代理路径。
+
+`commandcode.ai` 官网与 `api.commandcode.ai` [模型 API](https://commandcode.ai/docs/provider)分别精确归入开发代理。公开模型列表的重复请求代理更快，但这不能证明账号的模型准入或流式推理速度。`r.jina.ai` 是 [Jina Reader 网页转文本接口](https://github.com/jina-ai/reader)，直连多次被重置、代理返回有效正文，归入开发代理；不扩展到 Jina 搜索或嵌入 API。`api.pullpush.io` 是 [PullPush Reddit 归档查询接口](https://www.pullpush.io/)，也精确归入开发代理；其 429 响应涉及自动抓取限制，不能当作地区封锁或下载测速结果，调整分流也不保证解除服务端限制。
+
+`linustechtips.com` [硬件论坛](https://linustechtips.com/)与 `forums.developer.nvidia.com` [NVIDIA 开发者论坛](https://forums.developer.nvidia.com/)精确归入 `HardwareProxy.list`。LTT 自动请求在直连和代理下均遇到访问挑战，保留已有代理路径，不宣称代理能解除挑战。NVIDIA 的实际帖子列表重复传输测试中代理更快，不能仅凭首页可直连将论坛划入直连；NVIDIA 其他主机及已有遥测拦截规则不随论坛规则扩大放行。
 
 ---
 
