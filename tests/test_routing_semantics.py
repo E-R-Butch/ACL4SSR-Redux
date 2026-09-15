@@ -187,6 +187,9 @@ class RoutingSemanticsTests(unittest.TestCase):
             "api.pullpush.io": "🚀 节点选择",
             "linustechtips.com": "🚀 节点选择",
             "forums.developer.nvidia.com": "🚀 节点选择",
+            "www.keebtalk.com": "🚀 节点选择",
+            r"www\.keebtalk.com": "🚀 节点选择",
+            "cdn.shopify.com": "🚀 节点选择",
             "s3.us-west-1.wasabisys.com": "🚀 节点选择",
             "opencode.ai": "🚀 节点选择",
             "docs.macrocosmos.ai": "🎯 全球直连",
@@ -237,6 +240,9 @@ class RoutingSemanticsTests(unittest.TestCase):
                 "apac.zendesk.com", "go.zendesk.com", "join.zendesk.com",
                 "metrics.nvidia.com", "smetrics.nvidia.com", "stt.nvidia.com",
                 "prod.otel.kaizen.nvidia.com",
+                "monorail-edge.shopifysvc.com", "stats.shopify.com", "v.shopify.com",
+                "error-analytics-production.shopifysvc.com",
+                "error-analytics-sessions-production.shopifysvc.com",
             ):
                 with self.subTest(config=config_path.name, privacy_block=host):
                     self.assertEqual(first_policy(host), "🔒 隐私保护")
@@ -272,6 +278,8 @@ class RoutingSemanticsTests(unittest.TestCase):
                 "api.commandcode.ai.example", "pullpush.io", "other.pullpush.io",
                 "jina.ai", "s.jina.ai", "api.jina.ai",
                 "other.linustechtips.com", "developer.nvidia.com", "other.nvidia.com",
+                "keebtalk.com", "other.keebtalk.com", "www.keebtalk.com.example",
+                "shopify.com", "other.shopify.com", "cdn.shopify.com.example",
                 "wasabisys.com", "s3.us-east-1.wasabisys.com", "s3.ap-northeast-1.wasabisys.com",
                 "unverified.s3.us-west-1.wasabisys.com",
             ):

@@ -1,5 +1,10 @@
 # Hardware Proxy
 
+# KeebTalk mechanical keyboard forum; actual topic-page transfers favor proxy routing.
+# https://www.keebtalk.com/about
+DOMAIN,www.keebtalk.com
+DOMAIN,www\.keebtalk.com
+
 # Linus Tech Tips hardware forum; automated probes receive an access challenge on all paths.
 # No valid page-transfer sample supports changing the existing proxy path to direct.
 # https://linustechtips.com/

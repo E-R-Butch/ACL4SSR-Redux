@@ -1,0 +1,7 @@
+# 电商资源代理；在广告/隐私拦截之后匹配
+
+# Shopify shared CDN for storefront assets and merchant files.
+# Repeated keyboard image-range and VIA definition downloads favored the US proxy sample.
+# This shared host also serves scripts; a domain rule cannot distinguish tracking-script paths.
+# https://shopify.dev/docs/storefronts/themes/best-practices/performance/use-shopify-cdn
+DOMAIN,cdn.shopify.com
