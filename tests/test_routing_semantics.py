@@ -190,6 +190,7 @@ class RoutingSemanticsTests(unittest.TestCase):
             "www.keebtalk.com": "🚀 节点选择",
             r"www\.keebtalk.com": "🚀 节点选择",
             "cdn.shopify.com": "🚀 节点选择",
+            "easylist.to": "🚀 节点选择",
             "s3.us-west-1.wasabisys.com": "🚀 节点选择",
             "opencode.ai": "🚀 节点选择",
             "docs.macrocosmos.ai": "🎯 全球直连",
@@ -280,6 +281,7 @@ class RoutingSemanticsTests(unittest.TestCase):
                 "other.linustechtips.com", "developer.nvidia.com", "other.nvidia.com",
                 "keebtalk.com", "other.keebtalk.com", "www.keebtalk.com.example",
                 "shopify.com", "other.shopify.com", "cdn.shopify.com.example",
+                "www.easylist.to", "easylist.to.example",
                 "wasabisys.com", "s3.us-east-1.wasabisys.com", "s3.ap-northeast-1.wasabisys.com",
                 "unverified.s3.us-west-1.wasabisys.com",
             ):

@@ -45,8 +45,12 @@ DOMAIN-SUFFIX,akile.ai
 # GitKraken
 DOMAIN,configs.gitkraken.dev
 
-# Browser extensions
+# Browser extensions and filter-list updates
 DOMAIN-SUFFIX,tampermonkey.net
+
+# EasyList project website and filter downloads; same-file transfers favored proxies.
+# https://easylist.to/pages/about.html
+DOMAIN,easylist.to
 
 # Developer CDN compatibility bridge
 # Keep this fallback for converters still using the pre-DeveloperCDN config.
