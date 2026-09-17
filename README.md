@@ -113,6 +113,10 @@ Paradox 按功能分流：现有 `api.paradox-interactive.com` 保持游戏直�
 
 `download.blender.org` 是 [Blender 官方发行文件下载主机](https://download.blender.org/release/)，精确归入 `DeveloperProxy.list` 的工具下载规则。实际 Windows 安装包相同字节范围的重复传输样本中代理更快，已核对有效 HTTP 206 响应、范围长度及内容一致性；分段测试不等于完整安装包的持续下载速度。
 
+`cua.ai` 是 Cua 计算机自动化工具与云桌面平台的[官网和文档](https://cua.ai/docs)，页面与资源传输样本支持开发代理；[官方认证文档](https://cua.ai/docs/reference/cua-cli/authentication)将登录与 Fleet API 放在独立主机，因此此处只匹配 `cua.ai`，不推断账号、云桌面或模型服务的地区可用性。`models.dev` 是[模型与供应商资料库](https://models.dev/)，其公开 `api.json` 提供规格、能力和价格等元数据，按完整 JSON 传输样本精确归入开发代理。
+
+`eu.i.posthog.com` 在主 INI 中精确、直接 `REJECT`，先于业务分流且不经过可切换策略组。Cua 的[公开 PostHog 配置](https://cua.ai/assets/PostHogProvider-vgtdN9yw.js)将统计主机指向该地址；[PostHog SDK 文档](https://posthog.com/docs/libraries/python)说明其事件采集、用户识别与配置能力。官网资料访问与统计上报分别匹配，拒绝范围不扩大到整个 PostHog 域名。
+
 `api.oaistatsig.com` 在主 INI 中使用精确域名规则直接 `REJECT`，先于业务分流规则，不经过可切换策略组。[HaGeZi Ultimate](https://github.com/hagezi/dns-blocklists/blob/main/wildcard/ultimate.txt) 已收录该域名；[Statsig 文档](https://docs.statsig.com/infrastructure/statsig_domains)说明该服务包含配置与事件记录。
 
 `analytics.brew.sh` 是 [Homebrew 使用统计上报端点](https://docs.brew.sh/Analytics)，在主 INI 中精确 `REJECT`，同时覆盖日志中出现的 `analytics.brew\.sh` 写法。该规则只拦截统计上报，保留 `formulae.brew.sh` 的开发代理分流；Homebrew 会静默处理上报失败。
