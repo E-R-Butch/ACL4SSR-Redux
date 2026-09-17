@@ -1,4 +1,20 @@
 # 游戏代理
+
+# Paradox game artwork and mods web application assets; valid transfers favor proxies.
+# https://api.paradox-interactive.com/mods/games
+DOMAIN,metadata-assets.paradox-interactive.com
+DOMAIN,mods.paradoxplaza.com
+
+# Paradox public website and installer distribution entry point.
+# https://www.paradoxinteractive.com/our-games/launcher
+DOMAIN,www.paradoxinteractive.com
+DOMAIN,www\.paradoxinteractive.com
+DOMAIN,launcher.paradoxinteractive.com
+
+# cpatch distribution CDN observed during launcher updates; retain the proxy path.
+# Root requests return 403; they are not valid patch-download performance samples.
+DOMAIN,distribution-fastly-prod.paradox-interactive.com
+
 # Fallout Wiki image assets; access challenges prevent a valid direct-download benchmark.
 DOMAIN,images.fallout.wiki
 

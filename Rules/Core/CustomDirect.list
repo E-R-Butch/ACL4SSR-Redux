@@ -24,8 +24,7 @@ DOMAIN-SUFFIX,smartmailcloud.com
 DOMAIN,api.wcc.best
 DOMAIN,api.dler.io
 
-# 证书吊销与更新检查
-DOMAIN,e8.c.lencr.org
+# 更新检查
 DOMAIN,update.hwdns.net
 
 # 合规与查询

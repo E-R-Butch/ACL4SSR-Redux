@@ -48,6 +48,10 @@ DOMAIN,msr-api-ubiservices.ubi.com
 DOMAIN,dmx.upc.ubisoft.com
 DOMAIN,api.paradox-interactive.com
 
+# Paradox updater certificate-revocation repository.
+# The HTTPS endpoint identifies its bucket as revocation-certificates-prod.
+DOMAIN,revocation-prod.paradox-interactive.com
+
 # 游戏下载
 DOMAIN-SUFFIX,dl.steam.ksyna.com
 DOMAIN-SUFFIX,st.dl.eccdnx.com

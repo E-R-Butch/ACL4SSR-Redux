@@ -1,0 +1,16 @@
+# 证书链与吊销状态资源；保持证书验证可独立于代理连接工作
+
+# Certum issuer and timestamping CA certificate repositories
+# https://www.certum.eu/en/cert_expertise_root_certificates/
+DOMAIN,repository.certum.pl
+DOMAIN,subca.repository.certum.pl
+
+# Sectigo issuer/root certificate downloads
+# https://www.sectigo.com/knowledge-base/detail/Sectigo-Root-Certificates
+DOMAIN,crt.sectigo.com
+
+# Let's Encrypt CRLs; exact observed hosts only
+# https://letsencrypt.org/docs/lencr.org/
+DOMAIN,x1.c.lencr.org
+DOMAIN,yr.c.lencr.org
+DOMAIN,e8.c.lencr.org

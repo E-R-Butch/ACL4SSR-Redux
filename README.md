@@ -99,6 +99,12 @@ PR 和推送会运行只读 CI，检查仓库边界、单元测试、重复规�
 
 公共网页服务按用途维护：`RecruitmentDirect.list` 收录已核实的招聘页面和申请人门户资源，`ConsentDirect.list` 收录 Cookie 同意界面及配置接口，帮助中心归入 `CloudServiceDirect.list`。新增规则使用精确域名，招聘与同意资源位于广告、隐私列表之后；能直连不代表该服务完全不收集数据。
 
+证书相关服务分别维护：`CertificateDirect.list` 收录已验证的 Certum、Sectigo 证书下载主机以及 Let's Encrypt CRL 主机，避免证书检查依赖代理连接；原先的 `e8.c.lencr.org` 同策略迁入此分类。`CertificateProxy.list` 收录传输样本代理更快的 Certum 官网文档，包含日志中的转义写法。[Certum 证书目录](https://www.certum.eu/en/cert_expertise_root_certificates/)、[Sectigo 证书说明](https://www.sectigo.com/knowledge-base/detail/Sectigo-Root-Certificates)和 [Let's Encrypt 的 lencr.org 说明](https://letsencrypt.org/docs/lencr.org/)可用于核实业务。只匹配具体主机，不按 `trustd`、`svchost.exe` 或证书机构整个域名后缀放行。
+
+Paradox 按功能分流：现有 `api.paradox-interactive.com` 保持游戏直连；`revocation-prod.paradox-interactive.com` 返回 `revocation-certificates-prod` 存储桶标识，作为更新器证书撤销相关资源归入游戏直连。官方[游戏 API](https://api.paradox-interactive.com/mods/games)引用的图片主机 `metadata-assets.paradox-interactive.com`、模组网站、官网及[启动器安装包入口](https://www.paradoxinteractive.com/our-games/launcher)精确归入游戏代理，完整资源或相同字节范围的有效样本支持该方向。`distribution-fastly-prod.paradox-interactive.com` 根据启动器更新日志归入游戏代理；根路径 403 不作为真实补丁下载测速依据。官方模组站脚本明确使用 `prod-telemetry.paradox-interactive.com` 上报遥测，该精确主机在主 INI 中直接 `REJECT`。
+
+`rog-live-service.asus.com` 是 ASUS ROG / Armoury Crate 更新接口主机，[ASUS 论坛的更新日志](https://rog-forum.asus.com/t5/armoury-crate/rogliveservice-update-fails/td-p/1044038)明确记录 `/service/update2`。精确归入硬件代理以保留原代理方向；无设备参数的 GET 在直连及代理下都返回 405，不能用该错误响应推断实际设备更新或安装包速度。公开资源测速结果与 Windows 上的实际更新完成是不同验证层级。
+
 下载分流比较同一实际文件在直连与代理下的传输耗时、吞吐和重复请求表现，并核对内容一致性；首页返回 200 只证明可达。文档、网站、下载跳转入口和最终文件主机分别判断。`DeveloperDirect.list` 收录 Astral 安装与发布下载，`DeveloperProxy.list` 收录 IOTA 下载入口及其使用的 Spaces 区域主机，采用精确域名匹配。技嘉静态资源归入 `HardwareDirect.list`，官网在自动请求均返回 403、尚无有效性能样本的情况下由 `HardwareProxy.list` 保留代理路径。`deprecated.png` 作为已观察到的无效主机精确拒绝，不扩大到其他文件名。
 
 服务的地区准入要求优先于直连可达性和速度。`opencode.ai` 同时承载官网与 Zen/Go API；[官方文档](https://opencode.ai/docs/go/#endpoints)列出的部分模型限制使用地区，因此该精确域名归入 `DeveloperProxy.list`，使用“🚀 节点选择”中的合适海外出口。

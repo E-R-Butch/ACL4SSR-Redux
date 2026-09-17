@@ -1,0 +1,7 @@
+# 证书机构官网与文档；在广告/隐私拦截之后匹配
+
+# Certum CA documentation website; separate from certificate/CRL delivery endpoints.
+# Valid document transfers favored proxy routing; direct transfer timed out before completion.
+# https://www.certum.eu/en/cert_expertise_root_certificates/
+DOMAIN,www.certum.eu
+DOMAIN,www\.certum.eu

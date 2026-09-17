@@ -1,5 +1,10 @@
 # Hardware Proxy
 
+# ASUS ROG / Armoury Crate update API (/service/update2); retain the current proxy path.
+# GET returns 405 on direct and proxy paths; device-specific update requests are unverified.
+# https://rog-forum.asus.com/t5/armoury-crate/rogliveservice-update-fails/td-p/1044038
+DOMAIN,rog-live-service.asus.com
+
 # KeebTalk mechanical keyboard forum; actual topic-page transfers favor proxy routing.
 # https://www.keebtalk.com/about
 DOMAIN,www.keebtalk.com
