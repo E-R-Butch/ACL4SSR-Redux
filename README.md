@@ -111,6 +111,8 @@ Paradox 按功能分流：现有 `api.paradox-interactive.com` 保持游戏直�
 
 `easylist.to` 是 [EasyList 项目官网](https://easylist.to/pages/about.html)及广告、追踪拦截列表下载源，精确归入 `DeveloperProxy.list` 的浏览器扩展与过滤列表更新分类。实际完整 EasyPrivacy 文件在直连及代理下内容一致，重复传输样本中美国代理更快；其他出口仍可能出现连接超时。该规则不扩展到其他子域名，也不改变本项目自动同步使用的发布地址。
 
+`download.blender.org` 是 [Blender 官方发行文件下载主机](https://download.blender.org/release/)，精确归入 `DeveloperProxy.list` 的工具下载规则。实际 Windows 安装包相同字节范围的重复传输样本中代理更快，已核对有效 HTTP 206 响应、范围长度及内容一致性；分段测试不等于完整安装包的持续下载速度。
+
 `api.oaistatsig.com` 在主 INI 中使用精确域名规则直接 `REJECT`，先于业务分流规则，不经过可切换策略组。[HaGeZi Ultimate](https://github.com/hagezi/dns-blocklists/blob/main/wildcard/ultimate.txt) 已收录该域名；[Statsig 文档](https://docs.statsig.com/infrastructure/statsig_domains)说明该服务包含配置与事件记录。
 
 `analytics.brew.sh` 是 [Homebrew 使用统计上报端点](https://docs.brew.sh/Analytics)，在主 INI 中精确 `REJECT`，同时覆盖日志中出现的 `analytics.brew\.sh` 写法。该规则只拦截统计上报，保留 `formulae.brew.sh` 的开发代理分流；Homebrew 会静默处理上报失败。
