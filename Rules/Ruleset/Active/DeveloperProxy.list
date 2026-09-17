@@ -8,6 +8,10 @@ DOMAIN,cua.ai
 # https://models.dev/
 DOMAIN,models.dev
 
+# AI tool navigation and technical tutorials; public page/asset transfers favor proxies.
+# https://aistacknav.com/
+DOMAIN,aistacknav.com
+
 # Command Code website and model API; public model-list latency favors proxy routing.
 # Authenticated model eligibility and streaming throughput are not established by that probe.
 # https://commandcode.ai/docs/provider

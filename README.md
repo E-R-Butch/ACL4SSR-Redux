@@ -117,6 +117,8 @@ Paradox 按功能分流：现有 `api.paradox-interactive.com` 保持游戏直�
 
 `eu.i.posthog.com` 在主 INI 中精确、直接 `REJECT`，先于业务分流且不经过可切换策略组。Cua 的[公开 PostHog 配置](https://cua.ai/assets/PostHogProvider-vgtdN9yw.js)将统计主机指向该地址；[PostHog SDK 文档](https://posthog.com/docs/libraries/python)说明其事件采集、用户识别与配置能力。官网资料访问与统计上报分别匹配，拒绝范围不扩大到整个 PostHog 域名。
 
+`aistacknav.com` 是 [AI 工具导航、技术教程与数字资料站](https://aistacknav.com/)，公开首页及前端资源的重复传输样本支持开发代理，采用主机精确匹配。页面嵌入的 `analytics.aistacknav.com/script.js` 是独立 Umami 统计脚本，代码将数据发送到该主机的 `/api/send`；该统计主机在主 INI 中精确 `REJECT`。[Umami 文档](https://docs.umami.is/docs/collect-data)说明了脚本的采集用途。现有 Google 广告、统计拦截保持优先；登录、购买及付费资料下载未作为测速样本。
+
 `api.oaistatsig.com` 在主 INI 中使用精确域名规则直接 `REJECT`，先于业务分流规则，不经过可切换策略组。[HaGeZi Ultimate](https://github.com/hagezi/dns-blocklists/blob/main/wildcard/ultimate.txt) 已收录该域名；[Statsig 文档](https://docs.statsig.com/infrastructure/statsig_domains)说明该服务包含配置与事件记录。
 
 `analytics.brew.sh` 是 [Homebrew 使用统计上报端点](https://docs.brew.sh/Analytics)，在主 INI 中精确 `REJECT`，同时覆盖日志中出现的 `analytics.brew\.sh` 写法。该规则只拦截统计上报，保留 `formulae.brew.sh` 的开发代理分流；Homebrew 会静默处理上报失败。

@@ -195,6 +195,8 @@ class RoutingSemanticsTests(unittest.TestCase):
             "cua.ai": "🚀 节点选择",
             "models.dev": "🚀 节点选择",
             "eu.i.posthog.com": "REJECT",
+            "aistacknav.com": "🚀 节点选择",
+            "analytics.aistacknav.com": "REJECT",
             "api.paradox-interactive.com": "🎮 游戏直连",
             "revocation-prod.paradox-interactive.com": "🎮 游戏直连",
             "metadata-assets.paradox-interactive.com": "🎮 游戏代理",
@@ -266,6 +268,7 @@ class RoutingSemanticsTests(unittest.TestCase):
                 "monorail-edge.shopifysvc.com", "stats.shopify.com", "v.shopify.com",
                 "error-analytics-production.shopifysvc.com",
                 "error-analytics-sessions-production.shopifysvc.com",
+                "www.googletagmanager.com",
             ):
                 with self.subTest(config=config_path.name, privacy_block=host):
                     self.assertEqual(first_policy(host), "🔒 隐私保护")
@@ -280,6 +283,8 @@ class RoutingSemanticsTests(unittest.TestCase):
             self.assertEqual(first_policy("chatgpt.com"), "🤖 OpenAI")
             self.assertEqual(first_policy("api.openai.com"), "🤖 OpenAI")
             self.assertEqual(first_policy("formulae.brew.sh"), "🚀 节点选择")
+            self.assertEqual(first_policy("pagead2.googlesyndication.com"), "🛑 广告拦截")
+            self.assertEqual(first_policy("www.google-analytics.com"), "🛑 广告拦截")
 
             # The existing Claude suffix precedes the privacy list; retain that policy.
             with self.subTest(config=config_path.name, dedicated_ai="statsig.anthropic.com"):
@@ -307,6 +312,8 @@ class RoutingSemanticsTests(unittest.TestCase):
                 "blender.org", "www.blender.org", "download.blender.org.example",
                 "www.cua.ai", "api.cua.ai", "run.cua.ai", "auth.cua.ai", "cua.ai.example",
                 "api.models.dev", "models.dev.example", "posthog.com", "other.posthog.com",
+                "www.aistacknav.com", "en.aistacknav.com", "geo.aistacknav.com",
+                "aistacknav.com.example",
                 "paradox-interactive.com", "unverified.paradox-interactive.com",
                 "paradoxinteractive.com", "unverified.paradoxinteractive.com",
                 "paradoxplaza.com", "unverified.paradoxplaza.com",
