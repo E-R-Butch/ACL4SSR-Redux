@@ -107,6 +107,10 @@ Paradox 按功能分流：现有 `api.paradox-interactive.com` 保持游戏直�
 
 下载分流比较同一实际文件在直连与代理下的传输耗时、吞吐和重复请求表现，并核对内容一致性；首页返回 200 只证明可达。文档、网站、下载跳转入口和最终文件主机分别判断。`DeveloperDirect.list` 收录 Astral 安装与发布下载，`DeveloperProxy.list` 收录 IOTA 下载入口及其使用的 Spaces 区域主机，采用精确域名匹配。技嘉静态资源归入 `HardwareDirect.list`，官网在自动请求均返回 403、尚无有效性能样本的情况下由 `HardwareProxy.list` 保留代理路径。`deprecated.png` 作为已观察到的无效主机精确拒绝，不扩大到其他文件名。
 
+Steam 的 `api.steampowered.com` 使用精确游戏代理规则，修正受影响客户端直连超时的问题；[Valve 的 GetServerInfo 接口](https://partner.steamgames.com/doc/webapi/isteamwebapiutil)用于验证无密钥的正常 API 响应，不等同于完成账号登录。社区图片 `images.steamusercontent.com` 的同图重复传输样本直连更快，因此保持游戏直连，其他 Steam 内容下载主机也保留原策略。
+
+Windows 的联网探测与局域网更新互传分别处理：[Microsoft NCSI](https://learn.microsoft.com/en-us/windows-server/networking/ncsi/ncsi-overview)使用 IPv4/IPv6 探测判断联网状态，IPv6 专用探测在禁用 IPv6 的解析/连接配置下可能失败；不能用代理成功或伪造 IPv4 地址代替本机 IPv6 连通性。局域网 TCP 7680 是 [Delivery Optimization 更新互传](https://learn.microsoft.com/en-us/windows/deployment/do/delivery-optimization-configure)，直连超时需要检查对端服务、路由和防火墙。公共规则保持这些流量直连，不因单台设备的日志统一拒绝互传、关闭联网探测或修改全局 IPv6 设置。
+
 服务的地区准入要求优先于直连可达性和速度。`opencode.ai` 同时承载官网与 Zen/Go API；[官方文档](https://opencode.ai/docs/go/#endpoints)列出的部分模型限制使用地区，因此该精确域名归入 `DeveloperProxy.list`，使用“🚀 节点选择”中的合适海外出口。
 
 `easylist.to` 是 [EasyList 项目官网](https://easylist.to/pages/about.html)及广告、追踪拦截列表下载源，精确归入 `DeveloperProxy.list` 的浏览器扩展与过滤列表更新分类。实际完整 EasyPrivacy 文件在直连及代理下内容一致，重复传输样本中美国代理更快；其他出口仍可能出现连接超时。该规则不扩展到其他子域名，也不改变本项目自动同步使用的发布地址。

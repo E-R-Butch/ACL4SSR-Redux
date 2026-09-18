@@ -22,7 +22,10 @@ DOMAIN-SUFFIX,steamcommunity.com
 DOMAIN-SUFFIX,steam-chat.com
 DOMAIN-SUFFIX,s.team
 DOMAIN-SUFFIX,steam.tv
-# Steam 主站走代理（api 走直连，见 GameDirect.list）
+# Steam website and Web API; bulk content and community-image hosts retain GameDirect routing.
+# Direct API connections timed out on the affected client; the public utility API works via proxy.
+# https://partner.steamgames.com/doc/webapi/isteamwebapiutil
+DOMAIN,api.steampowered.com
 DOMAIN,steampowered.com
 DOMAIN,www.steampowered.com
 DOMAIN,store.steampowered.com

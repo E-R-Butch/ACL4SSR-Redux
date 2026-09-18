@@ -260,6 +260,22 @@ class RoutingSemanticsTests(unittest.TestCase):
                 with self.subTest(config=config_path.name, service=host):
                     self.assertEqual(first_policy(host), policy)
 
+            # The API exception must not move Steam downloads/images or Windows probes to proxy.
+            for host, policy in {
+                "api.steampowered.com": "🎮 游戏代理",
+                "store.steampowered.com": "🎮 游戏代理",
+                "steamcommunity.com": "🎮 游戏代理",
+                "images.steamusercontent.com": "🎮 游戏直连",
+                "cdn.steamusercontent.com": "🎮 游戏直连",
+                "cdn.steamcontent.com": "🎮 游戏直连",
+                "cdn.steamstatic.com": "🎮 游戏直连",
+                "ipv6.msftconnecttest.com": "🎯 全球直连",
+                "www.msftconnecttest.com": "🎯 全球直连",
+                "dns.msftncsi.com": "🎯 全球直连",
+            }.items():
+                with self.subTest(config=config_path.name, steam_or_probe=host):
+                    self.assertEqual(first_policy(host), policy)
+
             for host in (
                 "smetrics.onetrust.com", "metrics.amd.com", "link.global.amd.com",
                 "apac.zendesk.com", "go.zendesk.com", "join.zendesk.com",
