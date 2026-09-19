@@ -2,3 +2,11 @@
 # 区域内容与直连不稳定链路
 DOMAIN-SUFFIX,apple.news
 DOMAIN-SUFFIX,safebrowsing.apple
+
+# EdgeHog relay addresses advertised by Apple's NetworkServiceProxy configuration
+# for tether.edge.apple and a.tthr.apple.com (including Weather_China_A).
+# Preserve the observed proxy path: generic HTTPS/QUIC probes did not validate
+# an authenticated relay session or establish that direct routing is faster.
+# Exact public endpoints only; do not route the entire Apple allocation here.
+IP-CIDR6,2620:149:af1::10/128,no-resolve
+IP-CIDR6,2620:149:af6::10/128,no-resolve

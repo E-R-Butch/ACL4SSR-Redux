@@ -121,6 +121,10 @@ Windows 的联网探测与局域网更新互传分别处理：[Microsoft NCSI](h
 
 `download.blender.org` 是 [Blender 官方发行文件下载主机](https://download.blender.org/release/)，精确归入 `DeveloperProxy.list` 的工具下载规则。实际 Windows 安装包相同字节范围的重复传输样本中代理更快，已核对有效 HTTP 206 响应、范围长度及内容一致性；分段测试不等于完整安装包的持续下载速度。
 
+`softwareupdate.pilotmoon.com` 是 Scroll Reverser 的 Sparkle 更新清单主机，[官方源码](https://github.com/pilotmoon/Scroll-Reverser/blob/master/AppDelegate.m)明确指定其 appcast 地址；清单中的完整发行 ZIP 托管在 `pilotmoon.com`。两者精确归入 `DeveloperProxy.list` 的工具更新分类。三轮相同清单及完整安装包下载内容一致，代理总体更快；不扩大到整个 Pilotmoon 域名后缀。更新检查不等同于遥测，[项目配置](https://github.com/pilotmoon/Scroll-Reverser/blob/master/ScrollReverser-Info.plist)关闭了 Sparkle 系统信息采集。
+
+Apple 的 NetworkServiceProxy 配置为 `tether.edge.apple` / `a.tthr.apple.com` 列出了 `2620:149:af1::10`、`2620:149:af6::10`，标签包括 `EdgeHog` 和 `EdgeHog_Weather_China_A`，协议标记为 [RFC 9298 UDP 中继](https://www.rfc-editor.org/rfc/rfc9298.html)。这是应用配置直接提供地址的证据，裸 IP 本身不能证明 DNS 被其他程序抢先解析；[Apple 也说明网络中继用于多种隐私功能](https://developer.apple.com/videos/play/wwdc2023/10002/)，不能只按进程名认定为遥测或某一条具体天气请求。这两个公共 IPv6 地址以 `/128,no-resolve` 精确归入 `AppleProxy.list`，保留原代理方向。普通 HTTPS 和未认证 QUIC 探测未能验证实际中继业务或证明直连更快；分类完成不等于中继业务已恢复。其他 Apple 地址、域名和隐私拦截策略不随之扩大。
+
 `cua.ai` 是 Cua 计算机自动化工具与云桌面平台的[官网和文档](https://cua.ai/docs)，页面与资源传输样本支持开发代理；[官方认证文档](https://cua.ai/docs/reference/cua-cli/authentication)将登录与 Fleet API 放在独立主机，因此此处只匹配 `cua.ai`，不推断账号、云桌面或模型服务的地区可用性。`models.dev` 是[模型与供应商资料库](https://models.dev/)，其公开 `api.json` 提供规格、能力和价格等元数据，按完整 JSON 传输样本精确归入开发代理。
 
 `eu.i.posthog.com` 在主 INI 中精确、直接 `REJECT`，先于业务分流且不经过可切换策略组。Cua 的[公开 PostHog 配置](https://cua.ai/assets/PostHogProvider-vgtdN9yw.js)将统计主机指向该地址；[PostHog SDK 文档](https://posthog.com/docs/libraries/python)说明其事件采集、用户识别与配置能力。官网资料访问与统计上报分别匹配，拒绝范围不扩大到整个 PostHog 域名。

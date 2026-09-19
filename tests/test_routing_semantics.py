@@ -1,3 +1,4 @@
+import ipaddress
 import pathlib
 import re
 import tempfile
@@ -162,6 +163,30 @@ class RoutingSemanticsTests(unittest.TestCase):
                                  "surge_ruleset=REJET,[]DOMAIN-SUFFIX,invalid")
         self.assertTrue(any("ruleset target 'REJET'" in error for error in self.check_mutation(text)))
 
+    def test_apple_relay_ipv6_routes_are_exact_and_wired_to_proxy(self):
+        addresses = ("2620:149:af1::10", "2620:149:af6::10")
+        for config_path in sorted((ROOT / "Config").glob("*.ini")):
+            networks = []
+            for line in config_path.read_text(encoding="utf-8").splitlines():
+                if not line.startswith("surge_ruleset="):
+                    continue
+                group, source = line.split("=", 1)[1].split(",", 1)
+                path = validate_rules.local_path_from_raw_url(source)
+                rules = [source[2:]] if source.startswith("[]") else path.read_text(encoding="utf-8").splitlines()
+                for rule in rules:
+                    if rule.startswith("IP-CIDR6,"):
+                        parts = rule.split(",")
+                        networks.append((ipaddress.ip_network(parts[1]), group, parts[2:]))
+
+            for address in addresses:
+                ip = ipaddress.ip_address(address)
+                with self.subTest(config=config_path.name, address=address):
+                    matched = next((entry for entry in networks if ip in entry[0]), None)
+                    self.assertEqual(matched, (ipaddress.ip_network(address + "/128"), "🚀 节点选择", ["no-resolve"]))
+                    for neighbor in (ip - 1, ip + 1):
+                        self.assertFalse(any(neighbor in network for network, _, _ in networks))
+            self.assertFalse(any(ipaddress.ip_address("2620:149:af0::10") in network for network, _, _ in networks))
+
     def test_web_service_routes_preserve_privacy_blocks_and_dedicated_ai_policies(self):
         expected = {
             "cdn.cookielaw.org": "🎯 全球直连",
@@ -199,6 +224,8 @@ class RoutingSemanticsTests(unittest.TestCase):
             "analytics.aistacknav.com": "REJECT",
             "wiki.eufymake.com": "🚀 节点选择",
             "openrgb.org": "🎯 全球直连",
+            "softwareupdate.pilotmoon.com": "🚀 节点选择",
+            "pilotmoon.com": "🚀 节点选择",
             "sstats.adobe.com": "REJECT",
             "auth.services.adobe.com": "🎯 全球直连",
             "acrobat.adobe.com": "🎯 全球直连",

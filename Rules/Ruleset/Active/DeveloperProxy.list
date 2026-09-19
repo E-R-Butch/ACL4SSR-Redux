@@ -1,5 +1,11 @@
 # 开发代理
 
+# Scroll Reverser / Pilotmoon update feed and release downloads.
+# https://github.com/pilotmoon/Scroll-Reverser/blob/master/AppDelegate.m
+# Complete appcast and ZIP transfers favor proxies; keep exact hosts.
+DOMAIN,softwareupdate.pilotmoon.com
+DOMAIN,pilotmoon.com
+
 # Cua public website and documentation; authenticated Fleet/login hosts are separate.
 # https://cua.ai/docs/reference/cua-cli/authentication
 DOMAIN,cua.ai
