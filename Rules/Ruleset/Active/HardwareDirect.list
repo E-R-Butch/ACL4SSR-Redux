@@ -1,4 +1,9 @@
 # Hardware Direct
+
+# OpenRGB website and device-support data; direct samples were consistently successful.
+# Release binaries are linked to separate hosts and are not covered by this exact rule.
+# https://openrgb.org/releases.html
+DOMAIN,openrgb.org
 # GPU / CPU vendors: updater and device service endpoints
 DOMAIN,download.amd.com
 DOMAIN,drivers.amd.com

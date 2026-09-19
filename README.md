@@ -105,6 +105,10 @@ Paradox 按功能分流：现有 `api.paradox-interactive.com` 保持游戏直�
 
 `rog-live-service.asus.com` 是 ASUS ROG / Armoury Crate 更新接口主机，[ASUS 论坛的更新日志](https://rog-forum.asus.com/t5/armoury-crate/rogliveservice-update-fails/td-p/1044038)明确记录 `/service/update2`。精确归入硬件代理以保留原代理方向；无设备参数的 GET 在直连及代理下都返回 405，不能用该错误响应推断实际设备更新或安装包速度。公开资源测速结果与 Windows 上的实际更新完成是不同验证层级。
 
+`wiki.eufymake.com` 是 [eufyMake 打印机支持知识库](https://wiki.eufymake.com/en/home)，正文与样式资源的直连样本较慢或失败，精确归入硬件代理。`openrgb.org` 是 [OpenRGB 官网及设备支持资料入口](https://openrgb.org/)，直连样本全部成功，综合稳定性与页面/资源时延归入硬件直连；部分资源的美国代理更快，不宣称直连在所有资源上最快。[正式发行包](https://openrgb.org/releases.html)链接到其他主机，官网测速不能代表安装包下载速度。
+
+`sstats.adobe.com` 由 [Adobe 官方文档](https://experienceleague.adobe.com/en/docs/target/using/integrate/a4t/analytics-tracking-server)明确列为 HTTPS Analytics 跟踪服务器，在主 INI 中精确、直接 `REJECT`，先于业务规则且不经过可切换策略组。Adobe 登录与其他业务主机保持原分类。
+
 下载分流比较同一实际文件在直连与代理下的传输耗时、吞吐和重复请求表现，并核对内容一致性；首页返回 200 只证明可达。文档、网站、下载跳转入口和最终文件主机分别判断。`DeveloperDirect.list` 收录 Astral 安装与发布下载，`DeveloperProxy.list` 收录 IOTA 下载入口及其使用的 Spaces 区域主机，采用精确域名匹配。技嘉静态资源归入 `HardwareDirect.list`，官网在自动请求均返回 403、尚无有效性能样本的情况下由 `HardwareProxy.list` 保留代理路径。`deprecated.png` 作为已观察到的无效主机精确拒绝，不扩大到其他文件名。
 
 Steam 的 `api.steampowered.com` 使用精确游戏代理规则，修正受影响客户端直连超时的问题；[Valve 的 GetServerInfo 接口](https://partner.steamgames.com/doc/webapi/isteamwebapiutil)用于验证无密钥的正常 API 响应，不等同于完成账号登录。社区图片 `images.steamusercontent.com` 的同图重复传输样本直连更快，因此保持游戏直连，其他 Steam 内容下载主机也保留原策略。

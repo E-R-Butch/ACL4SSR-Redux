@@ -1,5 +1,9 @@
 # Hardware Proxy
 
+# eufyMake printer documentation; direct page/style samples were slow or timed out.
+# https://wiki.eufymake.com/en/home
+DOMAIN,wiki.eufymake.com
+
 # ASUS ROG / Armoury Crate update API (/service/update2); retain the current proxy path.
 # GET returns 405 on direct and proxy paths; device-specific update requests are unverified.
 # https://rog-forum.asus.com/t5/armoury-crate/rogliveservice-update-fails/td-p/1044038
