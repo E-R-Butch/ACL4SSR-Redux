@@ -5,6 +5,16 @@
 # Public portal resources favor proxies; token refresh and inference are separate checks.
 DOMAIN,portal.nousresearch.com
 
+# Hermes Agent official website, documentation and installer entry point.
+# https://hermes-agent.nousresearch.com/docs/
+# Repeated complete page, stylesheet and documentation-index transfers favor proxies.
+DOMAIN,hermes-agent.nousresearch.com
+
+# OpenRouter model gateway: this host serves both the website and /api/v1 APIs.
+# https://openrouter.ai/docs/quickstart
+# Valid model-catalog transfers favor proxies; model/account eligibility is separate.
+DOMAIN,openrouter.ai
+
 # Scroll Reverser / Pilotmoon update feed and release downloads.
 # https://github.com/pilotmoon/Scroll-Reverser/blob/master/AppDelegate.m
 # Complete appcast and ZIP transfers favor proxies; keep exact hosts.

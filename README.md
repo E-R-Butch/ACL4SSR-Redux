@@ -115,6 +115,10 @@ Chub 按用途维护为 `ChubProxy.list` 与 `ChubDirect.list`，均位于广告
 
 `portal.nousresearch.com` 是 Nous Portal 的账户和认证门户；[Hermes Agent 官方代码](https://github.com/NousResearch/hermes-agent/blob/main/hermes_cli/auth_nous.py)将令牌刷新请求发送到该主机的 `/api/oauth/token`。完整门户页面和样式资源重复传输样本支持代理，精确归入 `DeveloperProxy.list`。公开页面测速不代表已完成用户认证、令牌刷新或另一主机上的模型推理。
 
+`hermes-agent.nousresearch.com` 承载 [Hermes Agent 官网、文档及安装入口](https://hermes-agent.nousresearch.com/docs/)，与账户门户分别匹配。官网、样式表、文档页和文档索引的完整重复下载总体支持代理，精确归入 `DeveloperProxy.list`；该主机的结论不扩展到其他 Nous 子域。
+
+`openrouter.ai` 是 [OpenRouter 模型聚合服务](https://openrouter.ai/docs/quickstart)，官网、模型目录和 `/api/v1/chat/completions` 使用同一主机。有效模型目录 JSON 的重复传输代理更快，精确归入 `DeveloperProxy.list`，不混入 OpenAI 专属规则，也不扩展到地区子域。[模型供应商的地区与实体限制](https://openrouter.ai/terms)仍需遵守；公开目录可访问及代理分流都不等同于账号具有所有模型的使用权限，本次未使用令牌或调用付费推理。
+
 `search.parallel.ai` 是 [Parallel 官方 Search MCP](https://docs.parallel.ai/integrations/mcp/search-mcp) 的托管主机，`/mcp` 提供 `web_search` 与 `web_fetch`，支持匿名免费使用。使用真实 MCP 初始化、工具列表和读取同一篇公开文档的 `web_fetch` 调用验证，直连稳定，调用时延与美国代理接近、低于日本代理，因此精确归入 `DeveloperDirect.list`；根路径的 404 不参与性能判断，也不将该结论扩大到 `api.parallel.ai` 或所有搜索任务。
 
 下载分流比较同一实际文件在直连与代理下的传输耗时、吞吐和重复请求表现，并核对内容一致性；首页返回 200 只证明可达。文档、网站、下载跳转入口和最终文件主机分别判断。`DeveloperDirect.list` 收录 Astral 安装与发布下载，`DeveloperProxy.list` 收录 IOTA 下载入口及其使用的 Spaces 区域主机，采用精确域名匹配。技嘉静态资源归入 `HardwareDirect.list`，官网在自动请求均返回 403、尚无有效性能样本的情况下由 `HardwareProxy.list` 保留代理路径。`deprecated.png` 作为已观察到的无效主机精确拒绝，不扩大到其他文件名。
