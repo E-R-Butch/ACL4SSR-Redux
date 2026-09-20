@@ -346,6 +346,11 @@ class RoutingSemanticsTests(unittest.TestCase):
             # Blocking Cloudflare analytics must preserve challenge and CDN hosts.
             self.assertEqual(first_policy("challenges.cloudflare.com"), "🚀 节点选择")
             self.assertEqual(first_policy("cdnjs.cloudflare.com"), "🚀 节点选择")
+            # MonitorControl's legitimate update host must precede the broad ad keyword.
+            self.assertEqual(first_policy("monitorcontrol.app"), "🚀 节点选择")
+            for host in ("child.monitorcontrol.app", "monitorcontrol.app.example", "monitor.ebay.com"):
+                with self.subTest(config=config_path.name, monitor_exception_scope=host):
+                    self.assertEqual(first_policy(host), "🛑 广告拦截")
 
             # The existing Claude suffix precedes the privacy list; retain that policy.
             with self.subTest(config=config_path.name, dedicated_ai="statsig.anthropic.com"):

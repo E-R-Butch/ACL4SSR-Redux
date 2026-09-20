@@ -107,6 +107,8 @@ Paradox 按功能分流：现有 `api.paradox-interactive.com` 保持游戏直�
 
 `wiki.eufymake.com` 是 [eufyMake 打印机支持知识库](https://wiki.eufymake.com/en/home)，正文与样式资源的直连样本较慢或失败，精确归入硬件代理。`openrgb.org` 是 [OpenRGB 官网及设备支持资料入口](https://openrgb.org/)，直连样本全部成功，综合稳定性与页面/资源时延归入硬件直连；部分资源的美国代理更快，不宣称直连在所有资源上最快。[正式发行包](https://openrgb.org/releases.html)链接到其他主机，官网测速不能代表安装包下载速度。
 
+`monitorcontrol.app` 是 [MonitorControl 官方网站](https://github.com/MonitorControl/MonitorControl)，[应用配置](https://github.com/MonitorControl/MonitorControl/blob/main/MonitorControl/Info.plist)将 Sparkle 更新清单指向该主机的 `/appcast2.xml`。它会被广告原料及合并列表中的 `DOMAIN-KEYWORD,monitor` 误拦，因此在广告规则之前的 `HardwareProxy.list` 添加精确主机例外。完整更新清单的重复传输代理更快；实际安装包链接到 GitHub，沿用 GitHub 自身分流。本例外不修改上游广告关键词，也不扩大为域名后缀放行。
+
 `sstats.adobe.com` 由 [Adobe 官方文档](https://experienceleague.adobe.com/en/docs/target/using/integrate/a4t/analytics-tracking-server)明确列为 HTTPS Analytics 跟踪服务器，在主 INI 中精确、直接 `REJECT`，先于业务规则且不经过可切换策略组。Adobe 登录与其他业务主机保持原分类。
 
 Chub 按用途维护为 `ChubProxy.list` 与 `ChubDirect.list`，均位于广告和隐私规则之后。[官方指南](https://docs.chub.ai/docs/the-basics/getting-started)说明其角色聊天与多模型 API 功能；前端公开脚本将 `gateway.chub.ai` 设为业务网关、`ro.chub.ai` 设为读取接口，后者的 `GET /api/events` 返回站内活动和评选数据。`chub.ai` 的实际页面/脚本以及网关公开状态 JSON 样本总体支持代理；`ro.chub.ai` 在补齐浏览器 Origin、Referer 后的有效 JSON 重复请求直连更快，归入直连。`avatars.charhub.io` 承载头像、角色卡和图片，默认头像及 PNG 样本直连稳定、耗时略低，归入直连；favicon 样本代理更快，不宣称所有对象都适合相同线路。仅使用精确主机，不扩展到整个域名后缀，也不代替登录或模型生成验证。默认 curl User-Agent 的地域提示和缺失浏览器请求头时的 403 不计入有效性能样本。
