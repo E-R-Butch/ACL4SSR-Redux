@@ -1,7 +1,7 @@
 # 广告列表 adblock rules
 # 内容：EasyPrivacy列表，隐私保护，屏蔽隐私追踪
 # 来源：https://easylist-downloads.adblockplus.org/easyprivacy.txt
-# 数量：40563条
+# 数量：40578条
 
 DOMAIN-SUFFIX,0.myikas.com
 DOMAIN-SUFFIX,0.net.easyjet.com
@@ -5779,6 +5779,7 @@ DOMAIN-SUFFIX,apiwmda.58.com.cn
 DOMAIN-SUFFIX,apllogistics.actonservice.com
 DOMAIN-SUFFIX,aplobv.xexymix.com
 DOMAIN-SUFFIX,aplus.alibaba.com
+DOMAIN-SUFFIX,apm-rum.inf.miui.com
 DOMAIN-SUFFIX,apm.qwant.com
 DOMAIN-SUFFIX,apm.tnet.nl
 DOMAIN-SUFFIX,app-branch.yummybazaar-qa.com
@@ -8391,6 +8392,7 @@ DOMAIN-SUFFIX,click.gamersky.com
 DOMAIN-SUFFIX,click.glamsquad.com
 DOMAIN-SUFFIX,click.instacartemail.com
 DOMAIN-SUFFIX,click.kataweb.it
+DOMAIN-SUFFIX,click.lenovo.com
 DOMAIN-SUFFIX,click.lmbcustomersupport.com
 DOMAIN-SUFFIX,click.mail.carousell.com
 DOMAIN-SUFFIX,click.mail.thecarousell.com
@@ -10959,6 +10961,7 @@ DOMAIN-SUFFIX,dmkt.solutions.cas.org
 DOMAIN-SUFFIX,dmndfrcstng.com
 DOMAIN-SUFFIX,dmp.citynews.ovh
 DOMAIN-SUFFIX,dmpcdn.el-mundo.net
+DOMAIN-SUFFIX,dmplog.qq.com
 DOMAIN-SUFFIX,dmpmetrics.rcsmetrics.it
 DOMAIN-SUFFIX,dmpxs.com
 DOMAIN-SUFFIX,dmqykw.thirtymall.com
@@ -17390,6 +17393,8 @@ DOMAIN-SUFFIX,ledgeviewpartners.actonservice.com
 DOMAIN-SUFFIX,lednews.powerint.com
 DOMAIN-SUFFIX,leecompany.actonservice.com
 DOMAIN-SUFFIX,legalhold.ediscovery.com
+DOMAIN-SUFFIX,lego-tech.zhuanzhuan.com
+DOMAIN-SUFFIX,lego.zhuanzhuan.com
 DOMAIN-SUFFIX,legolas.monotote.com
 DOMAIN-SUFFIX,lekfso.hitohana.tokyo
 DOMAIN-SUFFIX,lem.nouvelobs.com
@@ -18514,6 +18519,7 @@ DOMAIN-SUFFIX,logs.animaapp.com
 DOMAIN-SUFFIX,logs.betterstack.com
 DOMAIN-SUFFIX,logs.chatboost-cv.algoage.co.jp
 DOMAIN-SUFFIX,logs.dynamicauth.com
+DOMAIN-SUFFIX,logs.game.qq.com
 DOMAIN-SUFFIX,logs.hotstar.com
 DOMAIN-SUFFIX,logs.kaya.delfi.ee
 DOMAIN-SUFFIX,logs.mezmo.com
@@ -23419,6 +23425,9 @@ DOMAIN-SUFFIX,ometrics.wb.com
 DOMAIN-SUFFIX,omfoom.thepoolfactory.com
 DOMAIN-SUFFIX,omftdc.morijuku.com
 DOMAIN-SUFFIX,omgcreative.actonservice.com
+DOMAIN-SUFFIX,omgup.didiglobal.com
+DOMAIN-SUFFIX,omgup.xiaojukeji.com
+DOMAIN-SUFFIX,omgup1.xiaojukeji.com
 DOMAIN-SUFFIX,omjtca.emlakjet.com
 DOMAIN-SUFFIX,omn.americanexpress.com
 DOMAIN-SUFFIX,omn.costumesupercenter.com
@@ -31808,6 +31817,7 @@ DOMAIN-SUFFIX,ssy7.destinia.com.ua
 DOMAIN-SUFFIX,st-a.cdp.asia
 DOMAIN-SUFFIX,st-a8.tscubic.com
 DOMAIN-SUFFIX,st-nlyss1.plala.or.jp
+DOMAIN-SUFFIX,st-sentinel.vivo.com.cn
 DOMAIN-SUFFIX,st.anastasija.lt
 DOMAIN-SUFFIX,st.azcardinals.com
 DOMAIN-SUFFIX,st.bahn.de
@@ -33004,6 +33014,7 @@ DOMAIN-SUFFIX,store.esquirrel.at
 DOMAIN-SUFFIX,storea8tracking.alc.co.jp
 DOMAIN-SUFFIX,stormgate.production.raptive.com
 DOMAIN-SUFFIX,stormwind.actonservice.com
+DOMAIN-SUFFIX,stpc.vivo.com.cn
 DOMAIN-SUFFIX,str.foodnetwork.ca
 DOMAIN-SUFFIX,str.globalnews.ca
 DOMAIN-SUFFIX,str1kee.com
@@ -34621,6 +34632,7 @@ DOMAIN-SUFFIX,tk.bricoprive.com
 DOMAIN-SUFFIX,tk.bullebleue.fr
 DOMAIN-SUFFIX,tk.cadeaux.com
 DOMAIN-SUFFIX,tk.conforama.fr
+DOMAIN-SUFFIX,tk.d.mi.com
 DOMAIN-SUFFIX,tk.dietbon.fr
 DOMAIN-SUFFIX,tk.domitys.fr
 DOMAIN-SUFFIX,tk.dossier.co
@@ -36157,6 +36169,7 @@ DOMAIN-SUFFIX,track.kiomi.com
 DOMAIN-SUFFIX,track.kueez.com
 DOMAIN-SUFFIX,track.kyoads.com
 DOMAIN-SUFFIX,track.leady.cz
+DOMAIN-SUFFIX,track.lenovo.com.cn
 DOMAIN-SUFFIX,track.lesmills.com
 DOMAIN-SUFFIX,track.list-finder.jp
 DOMAIN-SUFFIX,track.livasoft.com.tr
@@ -36283,6 +36296,7 @@ DOMAIN-SUFFIX,tracker.eft.com
 DOMAIN-SUFFIX,tracker.ethicalcorp.com
 DOMAIN-SUFFIX,tracker.euroweb.net
 DOMAIN-SUFFIX,tracker.eyeforpharma.com
+DOMAIN-SUFFIX,tracker.fengkongcloud.com
 DOMAIN-SUFFIX,tracker.financialcontent.com
 DOMAIN-SUFFIX,tracker.gamedock.io
 DOMAIN-SUFFIX,tracker.gamemonkey.org
@@ -40088,6 +40102,7 @@ DOMAIN-SUFFIX,xmqrvx.jewelry-queen-shop.com
 DOMAIN-SUFFIX,xmyvhu.soxo.pl
 DOMAIN-SUFFIX,xnukcp.cpcompany.com
 DOMAIN-SUFFIX,xp.allianz.de
+DOMAIN-SUFFIX,xp.atlassian.com
 DOMAIN-SUFFIX,xp2023-pix.s3.amazonaws.com
 DOMAIN-SUFFIX,xpcpmr.gsm55.com
 DOMAIN-SUFFIX,xps.huk.de
