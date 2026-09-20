@@ -1,5 +1,10 @@
 # Hardware Proxy
 
+# NVIDIA software update/package distribution, including NVIDIA App installers.
+# https://nvidia.custhelp.com/app/answers/detail/a_id/5799
+# Valid installer byte-range transfers favor proxies; preserve update functionality.
+DOMAIN,ota.nvidia.com
+
 # Bambu Lab Wiki comments: scripts, styles and comment APIs share this host.
 # https://wiki.bambulab.com/en/home
 # Keep comments available through the existing proxy path. Page-view reporting

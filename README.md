@@ -159,6 +159,8 @@ Computer History Museum 按实际页面与资源区分：`computerhistory.org` �
 
 `linustechtips.com` [硬件论坛](https://linustechtips.com/)与 `forums.developer.nvidia.com` [NVIDIA 开发者论坛](https://forums.developer.nvidia.com/)精确归入 `HardwareProxy.list`。LTT 自动请求在直连和代理下均遇到访问挑战，保留已有代理路径，不宣称代理能解除挑战。NVIDIA 的实际帖子列表重复传输测试中代理更快，不能仅凭首页可直连将论坛划入直连；NVIDIA 其他主机及已有遥测拦截规则不随论坛规则扩大放行。
 
+`ota.nvidia.com` 承载 NVIDIA 软件更新与安装包分发：[NVIDIA 官方支持页](https://nvidia.custhelp.com/app/answers/detail/a_id/5799)直接提供该主机上的 NVIDIA App 安装包链接。为保留更新功能，该主机精确归入 `HardwareProxy.list`；同一官方安装包前 2 MiB 的重复传输中，美国代理全部成功且更快，直连和日本代理各有一次超时。有效 HTTP 206 样本已核对范围、长度与内容一致性，根路径 503 和未完成样本不计为有效下载速度。分段测速不等于整个安装包持续吞吐；规则不扩展到 NVIDIA 其他主机，独立统计端点保持原拦截策略。
+
 `www.keebtalk.com` 是 [KeebTalk 机械键盘论坛](https://www.keebtalk.com/about)，实际帖子页传输样本代理更快，精确归入硬件代理，同时覆盖日志中的 `www\.keebtalk.com` 写法。`cdn.shopify.com` 是 [Shopify 共享资源 CDN](https://shopify.dev/docs/storefronts/themes/best-practices/performance/use-shopify-cdn)，承载图片、样式、字体、脚本和商家文件；键盘图片同一字节范围与 VIA 配置文件的重复下载样本中美国代理更快，精确归入 `EcommerceProxy.list`，不扩展到整个 Shopify 域名。该分类位于广告和隐私拦截之后，保留独立统计端点的原有拦截；共享 CDN 也会分发统计脚本，[EasyPrivacy 的路径过滤规则](https://github.com/easylist/easylist/blob/master/easyprivacy/easyprivacy_general.txt)包含 Shopify 相关脚本。HTTPS 域名分流不能单独拦截同一主机下的统计脚本路径，不能将 CDN 放行等同于完整过滤遥测。
 
 ---
