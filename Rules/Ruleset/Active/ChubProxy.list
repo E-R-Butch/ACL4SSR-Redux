@@ -1,0 +1,5 @@
+# Chub AI character-chat platform: website and business APIs.
+# https://docs.chub.ai/docs/the-basics/getting-started
+# Public page/JS and gateway status transfers favor proxy routing.
+DOMAIN,chub.ai
+DOMAIN,gateway.chub.ai

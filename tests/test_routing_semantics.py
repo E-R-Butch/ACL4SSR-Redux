@@ -226,6 +226,14 @@ class RoutingSemanticsTests(unittest.TestCase):
             "openrgb.org": "🎯 全球直连",
             "softwareupdate.pilotmoon.com": "🚀 节点选择",
             "pilotmoon.com": "🚀 节点选择",
+            "chub.ai": "🚀 节点选择",
+            "gateway.chub.ai": "🚀 节点选择",
+            "ro.chub.ai": "🎯 全球直连",
+            "avatars.charhub.io": "🎯 全球直连",
+            "odo.chub.ai": "REJECT",
+            "static.cloudflareinsights.com": "REJECT",
+            "portal.nousresearch.com": "🚀 节点选择",
+            "search.parallel.ai": "🎯 全球直连",
             "sstats.adobe.com": "REJECT",
             "auth.services.adobe.com": "🎯 全球直连",
             "acrobat.adobe.com": "🎯 全球直连",
@@ -333,6 +341,9 @@ class RoutingSemanticsTests(unittest.TestCase):
             self.assertEqual(first_policy("formulae.brew.sh"), "🚀 节点选择")
             self.assertEqual(first_policy("pagead2.googlesyndication.com"), "🛑 广告拦截")
             self.assertEqual(first_policy("www.google-analytics.com"), "🛑 广告拦截")
+            # Blocking Cloudflare analytics must preserve challenge and CDN hosts.
+            self.assertEqual(first_policy("challenges.cloudflare.com"), "🚀 节点选择")
+            self.assertEqual(first_policy("cdnjs.cloudflare.com"), "🚀 节点选择")
 
             # The existing Claude suffix precedes the privacy list; retain that policy.
             with self.subTest(config=config_path.name, dedicated_ai="statsig.anthropic.com"):
@@ -342,6 +353,10 @@ class RoutingSemanticsTests(unittest.TestCase):
                 "random.zendesk.com", "unverified.onetrust.io", "unverified.onetrust.com",
                 "unverified.cookielaw.org", "unverified.jibecdn.com", "unverified.icims.com",
                 "unverified.oaistatsig.com", *("child." + host for host in expected),
+                "other.chub.ai", "charhub.io", "other.charhub.io",
+                "static.cloudflareinsights.com.example", "odo.chub.ai.example",
+                "nousresearch.com", "inference-api.nousresearch.com",
+                "parallel.ai", "api.parallel.ai", "search.parallel.ai.example",
                 "macrocosmos.ai", "unverified.macrocosmos.ai",
                 "fra1.digitaloceanspaces.com", "sgp1.digitaloceanspaces.com",
                 "unverified.ams3.digitaloceanspaces.com", "unverified.crunchdao.com",

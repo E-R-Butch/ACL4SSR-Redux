@@ -1,5 +1,10 @@
 # 开发代理
 
+# Nous Portal account/authentication service used by Hermes Agent.
+# https://github.com/NousResearch/hermes-agent/blob/main/hermes_cli/auth_nous.py
+# Public portal resources favor proxies; token refresh and inference are separate checks.
+DOMAIN,portal.nousresearch.com
+
 # Scroll Reverser / Pilotmoon update feed and release downloads.
 # https://github.com/pilotmoon/Scroll-Reverser/blob/master/AppDelegate.m
 # Complete appcast and ZIP transfers favor proxies; keep exact hosts.

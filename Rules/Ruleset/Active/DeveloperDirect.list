@@ -1,5 +1,11 @@
 # 开发直连
 
+# Parallel's hosted Search MCP: web search and page-content extraction.
+# https://docs.parallel.ai/integrations/mcp/search-mcp
+# Valid MCP initialization, tool listing and repeated web_fetch calls were stable
+# directly, with latency comparable to the US proxy and below the Japan proxy.
+DOMAIN,search.parallel.ai
+
 # Macrocosmos developer documentation and IOTA training platform website
 # https://github.com/macrocosm-os/iota
 DOMAIN,docs.macrocosmos.ai

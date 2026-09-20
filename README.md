@@ -109,6 +109,14 @@ Paradox 按功能分流：现有 `api.paradox-interactive.com` 保持游戏直�
 
 `sstats.adobe.com` 由 [Adobe 官方文档](https://experienceleague.adobe.com/en/docs/target/using/integrate/a4t/analytics-tracking-server)明确列为 HTTPS Analytics 跟踪服务器，在主 INI 中精确、直接 `REJECT`，先于业务规则且不经过可切换策略组。Adobe 登录与其他业务主机保持原分类。
 
+Chub 按用途维护为 `ChubProxy.list` 与 `ChubDirect.list`，均位于广告和隐私规则之后。[官方指南](https://docs.chub.ai/docs/the-basics/getting-started)说明其角色聊天与多模型 API 功能；前端公开脚本将 `gateway.chub.ai` 设为业务网关、`ro.chub.ai` 设为读取接口，后者的 `GET /api/events` 返回站内活动和评选数据。`chub.ai` 的实际页面/脚本以及网关公开状态 JSON 样本总体支持代理；`ro.chub.ai` 在补齐浏览器 Origin、Referer 后的有效 JSON 重复请求直连更快，归入直连。`avatars.charhub.io` 承载头像、角色卡和图片，默认头像及 PNG 样本直连稳定、耗时略低，归入直连；favicon 样本代理更快，不宣称所有对象都适合相同线路。仅使用精确主机，不扩展到整个域名后缀，也不代替登录或模型生成验证。默认 curl User-Agent 的地域提示和缺失浏览器请求头时的 403 不计入有效性能样本。
+
+`static.cloudflareinsights.com` 与 `odo.chub.ai` 在主 INI 中精确、直接 `REJECT`。前者承载 [Cloudflare Web Analytics 统计脚本](https://developers.cloudflare.com/web-analytics/data-metrics/data-origin-and-collection/)，后者的[实际脚本](https://odo.chub.ai/js/script.local.js)使用 Plausible，向 `/api/event` 上报页面 URL、来源和 `pageview` 事件。它与 `ro.chub.ai` 的活动读取接口用途不同。拦截范围不覆盖 Cloudflare 验证/CDN 主机；同站 `/cdn-cgi/rum` 等路径不能用 HTTPS 域名规则单独过滤。
+
+`portal.nousresearch.com` 是 Nous Portal 的账户和认证门户；[Hermes Agent 官方代码](https://github.com/NousResearch/hermes-agent/blob/main/hermes_cli/auth_nous.py)将令牌刷新请求发送到该主机的 `/api/oauth/token`。完整门户页面和样式资源重复传输样本支持代理，精确归入 `DeveloperProxy.list`。公开页面测速不代表已完成用户认证、令牌刷新或另一主机上的模型推理。
+
+`search.parallel.ai` 是 [Parallel 官方 Search MCP](https://docs.parallel.ai/integrations/mcp/search-mcp) 的托管主机，`/mcp` 提供 `web_search` 与 `web_fetch`，支持匿名免费使用。使用真实 MCP 初始化、工具列表和读取同一篇公开文档的 `web_fetch` 调用验证，直连稳定，调用时延与美国代理接近、低于日本代理，因此精确归入 `DeveloperDirect.list`；根路径的 404 不参与性能判断，也不将该结论扩大到 `api.parallel.ai` 或所有搜索任务。
+
 下载分流比较同一实际文件在直连与代理下的传输耗时、吞吐和重复请求表现，并核对内容一致性；首页返回 200 只证明可达。文档、网站、下载跳转入口和最终文件主机分别判断。`DeveloperDirect.list` 收录 Astral 安装与发布下载，`DeveloperProxy.list` 收录 IOTA 下载入口及其使用的 Spaces 区域主机，采用精确域名匹配。技嘉静态资源归入 `HardwareDirect.list`，官网在自动请求均返回 403、尚无有效性能样本的情况下由 `HardwareProxy.list` 保留代理路径。`deprecated.png` 作为已观察到的无效主机精确拒绝，不扩大到其他文件名。
 
 Steam 的 `api.steampowered.com` 使用精确游戏代理规则，修正受影响客户端直连超时的问题；[Valve 的 GetServerInfo 接口](https://partner.steamgames.com/doc/webapi/isteamwebapiutil)用于验证无密钥的正常 API 响应，不等同于完成账号登录。社区图片 `images.steamusercontent.com` 的同图重复传输样本直连更快，因此保持游戏直连，其他 Steam 内容下载主机也保留原策略。

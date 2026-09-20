@@ -1,0 +1,11 @@
+# Chub AI business read API and image resources.
+# https://docs.chub.ai/docs/the-basics/getting-started
+
+# The frontend GETs notifications and community event/nomination data here.
+# Repeated valid /api/events responses with browser Origin/Referer favor direct.
+DOMAIN,ro.chub.ai
+
+# Avatar, character-card and image resource host.
+# Default-avatar and PNG transfers were stable on the direct path; favicon
+# samples favored proxies, so this is not a claim that every object is faster.
+DOMAIN,avatars.charhub.io
