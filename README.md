@@ -115,6 +115,8 @@ Chub 按用途维护为 `ChubProxy.list` 与 `ChubDirect.list`，均位于广告
 
 `static.cloudflareinsights.com` 与 `odo.chub.ai` 在主 INI 中精确、直接 `REJECT`。前者承载 [Cloudflare Web Analytics 统计脚本](https://developers.cloudflare.com/web-analytics/data-metrics/data-origin-and-collection/)，后者的[实际脚本](https://odo.chub.ai/js/script.local.js)使用 Plausible，向 `/api/event` 上报页面 URL、来源和 `pageview` 事件。它与 `ro.chub.ai` 的活动读取接口用途不同。拦截范围不覆盖 Cloudflare 验证/CDN 主机；同站 `/cdn-cgi/rum` 等路径不能用 HTTPS 域名规则单独过滤。
 
+`artalk.bambulab.com` 同时承载 Bambu Lab Wiki 的 Artalk 评论组件与浏览量统计。[Wiki 页面](https://wiki.bambulab.com/en/home)将评论服务指向该主机；[实际前端脚本](https://artalk.bambulab.com/dist/Artalk.js?v=5)默认 `pvAdd: true`，会调用 `POST /api/v2/pages/pv` 发送页面标识、标题及站点名，页面初始化和公开前端配置均未关闭此项。[Artalk API](https://artalk.js.org/http-api)说明该接口用于增加浏览计数。为执行拒绝统计上报的策略，该精确主机在主 INI 中直接 `REJECT`；**这也会停用 Wiki 评论区及其交互**。HTTPS 域名规则无法只拒绝同一主机的统计路径，规则不扩大到 Wiki 正文、论坛、打印机 API 或整个 `bambulab.com`。仅凭域名连接日志不能确定某一次请求是脚本、评论还是统计。
+
 `portal.nousresearch.com` 是 Nous Portal 的账户和认证门户；[Hermes Agent 官方代码](https://github.com/NousResearch/hermes-agent/blob/main/hermes_cli/auth_nous.py)将令牌刷新请求发送到该主机的 `/api/oauth/token`。完整门户页面和样式资源重复传输样本支持代理，精确归入 `DeveloperProxy.list`。公开页面测速不代表已完成用户认证、令牌刷新或另一主机上的模型推理。
 
 `hermes-agent.nousresearch.com` 承载 [Hermes Agent 官网、文档及安装入口](https://hermes-agent.nousresearch.com/docs/)，与账户门户分别匹配。官网、样式表、文档页和文档索引的完整重复下载总体支持代理，精确归入 `DeveloperProxy.list`；该主机的结论不扩展到其他 Nous 子域。
