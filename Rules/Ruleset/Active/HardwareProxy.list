@@ -1,5 +1,11 @@
 # Hardware Proxy
 
+# Bambu Lab Wiki comments: scripts, styles and comment APIs share this host.
+# https://wiki.bambulab.com/en/home
+# Keep comments available through the existing proxy path. Page-view reporting
+# shares this HTTPS host and requires site/browser-level control, not a host block.
+DOMAIN,artalk.bambulab.com
+
 # eufyMake printer documentation; direct page/style samples were slow or timed out.
 # https://wiki.eufymake.com/en/home
 DOMAIN,wiki.eufymake.com

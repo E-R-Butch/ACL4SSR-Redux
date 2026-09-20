@@ -231,7 +231,7 @@ class RoutingSemanticsTests(unittest.TestCase):
             "ro.chub.ai": "🎯 全球直连",
             "avatars.charhub.io": "🎯 全球直连",
             "odo.chub.ai": "REJECT",
-            "artalk.bambulab.com": "REJECT",
+            "artalk.bambulab.com": "🚀 节点选择",
             "static.cloudflareinsights.com": "REJECT",
             "portal.nousresearch.com": "🚀 节点选择",
             "hermes-agent.nousresearch.com": "🚀 节点选择",
