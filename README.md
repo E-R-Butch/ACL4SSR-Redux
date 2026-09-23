@@ -101,6 +101,12 @@ PR 和推送会运行只读 CI，检查仓库边界、单元测试、重复规�
 
 证书相关服务分别维护：`CertificateDirect.list` 收录已验证的 Certum、Sectigo 证书下载主机以及 Let's Encrypt CRL 主机，避免证书检查依赖代理连接；原先的 `e8.c.lencr.org` 同策略迁入此分类。`CertificateProxy.list` 收录传输样本代理更快的 Certum 官网文档，包含日志中的转义写法。[Certum 证书目录](https://www.certum.eu/en/cert_expertise_root_certificates/)、[Sectigo 证书说明](https://www.sectigo.com/knowledge-base/detail/Sectigo-Root-Certificates)和 [Let's Encrypt 的 lencr.org 说明](https://letsencrypt.org/docs/lencr.org/)可用于核实业务。只匹配具体主机，不按 `trustd`、`svchost.exe` 或证书机构整个域名后缀放行。
 
+`ocsp.usertrust.com`、`ocsp.comodoca.com` 是 [Sectigo 官方列出的 OCSP 证书状态查询服务](https://www.sectigo.com/knowledge-base/detail/OCSP-and-CRL-access-information)，以精确主机加入 `CertificateDirect.list`。使用公开的 R46 交叉签名证书生成有效 OCSP 请求，两个主机的直连与代理响应均通过签名验证并返回 `good`；这次直连样本约 0.17 / 0.43 秒，代理约 0.70 / 0.59 秒。此结果验证的是公开证书状态查询，不代表重放了日志中的原始证书请求；不扩大证书机构域名或 CDN 地址范围。
+
+`gateway.fe2.apple-dns.net` 是实测 DNS 中 `gateway.icloud.com` 的 CNAME；[Apple 官方网络清单](https://support.apple.com/en-us/101555)将原主机列为 CloudKit 内容服务，包括 XProtect 更新和语音控制资源。该精确别名加入 `AppleDirect.list`，跟随既有 iCloud 的 `🍎 苹果服务` 策略（默认直连）。域名带有 `dns` 不意味着该连接在提供 DNS 解析，也没有依据将共享内容网关当作专用遥测。没有实际内容下载样本，不能据此声称直连更快。
+
+`apple-relay.fastly-edge.com` 则被同一份 Apple 官方清单明确列为 Apple Intelligence 的 Private Cloud Compute 中继，使用 TCP/UDP 443。以精确域名加入 `AppleProxy.list`，保留已观察到的代理方向；不扩大到整个 Fastly 后缀。未经认证的探测只返回 HTTP 401，尚未验证实际 PCC 请求、地区资格或 UDP 会话，不能声称功能已恢复或代理更快。
+
 Paradox 按功能分流：现有 `api.paradox-interactive.com` 保持游戏直连；`revocation-prod.paradox-interactive.com` 返回 `revocation-certificates-prod` 存储桶标识，作为更新器证书撤销相关资源归入游戏直连。官方[游戏 API](https://api.paradox-interactive.com/mods/games)引用的图片主机 `metadata-assets.paradox-interactive.com`、模组网站、官网及[启动器安装包入口](https://www.paradoxinteractive.com/our-games/launcher)精确归入游戏代理，完整资源或相同字节范围的有效样本支持该方向。`distribution-fastly-prod.paradox-interactive.com` 根据启动器更新日志归入游戏代理；根路径 403 不作为真实补丁下载测速依据。官方模组站脚本明确使用 `prod-telemetry.paradox-interactive.com` 上报遥测，该精确主机在主 INI 中直接 `REJECT`。
 
 `rog-live-service.asus.com` 是 ASUS ROG / Armoury Crate 更新接口主机，[ASUS 论坛的更新日志](https://rog-forum.asus.com/t5/armoury-crate/rogliveservice-update-fails/td-p/1044038)明确记录 `/service/update2`。精确归入硬件代理以保留原代理方向；无设备参数的 GET 在直连及代理下都返回 405，不能用该错误响应推断实际设备更新或安装包速度。公开资源测速结果与 Windows 上的实际更新完成是不同验证层级。

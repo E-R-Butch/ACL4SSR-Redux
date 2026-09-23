@@ -3,6 +3,11 @@
 DOMAIN-SUFFIX,apple.news
 DOMAIN-SUFFIX,safebrowsing.apple
 
+# Apple Intelligence Private Cloud Compute relay (TCP/UDP 443).
+# Keep the observed proxy direction; unauthenticated HTTP is not a PCC test.
+# https://support.apple.com/en-us/101555
+DOMAIN,apple-relay.fastly-edge.com
+
 # EdgeHog relay addresses advertised by Apple's NetworkServiceProxy configuration
 # for tether.edge.apple and a.tthr.apple.com (including Weather_China_A).
 # Preserve the observed proxy path: generic HTTPS/QUIC probes did not validate

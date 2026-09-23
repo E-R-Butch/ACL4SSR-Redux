@@ -288,6 +288,11 @@ class RoutingSemanticsTests(unittest.TestCase):
             "search.parallel.ai": "🎯 全球直连",
             "api.deps.dev": "🎯 全球直连",
             "rdap.arin.net": "🚀 节点选择",
+            "gateway.fe2.apple-dns.net": "🍎 苹果服务",
+            "apple-relay.fastly-edge.com": "🚀 节点选择",
+            "ohttp-relay1.fastly-edge.com": "🍎 苹果服务",
+            "ocsp.usertrust.com": "🎯 全球直连",
+            "ocsp.comodoca.com": "🎯 全球直连",
             "cdn.simpleicons.org": "🎯 全球直连",
             "freebuff.com": "🚀 节点选择",
             "codebuff.com": "🚀 节点选择",
@@ -397,6 +402,7 @@ class RoutingSemanticsTests(unittest.TestCase):
             self.assertEqual(first_policy("chatgpt.com"), "🤖 OpenAI")
             self.assertEqual(first_policy("api.openai.com"), "🤖 OpenAI")
             self.assertEqual(first_policy("formulae.brew.sh"), "🚀 节点选择")
+            self.assertEqual(first_policy("gateway.icloud.com"), "🍎 苹果服务")
             self.assertEqual(first_policy("pagead2.googlesyndication.com"), "🛑 广告拦截")
             self.assertEqual(first_policy("www.google-analytics.com"), "🛑 广告拦截")
             # Blocking Cloudflare analytics must preserve challenge and CDN hosts.
@@ -460,6 +466,11 @@ class RoutingSemanticsTests(unittest.TestCase):
                 "rog-live-service.asus.com.example", "unverified.asus.com",
                 "certum.pl", "unverified.certum.pl", "certum.eu", "unverified.certum.eu",
                 "sectigo.com", "unverified.sectigo.com", "lencr.org", "unverified.c.lencr.org",
+                "usertrust.com", "unverified.usertrust.com", "ocsp.usertrust.com.example",
+                "comodoca.com", "unverified.comodoca.com", "ocsp.comodoca.com.example",
+                "apple-dns.net", "unverified.apple-dns.net", "child.gateway.fe2.apple-dns.net",
+                "gateway.fe2.apple-dns.net.example", "unverified.fastly-edge.com",
+                "child.apple-relay.fastly-edge.com", "apple-relay.fastly-edge.com.example",
                 "wasabisys.com", "s3.us-east-1.wasabisys.com", "s3.ap-northeast-1.wasabisys.com",
                 "unverified.s3.us-west-1.wasabisys.com",
             ):

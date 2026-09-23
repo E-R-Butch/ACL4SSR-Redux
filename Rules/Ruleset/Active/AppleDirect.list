@@ -2,6 +2,10 @@
 # 核心 Apple 服务、内容分发与账号基础设施
 DOMAIN-SUFFIX,aaplimg.com
 DOMAIN,api.apple-cloudkit.com
+# gateway.icloud.com CNAME: CloudKit content, XProtect and Voice Control assets.
+# Match the observed alias without allowing every apple-dns.net service.
+# https://support.apple.com/en-us/101555
+DOMAIN,gateway.fe2.apple-dns.net
 DOMAIN,ohttp-relay1.fastly-edge.com
 DOMAIN-SUFFIX,apple.co
 DOMAIN-SUFFIX,apple.com

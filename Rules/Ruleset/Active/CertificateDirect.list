@@ -9,6 +9,11 @@ DOMAIN,subca.repository.certum.pl
 # https://www.sectigo.com/knowledge-base/detail/Sectigo-Root-Certificates
 DOMAIN,crt.sectigo.com
 
+# Sectigo/USERTrust OCSP responders; public certificate status, not telemetry.
+# https://www.sectigo.com/knowledge-base/detail/OCSP-and-CRL-access-information
+DOMAIN,ocsp.usertrust.com
+DOMAIN,ocsp.comodoca.com
+
 # Let's Encrypt CRLs; exact observed hosts only
 # https://letsencrypt.org/docs/lencr.org/
 DOMAIN,x1.c.lencr.org
