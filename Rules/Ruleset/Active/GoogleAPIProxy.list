@@ -1,0 +1,10 @@
+# Shared Google APIs frontends observed without hostname metadata.
+# Google public DNS maps www.googleapis.com / maps.googleapis.com to these IPs.
+# Pinned-IP, certificate-verified Discovery API GETs succeed through proxies;
+# direct TCP/443 connections timed out. Do not infer a particular API from the IP.
+# https://developers.google.com/discovery/v1/reference/apis/list
+# This list must remain below the existing domain and privacy policies.
+IP-CIDR,172.217.114.4/32,no-resolve
+IP-CIDR,172.217.115.4/32,no-resolve
+IP-CIDR,172.217.116.4/32,no-resolve
+IP-CIDR,172.217.118.4/32,no-resolve

@@ -177,6 +177,12 @@ Computer History Museum 按实际页面与资源区分：`computerhistory.org` �
 
 ---
 
+`GoogleAPIProxy.list` 仅补充已观察到的四个 Google API 共享地址：`172.217.114.4`、`172.217.115.4`、`172.217.116.4`、`172.217.118.4`，均为 `/32,no-resolve`。[Google 官方地址表](https://www.gstatic.com/ipranges/goog.json)、Google 公共 DNS 中 `www.googleapis.com` / `maps.googleapis.com` 等主机的 A 记录及固定目标 IP 的 [Discovery API](https://developers.google.com/discovery/v1/reference/apis/list) 有效响应交叉确认了用途。四个地址直连 TCP/443 均超时，经已测试的代理均返回有效 JSON；共享 IP 无法还原浏览器具体调用的 API，也不能仅凭裸 IP 判断 DNS 被抢答。该列表位于既有域名、广告/隐私和国内直连例外之后、GEOIP/FINAL 之前，避免覆盖已有域名策略。保持兜底组原配置，不代理整个 Google 网段；没有域名时仍无法按具体 API 区分业务与统计。
+
+`rdap.arin.net` 是 [ARIN 的 IP/ASN 注册资料查询接口](https://www.arin.net/resources/registry/whois/rdap/)，精确归入开发代理。实际注册信息 GET 的直连路径超时，代理返回有效 RDAP JSON；仅匹配这个查询主机，不扩大到整个 ARIN 域名或硬编码其后端地址。
+
+---
+
 ## 🗂️ 策略组一览
 
 | 策略组 | 类型 | 默认 | 说明 |

@@ -187,6 +187,49 @@ class RoutingSemanticsTests(unittest.TestCase):
                         self.assertFalse(any(neighbor in network for network, _, _ in networks))
             self.assertFalse(any(ipaddress.ip_address("2620:149:af0::10") in network for network, _, _ in networks))
 
+    def test_google_api_ip_fallback_preserves_named_service_policies(self):
+        addresses = ("172.217.114.4", "172.217.115.4", "172.217.116.4", "172.217.118.4")
+        path = ROOT / "Rules/Ruleset/Active/GoogleAPIProxy.list"
+        self.assertEqual(
+            [line for line in path.read_text().splitlines() if line and not line.startswith("#")],
+            [f"IP-CIDR,{address}/32,no-resolve" for address in addresses])
+        for config_path in sorted((ROOT / "Config").glob("*.ini")):
+            ordered = []
+            for line in config_path.read_text().splitlines():
+                if not line.startswith("surge_ruleset="):
+                    continue
+                group, source = line.split("=", 1)[1].split(",", 1)
+                rules = [source[2:]] if source.startswith("[]") else validate_rules.local_path_from_raw_url(source).read_text().splitlines()
+                for rule in rules:
+                    if rule and not rule.startswith("#"):
+                        parts = rule.split(",")
+                        ordered.append((parts[0], parts[1] if len(parts) > 1 else "", group))
+
+            def first_policy(address, host=""):
+                ip = ipaddress.ip_address(address)
+                for kind, value, group in ordered:
+                    if (kind == "DOMAIN" and host == value or
+                        kind == "DOMAIN-SUFFIX" and (host == value or host.endswith("." + value)) or
+                        kind == "DOMAIN-KEYWORD" and value in host):
+                        return group
+                    if kind in ("IP-CIDR", "IP-CIDR6") and ip in ipaddress.ip_network(value):
+                        return group
+                    if kind == "FINAL":
+                        return group
+                return None
+
+            for address in addresses:
+                with self.subTest(config=config_path.name, address=address):
+                    self.assertEqual(first_policy(address), "🚀 节点选择")
+                    self.assertEqual(first_policy(address, "firebaselogging.googleapis.com"), "🔒 隐私保护")
+                    self.assertEqual(first_policy(address, "api.deps.dev"), "🎯 全球直连")
+                    self.assertEqual(first_policy(address, "us.i.posthog.com"), "REJECT")
+                    for neighbor in (ipaddress.ip_address(address) - 1, ipaddress.ip_address(address) + 1):
+                        self.assertEqual(first_policy(str(neighbor)), "🐟 漏网之鱼")
+            last_domain = max(i for i, (kind, _, _) in enumerate(ordered) if kind.startswith("DOMAIN"))
+            first_google_ip = next(i for i, (_, value, _) in enumerate(ordered) if value == addresses[0] + "/32")
+            self.assertLess(last_domain, first_google_ip)
+
     def test_web_service_routes_preserve_privacy_blocks_and_dedicated_ai_policies(self):
         expected = {
             "cdn.cookielaw.org": "🎯 全球直连",
@@ -244,6 +287,7 @@ class RoutingSemanticsTests(unittest.TestCase):
             "openrouter.ai": "🚀 节点选择",
             "search.parallel.ai": "🎯 全球直连",
             "api.deps.dev": "🎯 全球直连",
+            "rdap.arin.net": "🚀 节点选择",
             "cdn.simpleicons.org": "🎯 全球直连",
             "freebuff.com": "🚀 节点选择",
             "codebuff.com": "🚀 节点选择",
@@ -377,6 +421,7 @@ class RoutingSemanticsTests(unittest.TestCase):
                 "trygravity.ai", "other.trygravity.ai", "humanbehavior.co",
                 "other.humanbehavior.co", "cdn.humanbehavior.co.example",
                 "deps.dev", "other.deps.dev", "api.deps.dev.example",
+                "arin.net", "other.arin.net", "rdap.arin.net.example",
                 "simpleicons.org", "other.simpleicons.org",
                 "other.freebuff.com", "other.codebuff.com", "codebuff.com.example",
                 "bambulab.com", "wiki.bambulab.com", "forum.bambulab.com",

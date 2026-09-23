@@ -1,5 +1,9 @@
 # 开发代理
 
+# ARIN public IP/ASN registration lookup (RDAP); direct TLS path timed out.
+# https://www.arin.net/resources/registry/whois/rdap/
+DOMAIN,rdap.arin.net
+
 # Codebuff / Freebuff coding services; keep the existing proxy direction.
 # https://github.com/CodebuffAI/codebuff/blob/main/common/src/constants/freebuff-countries.ts
 # Public-page speed does not establish model/account eligibility; VPNs can be limited too.
