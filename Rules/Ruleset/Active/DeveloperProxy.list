@@ -1,5 +1,13 @@
 # 开发代理
 
+# Codebuff / Freebuff coding services; keep the existing proxy direction.
+# https://github.com/CodebuffAI/codebuff/blob/main/common/src/constants/freebuff-countries.ts
+# Public-page speed does not establish model/account eligibility; VPNs can be limited too.
+DOMAIN,freebuff.com
+DOMAIN,codebuff.com
+# Observed canonical website redirect target, exact host only.
+DOMAIN,www.codebuff.com
+
 # Nous Portal account/authentication service used by Hermes Agent.
 # https://github.com/NousResearch/hermes-agent/blob/main/hermes_cli/auth_nous.py
 # Public portal resources favor proxies; token refresh and inference are separate checks.

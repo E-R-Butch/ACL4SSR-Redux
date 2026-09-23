@@ -165,6 +165,14 @@ Computer History Museum 按实际页面与资源区分：`computerhistory.org` �
 
 ---
 
+`api.deps.dev` 是 [Google Open Source Insights API](https://docs.deps.dev/api/v3/)，提供包版本、许可和依赖图等数据；[Tirith 官方说明](https://github.com/sheeki03/tirith)将其用于包健康与安全检查。有效包信息和依赖图 JSON 的重复请求直连稳定，精确归入 `DeveloperDirect.list`。`cdn.simpleicons.org` 是 [Simple Icons 的 SVG 图标 CDN](https://github.com/LitoMore/simple-icons-cdn)，实际页面引用的图标三轮直连成功，也精确归入开发直连；这不意味着每个出口、每项请求的直连都最快。
+
+`freebuff.com`、`codebuff.com` 及其实际跳转目标 `www.codebuff.com` 精确归入 `DeveloperProxy.list`，保留既有代理方向。Freebuff/Codebuff 是编码产品；[官方国家配置](https://github.com/CodebuffAI/codebuff/blob/main/common/src/constants/freebuff-countries.ts)和 [Freebuff 网站](https://freebuff.com/)说明国家与 VPN 会影响功能、模型及额度。公开页面直连较快不能证明认证模型业务适合改变出口，代理也不保证获得完整权限；本次未登录或调用模型。网站通过广告支持运营，独立广告/录制脚本与业务主机分别处理，域名分流不能阻止业务服务端对用户主动提交内容的处理。
+
+`code.trygravity.ai`、`api.trygravity.ai`、`cdn.humanbehavior.co`、`ingest.humanbehavior.co` 在主 INI 中精确、直接 `REJECT`。Freebuff 页面加载 Gravity 的 [gr-pix.js](https://code.trygravity.ai/gr-pix.js)，其中包含广告归因、会话、点击和指纹相关配置，并把事件与会话发往 `api.trygravity.ai/track/*`，因此同时拒绝这个已核实的采集主机。Human Behavior 的 [CDN loader](https://cdn.humanbehavior.co/v1/loader.js)加载会话录制器，其[官方采集文档](https://docs.humanbehavior.co/docs/developers/ingestion-api)确认事件、回放和心跳等数据发送到 ingestion 主机。规则只覆盖这些已核实的独立主机，不拒绝 Freebuff/Codebuff 整站，也不扩展到整个供应商域名后缀。
+
+---
+
 ## 🗂️ 策略组一览
 
 | 策略组 | 类型 | 默认 | 说明 |

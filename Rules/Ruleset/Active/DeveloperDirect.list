@@ -1,5 +1,14 @@
 # 开发直连
 
+# Google Open Source Insights package metadata and dependency graphs used by Tirith.
+# https://docs.deps.dev/api/v3/
+# Repeated valid API responses were stable directly; this is not a telemetry endpoint.
+DOMAIN,api.deps.dev
+
+# Simple Icons SVG CDN; actual icon transfers were stable directly.
+# https://github.com/LitoMore/simple-icons-cdn
+DOMAIN,cdn.simpleicons.org
+
 # Parallel's hosted Search MCP: web search and page-content extraction.
 # https://docs.parallel.ai/integrations/mcp/search-mcp
 # Valid MCP initialization, tool listing and repeated web_fetch calls were stable
