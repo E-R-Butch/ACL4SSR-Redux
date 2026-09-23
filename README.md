@@ -145,6 +145,10 @@ Apple 的 NetworkServiceProxy 配置为 `tether.edge.apple` / `a.tthr.apple.com`
 
 `eu.i.posthog.com` 在主 INI 中精确、直接 `REJECT`，先于业务分流且不经过可切换策略组。Cua 的[公开 PostHog 配置](https://cua.ai/assets/PostHogProvider-vgtdN9yw.js)将统计主机指向该地址；[PostHog SDK 文档](https://posthog.com/docs/libraries/python)说明其事件采集、用户识别与配置能力。官网资料访问与统计上报分别匹配，拒绝范围不扩大到整个 PostHog 域名。
 
+`us.i.posthog.com` 是 [PostHog Node SDK](https://posthog.com/docs/libraries/node) 使用的美国区采集主机，可接收事件、页面访问和用户属性等统计数据，已观察到 Freebuff 向其连接。与欧洲区相同，在主 INI 中精确、直接 `REJECT`，保留 Freebuff/Codebuff 业务主机的代理规则；不将所有 PostHog 子域一起拒绝。
+
+`2a01:b740:a30:2000::171` 的反向 DNS 为 `defra1-edge-fx-023.b.aaplimg.com`，该主机的 AAAA 又指回同一地址；[RIPE 注册信息](https://rdap.db.ripe.net/ip/2a01:b740:a30:2000::171)及 [Apple 官方地址表](https://ip-geolocation.apple.com/)确认其归属 Apple、所在地为法兰克福。该地址被 WeatherWidget 的 UDP 443 连接使用，但日志缺少域名/路径，未还原到具体预报或资源接口；CDN 也可能被多个业务共用。仅以 `/128,no-resolve` 精确加入 `AppleProxy.list`，保留原代理方向。现有证据不能证明 DNS 被抢答、该连接属于遥测或直连更快；无认证天气请求的完成验证，也不扩大 Apple 网段或按进程放行。
+
 `aistacknav.com` 是 [AI 工具导航、技术教程与数字资料站](https://aistacknav.com/)，公开首页及前端资源的重复传输样本支持开发代理，采用主机精确匹配。页面嵌入的 `analytics.aistacknav.com/script.js` 是独立 Umami 统计脚本，代码将数据发送到该主机的 `/api/send`；该统计主机在主 INI 中精确 `REJECT`。[Umami 文档](https://docs.umami.is/docs/collect-data)说明了脚本的采集用途。现有 Google 广告、统计拦截保持优先；登录、购买及付费资料下载未作为测速样本。
 
 `api.oaistatsig.com` 在主 INI 中使用精确域名规则直接 `REJECT`，先于业务分流规则，不经过可切换策略组。[HaGeZi Ultimate](https://github.com/hagezi/dns-blocklists/blob/main/wildcard/ultimate.txt) 已收录该域名；[Statsig 文档](https://docs.statsig.com/infrastructure/statsig_domains)说明该服务包含配置与事件记录。

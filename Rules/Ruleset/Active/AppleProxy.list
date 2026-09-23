@@ -10,3 +10,9 @@ DOMAIN-SUFFIX,safebrowsing.apple
 # Exact public endpoints only; do not route the entire Apple allocation here.
 IP-CIDR6,2620:149:af1::10/128,no-resolve
 IP-CIDR6,2620:149:af6::10/128,no-resolve
+
+# Apple Frankfurt CDN node used by WeatherWidget; forward/reverse DNS agree:
+# defra1-edge-fx-023.b.aaplimg.com. https://ip-geolocation.apple.com/
+# Keep the observed proxy direction; the exact HTTPS/QUIC resource is unknown.
+# Do not generalize this to a prefix or label all traffic to the node as weather.
+IP-CIDR6,2a01:b740:a30:2000::171/128,no-resolve

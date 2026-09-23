@@ -163,8 +163,8 @@ class RoutingSemanticsTests(unittest.TestCase):
                                  "surge_ruleset=REJET,[]DOMAIN-SUFFIX,invalid")
         self.assertTrue(any("ruleset target 'REJET'" in error for error in self.check_mutation(text)))
 
-    def test_apple_relay_ipv6_routes_are_exact_and_wired_to_proxy(self):
-        addresses = ("2620:149:af1::10", "2620:149:af6::10")
+    def test_apple_ipv6_proxy_routes_are_exact_and_wired_to_proxy(self):
+        addresses = ("2620:149:af1::10", "2620:149:af6::10", "2a01:b740:a30:2000::171")
         for config_path in sorted((ROOT / "Config").glob("*.ini")):
             networks = []
             for line in config_path.read_text(encoding="utf-8").splitlines():
@@ -221,6 +221,7 @@ class RoutingSemanticsTests(unittest.TestCase):
             "cua.ai": "🚀 节点选择",
             "models.dev": "🚀 节点选择",
             "eu.i.posthog.com": "REJECT",
+            "us.i.posthog.com": "REJECT",
             "aistacknav.com": "🚀 节点选择",
             "analytics.aistacknav.com": "REJECT",
             "wiki.eufymake.com": "🚀 节点选择",
