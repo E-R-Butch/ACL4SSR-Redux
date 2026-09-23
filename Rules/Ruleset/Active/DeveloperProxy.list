@@ -83,6 +83,14 @@ DOMAIN,antigravity-unleash.goog
 DOMAIN,ip.api.skk.moe
 DOMAIN,ipapi.co
 DOMAIN,api.ip.sb
+# Clash Verge Rev's public-exit IP information card; keep its observed proxy path.
+DOMAIN,api.ipapi.is
+DOMAIN,ipwho.is
+DOMAIN,get.geojs.io
+
+# Third-party Convex deployment observed in Chrome. The owning site is unknown;
+# preserve the proxy path without routing all convex.cloud tenants.
+DOMAIN,harmless-tapir-303.convex.cloud
 
 # Akile
 DOMAIN-SUFFIX,akile.ai

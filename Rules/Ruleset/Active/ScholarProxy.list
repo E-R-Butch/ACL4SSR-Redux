@@ -6,6 +6,8 @@ DOMAIN,www\.computerhistory.org
 
 # Z-Library 中文站
 DOMAIN,zh.zlib.li
+# Public image-storage host for book covers; exact host only.
+DOMAIN,s3proxy-alp2-covers.cdn-zlib.sk
 
 DOMAIN-SUFFIX,blackwell-synergy.com
 DOMAIN-SUFFIX,cabdirect.org

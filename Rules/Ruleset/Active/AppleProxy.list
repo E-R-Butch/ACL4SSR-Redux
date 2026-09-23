@@ -21,3 +21,8 @@ IP-CIDR6,2620:149:af6::10/128,no-resolve
 # Keep the observed proxy direction; the exact HTTPS/QUIC resource is unknown.
 # Do not generalize this to a prefix or label all traffic to the node as weather.
 IP-CIDR6,2a01:b740:a30:2000::171/128,no-resolve
+
+# Apple Seoul edge node contacted by WeatherWidget over UDP/443.
+# PTR and forward AAAA agree; Apple geofeed locates the /48 in Seoul.
+# Exact weather resource is unknown, so retain the observed proxy direction.
+IP-CIDR6,2403:300:a16:1000::31/128,no-resolve

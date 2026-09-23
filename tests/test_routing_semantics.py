@@ -164,7 +164,7 @@ class RoutingSemanticsTests(unittest.TestCase):
         self.assertTrue(any("ruleset target 'REJET'" in error for error in self.check_mutation(text)))
 
     def test_apple_ipv6_proxy_routes_are_exact_and_wired_to_proxy(self):
-        addresses = ("2620:149:af1::10", "2620:149:af6::10", "2a01:b740:a30:2000::171")
+        addresses = ("2620:149:af1::10", "2620:149:af6::10", "2a01:b740:a30:2000::171", "2403:300:a16:1000::31")
         for config_path in sorted((ROOT / "Config").glob("*.ini")):
             networks = []
             for line in config_path.read_text(encoding="utf-8").splitlines():
@@ -288,6 +288,11 @@ class RoutingSemanticsTests(unittest.TestCase):
             "search.parallel.ai": "🎯 全球直连",
             "api.deps.dev": "🎯 全球直连",
             "rdap.arin.net": "🚀 节点选择",
+            "api.ipapi.is": "🚀 节点选择",
+            "ipwho.is": "🚀 节点选择",
+            "get.geojs.io": "🚀 节点选择",
+            "harmless-tapir-303.convex.cloud": "🚀 节点选择",
+            "s3proxy-alp2-covers.cdn-zlib.sk": "🚀 节点选择",
             "gateway.fe2.apple-dns.net": "🍎 苹果服务",
             "apple-relay.fastly-edge.com": "🚀 节点选择",
             "ohttp-relay1.fastly-edge.com": "🍎 苹果服务",
@@ -428,6 +433,10 @@ class RoutingSemanticsTests(unittest.TestCase):
                 "other.humanbehavior.co", "cdn.humanbehavior.co.example",
                 "deps.dev", "other.deps.dev", "api.deps.dev.example",
                 "arin.net", "other.arin.net", "rdap.arin.net.example",
+                "ipapi.is", "other.ipapi.is", "api.ipapi.is.example",
+                "other.ipwho.is", "ipwho.is.example", "geojs.io", "other.geojs.io",
+                "convex.cloud", "other.convex.cloud", "child.harmless-tapir-303.convex.cloud",
+                "cdn-zlib.sk", "other.cdn-zlib.sk", "child.s3proxy-alp2-covers.cdn-zlib.sk",
                 "simpleicons.org", "other.simpleicons.org",
                 "other.freebuff.com", "other.codebuff.com", "codebuff.com.example",
                 "bambulab.com", "wiki.bambulab.com", "forum.bambulab.com",
