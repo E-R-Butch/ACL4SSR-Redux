@@ -1,7 +1,7 @@
 # 广告列表 adblock rules
 # 内容：EasyPrivacy列表，隐私保护，屏蔽隐私追踪
 # 来源：https://easylist-downloads.adblockplus.org/easyprivacy.txt
-# 数量：40597条
+# 数量：40603条
 
 DOMAIN-SUFFIX,0.myikas.com
 DOMAIN-SUFFIX,0.net.easyjet.com
@@ -9234,6 +9234,7 @@ DOMAIN-SUFFIX,counter.yadro.ru
 DOMAIN-SUFFIX,counter247.live
 DOMAIN-SUFFIX,counters.freewebs.com
 DOMAIN-SUFFIX,counters.libertaddigital.com
+DOMAIN-SUFFIX,countly.mail.163.com
 DOMAIN-SUFFIX,covenant.psjhealth.org
 DOMAIN-SUFFIX,cowhmc.docmorris.de
 DOMAIN-SUFFIX,coyizl.embracon.com.br
@@ -9346,6 +9347,7 @@ DOMAIN-SUFFIX,csplog.kwai-pro.com
 DOMAIN-SUFFIX,cspmkl.gruppal.com
 DOMAIN-SUFFIX,csr.onet.pl
 DOMAIN-SUFFIX,csr11.net.asambeauty.com
+DOMAIN-SUFFIX,cstaticdun.126.net
 DOMAIN-SUFFIX,cstats.sankakucomplex.com
 DOMAIN-SUFFIX,cstm.baidu.com
 DOMAIN-SUFFIX,csv4.ebs-paris.fr
@@ -13025,6 +13027,7 @@ DOMAIN-SUFFIX,forms.xperthr.com
 DOMAIN-SUFFIX,forms.xtralis.com
 DOMAIN-SUFFIX,forms2.vistage.com
 DOMAIN-SUFFIX,forpci3.siege-corp.com
+DOMAIN-SUFFIX,fourier.alibaba.com
 DOMAIN-SUFFIX,fourier.taobao.com
 DOMAIN-SUFFIX,fourmtagservices.appspot.com
 DOMAIN-SUFFIX,fourtimessmelly.com
@@ -32083,6 +32086,7 @@ DOMAIN-SUFFIX,stat.wolterskluwer.pl
 DOMAIN-SUFFIX,stat.wolterskluwer.pt
 DOMAIN-SUFFIX,stat.ws.126.net
 DOMAIN-SUFFIX,stat.y.qq.com
+DOMAIN-SUFFIX,stat.youpin.mi.com
 DOMAIN-SUFFIX,stat.zol.com.cn
 DOMAIN-SUFFIX,statdb.pressflex.com
 DOMAIN-SUFFIX,statdynamic.com
@@ -32173,6 +32177,7 @@ DOMAIN-SUFFIX,stats.benui.ca
 DOMAIN-SUFFIX,stats.bernardobordadagua.com
 DOMAIN-SUFFIX,stats.bertwagner.com
 DOMAIN-SUFFIX,stats.bestservers.co
+DOMAIN-SUFFIX,stats.betternet.de
 DOMAIN-SUFFIX,stats.bever.nl
 DOMAIN-SUFFIX,stats.bholmes.dev
 DOMAIN-SUFFIX,stats.big-boards.com
@@ -34809,6 +34814,7 @@ DOMAIN-SUFFIX,tommys.openapp.link
 DOMAIN-SUFFIX,tongji-res.meizu.com
 DOMAIN-SUFFIX,tongji.duote.com
 DOMAIN-SUFFIX,tongji.mafengwo.cn
+DOMAIN-SUFFIX,tongji.meizu.com
 DOMAIN-SUFFIX,tongji.techweb.com.cn
 DOMAIN-SUFFIX,tongji.xinmin.cn
 DOMAIN-SUFFIX,tongkhohangnhat.abphotos.link
