@@ -105,6 +105,13 @@ DOMAIN-SUFFIX,tampermonkey.net
 # https://easylist.to/pages/about.html
 DOMAIN,easylist.to
 
+# Public developer tool downloads. Identical macOS arm64 artifact ranges were
+# fetched directly and through the selected proxy; the proxy was faster.
+# https://ffmpeg.martin-riedl.de/
+# https://nodejs.org/download/release/
+DOMAIN,ffmpeg.martin-riedl.de
+DOMAIN,nodejs.org
+
 # Developer CDN compatibility bridge
 # Keep this fallback for converters still using the pre-DeveloperCDN config.
 DOMAIN-SUFFIX,unpkg.com

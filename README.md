@@ -115,6 +115,8 @@ WeatherWidget 还连接了 `2403:300:a16:1000::31:443/UDP`。反向 DNS 为 `krs
 
 `harmless-tapir-303.convex.cloud` 按 [Convex 官方文档](https://docs.convex.dev/client/react/deployment-urls)的格式是单一部署后端，根路径也返回“deployment is running”。用户确认不是自己的项目，但目前没有证据将其归属到某个网页，更不能判断为遥测。仅该精确实例加入 `DeveloperProxy.list` 保留原代理方向，不扩大到所有 Convex 租户。
 
+`ffmpeg.martin-riedl.de` 是 [Martin Riedl 的 FFmpeg/FFprobe/FFplay 编译下载站](https://ffmpeg.martin-riedl.de/)，`nodejs.org` 提供 [Node.js 官方发布文件](https://nodejs.org/download/release/)；两者均是开发工具下载，不按 `python3.14` 进程或整个软件提供商网段分流。日志没有请求路径，因此以公开的 macOS arm64 发布文件作同目标测试：FFmpeg ZIP 经站内跳转后取固定版本的前 8 MiB，直连 4.96 秒、当前代理 3.12 秒；Node.js 官方 `.tar.xz` 同样取前 8 MiB，直连 8.70 秒、代理 2.96 秒。两路均返回相同的 206 内容及哈希；较小的 1 MiB 区间也保持代理更快。仅精确主机加入 `DeveloperProxy.list`，不扩大到 `martin-riedl.de` 的其他服务或 `nodejs.org` 的子域。此结果支持当前下载路线，但不能代表所有时间和镜像节点。
+
 Paradox 按功能分流：现有 `api.paradox-interactive.com` 保持游戏直连；`revocation-prod.paradox-interactive.com` 返回 `revocation-certificates-prod` 存储桶标识，作为更新器证书撤销相关资源归入游戏直连。官方[游戏 API](https://api.paradox-interactive.com/mods/games)引用的图片主机 `metadata-assets.paradox-interactive.com`、模组网站、官网及[启动器安装包入口](https://www.paradoxinteractive.com/our-games/launcher)精确归入游戏代理，完整资源或相同字节范围的有效样本支持该方向。`distribution-fastly-prod.paradox-interactive.com` 根据启动器更新日志归入游戏代理；根路径 403 不作为真实补丁下载测速依据。官方模组站脚本明确使用 `prod-telemetry.paradox-interactive.com` 上报遥测，该精确主机在主 INI 中直接 `REJECT`。
 
 `rog-live-service.asus.com` 是 ASUS ROG / Armoury Crate 更新接口主机，[ASUS 论坛的更新日志](https://rog-forum.asus.com/t5/armoury-crate/rogliveservice-update-fails/td-p/1044038)明确记录 `/service/update2`。精确归入硬件代理以保留原代理方向；无设备参数的 GET 在直连及代理下都返回 405，不能用该错误响应推断实际设备更新或安装包速度。公开资源测速结果与 Windows 上的实际更新完成是不同验证层级。
