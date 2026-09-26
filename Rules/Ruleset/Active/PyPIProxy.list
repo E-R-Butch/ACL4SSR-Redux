@@ -1,5 +1,0 @@
-# PyPI package index and wheel downloads.
-# Exact hosts must precede DeveloperDirect's broader suffix rules.
-# https://docs.pypi.org/api/index-api/
-DOMAIN,pypi.org
-DOMAIN,files.pythonhosted.org

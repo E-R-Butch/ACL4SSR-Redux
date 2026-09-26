@@ -116,6 +116,11 @@ DOMAIN,nodejs.org
 # Keep this fallback for converters still using the pre-DeveloperCDN config.
 DOMAIN-SUFFIX,unpkg.com
 
+# PyPI package index and wheel downloads; exact hosts precede DeveloperDirect.
+# https://docs.pypi.org/api/index-api/
+DOMAIN,pypi.org
+DOMAIN,files.pythonhosted.org
+
 # OpenSCAD
 DOMAIN,files.openscad.org
 
