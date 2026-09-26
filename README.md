@@ -139,6 +139,10 @@ Chub 按用途维护为 `ChubProxy.list` 与 `ChubDirect.list`，均位于广告
 
 `hermes-agent.nousresearch.com` 承载 [Hermes Agent 官网、文档及安装入口](https://hermes-agent.nousresearch.com/docs/)，与账户门户分别匹配。官网、样式表、文档页和文档索引的完整重复下载总体支持代理，精确归入 `DeveloperProxy.list`；该主机的结论不扩展到其他 Nous 子域。
 
+`hermes-assets.nousresearch.com` 是 [Hermes 官网](https://hermes-agent.nousresearch.com/)链接的桌面安装包主机。官网公开的 macOS DMG 共 6,752,854 字节：本次同一目标 IP 直连 35 秒只收到约 3.83 MB，当前代理 2.45 秒完整返回；两路首 1 MiB 相同。仅该精确主机归入现有 `DeveloperProxy.list`，不把其他 Nous 子域统一代理。
+
+`cdn.playwright.dev` 是 [Playwright 官方浏览器下载入口](https://playwright.dev/docs/browsers)；其[下载实现](https://github.com/microsoft/playwright/blob/main/packages/playwright-core/src/server/registry/index.ts)列出微软 CDN 和存储镜像。实测入口在一个目标 IP 直连被重置，在另一个目标 IP 可以直连取得 FFmpeg ZIP；代理均可连接。首选 CDN 路径会 307 跳到 `playwright.download.prss.microsoft.com`，而该目标原先命中宽泛 Microsoft 直连规则。对相同的 1,353,430 字节 FFmpeg ZIP 做完整传输，微软目标直连 4.19 秒、当前代理 1.68 秒，内容 SHA256 相同且 ZIP 可校验。因此只把这两个精确主机加入现有 `DeveloperProxy.list`，令跳转前后同走代理；另一条 Google Storage 浏览器归档分支已有代理规则。原日志没有路径，FFmpeg 与 Chromium 文件是公开代表样本，无法认定当时 Python 请求的具体文件。
+
 `openrouter.ai` 是 [OpenRouter 模型聚合服务](https://openrouter.ai/docs/quickstart)，官网、模型目录和 `/api/v1/chat/completions` 使用同一主机。有效模型目录 JSON 的重复传输代理更快，精确归入 `DeveloperProxy.list`，不混入 OpenAI 专属规则，也不扩展到地区子域。[模型供应商的地区与实体限制](https://openrouter.ai/terms)仍需遵守；公开目录可访问及代理分流都不等同于账号具有所有模型的使用权限，本次未使用令牌或调用付费推理。
 
 `search.parallel.ai` 是 [Parallel 官方 Search MCP](https://docs.parallel.ai/integrations/mcp/search-mcp) 的托管主机，`/mcp` 提供 `web_search` 与 `web_fetch`，支持匿名免费使用。使用真实 MCP 初始化、工具列表和读取同一篇公开文档的 `web_fetch` 调用验证，直连稳定，调用时延与美国代理接近、低于日本代理，因此精确归入 `DeveloperDirect.list`；根路径的 404 不参与性能判断，也不将该结论扩大到 `api.parallel.ai` 或所有搜索任务。

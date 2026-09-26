@@ -284,12 +284,14 @@ class RoutingSemanticsTests(unittest.TestCase):
             "static.cloudflareinsights.com": "REJECT",
             "portal.nousresearch.com": "🚀 节点选择",
             "hermes-agent.nousresearch.com": "🚀 节点选择",
+            "hermes-assets.nousresearch.com": "🚀 节点选择",
             "openrouter.ai": "🚀 节点选择",
             "search.parallel.ai": "🎯 全球直连",
             "api.deps.dev": "🎯 全球直连",
             "rdap.arin.net": "🚀 节点选择",
             "ffmpeg.martin-riedl.de": "🚀 节点选择",
             "nodejs.org": "🚀 节点选择",
+            "cdn.playwright.dev": "🚀 节点选择",
             "api.ipapi.is": "🚀 节点选择",
             "ipwho.is": "🚀 节点选择",
             "get.geojs.io": "🚀 节点选择",
@@ -415,6 +417,8 @@ class RoutingSemanticsTests(unittest.TestCase):
             self.assertEqual(first_policy("docs.pythonhosted.org"), "🎯 全球直连")
             self.assertEqual(first_policy("pypi.org.example"), None)
             self.assertEqual(first_policy("files.pythonhosted.org.example"), None)
+            self.assertEqual(first_policy("playwright.download.prss.microsoft.com"), "🚀 节点选择")
+            self.assertEqual(first_policy("other.prss.microsoft.com"), "🎯 全球直连")
             self.assertLess(self.text.index("/DeveloperCDN.list"), self.text.index("/DeveloperProxy.list"))
             self.assertLess(self.text.index("/DeveloperProxy.list"), self.text.index("/DeveloperDirect.list"))
             self.assertNotIn("/PyPIProxy.list", self.text)
@@ -447,6 +451,8 @@ class RoutingSemanticsTests(unittest.TestCase):
                 "martin-riedl.de", "other.martin-riedl.de",
                 "ffmpeg.martin-riedl.de.example", "child.ffmpeg.martin-riedl.de",
                 "other.nodejs.org", "nodejs.org.example",
+                "playwright.dev", "other.playwright.dev", "cdn.playwright.dev.example",
+                "child.cdn.playwright.dev",
                 "ipapi.is", "other.ipapi.is", "api.ipapi.is.example",
                 "other.ipwho.is", "ipwho.is.example", "geojs.io", "other.geojs.io",
                 "convex.cloud", "other.convex.cloud", "child.harmless-tapir-303.convex.cloud",
@@ -456,6 +462,7 @@ class RoutingSemanticsTests(unittest.TestCase):
                 "bambulab.com", "wiki.bambulab.com", "forum.bambulab.com",
                 "api.bambulab.com", "artalk.bambulab.com.example",
                 "nousresearch.com", "inference-api.nousresearch.com",
+                "child.hermes-assets.nousresearch.com", "hermes-assets.nousresearch.com.example",
                 "eu.openrouter.ai", "us.openrouter.ai", "api.openrouter.ai",
                 "openrouter.ai.example",
                 "parallel.ai", "api.parallel.ai", "search.parallel.ai.example",
