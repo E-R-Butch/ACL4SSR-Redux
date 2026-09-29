@@ -5,3 +5,13 @@
 # This shared host also serves scripts; a domain rule cannot distinguish tracking-script paths.
 # https://shopify.dev/docs/storefronts/themes/best-practices/performance/use-shopify-cdn
 DOMAIN,cdn.shopify.com
+
+# Ozon site and static resources. Root redirects/challenges are not speed samples;
+# retain the observed proxy direction without widening to either parent domain.
+DOMAIN,www.ozon.ru
+DOMAIN,www\.ozon.ru
+DOMAIN,cdn2.ozone.ru
+DOMAIN,st.ozone.ru
+
+# Trip.com static resources; the separate UBT collector is rejected in the INI.
+DOMAIN,ak-s.tripcdn.com

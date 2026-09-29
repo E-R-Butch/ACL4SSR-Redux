@@ -209,6 +209,14 @@ Google Workspace 流量不能仅凭 `clients6`、`experiments` 等名称判为�
 
 `optimizationguide-pa.googleapis.com` 保持现有代理：Chromium 的 [HintsFetcher](https://chromium.googlesource.com/chromium/src/+/refs/heads/main/components/optimization_guide/core/hints/hints_fetcher.cc)在用户开启相关选项后可发送页面 URL/主机以取得优化提示；同一域名也处理 [GetModels 模型更新](https://chromium.googlesource.com/chromium/src/+/refs/heads/main/components/optimization_guide/core/delivery/prediction_model_fetcher_impl.cc)。无请求路径的连接日志无法区分这两种用途，整域名拒绝会同时影响模型功能，不能当作纯统计上传端点处理。`peoplestackwebexperiments` 的公开请求记录为 `GetExperimentFlags`，目前没有专用遥测的确证，保留业务代理。
 
+邮件退订和营销追踪经常共享主机。[Iterable](https://support.iterable.com/hc/en-us/articles/24886914774548-Easy-Unsubscribe-and-List-Unsubscribe-Email-Headers)、[SendGrid](https://www.twilio.com/docs/sendgrid/ui/account-and-settings/tracking)、[Campaign Monitor](https://help.campaignmonitor.com/articles/Knowledge/unsubscribe-links-in-emails)、Mailchimp、Loops、Qualtrics 等均提供退订/偏好入口，不能把服务商域名一律当作专用遥测。[CleverTap SDK](https://github.com/CleverTap/clevertap-web-sdk/blob/master/src/modules/account.js)也在同一区域主机生成邮件偏好 `/e` 与其他 SDK 请求地址。此次确认场景为退订及邮件内链接访问，所观察到的具体主机归入已有 `CloudServiceProxy.list`，保留原代理方向；同主机的追踪路径也可能继续可达，域名规则不能保证仅开放退订。未访问带收件人令牌的 URL，根路径错误、跳转和空响应不构成真实退订或下载速度验证。
+
+独立统计端点仍直接 `REJECT`：Valnet 的 `valnetv3.sentinelpro.com`（[SentinelPro 统计产品](https://sentinelpro.com/resources/api-documentation)）、`cdn.promotekit.com` 的[推荐归因脚本](https://www.promotekit.com/docs/affiliate-links/stripe-api)、Apollo 的 `aplo-evnt.com` 访客识别收集接口、Trip UBT 的 `ubt-sin.tripcdn.com` 行为收集接口，以及日志中的精确 Sentry 摄取主机。实际 Apollo 脚本向 `/api/v1/intent_pixel/track_request` 发数据；Trip 的公开 UBT 脚本配置 `/bee/collect` 与 `bf.gif`。`assets.apollo.io` 同时承载 Apollo 应用 JavaScript/CSS，保留其资源访问；`ak-s.tripcdn.com` 静态资源也不随 UBT 收集器一起拒绝。
+
+Meshy 主站、CDN 和认证主机精确归入 `DeveloperProxy.list`；主站 HTML 与公开字体在本次固定目标 IP 直连被重置，代理得到有效内容。LINUX DO 图片 CDN 也归入既有开发资源分类。Ozon 站点及资源放入既有电商代理，Academia 页面与资源放入既有学术代理；本次匿名访问遇到重定向/验证页，保留代理不等于已验证登录状态或业务功能。MTCaptcha 的两个[官方验证码主机](https://docs.mtcaptcha.com/)保持可用，Luma 活动服务与 Wise 公共入口按具体主机保留原代理路径；未进行账号、支付或地区资格测试。
+
+`stun.services.mozilla.com` 已被 [Mozilla 官方退役](https://bugzilla.mozilla.org/show_bug.cgi?id=1324520)。本次 Google、Cloudflare、AliDNS 的 HTTPS DNS 查询均返回 NXDOMAIN；`clubweixin.samsung.com` 当前也返回 NXDOMAIN。分流切换无法使上游不存在的记录恢复，不写伪造 hosts 或替换服务地址。业务归属未确认的随机 AWS 主机只记录诊断，不因其后缀批量放行或拒绝，也不将标识符写入公共规则。
+
 ## 🗂️ 策略组一览
 
 | 策略组 | 类型 | 默认 | 说明 |

@@ -9,6 +9,13 @@ DOMAIN,zh.zlib.li
 # Public image-storage host for book covers; exact host only.
 DOMAIN,s3proxy-alp2-covers.cdn-zlib.sk
 
+# Academia account/content and first-party assets, also needed by email preferences.
+# Preserve the proxy path; anonymous challenge pages do not benchmark logged-in use.
+DOMAIN,academia.edu
+DOMAIN,www.academia.edu
+DOMAIN,www\.academia.edu
+DOMAIN,c.academia-assets.com
+
 DOMAIN-SUFFIX,blackwell-synergy.com
 DOMAIN-SUFFIX,cabdirect.org
 DOMAIN-SUFFIX,deepdyve.com

@@ -436,6 +436,66 @@ class RoutingSemanticsTests(unittest.TestCase):
             ):
                 with self.subTest(config=config_path.name, google_functional_host=host):
                     self.assertEqual(first_policy(host), "🚀 节点选择")
+            # Preserve unsubscribe, verification and content flows beside exact telemetry blocks.
+            for host in (
+                'links.airalo.com',
+                'links.iterable.com',
+                'email.mckinsey.com',
+                'campaigns.techspecs.io',
+                'hs-46233949.s.hubspotemail.net',
+                'links.warp.dev',
+                'app.loops.so',
+                '05.emailinboundprocessing.com',
+                'unsub.cmail19.com',
+                'means.us8.list-manage.com',
+                't.daily.dev',
+                'us1.clevertap-prod.com',
+                'email-marriott.com',
+                'pdx1.qualtrics.com',
+                'dcic.musvc6.net',
+                'email.engagelab.com',
+                'link.email.nianticlabs.com',
+                'www.unsubscribe.nianticlabs.com',
+                'www\\.unsubscribe.nianticlabs.com',
+                'link.goat.com',
+                'service.mtcaptcha.com',
+                'service2.mtcaptcha.com',
+                'assets.apollo.io',
+                'api.luma.com',
+                'luma.com',
+                'wise.com',
+                'www.meshy.ai',
+                'www\\.meshy.ai',
+                'cdn.meshy.ai',
+                'auth.meshy.ai',
+                'cdn.ldstatic.com',
+                'www.ozon.ru',
+                'www\\.ozon.ru',
+                'cdn2.ozone.ru',
+                'st.ozone.ru',
+                'ak-s.tripcdn.com',
+                'academia.edu',
+                'www.academia.edu',
+                'www\\.academia.edu',
+                'c.academia-assets.com',
+            ):
+                with self.subTest(config=config_path.name, mail_content_host=host):
+                    self.assertEqual(first_policy(host), "🚀 节点选择")
+            for host in (
+                'valnetv3.sentinelpro.com',
+                'cdn.promotekit.com',
+                'aplo-evnt.com',
+                'ubt-sin.tripcdn.com',
+                'o4508733888331776.ingest.de.sentry.io',
+            ):
+                with self.subTest(config=config_path.name, dedicated_tracking_host=host):
+                    self.assertEqual(first_policy(host), "REJECT")
+            for host in ("other.meshy.ai", "other.ozone.ru", "other.ldstatic.com",
+                         "other.iterable.com", "other.cmail19.com", "other.promotekit.com",
+                         "other.sentinelpro.com", "other.tripcdn.com"):
+                with self.subTest(config=config_path.name, unrelated_service_host=host):
+                    self.assertIsNone(first_policy(host))
+
             # Blocking Cloudflare analytics must preserve challenge and CDN hosts.
             self.assertEqual(first_policy("challenges.cloudflare.com"), "🚀 节点选择")
             self.assertEqual(first_policy("cdnjs.cloudflare.com"), "🚀 节点选择")

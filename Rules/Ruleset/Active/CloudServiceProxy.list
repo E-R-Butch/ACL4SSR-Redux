@@ -4,3 +4,43 @@
 # Exact regional host only; do not cover unrelated regions or bucket subdomains.
 # https://docs.wasabi.com/docs/service-urls-for-wasabis-storage-regions
 DOMAIN,s3.us-west-1.wasabisys.com
+
+# Shared email links, unsubscribe pages and subscription preferences.
+# The observed flow is unsubscribe/link navigation. Keep its existing proxy path;
+# these exact hosts may also track clicks, so a whole-host reject breaks the flow.
+# https://support.iterable.com/hc/en-us/articles/24886914774548-Easy-Unsubscribe-and-List-Unsubscribe-Email-Headers
+DOMAIN,links.airalo.com
+DOMAIN,links.iterable.com
+DOMAIN,email.mckinsey.com
+DOMAIN,campaigns.techspecs.io
+DOMAIN,hs-46233949.s.hubspotemail.net
+DOMAIN,links.warp.dev
+DOMAIN,app.loops.so
+DOMAIN,05.emailinboundprocessing.com
+DOMAIN,unsub.cmail19.com
+DOMAIN,means.us8.list-manage.com
+DOMAIN,t.daily.dev
+DOMAIN,us1.clevertap-prod.com
+DOMAIN,email-marriott.com
+DOMAIN,pdx1.qualtrics.com
+DOMAIN,dcic.musvc6.net
+DOMAIN,email.engagelab.com
+DOMAIN,link.email.nianticlabs.com
+DOMAIN,www.unsubscribe.nianticlabs.com
+DOMAIN,www\.unsubscribe.nianticlabs.com
+DOMAIN,link.goat.com
+
+# Verification used by interactive forms; preserve the existing proxy path.
+# https://docs.mtcaptcha.com/
+DOMAIN,service.mtcaptcha.com
+DOMAIN,service2.mtcaptcha.com
+
+# Apollo's shared application bundles also host its tracking loader.
+# The dedicated collection host is rejected separately; do not block this CDN.
+DOMAIN,assets.apollo.io
+
+# Luma event/calendar service and the observed Wise public/account entry point.
+# Classification only: no credentials, financial transactions or account tests.
+DOMAIN,api.luma.com
+DOMAIN,luma.com
+DOMAIN,wise.com
