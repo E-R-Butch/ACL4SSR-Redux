@@ -205,6 +205,10 @@ Computer History Museum 按实际页面与资源区分：`computerhistory.org` �
 
 ---
 
+Google Workspace 流量不能仅凭 `clients6`、`experiments` 等名称判为遥测。`appsgrowthpromo-pa.clients6.google.com` 按精确主机直接 `REJECT`：[HaGeZi 的处理记录](https://github.com/hagezi/dns-blocklists/issues/8272)将该服务归为应用推广，当前 [Pro 清单](https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/pro.txt)同时收录该主机及其 `googleapis.com` 版本；本项目只添加日志里观察到的主机，不拒绝整个 Google 后端域名。Drive、账号、通讯录、插件、信令及字体等现有业务主机继续命中原代理规则，无需再拆规则集。
+
+`optimizationguide-pa.googleapis.com` 保持现有代理：Chromium 的 [HintsFetcher](https://chromium.googlesource.com/chromium/src/+/refs/heads/main/components/optimization_guide/core/hints/hints_fetcher.cc)在用户开启相关选项后可发送页面 URL/主机以取得优化提示；同一域名也处理 [GetModels 模型更新](https://chromium.googlesource.com/chromium/src/+/refs/heads/main/components/optimization_guide/core/delivery/prediction_model_fetcher_impl.cc)。无请求路径的连接日志无法区分这两种用途，整域名拒绝会同时影响模型功能，不能当作纯统计上传端点处理。`peoplestackwebexperiments` 的公开请求记录为 `GetExperimentFlags`，目前没有专用遥测的确证，保留业务代理。
+
 ## 🗂️ 策略组一览
 
 | 策略组 | 类型 | 默认 | 说明 |

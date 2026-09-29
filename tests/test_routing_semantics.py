@@ -425,6 +425,17 @@ class RoutingSemanticsTests(unittest.TestCase):
             self.assertEqual(first_policy("gateway.icloud.com"), "🍎 苹果服务")
             self.assertEqual(first_policy("pagead2.googlesyndication.com"), "🛑 广告拦截")
             self.assertEqual(first_policy("www.google-analytics.com"), "🛑 广告拦截")
+            self.assertEqual(first_policy("appsgrowthpromo-pa.clients6.google.com"), "REJECT")
+            for host in (
+                "drive.google.com", "accounts.google.com", "contacts.google.com", "ogs.google.com",
+                "addons-pa.clients6.google.com", "taskassist-pa.clients6.google.com",
+                "signaler-pa.clients6.google.com", "peoplestack-pa.clients6.google.com",
+                "peoplestackwebexperiments-pa.clients6.google.com",
+                "fonts.googleapis.com", "fonts.gstatic.com", "optimizationguide-pa.googleapis.com",
+                "child.appsgrowthpromo-pa.clients6.google.com",
+            ):
+                with self.subTest(config=config_path.name, google_functional_host=host):
+                    self.assertEqual(first_policy(host), "🚀 节点选择")
             # Blocking Cloudflare analytics must preserve challenge and CDN hosts.
             self.assertEqual(first_policy("challenges.cloudflare.com"), "🚀 节点选择")
             self.assertEqual(first_policy("cdnjs.cloudflare.com"), "🚀 节点选择")
