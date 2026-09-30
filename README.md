@@ -219,6 +219,8 @@ Meshy 主站、CDN 和认证主机精确归入 `DeveloperProxy.list`；主站 HT
 
 ## 🗂️ 策略组一览
 
+Apple 软件更新目录的三个已观察 CNAME 主机（`mesu-china.apple.com.akadns.net`、`mesu-cdn.apple.com.akadns.net`、`mesu-cdn.origin-apple.com.akadns.net`）由现有 `AppleDirect.list` 精确收录。Apple 规则块位于 Microsoft 的共享 CDN 后缀规则之前，避免这些更新请求先被 `akadns.net` 通用项接走；Apple 内部的媒体、代理、拒绝例外仍先于普通直连规则。依据 [Apple 安装、恢复与更新服务说明](https://support.apple.com/101555)和实际 CNAME 链维护，不写死 CDN IP，也不将全部 `akadns.net` 视为 Apple 服务。规则归类通过首条命中测试验证，设备恢复仍需实际业务验证。
+
 | 策略组 | 类型 | 默认 | 说明 |
 | :--- | :--- | :--- | :--- |
 | 🚀 节点选择 | select | ♻️ 自动选择 | 主出口，统筹全局 |

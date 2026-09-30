@@ -113,6 +113,40 @@ class RoutingSemanticsTests(unittest.TestCase):
         lines[a], lines[b] = lines[b], lines[a]
         self.assertTrue(any("OneDrive.list must precede" in error for error in self.check_mutation("\n".join(lines))))
 
+    def test_apple_update_cnames_precede_shared_cdn_classification(self):
+        ordered = []
+        for line in self.text.splitlines():
+            if not line.startswith("surge_ruleset="):
+                continue
+            group, source = line.split("=", 1)[1].split(",", 1)
+            path = validate_rules.local_path_from_raw_url(source)
+            if source.startswith("[]"):
+                rules = [source[2:]]
+            else:
+                rules = path.read_text(encoding="utf-8").splitlines() if path else []
+            for rule in rules:
+                if rule.startswith(("DOMAIN,", "DOMAIN-SUFFIX,", "DOMAIN-KEYWORD,")):
+                    kind, value = rule.split(",")[:2]
+                    ordered.append((kind, value, group, path.name if path else "inline"))
+
+        def first_match(host):
+            return next((group, source) for kind, value, group, source in ordered
+                        if (kind == "DOMAIN" and host == value or
+                            kind == "DOMAIN-SUFFIX" and (host == value or host.endswith("." + value)) or
+                            kind == "DOMAIN-KEYWORD" and value in host))
+
+        for host in ("mesu.apple.com", "mesu-china.apple.com.akadns.net",
+                     "mesu-cdn.apple.com.akadns.net", "mesu-cdn.origin-apple.com.akadns.net",
+                     "gs.apple.com", "gdmf.apple.com", "wkms-public.apple.com",
+                     "fcs-keys-pub-prod.cdn-apple.com", "updates.cdn-apple.com"):
+            with self.subTest(host=host):
+                self.assertEqual(first_match(host), ("🍎 苹果服务", "AppleDirect.list"))
+
+        self.assertEqual(first_match("unrelated.akadns.net"), ("🎯 全球直连", "MicrosoftDirect.list"))
+        self.assertEqual(first_match("safebrowsing.apple"), ("🚀 节点选择", "AppleProxy.list"))
+        self.assertEqual(first_match("onedrive.live.com"), ("Ⓜ️ 微软云盘", "OneDrive.list"))
+        self.assertIn(first_match("ca.iadsdk.apple.com")[0], ("🛑 广告拦截", "🔒 隐私保护"))
+
     def test_explicit_service_routes_preserve_existing_tracking_blocks(self):
         ordered = []
         for line in self.text.splitlines():

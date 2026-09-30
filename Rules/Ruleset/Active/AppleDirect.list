@@ -1,5 +1,11 @@
 # Apple Direct
 # 核心 Apple 服务、内容分发与账号基础设施
+# Software-update catalog CNAMEs observed for mesu.apple.com.
+# Keep these Apple endpoints ahead of generic shared-CDN classifications.
+# https://support.apple.com/101555
+DOMAIN,mesu-china.apple.com.akadns.net
+DOMAIN,mesu-cdn.apple.com.akadns.net
+DOMAIN,mesu-cdn.origin-apple.com.akadns.net
 DOMAIN-SUFFIX,aaplimg.com
 DOMAIN,api.apple-cloudkit.com
 # gateway.icloud.com CNAME: CloudKit content, XProtect and Voice Control assets.
