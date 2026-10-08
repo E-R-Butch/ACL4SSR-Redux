@@ -198,7 +198,7 @@ class RoutingSemanticsTests(unittest.TestCase):
         self.assertTrue(any("ruleset target 'REJET'" in error for error in self.check_mutation(text)))
 
     def test_apple_ipv6_proxy_routes_are_exact_and_wired_to_proxy(self):
-        addresses = ("2620:149:af1::10", "2620:149:af6::10", "2a01:b740:a30:2000::171", "2403:300:a16:1000::31")
+        addresses = ("2620:149:af1::10", "2620:149:af6::10", "2a01:b740:a30:2000::171", "2403:300:a16:1000::31", "2403:300:a30:1000::11", "2403:300:a30:1000::41")
         for config_path in sorted((ROOT / "Config").glob("*.ini")):
             networks = []
             for line in config_path.read_text(encoding="utf-8").splitlines():

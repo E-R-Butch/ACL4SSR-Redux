@@ -109,6 +109,8 @@ PR 和推送会运行只读 CI，检查仓库边界、单元测试、重复规�
 
 WeatherWidget 还连接了 `2403:300:a16:1000::31:443/UDP`。反向 DNS 为 `krsel6-edge-fx-003.a.aaplimg.com`，该名称的 AAAA 指回原地址；[APNIC 注册信息](https://rdap.apnic.net/ip/2403:300:a16:1000::31)确认 Apple 归属，[Apple 地址表](https://ip-geolocation.apple.com/)将 `2403:300:a16::/48` 标为首尔。仅把这个 `/128,no-resolve` 加入 `AppleProxy.list` 保留原代理方向。裸 IP 无法还原具体天气接口；边缘主机名的 HTTPS 探测证书不匹配，也不能用作业务测速。
 
+StocksWidget 与 WeatherWidget 日志中的 `2403:300:a30:1000::11`、`2403:300:a30:1000::41` 分别对应 `twtpe2-edge-fx-001.a.aaplimg.com`、`twtpe2-edge-fx-004.a.aaplimg.com`，正反向 DNS 一致；[APNIC](https://rdap.apnic.net/ip/2403:300:a30:1000::11)与 [Apple 地址表](https://ip-geolocation.apple.com/)确认 Apple 归属及台北节点位置。现有 `2403:300:a30:2000::/64` 直连规则并不包含这两个地址。仅将两个 `/128,no-resolve` 加入现有 `AppleProxy.list`，保留已观察到的代理方向；没有域名和请求路径，不能认定为遥测、DNS 污染或证明直连更快，也不扩大到整个 `/64`。
+
 `api.ipapi.is` 是 [Clash Verge Rev 官方公开的首页 IP 信息卡片查询源](https://www.clashverge.dev/privacy.html)，并非应用遥测。无查询参数的请求返回访问者的出口 IP；固定地址分别以直连和当前代理获取有效 JSON，代理约 0.90 秒、直连约 7.43 秒。同一份官方清单还列出随机候选 `ipwho.is`、`get.geojs.io`：两者也返回有效出口信息，已与先前存在的另外三个候选一起按精确主机归入网络诊断代理。这里选择代理是为了让卡片显示代理出口，并非以单次响应速度决定。
 
 `s3proxy-alp2-covers.cdn-zlib.sk` 是日志里的公共图书封面资源主机，只精确加入 `ScholarProxy.list`。其根路径只是 Nginx 欢迎页，不作为内容测试；公开对象目录代理 3.97 秒完整返回约 2.74 MB，直连 12 秒仍未完成。目录与真实封面图片不同，尚不能宣称封面下载速度。

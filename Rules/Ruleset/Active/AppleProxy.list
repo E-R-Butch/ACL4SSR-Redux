@@ -26,3 +26,10 @@ IP-CIDR6,2a01:b740:a30:2000::171/128,no-resolve
 # PTR and forward AAAA agree; Apple geofeed locates the /48 in Seoul.
 # Exact weather resource is unknown, so retain the observed proxy direction.
 IP-CIDR6,2403:300:a16:1000::31/128,no-resolve
+
+# Apple Taipei edge nodes contacted by StocksWidget and WeatherWidget over UDP/443.
+# PTR/AAAA agree: twtpe2-edge-fx-001.a.aaplimg.com and twtpe2-edge-fx-004.a.aaplimg.com.
+# Apple geofeed locates the /48 in Taipei: https://ip-geolocation.apple.com/
+# Exact application resources are unknown; preserve the observed proxy direction.
+IP-CIDR6,2403:300:a30:1000::11/128,no-resolve
+IP-CIDR6,2403:300:a30:1000::41/128,no-resolve
