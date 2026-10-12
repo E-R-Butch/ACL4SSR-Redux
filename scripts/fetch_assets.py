@@ -131,6 +131,15 @@ SOURCES = {
 BINARY_SOURCES = {"TRANCO"}
 TRANCO_TOP_LIMIT = 1_000_000
 ANTI_AD_TARGET = REPO_ROOT / "Rules/Ruleset/Active/AdBlock/BanAntiAD.list"
+
+# Coverage is read from every committed list, minus these two. MergedADBan is
+# derived from the ad ingredients *and* from yesterday's anti-AD increment, so
+# letting it count as coverage would erase the increment on the next run; the
+# increment itself is obviously not coverage for itself either.
+COVERAGE_EXCLUDE_PATHS = (
+    REPO_ROOT / "Rules/Outputs/MergedADBan.list",
+    ANTI_AD_TARGET,
+)
 TARGETS = {
     "GFWLIST": REPO_ROOT / "Rules/Core/ProxyGFWlist.list",
     "CHINA_IP": REPO_ROOT / "Rules/Ruleset/Active/China/ChinaIp.list",
@@ -556,7 +565,7 @@ def build_outputs(fetched, popular=()):
         TARGETS["EASYPRIVACY"]: process_abp_list(fetched["EASYPRIVACY"], "EASYPRIVACY"),
         TARGETS["CHINA_IP"]: process_ip(fetched["CHINA_IP"]),
         TARGETS["CHINA_IPV6"]: process_ip(fetched["CHINA_IPV6"], is_v6=True),
-        ANTI_AD_TARGET: process_anti_ad(fetched["ANTI_AD_DOMAINS"], popular, repo_rule_values({ANTI_AD_TARGET})),
+        ANTI_AD_TARGET: process_anti_ad(fetched["ANTI_AD_DOMAINS"], popular, repo_rule_values(COVERAGE_EXCLUDE_PATHS)),
     }
     for relative, bundle in BUNDLES.items():
         outputs[REPO_ROOT / relative] = process_bundle(bundle, fetched)

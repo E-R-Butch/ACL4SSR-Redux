@@ -135,6 +135,19 @@ class FetchAssetsTests(unittest.TestCase):
         self.assertNotIn("popular.example", output)
         self.assertIn("# 数量：1条", output)
 
+    def test_committed_increment_is_not_counted_as_its_own_coverage(self):
+        committed = [
+            line.split(",", 1)[1].strip()
+            for line in (fetch_assets.ANTI_AD_TARGET).read_text(encoding="utf-8").splitlines()
+            if line.strip() and not line.startswith("#")
+        ]
+        self.assertTrue(committed, "the committed increment should not be empty")
+
+        coverage = fetch_assets.repo_rule_values(fetch_assets.COVERAGE_EXCLUDE_PATHS)
+
+        for value in committed[:200]:
+            self.assertNotIn(value, coverage, f"{value} is inside the merged ad output")
+
 
 if __name__ == "__main__":
     unittest.main()
