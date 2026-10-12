@@ -54,11 +54,11 @@ jobs:
         run: python3 scripts/validate_rules.py
 
       - name: Audit rule reachability
-        # Informational: upstream syncs introduce rules that the ini order
-        # already covers with a different action. Keep the finding list visible
-        # without gating the build, because each one needs a routing decision.
+        # Informational: reports rule conflicts that are not in the reviewed
+        # baseline. Each one needs a routing decision, so it does not gate the
+        # build; the baseline itself is pinned by a unit test.
         continue-on-error: true
-        run: python3 scripts/audit_rules.py --max-findings 20
+        run: python3 scripts/audit_rules.py --baseline audit-baseline.json --max-findings 20
 
       - name: Commit semantic rule changes
         run: |

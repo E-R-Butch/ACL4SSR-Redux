@@ -125,7 +125,6 @@ https://raw.githubusercontent.com/E-R-Butch/ACL4SSR-Redux/master/Config/ACL4SSR_
 - `Rules/Ruleset/Active/China/ChinaCompanyIp.list`
 - `Rules/Ruleset/Active/China/ChinaIp.list`
 - `Rules/Ruleset/Active/China/ChinaIpV6.list`
-- `Rules/Ruleset/Active/China/GoogleCN.list`
 - `GEOIP,CN`
 
 其中：

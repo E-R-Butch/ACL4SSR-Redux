@@ -90,11 +90,28 @@ https://raw.githubusercontent.com/E-R-Butch/ACL4SSR-Redux/master/Config/ACL4SSR_
 
 ---
 
+## 🔀 规则优先级与已知取舍
+
+主配置自上而下匹配，**首个命中的规则生效**，因此列表的先后顺序本身就是分流策略。当前顺序表达的关系是：
+
+1. 顶部的显式 `REJECT`：日志里观察到的埋点、推广与遥测主机，逐条精确拒绝。
+2. 业务直连与代理列表：Apple、Microsoft、Adobe、游戏、AI、媒体、开发工具等按服务分类。
+3. `UnBan.list`：拦截白名单。它必须排在拦截列表之前，否则"不该被广告规则误伤"的主机不会被豁免；排在业务列表之后，所以它不会覆盖业务分流。
+4. 隐私保护与广告拦截：`CustomReject`、`HardwareReject`、`AdobeReject` 与上游合并产物 `MergedADBan`、`MergedPrivacy`。
+5. GFWList 代理、中国直连（域名与 IP）、`GEOIP,CN`，最后是 `FINAL`。
+
+由此产生两条需要记住的取舍：
+
+- **上游广告/隐私列表优先于业务列表**（继承上游结构）。`vmware.com`、`playstation.com`、`symantec.com`、`digicert.com`、`openai.com`、`anthropic.com` 等父域在业务列表里走直连或代理，其被上游 EasyPrivacy 收录的埋点子域因此不会被拦截。这是有意的：只有日志里观察到的具体主机才提升为第 1 条里的显式 `REJECT`，不做上游规则的全量对抗。
+- **Google 域名统一走代理**：`ProxyManual.list` 的 `DOMAIN-KEYWORD,google` 覆盖所有含 `google` 的域名，`gstatic.cn` 同样在代理列表内。确需直连的例外单独维护，例如 `GoogleFCM.list` 的 FCM 推送端点，以及 `UnBan.list` 里逐条列出的主机。
+
+`ProxyGFWlist.list`、`ChinaIp.list`、`ChinaIpV6.list`、`BanEasy*.list` 由每日同步生成，其中的条目被更早的规则覆盖属于预期（自动同步会把它们写回来），不要手工删除；`scripts/audit_rules.py` 的基线负责把这些已知条目与新增冲突区分开。
+
 ## 🛠️ 维护与自动同步
 
-PR 和推送会运行只读 CI，检查仓库边界、单元测试、重复规则、配置引用、YAML、规则类型和 CIDR。分流回归测试还检查 Claude 的嵌套直连路径、空节点行为、地区组成员、奈飞节点筛选和 OneDrive 的首个匹配策略。每日同步会完整拉取全部上游数据，任一强制来源失败即停止；全部转换成功后才替换正式文件，再执行护栏、构建和校验。无规则语义变化时不会创建自动提交。审计步骤会把「被更早的规则以不同动作挡死」的发现项打进日志，但不阻塞流水线：每一条都需要人工决定是改顺序还是删规则。
+PR 和推送会运行只读 CI，检查仓库边界、单元测试、重复规则、配置引用、YAML、规则类型和 CIDR。分流回归测试还检查 Claude 的嵌套直连路径、空节点行为、地区组成员、奈飞节点筛选和 OneDrive 的首个匹配策略。每日同步会完整拉取全部上游数据，任一强制来源失败即停止；全部转换成功后才替换正式文件，再执行护栏、构建和校验。无规则语义变化时不会创建自动提交。审计步骤会把「被更早的规则以不同动作挡死」的**新增**冲突打进日志，不阻塞流水线：每一条都需要人工决定是改顺序还是删规则。已复核的冲突记在 `audit-baseline.json`，它由单元测试守住——基线过期或出现新冲突都会让测试失败，复核后用 `python3 scripts/audit_rules.py --update-baseline` 刷新。
 
-如需更深入地排查规则质量，可手动运行 `python3 scripts/audit_rules.py`。它按主配置的匹配顺序判断规则是否还有机会命中，只报告「更早的规则以不同动作抢先命中」的实质冲突与私有规则泄漏，同一动作类别内的重叠不算问题。CI 里以非阻塞方式运行；需要让它返回失败状态时，可加 `--strict`。
+如需更深入地排查规则质量，可手动运行 `python3 scripts/audit_rules.py`。它按主配置的匹配顺序判断规则是否还有机会命中，只报告「更早的规则以不同动作抢先命中」的实质冲突与私有规则泄漏，同一动作类别内的重叠不算问题。加 `--baseline audit-baseline.json` 只列新增冲突，`--strict` 让新增冲突返回失败状态，`--update-baseline` 在复核后刷新基线。
 
 公共网页服务按用途维护：`RecruitmentDirect.list` 收录已核实的招聘页面和申请人门户资源，`ConsentDirect.list` 收录 Cookie 同意界面及配置接口，帮助中心归入 `CloudServiceDirect.list`。新增规则使用精确域名，招聘与同意资源位于广告、隐私列表之后；能直连不代表该服务完全不收集数据。
 

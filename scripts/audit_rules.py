@@ -14,14 +14,18 @@ connection wins. Two consequences drive this audit:
 Only rule sources referenced by the ini are ranked, which excludes build
 ingredients such as the AdBlock sources: their output is what actually routes
 traffic, so comparing an ingredient with its own output is meaningless.
+
+Some conflicts are known and reviewed (see the precedence notes in the README),
+so findings are compared against a baseline and only new ones are reported.
+Refresh the baseline with --update-baseline after reviewing the current tree.
 """
 
 import argparse
 import ipaddress
+import json
 import pathlib
 import re
 import sys
-from collections import defaultdict
 
 REPO_ROOT = pathlib.Path(__file__).resolve().parents[1]
 
@@ -64,6 +68,7 @@ LOCALHOST_NAMES = {
 
 NETWORK_TYPES = {"IP-CIDR", "IP-CIDR6"}
 DOMAIN_TYPES = {"DOMAIN", "DOMAIN-SUFFIX"}
+CATEGORIES = ("duplicate", "shadowed", "contained")
 
 
 def log(message):
@@ -166,25 +171,56 @@ def collect_ranked_rules(lines):
     return rules
 
 
-def location(rule):
+def source_name(rule):
     if rule["path"] is None:
-        return f"{CONFIG_FILE.name}:{rule['line']}"
+        return CONFIG_FILE.name
     try:
-        return f"{rule['path'].relative_to(REPO_ROOT)}:{rule['line']}"
+        return rule["path"].relative_to(REPO_ROOT).as_posix()
     except ValueError:
-        return f"{rule['path']}:{rule['line']}"
+        return str(rule["path"])
+
+
+def location(rule):
+    return f"{source_name(rule)}:{rule['line']}"
 
 
 def describe(rule):
     return f"{rule['raw']} -> {rule['target']}[{rule['action']}] @{location(rule)}"
 
 
+def finding_signature(finding):
+    """Line-number free identity, so upstream churn does not invalidate a baseline."""
+    victim = finding["victim"]
+    winner = finding["winner"]
+    return "|".join(
+        (
+            finding["category"],
+            source_name(victim),
+            f"{victim['type']},{victim['value']}",
+            source_name(winner),
+            f"{winner['type']},{winner['value']}",
+            winner["target"],
+        )
+    )
+
+
+def render_finding(finding):
+    victim = describe(finding["victim"])
+    winner = describe(finding["winner"])
+    category = finding["category"]
+    if category == "duplicate":
+        return f"[{category}] {victim} already matched by {winner}"
+    if category == "shadowed":
+        return f"[{category}] {victim} covered by {winner}"
+    return f"[{category}] {victim} inside {winner}"
+
+
 def find_unreachable(rules):
     """Rules that can never match because an earlier rule already covers them."""
-    findings = defaultdict(list)
+    findings = []
 
-    def add(category, message):
-        findings[category].append(message)
+    def add(category, victim, winner):
+        findings.append({"category": category, "victim": victim, "winner": winner})
 
     first_match = {}
     for rule in rules:
@@ -193,7 +229,7 @@ def find_unreachable(rules):
     for rule in rules:
         winner = first_match[(rule["type"], rule["value"])]
         if winner["rank"] < rule["rank"] and winner["action"] != rule["action"]:
-            add("duplicate", f"{describe(rule)} already matched by {describe(winner)}")
+            add("duplicate", rule, winner)
 
     suffix_first = {}
     for rule in rules:
@@ -211,7 +247,7 @@ def find_unreachable(rules):
             winner = suffix_first.get(ancestor)
             if not winner or winner["rank"] >= rule["rank"] or winner["action"] == rule["action"]:
                 continue
-            add("shadowed", f"{describe(rule)} covered by {describe(winner)}")
+            add("shadowed", rule, winner)
             break
 
     network_first = {}
@@ -228,7 +264,7 @@ def find_unreachable(rules):
             supernet = network.supernet(new_prefix=prefix_length)
             winner = network_first.get((supernet.version, str(supernet), rule["no_resolve"]))
             if winner and winner["rank"] < rule["rank"] and winner["action"] != rule["action"]:
-                add("contained", f"{describe(rule)} inside {describe(winner)}")
+                add("contained", rule, winner)
                 break
 
     return findings
@@ -277,6 +313,27 @@ def find_private_leaks():
     return findings
 
 
+def load_baseline(path):
+    if not path.exists():
+        return set()
+    data = json.loads(path.read_text(encoding="utf-8"))
+    entries = data.get("accepted", []) if isinstance(data, dict) else data
+    return set(entries)
+
+
+def write_baseline(path, signatures):
+    payload = {
+        "note": (
+            "Reviewed rule conflicts that the ini order intentionally accepts. "
+            "See README '规则优先级与已知取舍'. Refresh with: "
+            "python3 scripts/audit_rules.py --update-baseline"
+        ),
+        "count": len(signatures),
+        "accepted": sorted(signatures),
+    }
+    path.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+
+
 def print_section(title, findings, limit):
     log(title)
     if not findings:
@@ -288,44 +345,58 @@ def print_section(title, findings, limit):
         print(f"  ... +{len(findings) - limit} more", flush=True)
 
 
-CATEGORIES = ("duplicate", "shadowed", "contained")
-
-
 def main():
     parser = argparse.ArgumentParser(
         description="Audit rules against the ini match order for unreachable rules and private leakage."
     )
-    parser.add_argument("--strict", action="store_true", help="Exit non-zero when any finding is reported.")
+    parser.add_argument("--strict", action="store_true", help="Exit non-zero when a new finding is reported.")
     parser.add_argument("--max-findings", type=int, default=50, help="Maximum findings printed per category.")
+    parser.add_argument(
+        "--baseline",
+        type=pathlib.Path,
+        default=None,
+        help="Baseline file of reviewed conflicts; only conflicts outside it are reported.",
+    )
+    parser.add_argument(
+        "--update-baseline",
+        action="store_true",
+        help="Rewrite the baseline with the conflicts of the current tree and exit.",
+    )
     args = parser.parse_args()
 
     lines = CONFIG_FILE.read_text(encoding="utf-8").splitlines()
     rules = collect_ranked_rules(lines)
     log(f"Ranked {len(rules)} rule(s) across {len(parse_match_order(lines))} source(s)")
 
-    unreachable = find_unreachable(rules)
-    flat = []
+    findings = find_unreachable(rules)
+    signatures = {finding_signature(finding) for finding in findings}
+
+    if args.update_baseline:
+        path = args.baseline or REPO_ROOT / "audit-baseline.json"
+        write_baseline(path, signatures)
+        log(f"Baseline updated: {len(signatures)} accepted conflict(s) in {path.name}")
+        return
+
+    accepted = load_baseline(args.baseline) if args.baseline else set()
+    new_findings = [finding for finding in findings if finding_signature(finding) not in accepted]
+    accepted_count = len(findings) - len(new_findings)
+
+    rendered = []
     for category in CATEGORIES:
-        for message in unreachable[category]:
-            flat.append(f"[{category}] {message}")
+        rendered.extend(render_finding(finding) for finding in new_findings if finding["category"] == category)
+    leaks = find_private_leaks()
 
-    sections = [
-        ("Unreachable rules (earlier rule with a different action wins)", flat),
-        ("Private/local rule leakage", find_private_leaks()),
-    ]
+    print_section("New unreachable rules (earlier rule with a different action wins)", rendered, args.max_findings)
+    print_section("Private/local rule leakage", leaks, args.max_findings)
 
-    total = 0
-    for title, findings in sections:
-        total += len(findings)
-        print_section(title, findings, args.max_findings)
-
-    if total:
-        summary = ", ".join(f"{category}={len(unreachable[category])}" for category in CATEGORIES)
-        warn(f"Audit completed with {total} finding(s) ({summary})")
+    if rendered or leaks:
+        if accepted_count:
+            log(f"{accepted_count} reviewed conflict(s) accepted by the baseline")
+        warn(f"Audit completed with {len(rendered)} new finding(s) and {len(leaks)} leakage finding(s)")
         if args.strict:
             sys.exit(1)
     else:
-        log("Audit completed with no findings.")
+        log(f"Audit completed with no new findings ({accepted_count} accepted by the baseline)")
 
 
 if __name__ == "__main__":
