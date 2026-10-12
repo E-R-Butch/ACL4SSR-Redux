@@ -143,6 +143,21 @@ DOMAIN,files.pythonhosted.org
 # OpenSCAD
 DOMAIN,files.openscad.org
 
+# Solana RPC/API provider used by on-chain tooling; observed falling through to FINAL
+# on 2026-10-12 (helius.dev, www.helius.dev, dashboard.helius.dev, login-api.helius.dev,
+# dev-api.helius.xyz). Same direction as the other developer services here.
+# https://www.helius.dev/
+DOMAIN-SUFFIX,helius.dev
+DOMAIN-SUFFIX,helius.xyz
+
+# WalletConnect Web3Modal public API loaded by wallet connection flows.
+# https://docs.walletconnect.com/web3modal/about
+DOMAIN-SUFFIX,web3modal.org
+
+# OpenDesign (open-source Claude design alternative). Only the endpoint hit by local
+# tooling is observed, so scope the rule to that exact host.
+DOMAIN,amr-link.open-design.ai
+
 # Blender official release downloads; same installer ranges transferred faster via proxies.
 # https://download.blender.org/release/
 DOMAIN,download.blender.org

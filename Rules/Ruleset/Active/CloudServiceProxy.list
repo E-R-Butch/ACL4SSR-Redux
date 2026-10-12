@@ -39,6 +39,11 @@ DOMAIN,service2.mtcaptcha.com
 # The dedicated collection host is rejected separately; do not block this CDN.
 DOMAIN,assets.apollo.io
 
+# WorkOS enterprise SSO endpoints loaded by the app's login flow. Observed falling
+# through to FINAL on 2026-10-12 (js.workos.com, api.workos.com).
+# https://workos.com/docs
+DOMAIN-SUFFIX,workos.com
+
 # Luma event/calendar service and the observed Wise public/account entry point.
 # Classification only: no credentials, financial transactions or account tests.
 DOMAIN,api.luma.com
