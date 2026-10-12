@@ -42,6 +42,9 @@ jobs:
       - name: Validate config and rule lists
         run: python3 scripts/validate_rules.py
 
+      - name: Verify provider split
+        run: python3 scripts/split_providers.py --out-dir "$RUNNER_TEMP/provider-check"
+
       - name: Audit rule reachability
         # Informational: reports rule conflicts that are not in the reviewed
         # baseline. Each one needs a routing decision, so it does not gate the

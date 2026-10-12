@@ -15,7 +15,7 @@
 - 代理面板、订阅后端或控制平面的配置与修复脚本
 - VPS、Xray、REALITY、SSH、Docker 或防火墙部署操作
 - 实际面板域名、服务器地址、账号、令牌、密钥或私钥
-- 绑定某个私有部署环境的模板和 provider 拆分逻辑；通用、无地址/凭据的客户端模板允许维护
+- 绑定某个私有部署环境的模板、地址与凭据；通用的拆分工具有明确输入输出、不含地址/凭据时可入库
 
 仓库 CI 会对代码和配置目录执行边界与明显敏感信息检查。
 
@@ -67,7 +67,8 @@ scripts/
 ├── validate_rules.py    # 校验配置引用、YAML、规则类型和 CIDR 语义
 ├── check_repo_scope.py  # 阻止部署代码和明显敏感信息进入公开仓库
 ├── apply_dynamic_groups.py # 将通用动态地区组应用到 Jinja-enabled Clash 模板
-└── list_to_yaml.py      # 通用 Mihomo classical rule-provider 转换工具
+├── list_to_yaml.py      # 通用 Mihomo classical rule-provider 转换工具
+└── split_providers.py   # 广告/隐私规则的全局去重与均衡多文件拆分
 ```
 
 ---
@@ -106,6 +107,22 @@ https://raw.githubusercontent.com/E-R-Butch/ACL4SSR-Redux/master/Config/ACL4SSR_
 - **Google 域名统一走代理**：`ProxyManual.list` 的 `DOMAIN-KEYWORD,google` 覆盖所有含 `google` 的域名，`gstatic.cn` 同样在代理列表内。确需直连的例外单独维护，例如 `GoogleFCM.list` 的 FCM 推送端点，以及 `UnBan.list` 里逐条列出的主机。
 
 `ProxyGFWlist.list`、`ChinaIp.list`、`ChinaIpV6.list`、`BanEasy*.list` 由每日同步生成，其中的条目被更早的规则覆盖属于预期（自动同步会把它们写回来），不要手工删除；`scripts/audit_rules.py` 的基线负责把这些已知条目与新增冲突区分开。
+
+## 📦 Provider 生成与再平衡
+
+`scripts/split_providers.py` 把广告与隐私这面单独抽出来做全局去重和多文件再平衡，产物由客户端以 `rule-provider` + `RULE-SET` 引用：
+
+```bash
+python3 scripts/split_providers.py --out-dir providers            # 生成文件与清单
+python3 scripts/split_providers.py --out-dir providers --check    # 只与磁盘产物比对
+```
+
+- **来源**：`CustomReject`、`HardwareReject`、`AdobeReject`、`Outputs/MergedADBan`、`Outputs/MergedPrivacy`，按客户端当前的引用顺序读取，去重时「先出现者胜」与现网保持一致。
+- **两个动作族**：`adblock`（REJECT → 🛑 广告拦截）与 `privacy`（REJECT-DROP → 🔒 隐私保护）。同族内规则可互换，所以去重与重新分桶都不会改变分流结果。
+- **全局去重**：后出现的规则若被更早的规则完全覆盖就删除——精确重名、父域后缀覆盖、keyword 命中、同 `no-resolve` 的更大 CIDR；打印每类删除条数。
+- **多文件再平衡**：每个族按规则文本的摘要求余分桶，默认每文件不超过 `--max-rules 10000`，桶大小偏差再由一次确定性再平衡抹平。成员由摘要决定，上游增删一条规则只影响它所在的那个文件。
+- **清单**：`providers/providers.manifest.json` 记录每个文件的族、动作、分组、条数与 sha256，并给出可直接使用的 `RULE-SET` 行；客户端侧的文件清单应由这份清单驱动，不要手写。
+- CI 的 `Verify provider split` 步骤会用临时目录生成一遍，确保来源可转换、跨文件无重复、且不超上限。
 
 ## 🛠️ 维护与自动同步
 
