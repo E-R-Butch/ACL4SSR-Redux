@@ -1,23 +1,50 @@
+"""Audit rule quality against the real match order of the main ini.
+
+The main configuration resolves rules top-down: the first rule that matches a
+connection wins. Two consequences drive this audit:
+
+* A rule that is unreachable (an earlier rule with a *different action* already
+  matches everything it matches) is dead weight at best and a silent routing
+  change at worst - for example a privacy block that never fires because the
+  parent domain was matched by a direct or proxy rule first.
+* Overlaps whose earlier rule lands in the same action class (REJECT vs
+  REJECT-DROP, or two ad sources merged into one output) change nothing, so
+  they are not reported.
+
+Only rule sources referenced by the ini are ranked, which excludes build
+ingredients such as the AdBlock sources: their output is what actually routes
+traffic, so comparing an ingredient with its own output is meaningless.
+"""
+
 import argparse
 import ipaddress
 import pathlib
+import re
 import sys
 from collections import defaultdict
 
 REPO_ROOT = pathlib.Path(__file__).resolve().parents[1]
 
+CONFIG_FILE = REPO_ROOT / "Config/ACL4SSR_Online_Full.ini"
 LIST_DIRS = [
     REPO_ROOT / "Rules/Core",
     REPO_ROOT / "Rules/Outputs",
     REPO_ROOT / "Rules/Ruleset/Active",
 ]
+RAW_PREFIX = "https://raw.githubusercontent.com/E-R-Butch/ACL4SSR-Redux/master/"
+
+SOURCE_ONLY_FILES = {
+    pathlib.Path("Rules/Core/ProxyManual.list"),
+}
 
 PRIVATE_ALLOWED_FILES = {
     pathlib.Path("Rules/Core/LocalAreaNetwork.list"),
 }
 
-SOURCE_ONLY_FILES = {
-    pathlib.Path("Rules/Core/ProxyManual.list"),
+SPECIAL_ACTIONS = {
+    "DIRECT": "direct",
+    "REJECT": "block",
+    "REJECT-DROP": "block",
 }
 
 PRIVATE_DOMAIN_SUFFIXES = (
@@ -35,6 +62,9 @@ LOCALHOST_NAMES = {
     "ip6-loopback",
 }
 
+NETWORK_TYPES = {"IP-CIDR", "IP-CIDR6"}
+DOMAIN_TYPES = {"DOMAIN", "DOMAIN-SUFFIX"}
+
 
 def log(message):
     print(f"[*] {message}", flush=True)
@@ -44,192 +74,254 @@ def warn(message):
     print(f"[!] {message}", flush=True)
 
 
-def iter_list_files():
-    for list_dir in LIST_DIRS:
-        if not list_dir.exists():
+def parse_group_actions(lines):
+    """Map every proxy group name to its action class: block / direct / proxy."""
+    actions = {"DIRECT": "direct", "REJECT": "block", "REJECT-DROP": "block"}
+    for line in lines:
+        if not line.startswith("custom_proxy_group="):
             continue
-        for path in sorted(list_dir.rglob("*.list")):
-            if path.relative_to(REPO_ROOT) not in SOURCE_ONLY_FILES:
-                yield path
+        fields = line[len("custom_proxy_group="):].split("`")
+        name = fields[0].strip()
+        members = fields[2] if len(fields) > 2 else ""
+        tokens = [token.strip() for token in re.findall(r"\[\](\S+)", members)]
+        if tokens and tokens[0] in SPECIAL_ACTIONS:
+            actions[name] = SPECIAL_ACTIONS[tokens[0]]
+        else:
+            actions[name] = "proxy"
+    return actions
 
 
-def parse_rule(raw_line):
-    line = raw_line.strip()
-    if not line or line.startswith("#") or "," not in line:
+def list_path_from_url(url):
+    if not url.startswith(RAW_PREFIX):
         return None
+    return REPO_ROOT / url[len(RAW_PREFIX):]
 
-    parts = [part.strip() for part in line.split(",")]
-    if len(parts) < 2:
+
+def parse_match_order(lines):
+    """Return ranked rule sources in the order the ini matches them."""
+    sources = []
+    for lineno, raw_line in enumerate(lines, start=1):
+        line = raw_line.strip()
+        if not line.startswith("surge_ruleset="):
+            continue
+        target, _, remainder = line[len("surge_ruleset="):].partition(",")
+        target = target.strip()
+        remainder = remainder.strip()
+
+        if remainder.startswith("[]"):
+            sources.append((len(sources), target, None, [(remainder[2:].strip(), lineno)]))
+            continue
+
+        path = list_path_from_url(remainder)
+        if path is None:
+            log(f"Skipping unparsed surge_ruleset at {CONFIG_FILE.name}:{lineno}")
+            continue
+
+        rules = []
+        if path.exists():
+            for offset, source_line in enumerate(path.read_text(encoding="utf-8").splitlines(), start=1):
+                source_line = source_line.strip()
+                if source_line and not source_line.startswith("#") and "," in source_line:
+                    rules.append((source_line, offset))
+        sources.append((len(sources), target, path, rules))
+    return sources
+
+
+def parse_rule(raw, lineno, rank, target, action, path):
+    parts = [part.strip() for part in raw.split(",")]
+    if len(parts) < 2 or not parts[1]:
         return None
-
+    rule_type = parts[0].upper()
+    value = parts[1].lower().rstrip(".")
+    no_resolve = "no-resolve" in (part.lower() for part in parts[2:])
+    network = None
+    if rule_type in NETWORK_TYPES:
+        try:
+            network = ipaddress.ip_network(value, strict=False)
+        except ValueError:
+            network = None
     return {
-        "line": line,
-        "type": parts[0].upper(),
-        "value": parts[1].lower().rstrip("."),
+        "rank": rank,
+        "target": target,
+        "action": action,
+        "path": path,
+        "line": lineno,
+        "type": rule_type,
+        "value": value,
+        "raw": raw,
+        "no_resolve": no_resolve,
+        "network": network,
     }
 
 
-def collect_rules():
+def collect_ranked_rules(lines):
+    actions = parse_group_actions(lines)
     rules = []
-    for path in iter_list_files():
-        rel_path = path.relative_to(REPO_ROOT)
-        for lineno, raw_line in enumerate(path.read_text(encoding="utf-8").splitlines(), start=1):
-            parsed = parse_rule(raw_line)
-            if not parsed:
-                continue
-            parsed["path"] = rel_path
-            parsed["lineno"] = lineno
-            rules.append(parsed)
+    for rank, target, path, source_rules in parse_match_order(lines):
+        action = actions.get(target, "proxy")
+        for raw, lineno in source_rules:
+            rule = parse_rule(raw, lineno, rank, target, action, path)
+            if rule:
+                rules.append(rule)
     return rules
 
 
 def location(rule):
-    return f"{rule['path']}:{rule['lineno']}"
-
-
-def find_cross_file_duplicates(rules, max_findings):
-    by_line = defaultdict(list)
-    for rule in rules:
-        by_line[rule["line"]].append(rule)
-
-    findings = []
-    for line, matches in sorted(by_line.items()):
-        paths = {match["path"] for match in matches}
-        if len(paths) <= 1:
-            continue
-        locs = ", ".join(location(match) for match in matches[:4])
-        if len(matches) > 4:
-            locs += f", ... +{len(matches) - 4} more"
-        findings.append(f"duplicate rule across files: {line} ({locs})")
-        if len(findings) >= max_findings:
-            break
-    return findings
-
-
-def find_domain_suffix_coverage(rules, max_findings):
-    suffix_rules = [rule for rule in rules if rule["type"] == "DOMAIN-SUFFIX" and rule["value"]]
-    domain_rules = [rule for rule in rules if rule["type"] == "DOMAIN" and rule["value"]]
-
-    suffixes_by_tail = defaultdict(list)
-    for suffix_rule in suffix_rules:
-        labels = suffix_rule["value"].split(".")
-        if labels:
-            suffixes_by_tail[labels[-1]].append(suffix_rule)
-
-    findings = []
-    for domain_rule in domain_rules:
-        labels = domain_rule["value"].split(".")
-        if not labels:
-            continue
-        for suffix_rule in suffixes_by_tail.get(labels[-1], []):
-            suffix = suffix_rule["value"]
-            domain = domain_rule["value"]
-            if domain == suffix or domain.endswith(f".{suffix}"):
-                findings.append(
-                    "domain covered by suffix: "
-                    f"{domain_rule['line']} at {location(domain_rule)} "
-                    f"covered by {suffix_rule['line']} at {location(suffix_rule)}"
-                )
-                break
-        if len(findings) >= max_findings:
-            break
-    return findings
-
-
-def parse_network(rule):
-    if rule["type"] not in {"IP-CIDR", "IP-CIDR6"}:
-        return None
+    if rule["path"] is None:
+        return f"{CONFIG_FILE.name}:{rule['line']}"
     try:
-        return ipaddress.ip_network(rule["value"], strict=False)
+        return f"{rule['path'].relative_to(REPO_ROOT)}:{rule['line']}"
     except ValueError:
-        return None
+        return f"{rule['path']}:{rule['line']}"
 
 
-def find_ip_containment(rules, max_findings):
-    network_rules = []
+def describe(rule):
+    return f"{rule['raw']} -> {rule['target']}[{rule['action']}] @{location(rule)}"
+
+
+def find_unreachable(rules):
+    """Rules that can never match because an earlier rule already covers them."""
+    findings = defaultdict(list)
+
+    def add(category, message):
+        findings[category].append(message)
+
+    first_match = {}
     for rule in rules:
-        network = parse_network(rule)
-        if network:
-            network_rules.append((network, rule))
+        first_match.setdefault((rule["type"], rule["value"]), rule)
 
-    findings = []
-    for index, (network, rule) in enumerate(network_rules):
-        for other_network, other_rule in network_rules[index + 1 :]:
-            if network.version != other_network.version:
+    for rule in rules:
+        winner = first_match[(rule["type"], rule["value"])]
+        if winner["rank"] < rule["rank"] and winner["action"] != rule["action"]:
+            add("duplicate", f"{describe(rule)} already matched by {describe(winner)}")
+
+    suffix_first = {}
+    for rule in rules:
+        if rule["type"] == "DOMAIN-SUFFIX":
+            suffix_first.setdefault(rule["value"], rule)
+
+    for rule in rules:
+        if rule["type"] not in DOMAIN_TYPES:
+            continue
+        labels = rule["value"].split(".")
+        for index in range(len(labels) - 1):
+            ancestor = ".".join(labels[index:])
+            if ancestor == rule["value"] and rule["type"] == "DOMAIN-SUFFIX":
                 continue
-            if network == other_network:
+            winner = suffix_first.get(ancestor)
+            if not winner or winner["rank"] >= rule["rank"] or winner["action"] == rule["action"]:
                 continue
-            if network.supernet_of(other_network):
-                findings.append(
-                    "ip cidr contained by broader rule: "
-                    f"{other_rule['line']} at {location(other_rule)} "
-                    f"inside {rule['line']} at {location(rule)}"
-                )
-            elif other_network.supernet_of(network):
-                findings.append(
-                    "ip cidr contained by broader rule: "
-                    f"{rule['line']} at {location(rule)} "
-                    f"inside {other_rule['line']} at {location(other_rule)}"
-                )
-            if len(findings) >= max_findings:
-                return findings
+            add("shadowed", f"{describe(rule)} covered by {describe(winner)}")
+            break
+
+    network_first = {}
+    for rule in rules:
+        network = rule["network"]
+        if network is not None:
+            network_first.setdefault((network.version, str(network), rule["no_resolve"]), rule)
+
+    for rule in rules:
+        network = rule["network"]
+        if network is None:
+            continue
+        for prefix_length in range(network.prefixlen - 1, -1, -1):
+            supernet = network.supernet(new_prefix=prefix_length)
+            winner = network_first.get((supernet.version, str(supernet), rule["no_resolve"]))
+            if winner and winner["rank"] < rule["rank"] and winner["action"] != rule["action"]:
+                add("contained", f"{describe(rule)} inside {describe(winner)}")
+                break
+
     return findings
+
+
+def iter_committed_list_files():
+    for list_dir in LIST_DIRS:
+        if not list_dir.exists():
+            continue
+        for path in sorted(list_dir.rglob("*.list")):
+            relative = path.relative_to(REPO_ROOT)
+            if relative in SOURCE_ONLY_FILES:
+                continue
+            yield path
 
 
 def is_private_domain(value):
     return value in LOCALHOST_NAMES or value.endswith(PRIVATE_DOMAIN_SUFFIXES)
 
 
-def find_private_leaks(rules, max_findings):
+def find_private_leaks():
     findings = []
-    for rule in rules:
-        if rule["path"] in PRIVATE_ALLOWED_FILES:
+    for path in iter_committed_list_files():
+        relative = path.relative_to(REPO_ROOT)
+        if relative in PRIVATE_ALLOWED_FILES:
             continue
-
-        if rule["type"] in {"DOMAIN", "DOMAIN-SUFFIX"} and is_private_domain(rule["value"]):
-            findings.append(f"private/local domain in public rule: {rule['line']} at {location(rule)}")
-
-        network = parse_network(rule)
-        if network and (network.is_private or network.is_loopback or network.is_link_local):
-            findings.append(f"private/local ip range in public rule: {rule['line']} at {location(rule)}")
-
-        if len(findings) >= max_findings:
-            break
+        for lineno, raw_line in enumerate(path.read_text(encoding="utf-8").splitlines(), start=1):
+            line = raw_line.strip()
+            if not line or line.startswith("#") or "," not in line:
+                continue
+            parts = [part.strip() for part in line.split(",")]
+            if len(parts) < 2 or not parts[1]:
+                continue
+            rule_type = parts[0].upper()
+            value = parts[1].lower().rstrip(".")
+            where = f"{relative}:{lineno}"
+            if rule_type in DOMAIN_TYPES and is_private_domain(value):
+                findings.append(f"private/local domain in public rule: {line} at {where}")
+            if rule_type in NETWORK_TYPES:
+                try:
+                    network = ipaddress.ip_network(value, strict=False)
+                except ValueError:
+                    continue
+                if network.is_private or network.is_loopback or network.is_link_local:
+                    findings.append(f"private/local ip range in public rule: {line} at {where}")
     return findings
 
 
-def print_section(title, findings):
+def print_section(title, findings, limit):
     log(title)
     if not findings:
         print("  OK", flush=True)
         return
-    for finding in findings:
+    for finding in findings[:limit]:
         warn(finding)
+    if len(findings) > limit:
+        print(f"  ... +{len(findings) - limit} more", flush=True)
+
+
+CATEGORIES = ("duplicate", "shadowed", "contained")
 
 
 def main():
-    parser = argparse.ArgumentParser(description="Report optional rule quality audit findings.")
+    parser = argparse.ArgumentParser(
+        description="Audit rules against the ini match order for unreachable rules and private leakage."
+    )
     parser.add_argument("--strict", action="store_true", help="Exit non-zero when any finding is reported.")
-    parser.add_argument("--max-findings", type=int, default=50, help="Maximum findings per audit category.")
+    parser.add_argument("--max-findings", type=int, default=50, help="Maximum findings printed per category.")
     args = parser.parse_args()
 
-    rules = collect_rules()
-    log(f"Loaded {len(rules)} effective rule(s)")
+    lines = CONFIG_FILE.read_text(encoding="utf-8").splitlines()
+    rules = collect_ranked_rules(lines)
+    log(f"Ranked {len(rules)} rule(s) across {len(parse_match_order(lines))} source(s)")
+
+    unreachable = find_unreachable(rules)
+    flat = []
+    for category in CATEGORIES:
+        for message in unreachable[category]:
+            flat.append(f"[{category}] {message}")
 
     sections = [
-        ("Cross-file duplicate rules", find_cross_file_duplicates(rules, args.max_findings)),
-        ("DOMAIN rules covered by DOMAIN-SUFFIX", find_domain_suffix_coverage(rules, args.max_findings)),
-        ("IP CIDR containment", find_ip_containment(rules, args.max_findings)),
-        ("Private/local rule leakage", find_private_leaks(rules, args.max_findings)),
+        ("Unreachable rules (earlier rule with a different action wins)", flat),
+        ("Private/local rule leakage", find_private_leaks()),
     ]
 
-    total_findings = 0
+    total = 0
     for title, findings in sections:
-        total_findings += len(findings)
-        print_section(title, findings)
+        total += len(findings)
+        print_section(title, findings, args.max_findings)
 
-    if total_findings:
-        warn(f"Audit completed with {total_findings} finding(s).")
+    if total:
+        summary = ", ".join(f"{category}={len(unreachable[category])}" for category in CATEGORIES)
+        warn(f"Audit completed with {total} finding(s) ({summary})")
         if args.strict:
             sys.exit(1)
     else:

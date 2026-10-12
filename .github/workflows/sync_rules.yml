@@ -53,6 +53,13 @@ jobs:
       - name: Validate config and rule lists
         run: python3 scripts/validate_rules.py
 
+      - name: Audit rule reachability
+        # Informational: upstream syncs introduce rules that the ini order
+        # already covers with a different action. Keep the finding list visible
+        # without gating the build, because each one needs a routing decision.
+        continue-on-error: true
+        run: python3 scripts/audit_rules.py --max-findings 20
+
       - name: Commit semantic rule changes
         run: |
           git config user.name "github-actions[bot]"
