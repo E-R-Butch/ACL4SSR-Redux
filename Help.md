@@ -1,17 +1,17 @@
-# ACL4SSR-Neo 使用说明
+# ACL4SSR-Redux 使用说明
 
-本文只说明 `ACL4SSR-Neo` 当前仓库的实际用法、目录结构和维护方式。
+本文只说明 `ACL4SSR-Redux` 当前仓库的实际用法、目录结构和维护方式。
 
 项目地址：
-https://github.com/E-R-Butch/ACL4SSR-Neo
+https://github.com/E-R-Butch/ACL4SSR-Redux
 
 主配置：
-https://raw.githubusercontent.com/E-R-Butch/ACL4SSR-Neo/master/Config/ACL4SSR_Online_Full.ini
+https://raw.githubusercontent.com/E-R-Butch/ACL4SSR-Redux/master/Config/ACL4SSR_Online_Full.ini
 
 
 ## 1. 项目定位
 
-`ACL4SSR-Neo` 现在是一个面向订阅转换与代理内核生态的规则仓库，当前主要适配 `Clash / Mihomo`。
+`ACL4SSR-Redux` 现在是一个面向订阅转换与代理内核生态的规则仓库，当前主要适配 `Clash / Mihomo`。
 
 本仓库只维护公开规则、配置和通用构建工具，不承载代理面板、服务器、节点、账号、密钥或其他实际部署内容。
 
@@ -92,7 +92,7 @@ https://raw.githubusercontent.com/E-R-Butch/ACL4SSR-Neo/master/Config/ACL4SSR_On
 主配置地址：
 
 ```text
-https://raw.githubusercontent.com/E-R-Butch/ACL4SSR-Neo/master/Config/ACL4SSR_Online_Full.ini
+https://raw.githubusercontent.com/E-R-Butch/ACL4SSR-Redux/master/Config/ACL4SSR_Online_Full.ini
 ```
 
 如果你的输入源本身已经是完整的 `Mihomo YAML`，那它不属于“原始节点订阅”，不应该再拿来做二次订阅转换。
@@ -201,13 +201,13 @@ https://raw.githubusercontent.com/E-R-Butch/ACL4SSR-Neo/master/Config/ACL4SSR_On
 GitHub 页面：
 
 ```text
-https://github.com/E-R-Butch/ACL4SSR-Neo/blob/master/Rules/Core/ProxyGFWlist.list
+https://github.com/E-R-Butch/ACL4SSR-Redux/blob/master/Rules/Core/ProxyGFWlist.list
 ```
 
 Raw 地址：
 
 ```text
-https://raw.githubusercontent.com/E-R-Butch/ACL4SSR-Neo/master/Rules/Core/ProxyGFWlist.list
+https://raw.githubusercontent.com/E-R-Butch/ACL4SSR-Redux/master/Rules/Core/ProxyGFWlist.list
 ```
 
 同理，仓库里其他 `.list` 文件都可以用相同方式找到对应的 Raw 地址。
@@ -215,7 +215,7 @@ https://raw.githubusercontent.com/E-R-Butch/ACL4SSR-Neo/master/Rules/Core/ProxyG
 如果你要看主配置，请直接访问：
 
 ```text
-https://github.com/E-R-Butch/ACL4SSR-Neo/blob/master/Config/ACL4SSR_Online_Full.ini
+https://github.com/E-R-Butch/ACL4SSR-Redux/blob/master/Config/ACL4SSR_Online_Full.ini
 ```
 
 
@@ -227,13 +227,13 @@ https://github.com/E-R-Butch/ACL4SSR-Neo/blob/master/Config/ACL4SSR_Online_Full.
 [custom]
 ;不要随意改变关键字，否则会导致出错
 
-surge_ruleset=🛑 广告拦截,https://raw.githubusercontent.com/E-R-Butch/ACL4SSR-Neo/master/Rules/Outputs/MergedADBan.list
-surge_ruleset=📲 电报消息,https://raw.githubusercontent.com/E-R-Butch/ACL4SSR-Neo/master/Rules/Ruleset/Active/Telegram.list
-surge_ruleset=🚀 节点选择,https://raw.githubusercontent.com/E-R-Butch/ACL4SSR-Neo/master/Rules/Core/ProxyGFWlist.list
-surge_ruleset=🎯 全球直连,https://raw.githubusercontent.com/E-R-Butch/ACL4SSR-Neo/master/Rules/Core/LocalAreaNetwork.list
-surge_ruleset=🎯 全球直连,https://raw.githubusercontent.com/E-R-Butch/ACL4SSR-Neo/master/Rules/Ruleset/Active/China/ChinaDomain.list
-surge_ruleset=🎯 全球直连,https://raw.githubusercontent.com/E-R-Butch/ACL4SSR-Neo/master/Rules/Ruleset/Active/China/ChinaCompanyIp.list
-surge_ruleset=🎯 全球直连,https://raw.githubusercontent.com/E-R-Butch/ACL4SSR-Neo/master/Rules/Ruleset/Active/China/ChinaIp.list
+surge_ruleset=🛑 广告拦截,https://raw.githubusercontent.com/E-R-Butch/ACL4SSR-Redux/master/Rules/Outputs/MergedADBan.list
+surge_ruleset=📲 电报消息,https://raw.githubusercontent.com/E-R-Butch/ACL4SSR-Redux/master/Rules/Ruleset/Active/Telegram.list
+surge_ruleset=🚀 节点选择,https://raw.githubusercontent.com/E-R-Butch/ACL4SSR-Redux/master/Rules/Core/ProxyGFWlist.list
+surge_ruleset=🎯 全球直连,https://raw.githubusercontent.com/E-R-Butch/ACL4SSR-Redux/master/Rules/Core/LocalAreaNetwork.list
+surge_ruleset=🎯 全球直连,https://raw.githubusercontent.com/E-R-Butch/ACL4SSR-Redux/master/Rules/Ruleset/Active/China/ChinaDomain.list
+surge_ruleset=🎯 全球直连,https://raw.githubusercontent.com/E-R-Butch/ACL4SSR-Redux/master/Rules/Ruleset/Active/China/ChinaCompanyIp.list
+surge_ruleset=🎯 全球直连,https://raw.githubusercontent.com/E-R-Butch/ACL4SSR-Redux/master/Rules/Ruleset/Active/China/ChinaIp.list
 surge_ruleset=🎯 全球直连,[]GEOIP,CN
 surge_ruleset=🐟 漏网之鱼,[]FINAL
 
