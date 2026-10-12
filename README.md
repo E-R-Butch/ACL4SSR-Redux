@@ -28,6 +28,7 @@
 - 🛡️ **Claude 代理隔离**：使用专用自动/手动组，所有嵌套路径均禁用 DIRECT；没有可用节点时拒绝连接。此约束针对规则模式，不覆盖客户端全局直连模式或应用绕过代理的流量。
 - 🎬 **全球媒体解锁**：对齐 `RegionRestrictionCheck` 检测颗粒度，支持主流流媒体（Netflix/Disney+/HBO/PrimeVideo）及各国地区媒体独立分流
 - 🛑 **多源去广告**：整合仓库规则与持续维护的 EasyList 系列上游，经过确定性去重和冲突处理
+- 🧬 **设备遥测与 PCDN**：按厂商粒度拦截系统与应用内置遥测（HaGeZi native 系列，位于业务直连之前才能真正生效），并拒绝占用上行带宽的 PCDN 节点
 - 🎮 **Steam 专项优化**：针对前台社区与后台下载三级分流，强制代理与优先直连动态结合
 - 🗺️ **地区分流**：按节点名称匹配🇩🇪德 / 🇭🇰港 / 🇨🇳台 / 🇸🇬新 / 🇯🇵日 / 🇺🇸美 / 🇰🇷韩；地区测速组不混入全局节点，无匹配时为 REJECT，不会自动改用其他地区。
 - ✏️ **按业务维护直连规则**：公共服务放入对应业务分类；`CustomDirect.list` 仅保留无合适分类的公共例外，个人服务地址留在私有覆写
@@ -103,7 +104,7 @@ https://raw.githubusercontent.com/E-R-Butch/ACL4SSR-Redux/master/Config/ACL4SSR_
 
 由此产生两条需要记住的取舍：
 
-- **上游广告/隐私列表优先于业务列表**（继承上游结构）。`vmware.com`、`playstation.com`、`symantec.com`、`digicert.com`、`openai.com`、`anthropic.com` 等父域在业务列表里走直连或代理，其被上游 EasyPrivacy 收录的埋点子域因此不会被拦截。这是有意的：只有日志里观察到的具体主机才提升为第 1 条里的显式 `REJECT`，不做上游规则的全量对抗。
+- **业务直连/代理列表与拦截列表的顺序决定谁生效**：业务列表在拦截列表之前（继承上游结构），所以 `playstation.com`、`vmware.com`、`symantec.com`、`openai.com`、`anthropic.com` 这类父域一旦在业务列表里定了直连或代理，上游 EasyPrivacy 针对其埋点子域的规则就不再生效——这是有意的取舍：只把日志里观察到的具体主机提升为第 1 条里的显式 `REJECT`，不做上游规则的全量对抗。反过来，**新加的业务清单必须排在拦截列表之后**（`GamePlatform` / `ChatProxy` / `AppleExtra` / `ServiceDirectExtra` 都在这个位置），否则它们会顺手废掉已有的埋点拦截。
 - **Google 域名统一走代理**：`ProxyManual.list` 的 `DOMAIN-KEYWORD,google` 覆盖所有含 `google` 的域名，`gstatic.cn` 同样在代理列表内。确需直连的例外单独维护，例如 `GoogleFCM.list` 的 FCM 推送端点，以及 `UnBan.list` 里逐条列出的主机。
 
 `ProxyGFWlist.list`、`ChinaIp.list`、`ChinaIpV6.list`、`BanEasy*.list` 由每日同步生成，其中的条目被更早的规则覆盖属于预期（自动同步会把它们写回来），不要手工删除；`scripts/audit_rules.py` 的基线负责把这些已知条目与新增冲突区分开。
@@ -123,6 +124,19 @@ python3 scripts/split_providers.py --out-dir providers --check    # 只与磁盘
 - **多文件再平衡**：每个族按规则文本的摘要求余分桶，默认每文件不超过 `--max-rules 10000`，桶大小偏差再由一次确定性再平衡抹平。成员由摘要决定，上游增删一条规则只影响它所在的那个文件。
 - **清单**：`providers/providers.manifest.json` 记录每个文件的族、动作、分组、条数与 sha256，并给出可直接使用的 `RULE-SET` 行；客户端侧的文件清单应由这份清单驱动，不要手写。
 - CI 的 `Verify provider split` 步骤会用临时目录生成一遍，确保来源可转换、跨文件无重复、且不超上限。
+
+每日同步还会合并几个第三方分类清单（`fetch_assets.py` 的 `BUNDLES`），各自独立成文件并按下方位置接入主 INI：
+
+| 生成文件 | 上游 | 分组 | 位置要求 |
+| :--- | :--- | :--- | :--- |
+| `AppTelemetryReject.list` | HaGeZi native 追踪器（Apple/三星/小米/华为/OPPO/vivo/Windows/TikTok/Amazon/LG/Roku） | 🔒 隐私保护 | **必须在业务直连之前**，否则被父域直连规则挡死 |
+| `PCDNReject.list` | anti-AD `discretion/pcdn.txt` | 🔒 隐私保护 | 与其它拦截列表同段 |
+| `GamePlatform.list` | blackmatrix7 PlayStation/Xbox/EA/Ubisoft/Blizzard/Riot/Nintendo | 🎮 游戏代理 | 与 `GameProxy.list` 相邻 |
+| `ChatProxy.list` | blackmatrix7 Discord/Notion/JetBrains | 🚀 节点选择 | 业务代理段 |
+| `AppleExtra.list` | blackmatrix7 AppleID/AppleMail/AppleMusic | 🍎 苹果服务 | 紧随 `AppleDirect.list` |
+| `ServiceDirectExtra.list` | blackmatrix7 Speedtest/MicrosoftEdge | 🎯 全球直连 | 业务直连段 |
+
+这些清单是**主机级**的（不是上游 ABP 模式语法），所以不会被父域直连规则旁路；只保留 `DOMAIN`/`DOMAIN-SUFFIX`/`DOMAIN-KEYWORD`/`IP-CIDR`/`DST-PORT`，其余类型在转换时丢弃并打印条数。
 
 ## 🛠️ 维护与自动同步
 
@@ -300,7 +314,9 @@ Apple 软件更新目录的三个已观察 CNAME 主机（`mesu-china.apple.com.
 | ~~ACL4SSR/ACL4SSR~~ | 本项目初代规则集 (源项目已失效) |
 | ~~ConnersHua/Profiles~~ | 广告/劫持拦截规则 (源项目已失效) |
 | ~~lhie1/Rules~~ | 广告拦截规则 (源项目已失效) |
-| [blackmatrix7/ios_rule_script](https://github.com/blackmatrix7/ios_rule_script) | lhie1 归档的社区维护版 |
+| [blackmatrix7/ios_rule_script](https://github.com/blackmatrix7/ios_rule_script) | 游戏平台、协作服务、Apple 账号与浏览器组件清单来源（lhie1 归档的社区维护版） |
+| [hagezi/dns-blocklists](https://github.com/hagezi/dns-blocklists) | 设备与系统级遥测清单来源（native 追踪器系列） |
+| [privacy-protection-tools/anti-AD](https://github.com/privacy-protection-tools/anti-AD) | PCDN 节点清单来源 |
 | [easylist/easylist](https://github.com/easylist/easylist) | 广告与隐私规则上游来源（EasyList / EasyListChina / EasyPrivacy） |
 | [Adblock Plus Filter Lists](https://easylist-downloads.adblockplus.org/) | 本项目自动同步使用的官方发布地址 |
 | [lmc999/RegionRestrictionCheck](https://github.com/lmc999/RegionRestrictionCheck) | 流媒体解锁检测脚本（本项目对齐其颗粒度） |

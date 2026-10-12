@@ -13,6 +13,12 @@ TARGETS = {
     "Rules/Ruleset/Active/AdBlock/BanEasyPrivacy.list": 10000,
     "Rules/Ruleset/Active/China/ChinaIp.list": 1000,
     "Rules/Ruleset/Active/China/ChinaIpV6.list": 100,
+    "Rules/Ruleset/Active/AppTelemetryReject.list": 2500,
+    "Rules/Ruleset/Active/PCDNReject.list": 20,
+    "Rules/Ruleset/Active/GamePlatform.list": 350,
+    "Rules/Ruleset/Active/ChatProxy.list": 35,
+    "Rules/Ruleset/Active/AppleExtra.list": 4,
+    "Rules/Ruleset/Active/ServiceDirectExtra.list": 8,
 }
 
 BAD_CONTENT_MARKERS = (

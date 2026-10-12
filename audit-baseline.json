@@ -1,6 +1,6 @@
 {
   "note": "Reviewed rule conflicts that the ini order intentionally accepts. See README '规则优先级与已知取舍'. Refresh with: python3 scripts/audit_rules.py --update-baseline",
-  "count": 68,
+  "count": 72,
   "accepted": [
     "duplicate|Rules/Core/ProxyGFWlist.list|DOMAIN-SUFFIX,admob.com|Rules/Outputs/MergedADBan.list|DOMAIN-SUFFIX,admob.com|🛑 广告拦截",
     "duplicate|Rules/Core/ProxyGFWlist.list|DOMAIN-SUFFIX,ads-twitter.com|Rules/Outputs/MergedADBan.list|DOMAIN-SUFFIX,ads-twitter.com|🛑 广告拦截",
@@ -20,6 +20,7 @@
     "duplicate|Rules/Ruleset/Active/JPMedia.list|DOMAIN-SUFFIX,socdm.com|Rules/Outputs/MergedADBan.list|DOMAIN-SUFFIX,socdm.com|🛑 广告拦截",
     "duplicate|Rules/Ruleset/Active/MicrosoftDirect.list|DOMAIN-SUFFIX,uservoice.com|Rules/Outputs/MergedADBan.list|DOMAIN-SUFFIX,uservoice.com|🛑 广告拦截",
     "duplicate|Rules/Ruleset/Active/ProxyMedia.list|DOMAIN-SUFFIX,gvt2.com|Rules/Outputs/MergedADBan.list|DOMAIN-SUFFIX,gvt2.com|🛑 广告拦截",
+    "duplicate|Rules/Ruleset/Active/ProxyMedia.list|DOMAIN-SUFFIX,mobileanalytics.us-east-1.amazonaws.com|Rules/Ruleset/Active/AppTelemetryReject.list|DOMAIN-SUFFIX,mobileanalytics.us-east-1.amazonaws.com|🔒 隐私保护",
     "duplicate|Rules/Ruleset/Active/ProxyMedia.list|DOMAIN-SUFFIX,socdm.com|Rules/Outputs/MergedADBan.list|DOMAIN-SUFFIX,socdm.com|🛑 广告拦截",
     "duplicate|Rules/Ruleset/Active/YouTube.list|DOMAIN-SUFFIX,gvt2.com|Rules/Outputs/MergedADBan.list|DOMAIN-SUFFIX,gvt2.com|🛑 广告拦截",
     "shadowed|Rules/Core/ProxyGFWlist.list|DOMAIN,www.skype.com|Rules/Ruleset/Active/MicrosoftDirect.list|DOMAIN-SUFFIX,skype.com|🎯 全球直连",
@@ -67,6 +68,9 @@
     "shadowed|Rules/Outputs/MergedPrivacy.list|DOMAIN-SUFFIX,tracking.unrealengine.com|Rules/Ruleset/Active/GameDirect.list|DOMAIN-SUFFIX,unrealengine.com|🎮 游戏直连",
     "shadowed|Rules/Outputs/MergedPrivacy.list|DOMAIN-SUFFIX,website-security.geotrust.com|Rules/Ruleset/Active/AdobeDirect.list|DOMAIN-SUFFIX,geotrust.com|🎯 全球直连",
     "shadowed|Rules/Outputs/MergedPrivacy.list|DOMAIN-SUFFIX,website-security.thawte.com|Rules/Ruleset/Active/AdobeDirect.list|DOMAIN-SUFFIX,thawte.com|🎯 全球直连",
+    "shadowed|Rules/Ruleset/Active/GamePlatform.list|DOMAIN,login.live.com|Rules/Ruleset/Active/MicrosoftDirect.list|DOMAIN-SUFFIX,live.com|🎯 全球直连",
+    "shadowed|Rules/Ruleset/Active/GamePlatform.list|DOMAIN,logincdn.msauth.net|Rules/Ruleset/Active/MicrosoftDirect.list|DOMAIN-SUFFIX,msauth.net|🎯 全球直连",
+    "shadowed|Rules/Ruleset/Active/GamePlatform.list|DOMAIN-SUFFIX,ea.tt.omtrdc.net|Rules/Ruleset/Active/AdobeReject.list|DOMAIN-SUFFIX,omtrdc.net|🔒 隐私保护",
     "shadowed|Rules/Ruleset/Active/NAMedia.list|DOMAIN-SUFFIX,hulu.hb.omtrdc.net|Rules/Ruleset/Active/AdobeReject.list|DOMAIN-SUFFIX,omtrdc.net|🔒 隐私保护",
     "shadowed|Rules/Ruleset/Active/ProxyMedia.list|DOMAIN,netflix.com.edgesuite.net|Rules/Ruleset/Active/MicrosoftDirect.list|DOMAIN-SUFFIX,edgesuite.net|🎯 全球直连",
     "shadowed|Rules/Ruleset/Active/ProxyMedia.list|DOMAIN-SUFFIX,disney.demdex.net|Rules/Ruleset/Active/AdobeReject.list|DOMAIN-SUFFIX,demdex.net|🔒 隐私保护"

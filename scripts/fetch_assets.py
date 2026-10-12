@@ -11,6 +11,101 @@ import urllib.request
 
 REPO_ROOT = pathlib.Path(__file__).resolve().parents[1]
 MANUAL_PROXY_FILE = REPO_ROOT / "Rules/Core/ProxyManual.list"
+
+HAGEZI_BASE = "https://raw.githubusercontent.com/hagezi/dns-blocklists/main/wildcard/"
+BLACKMATRIX_BASE = "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/"
+
+# HaGeZi per-vendor native tracker lists: device and app telemetry, host level.
+NATIVE_TRACKER_VENDORS = (
+    "apple",
+    "samsung",
+    "xiaomi",
+    "huawei",
+    "oppo-realme",
+    "vivo",
+    "winoffice",
+    "tiktok",
+    "amazon",
+    "lgwebos",
+    "roku",
+)
+
+# blackmatrix7 service lists used below, by directory name.
+BLACKMATRIX_LISTS = (
+    "PlayStation",
+    "Xbox",
+    "EA",
+    "Ubisoft",
+    "Blizzard",
+    "Riot",
+    "Nintendo",
+    "Discord",
+    "Notion",
+    "Jetbrains",
+    "AppleID",
+    "AppleMail",
+    "AppleMusic",
+    "Speedtest",
+    "MicrosoftEdge",
+)
+
+# Lists whose rules are already decided elsewhere: a service bundle must not
+# re-route a host an earlier list already matches, or re-add something that is
+# blocked on purpose.
+BLOCK_LISTS = (
+    "Rules/Core/CustomReject.list",
+    "Rules/Ruleset/Active/HardwareReject.list",
+    "Rules/Ruleset/Active/AdobeReject.list",
+    "Rules/Ruleset/Active/AppTelemetryReject.list",
+    "Rules/Ruleset/Active/PCDNReject.list",
+    "Rules/Outputs/MergedADBan.list",
+    "Rules/Outputs/MergedPrivacy.list",
+)
+
+# Generated files that merge several upstream lists into one repository list.
+BUNDLES = {
+    "Rules/Ruleset/Active/AppTelemetryReject.list": {
+        "label": "设备与应用内置遥测（HaGeZi native 追踪器清单）",
+        "converter": "domains",
+        "sources": tuple(f"HAGEZI_NATIVE_{vendor.upper().replace('-', '_')}" for vendor in NATIVE_TRACKER_VENDORS),
+    },
+    "Rules/Ruleset/Active/PCDNReject.list": {
+        "label": "PCDN 节点（占用上行带宽）",
+        "converter": "domains",
+        "sources": ("ANTI_AD_PCDN",),
+    },
+    "Rules/Ruleset/Active/GamePlatform.list": {
+        "label": "游戏平台账号、商店与联机服务",
+        "converter": "clash",
+        "sources": tuple(f"BLACKMATRIX_{name.upper()}" for name in ("PlayStation", "Xbox", "EA", "Ubisoft", "Blizzard", "Riot", "Nintendo")),
+        "exclude": BLOCK_LISTS + ("Rules/Ruleset/Active/GameDirect.list", "Rules/Ruleset/Active/GameProxy.list"),
+    },
+    "Rules/Ruleset/Active/ChatProxy.list": {
+        "label": "协作与聊天服务",
+        "converter": "clash",
+        "sources": tuple(f"BLACKMATRIX_{name.upper()}" for name in ("Discord", "Notion", "Jetbrains")),
+        "exclude": BLOCK_LISTS + ("Rules/Ruleset/Active/CloudServiceProxy.list",),
+    },
+    "Rules/Ruleset/Active/AppleExtra.list": {
+        "label": "Apple 账号、邮件与音乐",
+        "converter": "clash",
+        "sources": tuple(f"BLACKMATRIX_{name.upper()}" for name in ("AppleID", "AppleMail", "AppleMusic")),
+        "exclude": BLOCK_LISTS + ("Rules/Ruleset/Active/AppleDirect.list", "Rules/Ruleset/Active/AppleProxy.list"),
+    },
+    "Rules/Ruleset/Active/ServiceDirectExtra.list": {
+        "label": "测速与浏览器组件",
+        "converter": "clash",
+        "sources": tuple(f"BLACKMATRIX_{name.upper()}" for name in ("Speedtest", "MicrosoftEdge")),
+        "exclude": BLOCK_LISTS
+        + (
+            "Rules/Ruleset/Active/MicrosoftDirect.list",
+            # fast.com belongs to Netflix, which this repository proxies on purpose.
+            "Rules/Ruleset/Active/Netflix.list",
+            "Rules/Ruleset/Active/ProxyMedia.list",
+        ),
+    },
+}
+
 SOURCES = {
     "GFWLIST": "https://raw.githubusercontent.com/gfwlist/gfwlist/refs/heads/master/list.txt",
     "CHINA_IP": "https://raw.githubusercontent.com/mayaxcn/china-ip-list/refs/heads/master/chnroute.txt",
@@ -18,6 +113,12 @@ SOURCES = {
     "EASYLIST": "https://easylist-downloads.adblockplus.org/easylist.txt",
     "EASYLIST_CHINA": "https://easylist-downloads.adblockplus.org/easylistchina.txt",
     "EASYPRIVACY": "https://easylist-downloads.adblockplus.org/easyprivacy.txt",
+    "ANTI_AD_PCDN": "https://raw.githubusercontent.com/privacy-protection-tools/anti-AD/master/discretion/pcdn.txt",
+    **{
+        f"HAGEZI_NATIVE_{vendor.upper().replace('-', '_')}": f"{HAGEZI_BASE}native.{vendor}.txt"
+        for vendor in NATIVE_TRACKER_VENDORS
+    },
+    **{f"BLACKMATRIX_{name.upper()}": f"{BLACKMATRIX_BASE}{name}/{name}.list" for name in BLACKMATRIX_LISTS},
 }
 TARGETS = {
     "GFWLIST": REPO_ROOT / "Rules/Core/ProxyGFWlist.list",
@@ -196,8 +297,138 @@ def process_ip(content, is_v6=False):
     return "\n".join(lines)
 
 
+LIST_RULE_TOKENS = {"DOMAIN", "DOMAIN-SUFFIX", "DOMAIN-KEYWORD", "IP-CIDR", "IP-CIDR6", "DST-PORT"}
+KEYWORD_PATTERN = re.compile(r"^[a-zA-Z0-9-]+$")
+
+
+def process_domain_lines(content):
+    """Plain or wildcard domain lists (`*.host` or `host`) into DOMAIN-SUFFIX rules."""
+    rules = set()
+    for raw_line in content.splitlines():
+        line = raw_line.strip()
+        if not line or line.startswith(("#", "!", "[")):
+            continue
+        value = line[2:] if line.startswith("*.") else line
+        domain = normalize_domain(value)
+        if domain:
+            rules.add(f"DOMAIN-SUFFIX,{domain}")
+    return rules
+
+
+def process_clash_rule_list(content, source_key):
+    """Keep the domain/CIDR rules we can serve from a third-party Clash list."""
+    rules = set()
+    skipped = 0
+    for raw_line in content.splitlines():
+        line = raw_line.strip()
+        if not line or line.startswith("#"):
+            continue
+        parts = [part.strip() for part in line.split(",")]
+        if len(parts) < 2 or not parts[1]:
+            skipped += 1
+            continue
+        token = parts[0].upper()
+        if token not in LIST_RULE_TOKENS:
+            skipped += 1
+            continue
+        if token in {"IP-CIDR", "IP-CIDR6"}:
+            try:
+                network = ipaddress.ip_network(parts[1], strict=False)
+            except ValueError:
+                skipped += 1
+                continue
+            if network.is_private or network.is_loopback or network.is_link_local:
+                skipped += 1
+                continue
+            modifier = ",no-resolve" if "no-resolve" in (part.lower() for part in parts[2:]) else ""
+            rules.add(f"{token},{network}{modifier}")
+            continue
+        if token == "DOMAIN-KEYWORD":
+            keyword = parts[1].lower().strip(".")
+            if KEYWORD_PATTERN.match(keyword):
+                rules.add(f"DOMAIN-KEYWORD,{keyword}")
+            else:
+                skipped += 1
+            continue
+        domain = normalize_domain(parts[1])
+        if domain:
+            rules.add(f"{token},{domain}")
+        else:
+            skipped += 1
+    if skipped:
+        log(f"Skipped {skipped} unsupported rule(s) from {source_key}")
+    return rules
+
+
+def rule_key(rule):
+    parts = [part.strip() for part in rule.split(",")]
+    if len(parts) < 2 or not parts[1]:
+        return None
+    return parts[0].upper(), parts[1].lower().rstrip(".")
+
+
+def read_existing_rule_keys(relative_paths):
+    keys = set()
+    for relative in relative_paths:
+        path = REPO_ROOT / relative
+        if not path.is_file():
+            continue
+        for raw_line in path.read_text(encoding="utf-8").splitlines():
+            line = raw_line.strip()
+            if not line or line.startswith("#"):
+                continue
+            key = rule_key(line)
+            if key:
+                keys.add(key)
+    return keys
+
+
+def is_decided_elsewhere(rule, excluded_keys):
+    """A candidate is dropped when an earlier list already routes it identically."""
+    key = rule_key(rule)
+    if key is None:
+        return False
+    if key in excluded_keys:
+        return True
+    rule_type, value = key
+    if rule_type != "DOMAIN":
+        return False
+    labels = value.split(".")
+    for start in range(len(labels) - 1):
+        if ("DOMAIN-SUFFIX", ".".join(labels[start:])) in excluded_keys:
+            return True
+    return False
+
+
+def process_bundle(bundle, fetched):
+    rules = set()
+    for source_key in bundle["sources"]:
+        content = fetched[source_key]
+        if bundle["converter"] == "domains":
+            rules |= process_domain_lines(content)
+        else:
+            rules |= process_clash_rule_list(content, source_key)
+
+    excluded = read_existing_rule_keys(bundle.get("exclude", ()))
+    if excluded:
+        before = len(rules)
+        rules = {rule for rule in rules if not is_decided_elsewhere(rule, excluded)}
+        log(f"Excluded {before - len(rules)} rule(s) already decided by earlier lists")
+
+    lines = [
+        f"# 内容：{bundle['label']}",
+        "# 来源：" + " , ".join(SOURCES[source_key] for source_key in bundle["sources"]),
+        f"# 数量：{len(rules)}条",
+        "",
+        *sorted(rules),
+        "",
+    ]
+    log(f"Built {len(rules)} rule(s) for {bundle['label']}")
+    return "\n".join(lines)
+
+
 def build_outputs(fetched):
-    return {
+    outputs = {
         TARGETS["GFWLIST"]: process_gfwlist(fetched["GFWLIST"]),
         TARGETS["EASYLIST"]: process_abp_list(fetched["EASYLIST"], "EASYLIST"),
         TARGETS["EASYLIST_CHINA"]: process_abp_list(fetched["EASYLIST_CHINA"], "EASYLIST_CHINA"),
@@ -205,6 +436,9 @@ def build_outputs(fetched):
         TARGETS["CHINA_IP"]: process_ip(fetched["CHINA_IP"]),
         TARGETS["CHINA_IPV6"]: process_ip(fetched["CHINA_IPV6"], is_v6=True),
     }
+    for relative, bundle in BUNDLES.items():
+        outputs[REPO_ROOT / relative] = process_bundle(bundle, fetched)
+    return outputs
 
 
 def install_outputs(outputs):
