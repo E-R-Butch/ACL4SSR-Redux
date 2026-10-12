@@ -13,6 +13,7 @@ BUILD_TARGETS = {
             "BanEasyList.list",
             "BanEasyListChina.list",
             "BanProgramAD.list",
+            "BanAntiAD.list",
         ],
         "output": REPO_ROOT / "Rules/Outputs/MergedADBan.list",
         "title": "ACL4SSR-Redux Merged AD Block List",

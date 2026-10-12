@@ -11,6 +11,7 @@ TARGETS = {
     "Rules/Ruleset/Active/AdBlock/BanEasyList.list": 10000,
     "Rules/Ruleset/Active/AdBlock/BanEasyListChina.list": 1000,
     "Rules/Ruleset/Active/AdBlock/BanEasyPrivacy.list": 10000,
+    "Rules/Ruleset/Active/AdBlock/BanAntiAD.list": 8000,
     "Rules/Ruleset/Active/China/ChinaIp.list": 1000,
     "Rules/Ruleset/Active/China/ChinaIpV6.list": 100,
     "Rules/Ruleset/Active/AppTelemetryReject.list": 2500,

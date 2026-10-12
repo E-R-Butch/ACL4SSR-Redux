@@ -1,4 +1,5 @@
 import base64
+import io
 import ipaddress
 import pathlib
 import re
@@ -7,6 +8,7 @@ import tempfile
 import time
 import urllib.error
 import urllib.request
+import zipfile
 
 
 REPO_ROOT = pathlib.Path(__file__).resolve().parents[1]
@@ -114,12 +116,21 @@ SOURCES = {
     "EASYLIST_CHINA": "https://easylist-downloads.adblockplus.org/easylistchina.txt",
     "EASYPRIVACY": "https://easylist-downloads.adblockplus.org/easyprivacy.txt",
     "ANTI_AD_PCDN": "https://raw.githubusercontent.com/privacy-protection-tools/anti-AD/master/discretion/pcdn.txt",
+    "ANTI_AD_DOMAINS": "https://raw.githubusercontent.com/privacy-protection-tools/anti-AD/master/anti-ad-domains.txt",
+    # Popularity list used to keep the Chinese ad increment from blocking sites
+    # real people depend on; tranco-list.eu serves the top-1m as a zip.
+    "TRANCO": "https://tranco-list.eu/top-1m.csv.zip",
     **{
         f"HAGEZI_NATIVE_{vendor.upper().replace('-', '_')}": f"{HAGEZI_BASE}native.{vendor}.txt"
         for vendor in NATIVE_TRACKER_VENDORS
     },
     **{f"BLACKMATRIX_{name.upper()}": f"{BLACKMATRIX_BASE}{name}/{name}.list" for name in BLACKMATRIX_LISTS},
 }
+
+# Sources fetched as bytes rather than decoded text.
+BINARY_SOURCES = {"TRANCO"}
+TRANCO_TOP_LIMIT = 1_000_000
+ANTI_AD_TARGET = REPO_ROOT / "Rules/Ruleset/Active/AdBlock/BanAntiAD.list"
 TARGETS = {
     "GFWLIST": REPO_ROOT / "Rules/Core/ProxyGFWlist.list",
     "CHINA_IP": REPO_ROOT / "Rules/Ruleset/Active/China/ChinaIp.list",
@@ -427,7 +438,117 @@ def process_bundle(bundle, fetched):
     return "\n".join(lines)
 
 
-def build_outputs(fetched):
+def fetch_binary(url, attempts=REQUEST_ATTEMPTS, timeout=REQUEST_TIMEOUT):
+    request = urllib.request.Request(url, headers={"User-Agent": USER_AGENT})
+    last_error = None
+    for attempt in range(1, attempts + 1):
+        try:
+            log(f"Fetching {url} (attempt {attempt}/{attempts})")
+            with urllib.request.urlopen(request, timeout=timeout) as response:
+                content = response.read()
+            if not content:
+                raise ValueError("empty response")
+            return content
+        except (OSError, ValueError, urllib.error.URLError) as error:
+            last_error = error
+            if attempt < attempts:
+                time.sleep(2 ** (attempt - 1))
+    raise RuntimeError(f"Unable to fetch {url}: {last_error}")
+
+
+def read_tranco_registrable(zip_bytes, limit=TRANCO_TOP_LIMIT):
+    """Registrable domains of the most popular sites, from the Tranco zip."""
+    with zipfile.ZipFile(io.BytesIO(zip_bytes)) as archive:
+        name = archive.namelist()[0]
+        text = archive.read(name).decode("utf-8", errors="replace")
+    popular = set()
+    for line in text.splitlines():
+        fields = line.strip().split(",")
+        if len(fields) != 2:
+            continue
+        try:
+            rank = int(fields[0])
+        except ValueError:
+            continue
+        if rank > limit:
+            break
+        domain = normalize_domain(fields[1])
+        if domain:
+            popular.add(registrable_domain(domain))
+    log(f"Tranco: {len(popular)} popular registrable domain(s) within rank {limit}")
+    return popular
+
+
+SECOND_LEVEL_SUFFIXES = {
+    "ac", "co", "com", "edu", "go", "gov", "net", "ne", "or", "org",
+}
+
+
+def registrable_domain(domain):
+    """Approximate registrable domain, aware of the common two-part TLDs."""
+    labels = domain.split(".")
+    if len(labels) <= 2:
+        return domain
+    if labels[-2] in SECOND_LEVEL_SUFFIXES:
+        return ".".join(labels[-3:])
+    return ".".join(labels[-2:])
+
+
+def repo_rule_values(exclude_paths=()):
+    """Every rule value already present under Rules/, i.e. already decided."""
+    excluded = {path.resolve() for path in exclude_paths}
+    values = set()
+    for path in sorted((REPO_ROOT / "Rules").rglob("*.list")):
+        if path.resolve() in excluded:
+            continue
+        for raw_line in path.read_text(encoding="utf-8").splitlines():
+            line = raw_line.strip()
+            if not line or line.startswith("#"):
+                continue
+            parts = [part.strip() for part in line.split(",")]
+            if len(parts) >= 2 and parts[0].upper().startswith(("DOMAIN", "IP-CIDR")):
+                values.add(parts[1].lower().rstrip("."))
+    return values
+
+
+def is_value_covered(value, values):
+    if value in values:
+        return True
+    labels = value.split(".")
+    return any(".".join(labels[start:]) in values for start in range(1, len(labels)))
+
+
+def process_anti_ad(content, popular, decided):
+    """Chinese ad increment: only what nothing else covers and popularity allows."""
+    candidates = set()
+    for line in content.splitlines():
+        if not line.strip() or line.startswith("#"):
+            continue
+        domain = normalize_domain(line)
+        if domain:
+            candidates.add(domain)
+    covered = {value for value in candidates if is_value_covered(value, decided)}
+    remaining = candidates - covered
+    popular_skipped = {value for value in remaining if registrable_domain(value) in popular}
+    rules = sorted(f"DOMAIN-SUFFIX,{value}" for value in remaining - popular_skipped)
+
+    log(
+        f"anti-AD: {len(candidates)} candidate(s), {len(covered)} already covered, "
+        f"{len(popular_skipped)} inside the popular-domain list, {len(rules)} kept"
+    )
+    lines = [
+        "# 广告列表 adblock rules",
+        "# 内容：中文广告与隐私域名增量（anti-AD 减去本项目已覆盖部分与热门站点）",
+        f"# 来源：{SOURCES['ANTI_AD_DOMAINS']} + {SOURCES['TRANCO']}",
+        f"# 数量：{len(rules)}条",
+        "",
+        *rules,
+        "",
+    ]
+    return "\n".join(lines)
+
+
+def build_outputs(fetched, popular=()):
     outputs = {
         TARGETS["GFWLIST"]: process_gfwlist(fetched["GFWLIST"]),
         TARGETS["EASYLIST"]: process_abp_list(fetched["EASYLIST"], "EASYLIST"),
@@ -435,6 +556,7 @@ def build_outputs(fetched):
         TARGETS["EASYPRIVACY"]: process_abp_list(fetched["EASYPRIVACY"], "EASYPRIVACY"),
         TARGETS["CHINA_IP"]: process_ip(fetched["CHINA_IP"]),
         TARGETS["CHINA_IPV6"]: process_ip(fetched["CHINA_IPV6"], is_v6=True),
+        ANTI_AD_TARGET: process_anti_ad(fetched["ANTI_AD_DOMAINS"], popular, repo_rule_values({ANTI_AD_TARGET})),
     }
     for relative, bundle in BUNDLES.items():
         outputs[REPO_ROOT / relative] = process_bundle(bundle, fetched)
@@ -458,8 +580,9 @@ def install_outputs(outputs):
 
 def main():
     log("Asset Fetcher Started")
-    fetched = {source_key: fetch(url) for source_key, url in SOURCES.items()}
-    outputs = build_outputs(fetched)
+    fetched = {key: fetch(url) for key, url in SOURCES.items() if key not in BINARY_SOURCES}
+    popular = read_tranco_registrable(fetch_binary(SOURCES["TRANCO"]))
+    outputs = build_outputs(fetched, popular)
     install_outputs(outputs)
     log("Asset Fetcher Completed")
 

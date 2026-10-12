@@ -100,6 +100,41 @@ class FetchAssetsTests(unittest.TestCase):
             self.assertTrue(rules, relative)
             self.assertEqual(rules, sorted(set(rules)), relative)
 
+    def test_registrable_domain(self):
+        self.assertEqual(fetch_assets.registrable_domain("a.b.example.co.uk"), "example.co.uk")
+        self.assertEqual(fetch_assets.registrable_domain("ads.example.com"), "example.com")
+        self.assertEqual(fetch_assets.registrable_domain("example.com"), "example.com")
+        self.assertEqual(fetch_assets.registrable_domain("shop.example.com.cn"), "example.com.cn")
+
+    def test_tranco_reading_keeps_registrable_domains_within_the_limit(self):
+        import io
+        import zipfile
+
+        csv = "1,example.com\r\n2,ads.example.com\r\n3,beyond.example\r\n"
+        buffer = io.BytesIO()
+        with zipfile.ZipFile(buffer, "w") as archive:
+            archive.writestr("top-1m.csv", csv)
+
+        popular = fetch_assets.read_tranco_registrable(buffer.getvalue(), limit=2)
+
+        self.assertEqual(popular, {"example.com"})
+
+    def test_value_covered_by_parent_suffix(self):
+        self.assertTrue(fetch_assets.is_value_covered("ads.example.com", {"example.com"}))
+        self.assertFalse(fetch_assets.is_value_covered("notexample.com", {"example.com"}))
+
+    def test_anti_ad_keeps_only_uncovered_unpopular_domains(self):
+        content = "# comment\nnewads.example\ncovered.example\npopular.example\nads.popular.example\n"
+        popular = {"popular.example"}
+        decided = {"covered.example"}
+
+        output = fetch_assets.process_anti_ad(content, popular, decided)
+
+        self.assertIn("DOMAIN-SUFFIX,newads.example", output)
+        self.assertNotIn("covered.example", output)
+        self.assertNotIn("popular.example", output)
+        self.assertIn("# 数量：1条", output)
+
 
 if __name__ == "__main__":
     unittest.main()

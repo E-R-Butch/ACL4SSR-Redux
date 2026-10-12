@@ -27,7 +27,7 @@
 - 🤖 **AI 深度优化**：针对 OpenAI、Claude、Gemini 独立分流，支持全节点独立手动/自动切换
 - 🛡️ **Claude 代理隔离**：使用专用自动/手动组，所有嵌套路径均禁用 DIRECT；没有可用节点时拒绝连接。此约束针对规则模式，不覆盖客户端全局直连模式或应用绕过代理的流量。
 - 🎬 **全球媒体解锁**：对齐 `RegionRestrictionCheck` 检测颗粒度，支持主流流媒体（Netflix/Disney+/HBO/PrimeVideo）及各国地区媒体独立分流
-- 🛑 **多源去广告**：整合仓库规则与持续维护的 EasyList 系列上游，经过确定性去重和冲突处理
+- 🛑 **多源去广告**：整合仓库规则、持续维护的 EasyList 系列上游，以及经过覆盖与热门度过滤的中文广告增量（anti-AD），全部经过确定性去重和冲突处理
 - 🧬 **设备遥测与 PCDN**：按厂商粒度拦截系统与应用内置遥测（HaGeZi native 系列，位于业务直连之前才能真正生效），并拒绝占用上行带宽的 PCDN 节点
 - 🎮 **Steam 专项优化**：针对前台社区与后台下载三级分流，强制代理与优先直连动态结合
 - 🗺️ **地区分流**：按节点名称匹配🇩🇪德 / 🇭🇰港 / 🇨🇳台 / 🇸🇬新 / 🇯🇵日 / 🇺🇸美 / 🇰🇷韩；地区测速组不混入全局节点，无匹配时为 REJECT，不会自动改用其他地区。
@@ -135,6 +135,9 @@ python3 scripts/split_providers.py --out-dir providers --check    # 只与磁盘
 | `ChatProxy.list` | blackmatrix7 Discord/Notion/JetBrains | 🚀 节点选择 | 业务代理段 |
 | `AppleExtra.list` | blackmatrix7 AppleID/AppleMail/AppleMusic | 🍎 苹果服务 | 紧随 `AppleDirect.list` |
 | `ServiceDirectExtra.list` | blackmatrix7 Speedtest/MicrosoftEdge | 🎯 全球直连 | 业务直连段 |
+| `AdBlock/BanAntiAD.list` | anti-AD 中文列表（见下） | 🛑 广告拦截 | 作为 `MergedADBan` 的原料 |
+
+`BanAntiAD.list` 是中文广告增量：anti-AD 的 109,446 条里，92,230 条本项目已经覆盖（同源或更宽的父域规则），再剔除注册域落在 [Tranco](https://tranco-list.eu/) top-1m（真实人在用的站点，例如 `2345.com`）的 4,770 条，最终保留 12,446 条。这个过滤是生成时做的，每日同步自动更新；`MergedADBan` 因此从 54,873 涨到 67,326 条，广告族 provider 从 6 个文件变成 7 个。
 
 这些清单是**主机级**的（不是上游 ABP 模式语法），所以不会被父域直连规则旁路；只保留 `DOMAIN`/`DOMAIN-SUFFIX`/`DOMAIN-KEYWORD`/`IP-CIDR`/`DST-PORT`，其余类型在转换时丢弃并打印条数。
 
@@ -316,7 +319,8 @@ Apple 软件更新目录的三个已观察 CNAME 主机（`mesu-china.apple.com.
 | ~~lhie1/Rules~~ | 广告拦截规则 (源项目已失效) |
 | [blackmatrix7/ios_rule_script](https://github.com/blackmatrix7/ios_rule_script) | 游戏平台、协作服务、Apple 账号与浏览器组件清单来源（lhie1 归档的社区维护版） |
 | [hagezi/dns-blocklists](https://github.com/hagezi/dns-blocklists) | 设备与系统级遥测清单来源（native 追踪器系列） |
-| [privacy-protection-tools/anti-AD](https://github.com/privacy-protection-tools/anti-AD) | PCDN 节点清单来源 |
+| [privacy-protection-tools/anti-AD](https://github.com/privacy-protection-tools/anti-AD) | 中文广告增量与 PCDN 节点清单来源 |
+| [tranco-list.eu](https://tranco-list.eu/) | 热门域名榜，用于避免中文广告增量误伤常用站点 |
 | [easylist/easylist](https://github.com/easylist/easylist) | 广告与隐私规则上游来源（EasyList / EasyListChina / EasyPrivacy） |
 | [Adblock Plus Filter Lists](https://easylist-downloads.adblockplus.org/) | 本项目自动同步使用的官方发布地址 |
 | [lmc999/RegionRestrictionCheck](https://github.com/lmc999/RegionRestrictionCheck) | 流媒体解锁检测脚本（本项目对齐其颗粒度） |
