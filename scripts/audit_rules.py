@@ -10,7 +10,6 @@ LIST_DIRS = [
     REPO_ROOT / "Rules/Core",
     REPO_ROOT / "Rules/Outputs",
     REPO_ROOT / "Rules/Ruleset/Active",
-    REPO_ROOT / "Rules/Ruleset/Inactive",
 ]
 
 PRIVATE_ALLOWED_FILES = {

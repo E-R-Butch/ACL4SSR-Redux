@@ -34,7 +34,7 @@
 
 ---
 
-## 📁 项目结构 (Active/Inactive Architecture)
+## 📁 项目结构
 
 ```text
 Config/
@@ -51,10 +51,9 @@ Legacy/
 Rules/
 ├── Core/                # 核心直连、代理规则和 GFWList 人工补充源
 ├── Ruleset/
-│   ├── Active/          # 当前主配置和构建链路真正使用的规则
-│   ├── Inactive/        # 保留但未接线的专题规则
-│   ├── Active/China/    # 中国直连相关基础规则
-│   └── Active/AdBlock/  # 广告与隐私原料规则
+│   └── Active/          # 当前主配置和构建链路真正使用的规则
+│       ├── China/       # 中国直连相关基础规则
+│       └── AdBlock/     # 广告与隐私原料规则
 └── Outputs/             # 广告与隐私成品列表（MergedADBan / MergedPrivacy）
 ```
 

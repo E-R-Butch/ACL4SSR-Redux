@@ -35,10 +35,9 @@ https://raw.githubusercontent.com/E-R-Butch/ACL4SSR-Neo/master/Config/ACL4SSR_On
 
 `Rules/Ruleset`
 
-- 当前分成 `Active` 和 `Inactive` 两层
-- `Active` 放当前主配置和构建链路真正使用的规则
-- `Inactive` 放保留但未接线的专题规则
+- 当前只有 `Active` 一层，放主配置和构建链路真正使用的规则
 - 原来的中国直连和广告原料已经并入 `Rules/Ruleset/Active/China` 与 `Rules/Ruleset/Active/AdBlock`
+- 历史遗留的 `Inactive` 层已废弃：空目录不受 git 跟踪，专题规则下线时直接删除，不再"保留不接线"
 
 `Rules/Outputs`
 
