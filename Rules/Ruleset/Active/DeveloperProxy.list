@@ -150,12 +150,15 @@ DOMAIN,files.openscad.org
 DOMAIN-SUFFIX,helius.dev
 DOMAIN-SUFFIX,helius.xyz
 
-# WalletConnect Web3Modal public API loaded by wallet connection flows.
-# https://docs.walletconnect.com/web3modal/about
-DOMAIN-SUFFIX,web3modal.org
+# Wallet-connection API host answering on web3modal.org. This is NOT WalletConnect's
+# official domain (theirs is web3modal.com / reown.com) and the root domain is a
+# Namecheap auction parking page; only the API host serves a valid certificate. Scope
+# the rule to the observed host and leave the parked root alone.
+DOMAIN,api.web3modal.org
 
-# OpenDesign (open-source Claude design alternative). Only the endpoint hit by local
-# tooling is observed, so scope the rule to that exact host.
+# OpenDesign API endpoint used by local agent tooling (OpenAI-compatible /v1), observed
+# falling through to FINAL on 2026-10-12. Exact host: the registrable domain is recent
+# (registered 2026-04) and its other subdomains are unrelated to this traffic.
 DOMAIN,amr-link.open-design.ai
 
 # Blender official release downloads; same installer ranges transferred faster via proxies.
