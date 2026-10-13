@@ -334,3 +334,5 @@ Apple 软件更新目录的三个已观察 CNAME 主机（`mesu-china.apple.com.
 本项目基于 [GNU General Public License v3.0](./LICENCE) 开源。
 
 `static.rust-lang.org` 是 Rust 官方工具链分发及 rustup 自更新主机（[官方安装说明](https://rust-lang.github.io/rustup/installation/other.html)、[发布流程](https://rust-lang.github.io/rustup/dev-guide/release-process.html)）。以精确 `DOMAIN` 加入现有 `DeveloperProxy.list`。2026-10-13 对官方稳定版清单中的 macOS ARM64 标准库压缩包进行同 IP、同 4 MiB 范围请求：直连 25 秒仅收到 442,838 字节后超时，当前美国代理约 4.9 秒完成 4,194,304 字节；已下载的重叠内容一致。该样本支持下载流量走代理，不代表日志中的具体组件已确认，也不扩大到 Rust 所有域名或共享 Fastly CDN。
+
+OpenDesign 的 `open-design.ai` 官网及 `amr-api.open-design.ai` 登录/账户 API 以精确域名加入 `DeveloperProxy.list`，与已有 `amr-link.open-design.ai` 保持代理方向。[官方源码](https://github.com/nexu-io/open-design/blob/main/apps/daemon/src/integrations/vela.ts)同时将 `amr-api` 用于 `/api/v1/analytics/events`；它是业务与遥测共用主机，整域名拒绝会破坏登录，当前域名分流不声称能单独拦截其中的遥测路径。2026-10-13 固定同一 IP 的官网探测直连约 1.79 秒、代理约 1.74 秒，完整页面内容一致，没有明显速度优势；账户接口匿名请求两条路径均返回 401，只证明接口可达，不代表登录或模型调用已验证。本次保留原代理方向，不扩大到整个后缀。

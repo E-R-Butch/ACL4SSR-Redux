@@ -160,6 +160,10 @@ DOMAIN,api.web3modal.org
 # falling through to FINAL on 2026-10-12. Exact host: the registrable domain is recent
 # (registered 2026-04) and its other subdomains are unrelated to this traffic.
 DOMAIN,amr-link.open-design.ai
+# Official website and shared authentication/account API. The API also accepts
+# /api/v1/analytics/events; blocking its whole host would break sign-in.
+DOMAIN,open-design.ai
+DOMAIN,amr-api.open-design.ai
 
 # Blender official release downloads; same installer ranges transferred faster via proxies.
 # https://download.blender.org/release/
