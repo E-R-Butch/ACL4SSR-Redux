@@ -332,3 +332,5 @@ Apple 软件更新目录的三个已观察 CNAME 主机（`mesu-china.apple.com.
 ## 📝 许可证
 
 本项目基于 [GNU General Public License v3.0](./LICENCE) 开源。
+
+`static.rust-lang.org` 是 Rust 官方工具链分发及 rustup 自更新主机（[官方安装说明](https://rust-lang.github.io/rustup/installation/other.html)、[发布流程](https://rust-lang.github.io/rustup/dev-guide/release-process.html)）。以精确 `DOMAIN` 加入现有 `DeveloperProxy.list`。2026-10-13 对官方稳定版清单中的 macOS ARM64 标准库压缩包进行同 IP、同 4 MiB 范围请求：直连 25 秒仅收到 442,838 字节后超时，当前美国代理约 4.9 秒完成 4,194,304 字节；已下载的重叠内容一致。该样本支持下载流量走代理，不代表日志中的具体组件已确认，也不扩大到 Rust 所有域名或共享 Fastly CDN。

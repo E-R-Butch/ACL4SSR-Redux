@@ -164,3 +164,7 @@ DOMAIN,amr-link.open-design.ai
 # Blender official release downloads; same installer ranges transferred faster via proxies.
 # https://download.blender.org/release/
 DOMAIN,download.blender.org
+
+# Rust toolchain distribution and rustup self-updates.
+# https://rust-lang.github.io/rustup/installation/other.html
+DOMAIN,static.rust-lang.org
