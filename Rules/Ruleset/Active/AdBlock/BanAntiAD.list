@@ -1,7 +1,7 @@
 # 广告列表 adblock rules
 # 内容：中文广告与隐私域名增量（anti-AD 减去本项目已覆盖部分与热门站点）
 # 来源：https://raw.githubusercontent.com/privacy-protection-tools/anti-AD/master/anti-ad-domains.txt + https://tranco-list.eu/top-1m.csv.zip
-# 数量：12446条
+# 数量：12448条
 
 DOMAIN-SUFFIX,000dn.com
 DOMAIN-SUFFIX,0013.cc
@@ -365,7 +365,6 @@ DOMAIN-SUFFIX,577682.com
 DOMAIN-SUFFIX,577gc.me
 DOMAIN-SUFFIX,58ar.com
 DOMAIN-SUFFIX,58lm.vip
-DOMAIN-SUFFIX,58tg.com
 DOMAIN-SUFFIX,59jd.com
 DOMAIN-SUFFIX,59kaixuan.com
 DOMAIN-SUFFIX,5egk.com
@@ -1682,6 +1681,7 @@ DOMAIN-SUFFIX,beautifulrope.com
 DOMAIN-SUFFIX,beautylulu.com
 DOMAIN-SUFFIX,bebi.com
 DOMAIN-SUFFIX,becomemummy.com
+DOMAIN-SUFFIX,beddingdownbaby.com
 DOMAIN-SUFFIX,bee.kascend.com
 DOMAIN-SUFFIX,beead.net
 DOMAIN-SUFFIX,beelinecolor.com
@@ -2169,6 +2169,7 @@ DOMAIN-SUFFIX,campaigncog.com
 DOMAIN-SUFFIX,campaignlook.com
 DOMAIN-SUFFIX,campartner.com
 DOMAIN-SUFFIX,campcounselor.net
+DOMAIN-SUFFIX,camsense.com
 DOMAIN-SUFFIX,canem-auris.com
 DOMAIN-SUFFIX,cangshu.info
 DOMAIN-SUFFIX,canlytics.com
@@ -2225,7 +2226,6 @@ DOMAIN-SUFFIX,catalogcake.com
 DOMAIN-SUFFIX,catbaparadisehotel.com.vn
 DOMAIN-SUFFIX,catlanguage.net
 DOMAIN-SUFFIX,catschickens.com
-DOMAIN-SUFFIX,catsthumb.com
 DOMAIN-SUFFIX,cattlecommittee.com
 DOMAIN-SUFFIX,cauldronfest.com
 DOMAIN-SUFFIX,causecherry.com
@@ -2991,7 +2991,6 @@ DOMAIN-SUFFIX,dacounter.com
 DOMAIN-SUFFIX,dadatuwz.com
 DOMAIN-SUFFIX,dadi.technology
 DOMAIN-SUFFIX,dahexs.net
-DOMAIN-SUFFIX,dailydesigned.com
 DOMAIN-SUFFIX,dailydivision.com
 DOMAIN-SUFFIX,dailydomino.com
 DOMAIN-SUFFIX,daima.dsxdn.com
@@ -3037,7 +3036,6 @@ DOMAIN-SUFFIX,datadsk.com
 DOMAIN-SUFFIX,dataholics.tech
 DOMAIN-SUFFIX,datam.com
 DOMAIN-SUFFIX,datamilk.app
-DOMAIN-SUFFIX,datamind.ru
 DOMAIN-SUFFIX,dataperforma.com
 DOMAIN-SUFFIX,datapickles.com
 DOMAIN-SUFFIX,dataprajna.net
@@ -4824,6 +4822,7 @@ DOMAIN-SUFFIX,hauchi.com.tw
 DOMAIN-SUFFIX,havetohave.com
 DOMAIN-SUFFIX,haymarketstat.de
 DOMAIN-SUFFIX,hayweb.net
+DOMAIN-SUFFIX,hazmatworkshop.com
 DOMAIN-SUFFIX,hazy4cant.com
 DOMAIN-SUFFIX,hbdt.luomi.com
 DOMAIN-SUFFIX,hbzjht.com
@@ -4911,6 +4910,7 @@ DOMAIN-SUFFIX,hiqidi.com
 DOMAIN-SUFFIX,hira-meki.jp
 DOMAIN-SUFFIX,hirmatrix.hu
 DOMAIN-SUFFIX,historicalbeam.com
+DOMAIN-SUFFIX,historyfiesta.com
 DOMAIN-SUFFIX,historytrade.com
 DOMAIN-SUFFIX,hit-360.com
 DOMAIN-SUFFIX,hit-counter.info
@@ -4948,6 +4948,7 @@ DOMAIN-SUFFIX,hm.baidu.com.zzsdtzb.com
 DOMAIN-SUFFIX,hm.cdiah.com
 DOMAIN-SUFFIX,hm.ubiej.com
 DOMAIN-SUFFIX,hmmob.com
+DOMAIN-SUFFIX,hmstats.com
 DOMAIN-SUFFIX,hmtoday.com
 DOMAIN-SUFFIX,hmwebs.top
 DOMAIN-SUFFIX,hncsdayu.com
@@ -4959,7 +4960,6 @@ DOMAIN-SUFFIX,hobobot.net
 DOMAIN-SUFFIX,hocgeese.com
 DOMAIN-SUFFIX,hockeyfool.com
 DOMAIN-SUFFIX,holdonstranger.com
-DOMAIN-SUFFIX,hollowafterthought.com
 DOMAIN-SUFFIX,homebizplaza.com
 DOMAIN-SUFFIX,homelycrown.com
 DOMAIN-SUFFIX,homelyheater.com
@@ -8176,6 +8176,7 @@ DOMAIN-SUFFIX,preciousplanes.com
 DOMAIN-SUFFIX,precisear.com
 DOMAIN-SUFFIX,precisioncounter.com
 DOMAIN-SUFFIX,predicta.net
+DOMAIN-SUFFIX,predictiveresponse.net
 DOMAIN-SUFFIX,predictplate.com
 DOMAIN-SUFFIX,prefixpatriot.com
 DOMAIN-SUFFIX,premiumhdv.com
@@ -10591,6 +10592,7 @@ DOMAIN-SUFFIX,twisty.net
 DOMAIN-SUFFIX,twistyscash.com
 DOMAIN-SUFFIX,twjxmd.com
 DOMAIN-SUFFIX,twochihuahuas.com
+DOMAIN-SUFFIX,twofishweb.com
 DOMAIN-SUFFIX,twu-hwt.org
 DOMAIN-SUFFIX,tx.lwinl.com
 DOMAIN-SUFFIX,txt.eu
