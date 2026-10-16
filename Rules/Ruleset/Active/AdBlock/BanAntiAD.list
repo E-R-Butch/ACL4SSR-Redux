@@ -1,7 +1,7 @@
 # 广告列表 adblock rules
 # 内容：中文广告与隐私域名增量（anti-AD 减去本项目已覆盖部分与热门站点）
 # 来源：https://raw.githubusercontent.com/privacy-protection-tools/anti-AD/master/anti-ad-domains.txt + https://tranco-list.eu/top-1m.csv.zip
-# 数量：12762条
+# 数量：12765条
 
 DOMAIN-SUFFIX,000dn.com
 DOMAIN-SUFFIX,0013.cc
@@ -624,6 +624,7 @@ DOMAIN-SUFFIX,a.mct01.com
 DOMAIN-SUFFIX,a.n8n7.me
 DOMAIN-SUFFIX,a.qiao024.com
 DOMAIN-SUFFIX,a.raasnet.com
+DOMAIN-SUFFIX,a.rensheng5.com
 DOMAIN-SUFFIX,a.shangz99991.com
 DOMAIN-SUFFIX,a.soonyou123.com
 DOMAIN-SUFFIX,a.spush.com
@@ -687,6 +688,7 @@ DOMAIN-SUFFIX,abc.kfyg.xyz
 DOMAIN-SUFFIX,abc.xtyx918.com
 DOMAIN-SUFFIX,abc.zhiyaspa.com
 DOMAIN-SUFFIX,abc.zuiairead.com
+DOMAIN-SUFFIX,abcd.5lu.com
 DOMAIN-SUFFIX,abcompteur.com
 DOMAIN-SUFFIX,abeacon.com
 DOMAIN-SUFFIX,abilityscale.com
@@ -1019,6 +1021,7 @@ DOMAIN-SUFFIX,adskom.com
 DOMAIN-SUFFIX,adslivecorp.com
 DOMAIN-SUFFIX,adsmart.hk
 DOMAIN-SUFFIX,adsmatcher.com
+DOMAIN-SUFFIX,adsmogo.mobi
 DOMAIN-SUFFIX,adsolutely.com
 DOMAIN-SUFFIX,adsolutions.com
 DOMAIN-SUFFIX,adsparc.net
@@ -2613,6 +2616,7 @@ DOMAIN-SUFFIX,coax7nice.com
 DOMAIN-SUFFIX,cobaltoverture.com
 DOMAIN-SUFFIX,cocoacafes.com
 DOMAIN-SUFFIX,codata.ru
+DOMAIN-SUFFIX,coddledcats.com
 DOMAIN-SUFFIX,code.33shangyou.com
 DOMAIN-SUFFIX,code.37cs.com
 DOMAIN-SUFFIX,code.3shangyou.com
@@ -2661,7 +2665,6 @@ DOMAIN-SUFFIX,colorsonchain.com
 DOMAIN-SUFFIX,colossalclouds.com
 DOMAIN-SUFFIX,colossalcoat.com
 DOMAIN-SUFFIX,colossalcry.com
-DOMAIN-SUFFIX,colwinners.com
 DOMAIN-SUFFIX,combativedetail.com
 DOMAIN-SUFFIX,combbit.com
 DOMAIN-SUFFIX,combcompetition.com
@@ -3114,6 +3117,7 @@ DOMAIN-SUFFIX,datadsk.com
 DOMAIN-SUFFIX,dataholics.tech
 DOMAIN-SUFFIX,datam.com
 DOMAIN-SUFFIX,datamilk.app
+DOMAIN-SUFFIX,datamind.ru
 DOMAIN-SUFFIX,dataperforma.com
 DOMAIN-SUFFIX,datapickles.com
 DOMAIN-SUFFIX,dataprajna.net
@@ -3295,6 +3299,7 @@ DOMAIN-SUFFIX,digital-metric.com
 DOMAIN-SUFFIX,digitaladvisor.dk
 DOMAIN-SUFFIX,digitalatticnewsletter.com
 DOMAIN-SUFFIX,digitalblend.net
+DOMAIN-SUFFIX,digitaldesire.com
 DOMAIN-SUFFIX,digitaloptout.com
 DOMAIN-SUFFIX,digitalpush.org
 DOMAIN-SUFFIX,digithalo.com
@@ -3497,7 +3502,6 @@ DOMAIN-SUFFIX,dti-ranker.com
 DOMAIN-SUFFIX,du.biqukan.com
 DOMAIN-SUFFIX,dubapkg.cmcmcdn.com
 DOMAIN-SUFFIX,duelvalenza.it
-DOMAIN-SUFFIX,duetcode.com
 DOMAIN-SUFFIX,dugesheying.com
 DOMAIN-SUFFIX,dulewang.com
 DOMAIN-SUFFIX,dump4barn.com
@@ -4823,7 +4827,6 @@ DOMAIN-SUFFIX,gru07o6y3.com
 DOMAIN-SUFFIX,grumpydime.com
 DOMAIN-SUFFIX,grumpydrawer.com
 DOMAIN-SUFFIX,grupomcperu.com
-DOMAIN-SUFFIX,grvmedia.com
 DOMAIN-SUFFIX,gs307.com
 DOMAIN-SUFFIX,gsgqwl.wang
 DOMAIN-SUFFIX,gsgsr.xyz
@@ -7557,6 +7560,7 @@ DOMAIN-SUFFIX,nastydollars.com
 DOMAIN-SUFFIX,natero.com
 DOMAIN-SUFFIX,nathetsof.com
 DOMAIN-SUFFIX,native.ai
+DOMAIN-SUFFIX,nativeads.com
 DOMAIN-SUFFIX,nativesubscribe.pro
 DOMAIN-SUFFIX,natom.app
 DOMAIN-SUFFIX,naturalpals.com
@@ -7910,7 +7914,6 @@ DOMAIN-SUFFIX,onepush.app
 DOMAIN-SUFFIX,onesimpleweek.com
 DOMAIN-SUFFIX,onesoft.im
 DOMAIN-SUFFIX,onespecify.com
-DOMAIN-SUFFIX,onfiltre.com.tr
 DOMAIN-SUFFIX,onhercam.com
 DOMAIN-SUFFIX,onioncomic.com
 DOMAIN-SUFFIX,onlinemediahelper.com
@@ -8518,7 +8521,6 @@ DOMAIN-SUFFIX,publish-int.se
 DOMAIN-SUFFIX,publy.net
 DOMAIN-SUFFIX,pubmatic.co.jp
 DOMAIN-SUFFIX,pubplus.com
-DOMAIN-SUFFIX,pubstack.io
 DOMAIN-SUFFIX,puffnetwork.com
 DOMAIN-SUFFIX,puffyloss.com
 DOMAIN-SUFFIX,puffypaste.com
@@ -9584,6 +9586,7 @@ DOMAIN-SUFFIX,sixtriplezero.com
 DOMAIN-SUFFIX,siyuanmall.com
 DOMAIN-SUFFIX,sizzlingoven.com
 DOMAIN-SUFFIX,sizzlingsmoke.com
+DOMAIN-SUFFIX,sjbaiduadv1.redou.com
 DOMAIN-SUFFIX,sjbtn.appfh.com
 DOMAIN-SUFFIX,sjhgfrvbxrbbr.com
 DOMAIN-SUFFIX,sjj.jsyjwj.com
