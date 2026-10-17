@@ -1,6 +1,6 @@
 # 内容：设备与应用内置遥测（HaGeZi native 追踪器清单）
 # 来源：https://raw.githubusercontent.com/hagezi/dns-blocklists/main/wildcard/native.apple.txt , https://raw.githubusercontent.com/hagezi/dns-blocklists/main/wildcard/native.samsung.txt , https://raw.githubusercontent.com/hagezi/dns-blocklists/main/wildcard/native.xiaomi.txt , https://raw.githubusercontent.com/hagezi/dns-blocklists/main/wildcard/native.huawei.txt , https://raw.githubusercontent.com/hagezi/dns-blocklists/main/wildcard/native.oppo-realme.txt , https://raw.githubusercontent.com/hagezi/dns-blocklists/main/wildcard/native.vivo.txt , https://raw.githubusercontent.com/hagezi/dns-blocklists/main/wildcard/native.winoffice.txt , https://raw.githubusercontent.com/hagezi/dns-blocklists/main/wildcard/native.tiktok.txt , https://raw.githubusercontent.com/hagezi/dns-blocklists/main/wildcard/native.amazon.txt , https://raw.githubusercontent.com/hagezi/dns-blocklists/main/wildcard/native.lgwebos.txt , https://raw.githubusercontent.com/hagezi/dns-blocklists/main/wildcard/native.roku.txt
-# 数量：3016条
+# 数量：2995条
 
 DOMAIN-SUFFIX,0001-metrics1-data-hicloud-com.geac.dbankedge.cn
 DOMAIN-SUFFIX,0001-metrics1-drcn-dt-dbankcloud-cn.geac.dbankedge.cn
@@ -109,22 +109,8 @@ DOMAIN-SUFFIX,acr0.samsungcloudsolution.com
 DOMAIN-SUFFIX,activity.browser.intl.miui.com
 DOMAIN-SUFFIX,activity.hybrid.xiaomi.com
 DOMAIN-SUFFIX,activity.windows.com
-DOMAIN-SUFFIX,ad-bl.geoproximity.staging.rpay.roku.com
-DOMAIN-SUFFIX,ad-bl.prod.rpay.int.roku.com
-DOMAIN-SUFFIX,ad-bl.usw2.staging.rpay.int.roku.com
 DOMAIN-SUFFIX,ad-drcn.media.dbankcloud.cn
 DOMAIN-SUFFIX,ad-drcn.media.dbankcloud.ru
-DOMAIN-SUFFIX,ad-eng-bl.geoproximity.staging.rpay.roku.com
-DOMAIN-SUFFIX,ad-eng-bl.use1.prod.rpay.int.roku.com
-DOMAIN-SUFFIX,ad-eng-bl.usw2.prod.rpay.int.roku.com
-DOMAIN-SUFFIX,ad-eng-pci-bl.geoproximity.rpay.roku.com
-DOMAIN-SUFFIX,ad-eng-pci-bl.geoproximity.staging.rpay.roku.com
-DOMAIN-SUFFIX,ad-eng-pci-bl.prod.rpay.int.roku.com
-DOMAIN-SUFFIX,ad-eng-pci-bl.use1.prod.rpay.int.roku.com
-DOMAIN-SUFFIX,ad-eng-pci-bl.usw2.prod.rpay.int.roku.com
-DOMAIN-SUFFIX,ad-eng-pci.prod.rpay.int.roku.com
-DOMAIN-SUFFIX,ad-eng.prod.rpay.int.roku.com
-DOMAIN-SUFFIX,ad-eng.staging.rpay.int.roku.com
 DOMAIN-SUFFIX,ad-format-sg.tiktokv.com
 DOMAIN-SUFFIX,ad-format-ttp2.tiktokv.eu
 DOMAIN-SUFFIX,ad-format.tiktokv.us
@@ -153,11 +139,9 @@ DOMAIN-SUFFIX,ad.intl.xiaomi.com.ksyna.net
 DOMAIN-SUFFIX,ad.mi.com
 DOMAIN-SUFFIX,ad.miui.com
 DOMAIN-SUFFIX,ad.msn.com
-DOMAIN-SUFFIX,ad.prod.rpay.int.roku.com
 DOMAIN-SUFFIX,ad.qa.ap.int.roku.com
 DOMAIN-SUFFIX,ad.quickapp.hybrid.xiaomi.com
 DOMAIN-SUFFIX,ad.rus.xiaomi.com
-DOMAIN-SUFFIX,ad.staging.rpay.int.roku.com
 DOMAIN-SUFFIX,ad.tiktok.tv
 DOMAIN-SUFFIX,ad.tiktokv.com
 DOMAIN-SUFFIX,ad.tiktokv.us
@@ -300,6 +284,7 @@ DOMAIN-SUFFIX,adx-op-fr.heytapmobile.com
 DOMAIN-SUFFIX,adx-op-in.heytapmobile.com
 DOMAIN-SUFFIX,adx-op-ru.heytapmobile.com
 DOMAIN-SUFFIX,adx-op-sg.heytapmobile.com
+DOMAIN-SUFFIX,adx-u-in.heytapmobile.com
 DOMAIN-SUFFIX,adx-u-ru.heytapmobile.com
 DOMAIN-SUFFIX,adx-u-sg.heytapmobile.com
 DOMAIN-SUFFIX,adx.tv.mi.com
@@ -732,6 +717,7 @@ DOMAIN-SUFFIX,citrixtelemetryeheu-alias.servicebus.windows.net
 DOMAIN-SUFFIX,citrixtelemetryeheu.servicebus.windows.net
 DOMAIN-SUFFIX,cjs-diagnostics-office-com-gvdhgwfwbbfsd9g3.z01.azurefd.net
 DOMAIN-SUFFIX,cl-ad-lgsmartad-com.aws-prd.net
+DOMAIN-SUFFIX,cl-vcode-api.vivoglobal.com
 DOMAIN-SUFFIX,clarity.microsoft.com
 DOMAIN-SUFFIX,classify-app-eu.allawnos.com
 DOMAIN-SUFFIX,classify-app-in.allawnos.com
@@ -1496,11 +1482,13 @@ DOMAIN-SUFFIX,kz-ort-stsdk.vivoglobal.com
 DOMAIN-SUFFIX,kz-p.vivoglobal.com
 DOMAIN-SUFFIX,kz-pnrt-stsdk.vivoglobal.com
 DOMAIN-SUFFIX,kz-prt-stsdk.vivoglobal.com
+DOMAIN-SUFFIX,kz-romsp-unifyconfig.vivoglobal.com
 DOMAIN-SUFFIX,kz-st-exappupgrade.vivoglobal.com
 DOMAIN-SUFFIX,kz-st-sl.vivoglobal.com
 DOMAIN-SUFFIX,kz-st-sysupgrade.vivoglobal.com
 DOMAIN-SUFFIX,kz-stsdk.vivoglobal.com
 DOMAIN-SUFFIX,kz-timesync.vivoglobal.com
+DOMAIN-SUFFIX,kz-vcode-api.vivoglobal.com
 DOMAIN-SUFFIX,kz-vcode-od.vivoglobal.com
 DOMAIN-SUFFIX,kz-vcode-or.vivoglobal.com
 DOMAIN-SUFFIX,launch.apple.com
@@ -1923,23 +1911,13 @@ DOMAIN-SUFFIX,msg.video.ptqy.gitv.tv
 DOMAIN-SUFFIX,msg2.video.ptqy.gitv.tv
 DOMAIN-SUFFIX,msga.ptqy.gitv.tv
 DOMAIN-SUFFIX,mssdk-bu.snssdk.com
-DOMAIN-SUFFIX,mssdk-i18n.tiktok.com
-DOMAIN-SUFFIX,mssdk-i18n.tiktokv.com
-DOMAIN-SUFFIX,mssdk-phx.tiktokv.com
-DOMAIN-SUFFIX,mssdk-ru.tiktokv.com
 DOMAIN-SUFFIX,mssdk-sg-bu.byteoversea.com
 DOMAIN-SUFFIX,mssdk-sg.byteoversea.com
 DOMAIN-SUFFIX,mssdk-sg.capcutapi.com
-DOMAIN-SUFFIX,mssdk-sg.tiktokv.com
 DOMAIN-SUFFIX,mssdk-va-useast2a.byteoversea.com
-DOMAIN-SUFFIX,mssdk-va-useast2a.tiktokv.com
 DOMAIN-SUFFIX,mssdk-va.byteoversea.com
 DOMAIN-SUFFIX,mssdk.capcutapi.us
 DOMAIN-SUFFIX,mssdk.snssdk.com
-DOMAIN-SUFFIX,mssdk.tiktokw.eu
-DOMAIN-SUFFIX,mssdk.tiktokw.us
-DOMAIN-SUFFIX,mssdk.us.tiktok.com
-DOMAIN-SUFFIX,mssdk.us.tiktokv.com
 DOMAIN-SUFFIX,mssdk16-normal-sg.capcutapi.com
 DOMAIN-SUFFIX,mssdk16-normal-us-ttp.capcutapi.us
 DOMAIN-SUFFIX,mssdk16-normal-us-ttp2.capcutapi.us
@@ -1957,6 +1935,7 @@ DOMAIN-SUFFIX,mx-onrt-stsdk.vivoglobal.com
 DOMAIN-SUFFIX,mx-ort-stsdk.vivoglobal.com
 DOMAIN-SUFFIX,mx-p.vivoglobal.com
 DOMAIN-SUFFIX,mx-pnrt-stsdk.vivoglobal.com
+DOMAIN-SUFFIX,mx-rdx2-lgtvsdp-com.aws-prd.net
 DOMAIN-SUFFIX,mx-romsp-unifyconfig.vivoglobal.com
 DOMAIN-SUFFIX,mx-st-sl.vivoglobal.com
 DOMAIN-SUFFIX,mx-stsdk.vivoglobal.com
