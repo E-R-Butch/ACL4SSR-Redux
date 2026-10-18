@@ -1,6 +1,6 @@
 # 内容：设备与应用内置遥测（HaGeZi native 追踪器清单）
 # 来源：https://raw.githubusercontent.com/hagezi/dns-blocklists/main/wildcard/native.apple.txt , https://raw.githubusercontent.com/hagezi/dns-blocklists/main/wildcard/native.samsung.txt , https://raw.githubusercontent.com/hagezi/dns-blocklists/main/wildcard/native.xiaomi.txt , https://raw.githubusercontent.com/hagezi/dns-blocklists/main/wildcard/native.huawei.txt , https://raw.githubusercontent.com/hagezi/dns-blocklists/main/wildcard/native.oppo-realme.txt , https://raw.githubusercontent.com/hagezi/dns-blocklists/main/wildcard/native.vivo.txt , https://raw.githubusercontent.com/hagezi/dns-blocklists/main/wildcard/native.winoffice.txt , https://raw.githubusercontent.com/hagezi/dns-blocklists/main/wildcard/native.tiktok.txt , https://raw.githubusercontent.com/hagezi/dns-blocklists/main/wildcard/native.amazon.txt , https://raw.githubusercontent.com/hagezi/dns-blocklists/main/wildcard/native.lgwebos.txt , https://raw.githubusercontent.com/hagezi/dns-blocklists/main/wildcard/native.roku.txt
-# 数量：2995条
+# 数量：2999条
 
 DOMAIN-SUFFIX,0001-metrics1-data-hicloud-com.geac.dbankedge.cn
 DOMAIN-SUFFIX,0001-metrics1-drcn-dt-dbankcloud-cn.geac.dbankedge.cn
@@ -442,6 +442,7 @@ DOMAIN-SUFFIX,api.xmpush.global.xiaomi.com
 DOMAIN-SUFFIX,api.xmpush.xiaomi.com
 DOMAIN-SUFFIX,apisnd.heytapmobi.com
 DOMAIN-SUFFIX,apkrep.ff.avast.sec.miui.com
+DOMAIN-SUFFIX,app-events.infoapps.apple.com
 DOMAIN-SUFFIX,app.greengurad.sec.miui.com
 DOMAIN-SUFFIX,app.migc.xiaomi.com
 DOMAIN-SUFFIX,app.miui.com
@@ -1182,6 +1183,7 @@ DOMAIN-SUFFIX,fr-rdx2-lgtvsdp-com.aws-prd.net
 DOMAIN-SUFFIX,fr-register.xmpush.global.xiaomi.com
 DOMAIN-SUFFIX,fr.feedback.xmpush.global.xiaomi.com
 DOMAIN-SUFFIX,frc-visio-telemetry.officeapps.live.com
+DOMAIN-SUFFIX,freeform-events.apple.com
 DOMAIN-SUFFIX,frontier-us-ttp2.capcutw.us
 DOMAIN-SUFFIX,frontier.byteoversea.com
 DOMAIN-SUFFIX,frontier.capcutw.us
@@ -2165,6 +2167,7 @@ DOMAIN-SUFFIX,pri1-id-eu.amazon-adsystem.com
 DOMAIN-SUFFIX,pri1-id-fe.amazon-adsystem.com
 DOMAIN-SUFFIX,pri1-id-us.amazon-adsystem.com
 DOMAIN-SUFFIX,privacy.miui.com
+DOMAIN-SUFFIX,prod-app-analytics-event-gateway.v.aaplimg.com
 DOMAIN-SUFFIX,prod-eh-v1-analytics.servicebus.windows.net
 DOMAIN-SUFFIX,prod-event-relay-api.v.aaplimg.com
 DOMAIN-SUFFIX,prod-event-relay-books-api.v.aaplimg.com
@@ -2173,6 +2176,7 @@ DOMAIN-SUFFIX,prod-event-relay-sports-api.v.aaplimg.com
 DOMAIN-SUFFIX,prod-event-relay-stocks-api.v.aaplimg.com
 DOMAIN-SUFFIX,prod-event-relay-weather-api.v.aaplimg.com
 DOMAIN-SUFFIX,prod-eventhub-analytics.servicebus.windows.net
+DOMAIN-SUFFIX,prod-iwork-events.v.aaplimg.com
 DOMAIN-SUFFIX,prod-news-notification-events.v.aaplimg.com
 DOMAIN-SUFFIX,prod.editor.ads.trafficmanager.net
 DOMAIN-SUFFIX,production-jobactivity-analytics.servicebus.windows.net
