@@ -58,3 +58,11 @@ DOMAIN,www\.okx.com.cdn.cloudflare.net
 DOMAIN,web3.okx.com.cdn.cloudflare.net
 DOMAIN,wspri.okx.com.cdn.cloudflare.net
 DOMAIN,wsdexpri.okx.com.cdn.cloudflare.net
+
+# Adobe identity, regional lookup, Document Cloud API, and commerce services.
+# Keep the observed proxy exit consistent; exact hosts preserve Adobe privacy denies.
+# dc-api also handles CSP reports; blocking the shared host would break document APIs.
+DOMAIN,adobeid-na1.services.adobe.com
+DOMAIN,geo-dc.adobe.com
+DOMAIN,dc-api.adobe.io
+DOMAIN,commerce.adobe.com
