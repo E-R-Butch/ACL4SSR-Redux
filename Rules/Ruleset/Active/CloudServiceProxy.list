@@ -49,3 +49,12 @@ DOMAIN-SUFFIX,workos.com
 DOMAIN,api.luma.com
 DOMAIN,luma.com
 DOMAIN,wise.com
+
+# Observed OKX business CNAMEs: main site, Web3, and exchange/DEX WebSockets.
+# OKX publishes wspri/wsdexpri under socketBaseUrls: https://web3.okx.com/
+# Exact aliases only; include the escaped www spelling observed in client logs.
+DOMAIN,www.okx.com.cdn.cloudflare.net
+DOMAIN,www\.okx.com.cdn.cloudflare.net
+DOMAIN,web3.okx.com.cdn.cloudflare.net
+DOMAIN,wspri.okx.com.cdn.cloudflare.net
+DOMAIN,wsdexpri.okx.com.cdn.cloudflare.net
