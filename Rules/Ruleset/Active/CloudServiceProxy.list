@@ -66,3 +66,17 @@ DOMAIN,adobeid-na1.services.adobe.com
 DOMAIN,geo-dc.adobe.com
 DOMAIN,dc-api.adobe.io
 DOMAIN,commerce.adobe.com
+
+# Gate website images/icons and observed real-time service endpoints.
+# Exact hosts only; preserve the existing proxy route. No account or order testing.
+# https://www.gate.com/ and https://www.gate.com/docs/gatepay/web_payment/en/
+DOMAIN,gimg2.gateimg.com
+DOMAIN,icon.staticimgs.com
+DOMAIN,gimg2.staticimgs.com
+DOMAIN,gimg.staticimgs.com
+DOMAIN,spot-webws.wsbridge.com
+DOMAIN,fx-webws.wsbridge.com
+
+# SafeTrade independent exchange website; existing proxy direction, no account testing.
+# https://safetrade.com/about
+DOMAIN,safetrade.com
