@@ -3,3 +3,9 @@ DOMAIN,eu-central-1-1.aws.cloud2.influxdata.com
 
 # F2Pool help center hosted by Zendesk; this tenant only
 DOMAIN,f2pool.zendesk.com
+
+# BilibiliSponsorBlock official website and sponsor-segment API.
+# https://github.com/hanydd/BilibiliSponsorBlock/wiki/API
+# Exact root and www hosts; retain the service direct route without widening subdomains.
+DOMAIN,bsbsb.top
+DOMAIN,www.bsbsb.top

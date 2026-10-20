@@ -5,9 +5,6 @@ DOMAIN,www.thingiverse.com
 DOMAIN,time.apple.com
 DOMAIN-SUFFIX,open-vsx.org
 
-# 小电视空降助手
-DOMAIN,www.bsbsb.top
-
 # Apple Relay (Cloudflare)
 DOMAIN,apple-relay.cloudflare.com
 
