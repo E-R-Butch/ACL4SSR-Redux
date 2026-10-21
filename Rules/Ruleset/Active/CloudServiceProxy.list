@@ -80,3 +80,17 @@ DOMAIN,fx-webws.wsbridge.com
 # SafeTrade independent exchange website; existing proxy direction, no account testing.
 # https://safetrade.com/about
 DOMAIN,safetrade.com
+
+# Sirdata/Osano consent-management loaders and API; keep preference flows available.
+# The separate Osano discovery reporter is explicitly rejected in the INI.
+DOMAIN,cache.consentframework.com
+DOMAIN,api.consentframework.com
+DOMAIN,cmp.osano.com
+
+# Forumotion/Forumactif images, image proxy, language/editor and other shared resources.
+# illiweb also serves Prebid ad scripts: host routing cannot isolate those URL paths
+# without also blocking normal resources. This is not a claim that the host is ad-free.
+DOMAIN,2img.net
+DOMAIN,illipro.net
+DOMAIN,i.servimg.com
+DOMAIN,illiweb.com
