@@ -187,6 +187,8 @@ Chub 按用途维护为 `ChubProxy.list` 与 `ChubDirect.list`，均位于广告
 
 `artalk.bambulab.com` 同时承载 Bambu Lab Wiki 的 Artalk 评论组件与浏览量统计。[Wiki 页面](https://wiki.bambulab.com/en/home)将评论服务指向该主机；脚本、样式和评论接口共用主机，因此精确归入 `HardwareProxy.list`，保留评论功能及原代理方向。[实际前端脚本](https://artalk.bambulab.com/dist/Artalk.js?v=5)默认开启浏览量上报；整主机拒绝会连评论一起停用，不能将这种共享业务主机按纯遥测端点处理。单独关闭上报需由站点设置 [`pvAdd: false`](https://artalk.js.org/typedoc/interfaces/config#pvadd)，或在支持 HTTPS URL 过滤的浏览器中拦截 `/api/v2/pages/pv`。**本项目的域名分流没有单独拦截该统计路径**，也不部署 TLS 解密；规则不扩展到整个 `bambulab.com`。其他独立统计主机继续按原策略拒绝。
 
+`e.bambulab.com` 是 Bambu Studio 的 HMS 故障帮助服务。[官方源码](https://github.com/bambulab/BambuStudio/blob/master/src/slic3r/GUI/HMS.cpp)通过 `/query.php` 和 `/hms/GetActionImage.php` 下载错误说明与处理指引，精确归入现有 `HardwareDirect.list`。公开型号的两项 JSON 各在直连与日本代理下重复下载三次，全部成功且内容哈希一致；直连中位耗时约 0.76 秒和 0.42 秒，代理约 0.86 秒和 0.43 秒，样本支持直连，不代表所有网络和接口均最快。测试不包含设备序列号或账户凭据，不扩大到其他拓竹主机。
+
 `portal.nousresearch.com` 是 Nous Portal 的账户和认证门户；[Hermes Agent 官方代码](https://github.com/NousResearch/hermes-agent/blob/main/hermes_cli/auth_nous.py)将令牌刷新请求发送到该主机的 `/api/oauth/token`。完整门户页面和样式资源重复传输样本支持代理，精确归入 `DeveloperProxy.list`。公开页面测速不代表已完成用户认证、令牌刷新或另一主机上的模型推理。
 
 `hermes-agent.nousresearch.com` 承载 [Hermes Agent 官网、文档及安装入口](https://hermes-agent.nousresearch.com/docs/)，与账户门户分别匹配。官网、样式表、文档页和文档索引的完整重复下载总体支持代理，精确归入 `DeveloperProxy.list`；该主机的结论不扩展到其他 Nous 子域。

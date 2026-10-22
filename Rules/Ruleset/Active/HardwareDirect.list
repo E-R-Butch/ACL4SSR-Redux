@@ -1,5 +1,10 @@
 # Hardware Direct
 
+# Bambu Studio HMS error descriptions and recovery-action dictionary.
+# https://github.com/bambulab/BambuStudio/blob/master/src/slic3r/GUI/HMS.cpp
+# Complete JSON transfers succeeded on both paths; direct median times were lower.
+DOMAIN,e.bambulab.com
+
 # OpenRGB website and device-support data; direct samples were consistently successful.
 # Release binaries are linked to separate hosts and are not covered by this exact rule.
 # https://openrgb.org/releases.html
