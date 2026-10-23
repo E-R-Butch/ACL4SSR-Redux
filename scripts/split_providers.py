@@ -2,21 +2,22 @@
 
 The block universe is the union of the curated reject lists and the two merged
 outputs. Because every rule in it lands in one of two action classes - REJECT
-(`🛑 广告拦截`) or REJECT-DROP (`🔒 隐私保护`) - rules inside one class are
-interchangeable, which allows two things the rest of the ruleset cannot offer:
+(`🛑 广告拦截`) or REJECT-DROP (`🔒 隐私保护`) - rules inside one uninterrupted
+class stage are interchangeable, which allows two things the rest of the
+ruleset cannot offer:
 
 * a global dedupe: a rule is dropped when an earlier, higher priority rule
   already covers it (exact duplicate, parent domain suffix, matching keyword,
   or a containing CIDR with the same `no-resolve` flag). Same-action coverage
   cannot change routing, only the amount of work the kernel does.
-* a rebalanced split: each class is partitioned by a digest of the rule text
-  into evenly sized files, so one 55k-rule file and three single-digit files
-  become a set of comparable chunks. Membership follows the digest, so adding
-  an upstream rule perturbs only its own file.
+* a rebalanced split: each contiguous source stage is partitioned by a digest
+  of the rule text into comparable chunks. Membership stays stable when the
+  bucket count is unchanged and no overflow rebalancing is required.
 
-Sources are read in the order the client references them today, so the dedupe
-keeps the same winner: curated privacy lists, then the merged ad list, then the
-merged privacy list.
+Sources are read AND emitted in client reference order: curated privacy lists,
+then the merged ad list, then the merged privacy list. Combining the two privacy
+stages would move overlapping rules across a different action. Small stages
+therefore remain separate even when they cannot fill a provider file.
 """
 
 import argparse
@@ -27,6 +28,7 @@ import pathlib
 import re
 import sys
 from collections import Counter
+from itertools import groupby
 
 REPO_ROOT = pathlib.Path(__file__).resolve().parents[1]
 
@@ -47,9 +49,6 @@ SOURCES = (
     ("adblock", "Rules/Outputs/MergedADBan.list"),
     ("privacy", "Rules/Outputs/MergedPrivacy.list"),
 )
-
-# Family order in the generated manifest and the RULE-SET lines.
-FAMILY_ORDER = ("adblock", "privacy")
 
 DOMAIN_TYPES = {"DOMAIN", "DOMAIN-SUFFIX"}
 NETWORK_TYPES = {"IP-CIDR", "IP-CIDR6"}
@@ -88,8 +87,15 @@ def read_source(path, family):
     return entries
 
 
+def exact_key(rule):
+    # DNS resolution behavior is part of a network rule's identity, including
+    # when its CIDR is identical to an earlier rule.
+    modifier = rule["no_resolve"] if rule["type"] in NETWORK_TYPES else None
+    return rule["type"], rule["value"], modifier
+
+
 def coverage_reason(rule, index):
-    key = (rule["type"], rule["value"])
+    key = exact_key(rule)
     if key in index["exact"]:
         return "exact"
 
@@ -121,7 +127,7 @@ def coverage_reason(rule, index):
 
 def register(rule, index):
     rule_type = rule["type"]
-    index["exact"].add((rule_type, rule["value"]))
+    index["exact"].add(exact_key(rule))
     if rule_type == "DOMAIN-SUFFIX":
         index["suffix"].add(rule["value"])
     elif rule_type == "DOMAIN-KEYWORD":
@@ -154,6 +160,8 @@ def rule_digest(rule):
 
 
 def bucket_count(total, max_rules):
+    if max_rules <= 0:
+        raise ValueError("max_rules must be a positive integer")
     return max(1, -(-total // max_rules))
 
 
@@ -209,23 +217,33 @@ def parse_provider(text):
 
 def build(max_rules=DEFAULT_MAX_RULES):
     entries = []
+    stages = []
     for family, relative in SOURCES:
+        if not stages or stages[-1] != family:
+            stages.append(family)
         path = REPO_ROOT / relative
         if not path.is_file():
             raise FileNotFoundError(f"missing provider source: {relative}")
-        entries.extend(read_source(path, family))
+        source_entries = read_source(path, family)
+        for rule in source_entries:
+            rule["stage"] = len(stages)
+        entries.extend(source_entries)
 
     kept, reasons = dedupe(entries)
 
     files = []
-    for family in FAMILY_ORDER:
-        family_rules = [rule for rule in kept if rule["family"] == family]
-        for index, chunk in enumerate(partition(family_rules, max_rules), start=1):
+    family_file_counts = Counter()
+    for stage, stage_rules in groupby(kept, key=lambda rule: rule["stage"]):
+        family = stages[stage - 1]
+        for chunk in partition(list(stage_rules), max_rules):
+            family_file_counts[family] += 1
+            index = family_file_counts[family]
             text = render_provider(chunk)
             files.append(
                 {
                     "file": f"{DEFAULT_PREFIX}-{family}-{index:02d}.yaml",
                     "family": family,
+                    "stage": stage,
                     "group": FAMILIES[family]["group"],
                     "action": FAMILIES[family]["action"],
                     "rules": len(chunk),
@@ -240,7 +258,8 @@ def manifest(files, reasons, total, kept, max_rules):
     return {
         "note": (
             "Generated by scripts/split_providers.py. Each file maps to the group in "
-            "'group'; files of one family are interchangeable because they share an action."
+            "'group'. Preserve the order of ruleset_lines: only files within one stage "
+            "are interchangeable. A family may occur in multiple separated stages."
         ),
         "max_rules_per_file": max_rules,
         "sources": [relative for _, relative in SOURCES],
@@ -281,8 +300,20 @@ def run(out_dir, max_rules, check):
                 print(f"MISSING: {entry['file']}")
                 differences += 1
                 continue
-            if parse_provider(path.read_text(encoding="utf-8")) != parse_provider(entry["text"]):
+            if hashlib.sha256(path.read_bytes()).hexdigest() != entry["sha256"]:
                 print(f"DIFF: {entry['file']}")
+                differences += 1
+        manifest_path = out_dir / "providers.manifest.json"
+        if not manifest_path.is_file():
+            print("MISSING: providers.manifest.json")
+            differences += 1
+        else:
+            try:
+                existing_manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+            except (ValueError, UnicodeError):
+                existing_manifest = None
+            if existing_manifest != manifest_data:
+                print("DIFF: providers.manifest.json")
                 differences += 1
         expected = {entry["file"] for entry in files}
         for path in sorted(out_dir.glob("*.yaml")):
