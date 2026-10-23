@@ -130,6 +130,9 @@ SOURCES = {
 # Sources fetched as bytes rather than decoded text.
 BINARY_SOURCES = {"TRANCO"}
 TRANCO_TOP_LIMIT = 1_000_000
+# The public CSV includes non-host entries such as _wildcard_.ph. Validate
+# their suffixes but preserve their exclusion from popularity protection.
+TRANCO_NON_HOST_PREFIX = "_wildcard_."
 ANTI_AD_TARGET = REPO_ROOT / "Rules/Ruleset/Active/AdBlock/BanAntiAD.list"
 
 # Coverage is read from every committed list, minus these two. MergedADBan is
@@ -363,6 +366,12 @@ def process_clash_rule_list(content, source_key):
             modifier = ",no-resolve" if "no-resolve" in (part.lower() for part in parts[2:]) else ""
             rules.add(f"{token},{network}{modifier}")
             continue
+        if token == "DST-PORT":
+            if len(parts) == 2 and re.fullmatch(r"[0-9]{1,5}", parts[1]) and 1 <= int(parts[1]) <= 65535:
+                rules.add(f"DST-PORT,{int(parts[1])}")
+            else:
+                skipped += 1
+            continue
         if token == "DOMAIN-KEYWORD":
             keyword = parts[1].lower().strip(".")
             if KEYWORD_PATTERN.match(keyword):
@@ -466,25 +475,62 @@ def fetch_binary(url, attempts=REQUEST_ATTEMPTS, timeout=REQUEST_TIMEOUT):
 
 
 def read_tranco_registrable(zip_bytes, limit=TRANCO_TOP_LIMIT):
-    """Registrable domains of the most popular sites, from the Tranco zip."""
-    with zipfile.ZipFile(io.BytesIO(zip_bytes)) as archive:
-        name = archive.namelist()[0]
-        text = archive.read(name).decode("utf-8", errors="replace")
+    """Validate the complete requested rank window before using its domains."""
+    if isinstance(limit, bool) or not isinstance(limit, int) or limit < 1:
+        raise ValueError("Tranco limit must be a positive integer")
+    try:
+        with zipfile.ZipFile(io.BytesIO(zip_bytes)) as archive:
+            members = [member for member in archive.infolist() if member.filename == "top-1m.csv"]
+            if len(members) != 1 or members[0].is_dir():
+                raise ValueError("Tranco ZIP must contain exactly one top-1m.csv file")
+            csv_bytes = archive.read(members[0])
+    except (zipfile.BadZipFile, RuntimeError, NotImplementedError) as error:
+        raise ValueError(f"Invalid Tranco ZIP: {error}") from error
+    try:
+        text = csv_bytes.decode("utf-8", errors="strict")
+    except UnicodeDecodeError as error:
+        raise ValueError("Tranco top-1m.csv is not valid UTF-8") from error
+
     popular = set()
-    for line in text.splitlines():
-        fields = line.strip().split(",")
-        if len(fields) != 2:
-            continue
-        try:
-            rank = int(fields[0])
-        except ValueError:
-            continue
-        if rank > limit:
+    seen = set()
+    rows_read = 0
+    skipped = 0
+    for expected_rank, line in enumerate(io.StringIO(text, newline=None), start=1):
+        if expected_rank > limit:
             break
-        domain = normalize_domain(fields[1])
-        if domain:
-            popular.add(registrable_domain(domain))
-    log(f"Tranco: {len(popular)} popular registrable domain(s) within rank {limit}")
+        fields = line.removesuffix("\n").split(",")
+        if len(fields) != 2:
+            raise ValueError(f"Tranco row {expected_rank}: expected rank,domain")
+        if fields[0] != str(expected_rank):
+            raise ValueError(f"Tranco row {expected_rank}: expected rank {expected_rank}, got {fields[0]!r}")
+        domain = fields[1].lower()
+        if domain in seen:
+            raise ValueError(f"Tranco row {expected_rank}: duplicate domain {domain!r}")
+        rows_read = expected_rank
+        is_non_host = domain.startswith(TRANCO_NON_HOST_PREFIX)
+        # Only the known non-host prefix is exempt from hostname syntax. Use
+        # a valid label to check its suffix, never to populate the output set.
+        validation_domain = "wildcard." + domain[len(TRANCO_NON_HOST_PREFIX):] if is_non_host else domain
+        # Unlike ordinary source conversion, validation must not turn a URL,
+        # path, port or whitespace-padded value into an apparently valid host.
+        if (
+            not fields[1].isascii()
+            or normalize_domain(validation_domain) != validation_domain
+            or len(domain) > 253
+            or any(len(label) > 63 for label in validation_domain.split("."))
+            or validation_domain.rsplit(".", 1)[-1].isdigit()
+        ):
+            raise ValueError(f"Tranco row {expected_rank}: invalid domain {fields[1]!r}")
+        seen.add(domain)
+        if is_non_host:
+            skipped += 1
+            continue
+        popular.add(registrable_domain(domain))
+    if rows_read != limit:
+        raise ValueError(f"Tranco ranking is incomplete: expected ranks 1..{limit}, found {rows_read} rows")
+    if not popular:
+        raise ValueError("Tranco ranking contains no usable domains; refusing to disable popularity protection")
+    log(f"Tranco: {len(popular)} popular registrable domain(s) within rank {limit}; {skipped} non-host entries skipped")
     return popular
 
 
