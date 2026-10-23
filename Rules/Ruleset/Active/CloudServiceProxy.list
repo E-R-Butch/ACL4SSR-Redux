@@ -77,6 +77,23 @@ DOMAIN,gimg.staticimgs.com
 DOMAIN,spot-webws.wsbridge.com
 DOMAIN,fx-webws.wsbridge.com
 
+# Gate avatars, coin icons and the aggregated-search frontend distribution.
+# https://www.gate.com/docs/miniapp/manual/en/
+# https://static.panpno.com/micro-fe/prod/aggregated_search/static/js/main.4a5fa4be.js
+DOMAIN,gavatar.staticimgs.com
+DOMAIN,icon.gateimg.com
+DOMAIN,static.panpno.com
+
+# Shared public STUN services; keep NAT traversal on the existing proxy path.
+# https://www.twilio.com/docs/stun-turn/api
+# https://github.com/nextcloud/all-in-one/blob/main/Containers/nextcloud/entrypoint.sh
+# These functional hosts are separate from retired endpoints denied in the INI.
+DOMAIN,global.stun.twilio.com
+DOMAIN,jp1.stun.twilio.com
+DOMAIN,sg1.stun.twilio.com
+DOMAIN,us1.stun.twilio.com
+DOMAIN,stun.nextcloud.com
+
 # SafeTrade independent exchange website; existing proxy direction, no account testing.
 # https://safetrade.com/about
 DOMAIN,safetrade.com
