@@ -135,18 +135,65 @@ class FetchAssetsTests(unittest.TestCase):
         self.assertNotIn("popular.example", output)
         self.assertIn("# 数量：1条", output)
 
-    def test_committed_increment_is_not_counted_as_its_own_coverage(self):
-        committed = [
-            line.split(",", 1)[1].strip()
-            for line in (fetch_assets.ANTI_AD_TARGET).read_text(encoding="utf-8").splitlines()
-            if line.strip() and not line.startswith("#")
+    def test_increment_and_merged_output_are_not_their_own_coverage(self):
+        # Upstream lists can gain an increment domain during a sync. Test the
+        # excluded files, not disjointness between changing repository lists.
+        increment = "Rules/Ruleset/Active/AdBlock/BanAntiAD.list"
+        merged = "Rules/Outputs/MergedADBan.list"
+        fixtures = {
+            increment: {"increment.example", "shared.example"},
+            merged: {"increment.example", "merged.example", "shared.example"},
+            "Rules/Ruleset/Active/AdBlock/BanEasyListChina.list": {"elsewhere.example", "shared.example"},
+        }
+        with tempfile.TemporaryDirectory() as directory:
+            root = pathlib.Path(directory)
+            # Rebase the real configuration so removing either exclusion still
+            # breaks this regression test.
+            excluded = tuple(
+                root / path.relative_to(fetch_assets.REPO_ROOT)
+                for path in fetch_assets.COVERAGE_EXCLUDE_PATHS
+            )
+            for relative, values in fixtures.items():
+                path = root / relative
+                path.parent.mkdir(parents=True, exist_ok=True)
+                path.write_text(
+                    "".join(f"DOMAIN-SUFFIX,{value}\n" for value in sorted(values)), encoding="utf-8"
+                )
+
+            with mock.patch.object(fetch_assets, "REPO_ROOT", root):
+                self.assertEqual(
+                    fetch_assets.repo_rule_values(),
+                    {"increment.example", "merged.example", "elsewhere.example", "shared.example"},
+                )
+                coverage = fetch_assets.repo_rule_values(excluded)
+                self.assertEqual(coverage, {"elsewhere.example", "shared.example"})
+
+                content = "increment.example\nmerged.example\nshared.example\n"
+                first = fetch_assets.process_anti_ad(content, set(), coverage)
+                self.assertIn("DOMAIN-SUFFIX,increment.example", first)
+                self.assertIn("DOMAIN-SUFFIX,merged.example", first)
+                self.assertNotIn("DOMAIN-SUFFIX,shared.example", first)
+                for relative in (increment, merged):
+                    (root / relative).write_text(first, encoding="utf-8")
+                second = fetch_assets.process_anti_ad(content, set(), fetch_assets.repo_rule_values(excluded))
+                self.assertEqual(first, second, "the increment must survive a repeated sync")
+
+    def test_build_outputs_uses_configured_anti_ad_coverage(self):
+        fetched = {key: "" for key in fetch_assets.TARGETS}
+        fetched["ANTI_AD_DOMAINS"] = "covered.example\npopular.example\nnew.example\n"
+        with (
+            mock.patch.object(fetch_assets, "repo_rule_values", return_value={"covered.example"}) as coverage,
+            mock.patch.object(fetch_assets, "process_gfwlist", return_value=""),
+            mock.patch.object(fetch_assets, "BUNDLES", {}),
+        ):
+            outputs = fetch_assets.build_outputs(fetched, {"popular.example"})
+
+        coverage.assert_called_once_with(fetch_assets.COVERAGE_EXCLUDE_PATHS)
+        rules = [
+            line for line in outputs[fetch_assets.ANTI_AD_TARGET].splitlines()
+            if line and not line.startswith("#")
         ]
-        self.assertTrue(committed, "the committed increment should not be empty")
-
-        coverage = fetch_assets.repo_rule_values(fetch_assets.COVERAGE_EXCLUDE_PATHS)
-
-        for value in committed[:200]:
-            self.assertNotIn(value, coverage, f"{value} is inside the merged ad output")
+        self.assertEqual(rules, ["DOMAIN-SUFFIX,new.example"])
 
 
 if __name__ == "__main__":
