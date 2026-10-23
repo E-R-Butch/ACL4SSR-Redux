@@ -5,6 +5,10 @@
 # https://docs.wasabi.com/docs/service-urls-for-wasabis-storage-regions
 DOMAIN,s3.us-west-1.wasabisys.com
 
+# Squarespace image delivery. Direct samples failed; a TLS diagnostic reset. Proxies returned complete images.
+# https://support.squarespace.com/hc/en-us/articles/205812748-Image-and-file-URLs-in-Squarespace
+DOMAIN,images.squarespace-cdn.com
+
 # Shared email links, unsubscribe pages and subscription preferences.
 # The observed flow is unsubscribe/link navigation. Keep its existing proxy path;
 # these exact hosts may also track clicks, so a whole-host reject breaks the flow.

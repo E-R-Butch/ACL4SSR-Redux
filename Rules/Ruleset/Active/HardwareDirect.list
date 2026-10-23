@@ -5,6 +5,12 @@
 # Complete JSON transfers succeeded on both paths; direct median times were lower.
 DOMAIN,e.bambulab.com
 
+# SUNLU product and technical-information website; stable direct transfers.
+# https://www.sunlu.com/support/faq
+# Prefer direct for this workload's modest proxy benefit; include the observed log spelling.
+DOMAIN,www.sunlu.com
+DOMAIN,www\.sunlu.com
+
 # OpenRGB website and device-support data; direct samples were consistently successful.
 # Release binaries are linked to separate hosts and are not covered by this exact rule.
 # https://openrgb.org/releases.html

@@ -189,6 +189,10 @@ Chub 按用途维护为 `ChubProxy.list` 与 `ChubDirect.list`，均位于广告
 
 `e.bambulab.com` 是 Bambu Studio 的 HMS 故障帮助服务。[官方源码](https://github.com/bambulab/BambuStudio/blob/master/src/slic3r/GUI/HMS.cpp)通过 `/query.php` 和 `/hms/GetActionImage.php` 下载错误说明与处理指引，精确归入现有 `HardwareDirect.list`。公开型号的两项 JSON 各在直连与日本代理下重复下载三次，全部成功且内容哈希一致；直连中位耗时约 0.76 秒和 0.42 秒，代理约 0.86 秒和 0.43 秒，样本支持直连，不代表所有网络和接口均最快。测试不包含设备序列号或账户凭据，不扩大到其他拓竹主机。
 
+`www.sunlu.com` 是 SUNLU 三绿的产品与技术资料官网，[官方 FAQ](https://www.sunlu.com/support/faq)将其与独立商城区分。正常主机及日志中的 `www\.sunlu.com` 写法精确归入现有 `HardwareDirect.list`。同组四个真实页面资源共 1,912,788 字节，两路各完整下载三轮且内容哈希一致；直连中位耗时约 3.29 秒、平均传输速度约 0.58 MB/s，代理约 2.35 秒、0.81 MB/s。直连全部成功且波动较小，在代理收益有限的情况下采用稳定直连优先；这些数据是该资源组的实际下载结果，包含连接与首包开销，不是线路峰值带宽。范围不扩大到商城、媒体子域或共享 CDN 地址。
+
+`images.squarespace-cdn.com` 是 [Squarespace 官方图片分发主机](https://support.squarespace.com/hc/en-us/articles/205812748-Image-and-file-URLs-in-Squarespace)，精确加入现有 `CloudServiceProxy.list`。公开模板的同一张 695,188 字节图片在直连三轮均未完成下载，补充 TLS 诊断显示连接被重置；日本代理三轮均完整返回有效 WebP，哈希一致，中位耗时约 1.05 秒、平均传输速度约 0.66 MB/s。保留正常图片加载，不扩展到整个 Squarespace 域名后缀或 Fastly 共享 IP。
+
 `portal.nousresearch.com` 是 Nous Portal 的账户和认证门户；[Hermes Agent 官方代码](https://github.com/NousResearch/hermes-agent/blob/main/hermes_cli/auth_nous.py)将令牌刷新请求发送到该主机的 `/api/oauth/token`。完整门户页面和样式资源重复传输样本支持代理，精确归入 `DeveloperProxy.list`。公开页面测速不代表已完成用户认证、令牌刷新或另一主机上的模型推理。
 
 `hermes-agent.nousresearch.com` 承载 [Hermes Agent 官网、文档及安装入口](https://hermes-agent.nousresearch.com/docs/)，与账户门户分别匹配。官网、样式表、文档页和文档索引的完整重复下载总体支持代理，精确归入 `DeveloperProxy.list`；该主机的结论不扩展到其他 Nous 子域。
