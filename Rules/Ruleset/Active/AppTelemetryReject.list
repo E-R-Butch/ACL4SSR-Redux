@@ -426,7 +426,6 @@ DOMAIN-SUFFIX,api.hybrid.xiaomi.com
 DOMAIN-SUFFIX,api.installer.xiaomi.com
 DOMAIN-SUFFIX,api.jr.mi.com
 DOMAIN-SUFFIX,api.launcher.intl.miui.com
-DOMAIN-SUFFIX,api.metrics.eu-central-1.iris.apx.amazon.dev
 DOMAIN-SUFFIX,api.metrics.us-west-2.iris.apx.amazon.dev
 DOMAIN-SUFFIX,api.micloud.xiaomi.net
 DOMAIN-SUFFIX,api.mintbrs.intl.miui.com
@@ -1819,6 +1818,7 @@ DOMAIN-SUFFIX,metrics-dre.data.dbankcloud.cn
 DOMAIN-SUFFIX,metrics-dre.dt.dbankcloud.cn
 DOMAIN-SUFFIX,metrics.apple.com
 DOMAIN-SUFFIX,metrics.dt.dbankcloud.cn
+DOMAIN-SUFFIX,metrics.eu-central-1.iris.apx.amazon.dev
 DOMAIN-SUFFIX,metrics.eu-south-2.iris.apx.amazon.dev
 DOMAIN-SUFFIX,metrics.eu-west-1.iris.apx.amazon.dev
 DOMAIN-SUFFIX,metrics.icloud.com
