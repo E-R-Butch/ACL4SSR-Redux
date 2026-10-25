@@ -33,3 +33,10 @@ IP-CIDR6,2403:300:a16:1000::31/128,no-resolve
 # Exact application resources are unknown; preserve the observed proxy direction.
 IP-CIDR6,2403:300:a30:1000::11/128,no-resolve
 IP-CIDR6,2403:300:a30:1000::41/128,no-resolve
+
+# Apple Tokyo edge nodes observed from WeatherWidget over UDP/443.
+# PTR/AAAA agree: jptyo7-edge-fx-020.b.aaplimg.com and jptyo7-edge-fx-048.a.aaplimg.com.
+# Apple geofeed: https://ip-geolocation.apple.com/
+# The application resource is unknown; retain the observed proxy direction, exact IPs only.
+IP-CIDR6,2403:300:a0e:2000::141/128,no-resolve
+IP-CIDR6,2403:300:a0e:1000::301/128,no-resolve

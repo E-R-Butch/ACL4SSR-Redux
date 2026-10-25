@@ -197,8 +197,13 @@ class RoutingSemanticsTests(unittest.TestCase):
                                  "surge_ruleset=REJET,[]DOMAIN-SUFFIX,invalid")
         self.assertTrue(any("ruleset target 'REJET'" in error for error in self.check_mutation(text)))
 
-    def test_apple_ipv6_proxy_routes_are_exact_and_wired_to_proxy(self):
-        addresses = ("2620:149:af1::10", "2620:149:af6::10", "2a01:b740:a30:2000::171", "2403:300:a16:1000::31", "2403:300:a30:1000::11", "2403:300:a30:1000::41")
+    def test_resolver_and_apple_ip_proxy_routes_are_exact_and_wired_to_proxy(self):
+        addresses = (
+            "1.1.1.1", "1.0.0.1",
+            "2620:149:af1::10", "2620:149:af6::10", "2a01:b740:a30:2000::171",
+            "2403:300:a16:1000::31", "2403:300:a30:1000::11", "2403:300:a30:1000::41",
+            "2403:300:a0e:2000::141", "2403:300:a0e:1000::301",
+        )
         for config_path in sorted((ROOT / "Config").glob("*.ini")):
             networks = []
             for line in config_path.read_text(encoding="utf-8").splitlines():
@@ -208,7 +213,7 @@ class RoutingSemanticsTests(unittest.TestCase):
                 path = validate_rules.local_path_from_raw_url(source)
                 rules = [source[2:]] if source.startswith("[]") else path.read_text(encoding="utf-8").splitlines()
                 for rule in rules:
-                    if rule.startswith("IP-CIDR6,"):
+                    if rule.startswith(("IP-CIDR,", "IP-CIDR6,")):
                         parts = rule.split(",")
                         networks.append((ipaddress.ip_network(parts[1]), group, parts[2:]))
 
@@ -216,7 +221,7 @@ class RoutingSemanticsTests(unittest.TestCase):
                 ip = ipaddress.ip_address(address)
                 with self.subTest(config=config_path.name, address=address):
                     matched = next((entry for entry in networks if ip in entry[0]), None)
-                    self.assertEqual(matched, (ipaddress.ip_network(address + "/128"), "🚀 节点选择", ["no-resolve"]))
+                    self.assertEqual(matched, (ipaddress.ip_network(f"{address}/{ip.max_prefixlen}"), "🚀 节点选择", ["no-resolve"]))
                     for neighbor in (ip - 1, ip + 1):
                         self.assertFalse(any(neighbor in network for network, _, _ in networks))
             self.assertFalse(any(ipaddress.ip_address("2620:149:af0::10") in network for network, _, _ in networks))

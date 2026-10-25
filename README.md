@@ -219,6 +219,10 @@ Windows 的联网探测与局域网更新互传分别处理：[Microsoft NCSI](h
 
 `softwareupdate.pilotmoon.com` 是 Scroll Reverser 的 Sparkle 更新清单主机，[官方源码](https://github.com/pilotmoon/Scroll-Reverser/blob/master/AppDelegate.m)明确指定其 appcast 地址；清单中的完整发行 ZIP 托管在 `pilotmoon.com`。两者精确归入 `DeveloperProxy.list` 的工具更新分类。三轮相同清单及完整安装包下载内容一致，代理总体更快；不扩大到整个 Pilotmoon 域名后缀。更新检查不等同于遥测，[项目配置](https://github.com/pilotmoon/Scroll-Reverser/blob/master/ScrollReverser-Info.plist)关闭了 Sparkle 系统信息采集。
 
+`1.1.1.1`、`1.0.0.1` 是 [Cloudflare 官方公共解析器地址](https://developers.cloudflare.com/1.1.1.1/ip-addresses/)。观察到另一客户端的 Mihomo 内部 TCP/443 连接落入兜底后，以两个 `/32,no-resolve` 精确加入现有 `CloudServiceProxy.list`，保留代理方向。连接特征符合 DoH，但没有该客户端的 DNS 配置或请求路径，不能据此认定具体配置来源；这里补充路由规则，不修改客户端 DNS 设置，不扩大到其他 Cloudflare IP、整个网段或端口。
+
+WeatherWidget 使用的 `2403:300:a0e:2000::141`、`2403:300:a0e:1000::301` 分别对应 `jptyo7-edge-fx-020.b.aaplimg.com`、`jptyo7-edge-fx-048.a.aaplimg.com`，正反向 DNS 一致。[APNIC 注册信息](https://rdap.apnic.net/ip/2403:300:a0e:2000::141)确认 Apple 归属，[Apple 官方地址表](https://ip-geolocation.apple.com/)将其 `/48` 标为东京。仅将两个 `/128,no-resolve` 加入现有 `AppleProxy.list`，保持原代理方向；日志未提供应用域名及路径，不能还原具体天气资源或作业务下载测速结论。
+
 Apple 的 NetworkServiceProxy 配置为 `tether.edge.apple` / `a.tthr.apple.com` 列出了 `2620:149:af1::10`、`2620:149:af6::10`，标签包括 `EdgeHog` 和 `EdgeHog_Weather_China_A`，协议标记为 [RFC 9298 UDP 中继](https://www.rfc-editor.org/rfc/rfc9298.html)。这是应用配置直接提供地址的证据，裸 IP 本身不能证明 DNS 被其他程序抢先解析；[Apple 也说明网络中继用于多种隐私功能](https://developer.apple.com/videos/play/wwdc2023/10002/)，不能只按进程名认定为遥测或某一条具体天气请求。这两个公共 IPv6 地址以 `/128,no-resolve` 精确归入 `AppleProxy.list`，保留原代理方向。普通 HTTPS 和未认证 QUIC 探测未能验证实际中继业务或证明直连更快；分类完成不等于中继业务已恢复。其他 Apple 地址、域名和隐私拦截策略不随之扩大。
 
 `cua.ai` 是 Cua 计算机自动化工具与云桌面平台的[官网和文档](https://cua.ai/docs)，页面与资源传输样本支持开发代理；[官方认证文档](https://cua.ai/docs/reference/cua-cli/authentication)将登录与 Fleet API 放在独立主机，因此此处只匹配 `cua.ai`，不推断账号、云桌面或模型服务的地区可用性。`models.dev` 是[模型与供应商资料库](https://models.dev/)，其公开 `api.json` 提供规格、能力和价格等元数据，按完整 JSON 传输样本精确归入开发代理。

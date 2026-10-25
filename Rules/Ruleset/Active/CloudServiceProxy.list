@@ -1,5 +1,11 @@
 # 云服务代理
 
+# Cloudflare public resolver addresses observed in Mihomo internal TCP/443 traffic.
+# https://developers.cloudflare.com/1.1.1.1/ip-addresses/
+# Preserve proxy routing for these exact IPs without triggering DNS resolution.
+IP-CIDR,1.1.1.1/32,no-resolve
+IP-CIDR,1.0.0.1/32,no-resolve
+
 # Wasabi Oregon path-style object-storage endpoint used by CHM collection images.
 # Exact regional host only; do not cover unrelated regions or bucket subdomains.
 # https://docs.wasabi.com/docs/service-urls-for-wasabis-storage-regions
