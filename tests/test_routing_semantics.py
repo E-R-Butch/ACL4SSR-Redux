@@ -226,6 +226,26 @@ class RoutingSemanticsTests(unittest.TestCase):
                         self.assertFalse(any(neighbor in network for network, _, _ in networks))
             self.assertFalse(any(ipaddress.ip_address("2620:149:af0::10") in network for network, _, _ in networks))
 
+    def test_wechat_observed_address_is_exact_and_wired_to_direct(self):
+        ip = ipaddress.ip_address("43.171.114.78")
+        for config_path in sorted((ROOT / "Config").glob("*.ini")):
+            networks = []
+            for line in config_path.read_text(encoding="utf-8").splitlines():
+                if not line.startswith("surge_ruleset="):
+                    continue
+                group, source = line.split("=", 1)[1].split(",", 1)
+                path = validate_rules.local_path_from_raw_url(source)
+                rules = [source[2:]] if source.startswith("[]") else path.read_text(encoding="utf-8").splitlines()
+                for rule in rules:
+                    if rule.startswith("IP-CIDR,"):
+                        parts = rule.split(",")
+                        networks.append((ipaddress.ip_network(parts[1]), group, parts[2:]))
+            with self.subTest(config=config_path.name):
+                matched = next((entry for entry in networks if ip in entry[0]), None)
+                self.assertEqual(matched, (ipaddress.ip_network("43.171.114.78/32"), "🎯 全球直连", ["no-resolve"]))
+                for neighbor in (ip - 1, ip + 1):
+                    self.assertFalse(any(neighbor in network for network, _, _ in networks))
+
     def test_google_api_ip_fallback_preserves_named_service_policies(self):
         addresses = ("172.217.114.4", "172.217.115.4", "172.217.116.4", "172.217.118.4")
         path = ROOT / "Rules/Ruleset/Active/GoogleAPIProxy.list"
@@ -366,6 +386,15 @@ class RoutingSemanticsTests(unittest.TestCase):
             "www.sunlu.com": "🎯 全球直连",
             r"www\.sunlu.com": "🎯 全球直连",
             "images.squarespace-cdn.com": "🚀 节点选择",
+            "btrfs.readthedocs.io": "🎯 全球直连",
+            "code.jquery.com": "🚀 节点选择",
+            "evoxt.com": "🎯 全球直连",
+            "console.evoxt.com": "🎯 全球直连",
+            "chat.novixlink.com": "🎯 全球直连",
+            "novixlink.com": "🚀 节点选择",
+            "download.documentfoundation.org": "🎯 全球直连",
+            "mirrors.iu13.net": "🎯 全球直连",
+            "updatest.app": "🎯 全球直连",
             "static.cloudflareinsights.com": "REJECT",
             "portal.nousresearch.com": "🚀 节点选择",
             "hermes-agent.nousresearch.com": "🚀 节点选择",
@@ -644,6 +673,13 @@ class RoutingSemanticsTests(unittest.TestCase):
                 "sunlu.com", "store.sunlu.com", "media.sunlu.com", "www.sunlu.com.example",
                 "squarespace-cdn.com", "other.squarespace-cdn.com",
                 "images.squarespace-cdn.com.example",
+                "other.readthedocs.io", "btrfs.readthedocs.io.example",
+                "jquery.com", "other.jquery.com", "code.jquery.com.example",
+                "other.evoxt.com", "evoxt.com.example", "console.evoxt.com.example",
+                "other.novixlink.com", "novixlink.com.example", "chat.novixlink.com.example",
+                "documentfoundation.org", "other.documentfoundation.org",
+                "download.documentfoundation.org.example", "iu13.net", "other.iu13.net",
+                "mirrors.iu13.net.example", "other.updatest.app", "updatest.app.example",
                 "nousresearch.com", "inference-api.nousresearch.com",
                 "child.hermes-assets.nousresearch.com", "hermes-assets.nousresearch.com.example",
                 "eu.openrouter.ai", "us.openrouter.ai", "api.openrouter.ai",

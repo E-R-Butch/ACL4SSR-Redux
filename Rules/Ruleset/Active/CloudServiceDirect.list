@@ -9,3 +9,14 @@ DOMAIN,f2pool.zendesk.com
 # Exact root and www hosts; retain the service direct route without widening subdomains.
 DOMAIN,bsbsb.top
 DOMAIN,www.bsbsb.top
+
+# Evoxt public website/control panel; repeated home-page and stylesheet transfers favor direct.
+# https://evoxt.com/
+# No authenticated account actions were tested.
+DOMAIN,evoxt.com
+DOMAIN,console.evoxt.com
+
+# NovixLink's Chatwoot customer-support component, loaded by its official contact page.
+# https://novixlink.com/en/contact-us
+# Repeated SDK downloads favor direct; no conversation or message was submitted.
+DOMAIN,chat.novixlink.com

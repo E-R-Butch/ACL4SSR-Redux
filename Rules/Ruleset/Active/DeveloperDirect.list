@@ -1,5 +1,21 @@
 # 开发直连
 
+# Btrfs official documentation; repeated complete manual-page transfers favor direct.
+# https://btrfs.readthedocs.io/en/latest/
+DOMAIN,btrfs.readthedocs.io
+
+# LibreOffice MirrorBrain entry and the observed IU13 distribution mirror.
+# https://download.documentfoundation.org/libreoffice/stable/
+# Direct entry selected a domestic mirror. Both IU13 paths completed identical
+# 4 MiB installer ranges; retain direct where proxy gains were inconsistent.
+DOMAIN,download.documentfoundation.org
+DOMAIN,mirrors.iu13.net
+
+# Updatest website, Sparkle feed and self-update packages; valid ZIP ranges favor direct.
+# https://github.com/Homebrew/homebrew-cask/blob/master/Casks/u/updatest.rb
+# App-version sharing is documented separately; this is not a telemetry-free claim.
+DOMAIN,updatest.app
+
 # Google Open Source Insights package metadata and dependency graphs used by Tirith.
 # https://docs.deps.dev/api/v3/
 # Repeated valid API responses were stable directly; this is not a telemetry endpoint.

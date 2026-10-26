@@ -193,6 +193,16 @@ Chub 按用途维护为 `ChubProxy.list` 与 `ChubDirect.list`，均位于广告
 
 `images.squarespace-cdn.com` 是 [Squarespace 官方图片分发主机](https://support.squarespace.com/hc/en-us/articles/205812748-Image-and-file-URLs-in-Squarespace)，精确加入现有 `CloudServiceProxy.list`。公开模板的同一张 695,188 字节图片在直连三轮均未完成下载，补充 TLS 诊断显示连接被重置；日本代理三轮均完整返回有效 WebP，哈希一致，中位耗时约 1.05 秒、平均传输速度约 0.66 MB/s。保留正常图片加载，不扩展到整个 Squarespace 域名后缀或 Fastly 共享 IP。
 
+`btrfs.readthedocs.io` 是 [Btrfs 官方文档](https://btrfs.readthedocs.io/en/latest/)，精确加入现有 `DeveloperDirect.list`。同一完整手册页两路各下载三次，均成功且哈希一致，直连中位约 0.97 秒、日本代理约 3.38 秒。`code.jquery.com` 是 [jQuery 官方 CDN](https://jquery.com/download/)，在 Evoxt 页面中实际加载 3.6.0 压缩脚本；该文件直连三轮更快，但较大的 3.7.1 开发版脚本有一次直连在 15 秒时尚未收完，代理三轮均完整，因此精确加入现有 `DeveloperProxy.list` 保留代理。该选择基于完整文件交付表现；代理节点自身的连接超时仍需另行排查。
+
+`evoxt.com` 与 `console.evoxt.com` 分别为 [Evoxt 官网](https://evoxt.com/)和控制台，精确加入现有 `CloudServiceDirect.list`。官网有效正文、控制台实际样式资源各三轮比较支持直连；控制台的匿名登录页请求会遇到浏览器验证，错误响应不计作有效测速，也未执行账户操作。`chat.novixlink.com` 是 [NovixLink 官网客服页](https://novixlink.com/en/contact-us)加载的 Chatwoot 组件，SDK 三轮完整下载哈希一致，直连中位约 0.37 秒、代理约 2.07 秒，同样精确直连；未提交聊天消息或验证会话。`novixlink.com` 主站自动请求两路均遇验证，缺少有效性能对比，单独在 `CloudServiceProxy.list` 保留原代理方向，不扩大到其他子域。
+
+`download.documentfoundation.org` 是 LibreOffice MirrorBrain 下载入口，[官方镜像清单](https://download.documentfoundation.org/libreoffice/stable/26.8.1/mac/aarch64/LibreOffice_26.8.1_MacOS_aarch64.dmg.mirrorlist)包含 `mirrors.iu13.net`。入口直连本次选择南京大学镜像，代理入口选择海外镜像；IU13 同一安装包的两个 4 MiB 片段样本在两路均完整且哈希相同，代理收益有波动。两个精确主机加入现有 `DeveloperDirect.list`，采用稳定直连优先；入口跳转耗时不代表安装包吞吐，片段测速也不代表完整安装包已下载或安装。
+
+`updatest.app` 提供 Mac 更新工具官网、自更新清单及安装包，[Homebrew Cask](https://github.com/Homebrew/homebrew-cask/blob/master/Casks/u/updatest.rb)将 Sparkle 清单和 ZIP 均指向该主机。同一 ZIP 的两个 4 MiB 片段样本完整且哈希一致，直连中位约 2.07 MB/s、代理约 0.89 MB/s，精确加入现有 `DeveloperDirect.list`。[官方隐私政策](https://updatest.app/privacy/)同时说明默认分享应用版本信息及网站使用 Plausible；独立上报地址尚未定位，不把整个更新域名视为无遥测，也不因整域拒绝而中断正常自更新。本次未修改应用分享设置或提交版本报告。
+
+微信日志中的 `43.171.114.78` 经 APNIC WHOIS 登记为 Aceville，[腾讯官方资料](https://indonesia.tencentcloud.com/ind/document/product/242/48821)将其列为腾讯关联实体。仅以 `/32,no-resolve` 加入现有 `China/ChinaCompanyIp.list`，遵循既有微信直连方向；进程来源与网络归属不能还原具体 HTTP 资源，不扩大到 Aceville 网段，也不据裸 IP 推断 DNS 被抢答。
+
 `portal.nousresearch.com` 是 Nous Portal 的账户和认证门户；[Hermes Agent 官方代码](https://github.com/NousResearch/hermes-agent/blob/main/hermes_cli/auth_nous.py)将令牌刷新请求发送到该主机的 `/api/oauth/token`。完整门户页面和样式资源重复传输样本支持代理，精确归入 `DeveloperProxy.list`。公开页面测速不代表已完成用户认证、令牌刷新或另一主机上的模型推理。
 
 `hermes-agent.nousresearch.com` 承载 [Hermes Agent 官网、文档及安装入口](https://hermes-agent.nousresearch.com/docs/)，与账户门户分别匹配。官网、样式表、文档页和文档索引的完整重复下载总体支持代理，精确归入 `DeveloperProxy.list`；该主机的结论不扩展到其他 Nous 子域。

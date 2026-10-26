@@ -1,5 +1,10 @@
 # 云服务代理
 
+# NovixLink website. Automated page requests hit a challenge on both paths;
+# preserve its existing proxy route separately from the direct support-component host.
+# https://novixlink.com/en/contact-us
+DOMAIN,novixlink.com
+
 # Cloudflare public resolver addresses observed in Mihomo internal TCP/443 traffic.
 # https://developers.cloudflare.com/1.1.1.1/ip-addresses/
 # Preserve proxy routing for these exact IPs without triggering DNS resolution.

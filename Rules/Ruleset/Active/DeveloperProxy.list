@@ -1,5 +1,11 @@
 # 开发代理
 
+# Official jQuery CDN, including the Evoxt page's observed 3.6.0 minified dependency.
+# https://jquery.com/download/
+# Minified direct samples were faster, but a larger script timed out once directly;
+# proxy samples completed. Keep the existing proxy path for delivery reliability.
+DOMAIN,code.jquery.com
+
 # ARIN public IP/ASN registration lookup (RDAP); direct TLS path timed out.
 # https://www.arin.net/resources/registry/whois/rdap/
 DOMAIN,rdap.arin.net
