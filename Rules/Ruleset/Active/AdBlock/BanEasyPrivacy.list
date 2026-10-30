@@ -1,7 +1,7 @@
 # 广告列表 adblock rules
 # 内容：EasyPrivacy列表，隐私保护，屏蔽隐私追踪
 # 来源：https://easylist-downloads.adblockplus.org/easyprivacy.txt
-# 数量：40665条
+# 数量：40670条
 
 DOMAIN-SUFFIX,0.myikas.com
 DOMAIN-SUFFIX,0.net.easyjet.com
@@ -10299,6 +10299,7 @@ DOMAIN-SUFFIX,dba4.pandasuite.io
 DOMAIN-SUFFIX,dbbest.actonservice.com
 DOMAIN-SUFFIX,dbex-tracker-v2.driveback.ru
 DOMAIN-SUFFIX,dbhbgz.suitableshop.nl
+DOMAIN-SUFFIX,dbik.literatur-couch.de
 DOMAIN-SUFFIX,dbj.quebecregion.com
 DOMAIN-SUFFIX,dbl.cadriamarketing.com
 DOMAIN-SUFFIX,dbmbfe.pegipegi.com
@@ -12381,6 +12382,7 @@ DOMAIN-SUFFIX,etx.indiatimes.com
 DOMAIN-SUFFIX,etznkn.ec-store.net
 DOMAIN-SUFFIX,eu-1-id5-sync.com
 DOMAIN-SUFFIX,eu-mobile.events.data.microsoft.com
+DOMAIN-SUFFIX,eu-office.events.data.microsoft.com
 DOMAIN-SUFFIX,eu.business.samsung.com
 DOMAIN-SUFFIX,eu.cignaglobalhealth.com
 DOMAIN-SUFFIX,eu.gldn.io
@@ -32534,6 +32536,7 @@ DOMAIN-SUFFIX,stats.jdheyburn.co.uk
 DOMAIN-SUFFIX,stats.jerickson.net
 DOMAIN-SUFFIX,stats.jetzt-aktivieren.de
 DOMAIN-SUFFIX,stats.jhsheridan.com
+DOMAIN-SUFFIX,stats.jiosaavn.com
 DOMAIN-SUFFIX,stats.jjude.com
 DOMAIN-SUFFIX,stats.jkdesa.com
 DOMAIN-SUFFIX,stats.joaopedro.dev
@@ -34832,6 +34835,7 @@ DOMAIN-SUFFIX,tms.hft.factor75.com
 DOMAIN-SUFFIX,tms.hft.goodchop.com
 DOMAIN-SUFFIX,tms.hft.greenchef.com
 DOMAIN-SUFFIX,tms.hft.hellofresh.com
+DOMAIN-SUFFIX,tms.wape.autodesk.com
 DOMAIN-SUFFIX,tmt.intelligence.informa.com
 DOMAIN-SUFFIX,tmvasapp.fitnessyard.com
 DOMAIN-SUFFIX,tmwkya.jh-profishop.at
@@ -36600,6 +36604,7 @@ DOMAIN-SUFFIX,tracking.digitalid.co.uk
 DOMAIN-SUFFIX,tracking.digitalocean.com
 DOMAIN-SUFFIX,tracking.direxion.com
 DOMAIN-SUFFIX,tracking.dominanteladies.de
+DOMAIN-SUFFIX,tracking.dpmlol.com
 DOMAIN-SUFFIX,tracking.dr-10.com
 DOMAIN-SUFFIX,tracking.dr-8.com
 DOMAIN-SUFFIX,tracking.drreddys.com
