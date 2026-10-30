@@ -1,3 +1,8 @@
+# Pearl mainnet Blockbook status and fee-estimation API; exact service host only.
+# https://blockbook.pearlresearch.ai/api/v2
+# Both paths returned valid data; repeated fee estimates were faster directly.
+DOMAIN,blockbook.pearlresearch.ai
+
 # InfluxDB Cloud on AWS (eu-central-1-1)
 DOMAIN,eu-central-1-1.aws.cloud2.influxdata.com
 

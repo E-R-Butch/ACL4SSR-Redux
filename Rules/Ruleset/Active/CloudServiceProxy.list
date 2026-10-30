@@ -1,5 +1,15 @@
 # 云服务代理
 
+# Pearlhash public pool website and statistics API; this does not cover Stratum hosts.
+# https://pearlhash.xyz/
+# Direct samples timed out on one DNS answer; retain the observed proxy path.
+DOMAIN,pearlhash.xyz
+
+# ExchangeRate-API free public exchange-rate data; no API key is required.
+# https://www.exchangerate-api.com/docs/free
+# Repeated valid USD rate responses had lower median latency through the proxy.
+DOMAIN,open.er-api.com
+
 # NovixLink website. Automated page requests hit a challenge on both paths;
 # preserve its existing proxy route separately from the direct support-component host.
 # https://novixlink.com/en/contact-us

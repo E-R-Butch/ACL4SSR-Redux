@@ -1,5 +1,15 @@
 # 开发代理
 
+# Exa hosted Search/Fetch MCP; initialize, tools/list and web_fetch_exa verified.
+# https://exa.ai/docs/get-started/exa-mcp
+# Both paths worked; actual fetch calls had lower median latency through the proxy.
+DOMAIN,mcp.exa.ai
+
+# Ghostty official Sparkle update feed and macOS installer distribution.
+# https://github.com/Homebrew/homebrew-cask/blob/master/Casks/g/ghostty.rb
+# Proxy returned matching complete 4 MiB DMG ranges; direct ranges timed out.
+DOMAIN,release.files.ghostty.org
+
 # Official jQuery CDN, including the Evoxt page's observed 3.6.0 minified dependency.
 # https://jquery.com/download/
 # Minified direct samples were faster, but a larger script timed out once directly;
