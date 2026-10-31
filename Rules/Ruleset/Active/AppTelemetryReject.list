@@ -1,6 +1,6 @@
 # 内容：设备与应用内置遥测（HaGeZi native 追踪器清单）
 # 来源：https://raw.githubusercontent.com/hagezi/dns-blocklists/main/wildcard/native.apple.txt , https://raw.githubusercontent.com/hagezi/dns-blocklists/main/wildcard/native.samsung.txt , https://raw.githubusercontent.com/hagezi/dns-blocklists/main/wildcard/native.xiaomi.txt , https://raw.githubusercontent.com/hagezi/dns-blocklists/main/wildcard/native.huawei.txt , https://raw.githubusercontent.com/hagezi/dns-blocklists/main/wildcard/native.oppo-realme.txt , https://raw.githubusercontent.com/hagezi/dns-blocklists/main/wildcard/native.vivo.txt , https://raw.githubusercontent.com/hagezi/dns-blocklists/main/wildcard/native.winoffice.txt , https://raw.githubusercontent.com/hagezi/dns-blocklists/main/wildcard/native.tiktok.txt , https://raw.githubusercontent.com/hagezi/dns-blocklists/main/wildcard/native.amazon.txt , https://raw.githubusercontent.com/hagezi/dns-blocklists/main/wildcard/native.lgwebos.txt , https://raw.githubusercontent.com/hagezi/dns-blocklists/main/wildcard/native.roku.txt
-# 数量：3118条
+# 数量：3119条
 
 DOMAIN-SUFFIX,0001-metrics1-data-hicloud-com.geac.dbankedge.cn
 DOMAIN-SUFFIX,0001-metrics1-drcn-dt-dbankcloud-cn.geac.dbankedge.cn
@@ -444,7 +444,6 @@ DOMAIN-SUFFIX,api.hybrid.xiaomi.com
 DOMAIN-SUFFIX,api.installer.xiaomi.com
 DOMAIN-SUFFIX,api.jr.mi.com
 DOMAIN-SUFFIX,api.launcher.intl.miui.com
-DOMAIN-SUFFIX,api.metrics.us-west-2.iris.apx.amazon.dev
 DOMAIN-SUFFIX,api.micloud.xiaomi.net
 DOMAIN-SUFFIX,api.mintbrs.intl.miui.com
 DOMAIN-SUFFIX,api.miui.security.xiaomi.com
@@ -1885,6 +1884,7 @@ DOMAIN-SUFFIX,metrics.icloud.com
 DOMAIN-SUFFIX,metrics.media-amazon.com
 DOMAIN-SUFFIX,metrics.mzstatic.com
 DOMAIN-SUFFIX,metrics.us-east-1.iris.apx.amazon.dev
+DOMAIN-SUFFIX,metrics.us-west-2.iris.apx.amazon.dev
 DOMAIN-SUFFIX,metrics1-data-hicloud-com.ge.dbankedge.cn
 DOMAIN-SUFFIX,metrics1-data-hicloud-com.gere.dbankedge.cn
 DOMAIN-SUFFIX,metrics1-drcn-dt-dbankcloud-cn.ge.dbankedge.cn
@@ -2311,6 +2311,7 @@ DOMAIN-SUFFIX,report-in.opay.heytapmobile.com
 DOMAIN-SUFFIX,report-in.uc.heytapmobile.com
 DOMAIN-SUFFIX,report-sg.opay.heytapmobile.com
 DOMAIN-SUFFIX,report-sg.uc.heytapmobile.com
+DOMAIN-SUFFIX,report.diagnostic.networking.aws.dev
 DOMAIN-SUFFIX,report.gras.samsungdm.com
 DOMAIN-SUFFIX,report.n.xiaomi.com
 DOMAIN-SUFFIX,resolver.gslb.mi-idc.com
