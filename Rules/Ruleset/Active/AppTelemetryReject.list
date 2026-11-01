@@ -1,6 +1,6 @@
 # 内容：设备与应用内置遥测（HaGeZi native 追踪器清单）
 # 来源：https://raw.githubusercontent.com/hagezi/dns-blocklists/main/wildcard/native.apple.txt , https://raw.githubusercontent.com/hagezi/dns-blocklists/main/wildcard/native.samsung.txt , https://raw.githubusercontent.com/hagezi/dns-blocklists/main/wildcard/native.xiaomi.txt , https://raw.githubusercontent.com/hagezi/dns-blocklists/main/wildcard/native.huawei.txt , https://raw.githubusercontent.com/hagezi/dns-blocklists/main/wildcard/native.oppo-realme.txt , https://raw.githubusercontent.com/hagezi/dns-blocklists/main/wildcard/native.vivo.txt , https://raw.githubusercontent.com/hagezi/dns-blocklists/main/wildcard/native.winoffice.txt , https://raw.githubusercontent.com/hagezi/dns-blocklists/main/wildcard/native.tiktok.txt , https://raw.githubusercontent.com/hagezi/dns-blocklists/main/wildcard/native.amazon.txt , https://raw.githubusercontent.com/hagezi/dns-blocklists/main/wildcard/native.lgwebos.txt , https://raw.githubusercontent.com/hagezi/dns-blocklists/main/wildcard/native.roku.txt
-# 数量：3119条
+# 数量：3124条
 
 DOMAIN-SUFFIX,0001-metrics1-data-hicloud-com.geac.dbankedge.cn
 DOMAIN-SUFFIX,0001-metrics1-drcn-dt-dbankcloud-cn.geac.dbankedge.cn
@@ -305,6 +305,7 @@ DOMAIN-SUFFIX,adx-u-in.heytapmobile.com
 DOMAIN-SUFFIX,adx-u-ru.heytapmobile.com
 DOMAIN-SUFFIX,adx-u-sg.heytapmobile.com
 DOMAIN-SUFFIX,adx.tv.mi.com
+DOMAIN-SUFFIX,adxh3-op-sg.heytapmobile.com
 DOMAIN-SUFFIX,adxlog-adnet.vivo.com.cn
 DOMAIN-SUFFIX,adxu-bigo-sg.heytapmobile.com
 DOMAIN-SUFFIX,ae-ad-lgsmartad-com.aws-prd.net
@@ -488,6 +489,7 @@ DOMAIN-SUFFIX,arc1.msn.com
 DOMAIN-SUFFIX,arc2.msn.com
 DOMAIN-SUFFIX,arc3.msn.com
 DOMAIN-SUFFIX,arc9.msn.com
+DOMAIN-SUFFIX,arctb53wmig1gagbqjqgolj2ig.msn.com
 DOMAIN-SUFFIX,asia-abeacdataonrt-stsdk.vivoglobal.com
 DOMAIN-SUFFIX,asia-abeacdataort-stsdk.vivoglobal.com
 DOMAIN-SUFFIX,asia-ad-mkt-vivofs.vivoglobal.com
@@ -1052,6 +1054,7 @@ DOMAIN-SUFFIX,err.up.vivoglobal.com
 DOMAIN-SUFFIX,es-ad-lgsmartad-com.aws-prd.net
 DOMAIN-SUFFIX,et-ad-lgsmartad-com.aws-prd.net
 DOMAIN-SUFFIX,eu-album-api.vivoglobal.com
+DOMAIN-SUFFIX,eu-api-stsdk.vivoglobal.com
 DOMAIN-SUFFIX,eu-cota.vivoglobal.com
 DOMAIN-SUFFIX,eu-domaincfg.vivoglobal.com
 DOMAIN-SUFFIX,eu-errup.vivoglobal.com
@@ -1386,6 +1389,7 @@ DOMAIN-SUFFIX,in-adlog.vivoglobal.com
 DOMAIN-SUFFIX,in-adreq.vivoglobal.com
 DOMAIN-SUFFIX,in-adsjssdk.vivoglobal.com
 DOMAIN-SUFFIX,in-analyzer-appstore.vivoglobal.com
+DOMAIN-SUFFIX,in-api-stsdk.vivoglobal.com
 DOMAIN-SUFFIX,in-apponrt-stsdk.vivoglobal.com
 DOMAIN-SUFFIX,in-apport-stsdk.vivoglobal.com
 DOMAIN-SUFFIX,in-apppnrt-stsdk.vivoglobal.com
@@ -1403,6 +1407,7 @@ DOMAIN-SUFFIX,in-info-lgsmartad-com.aws-prd.net
 DOMAIN-SUFFIX,in-miuilog.sms.intl.xiaomi.com
 DOMAIN-SUFFIX,in-monitor-stsdk.vivoglobal.com
 DOMAIN-SUFFIX,in-news-abroad-backstage-interface.vivoglobal.com
+DOMAIN-SUFFIX,in-nrt-stsdk.vivoglobal.com
 DOMAIN-SUFFIX,in-onrt-stsdk.vivoglobal.com
 DOMAIN-SUFFIX,in-ort-stsdk.vivoglobal.com
 DOMAIN-SUFFIX,in-os-config-appstore.vivoglobal.com
