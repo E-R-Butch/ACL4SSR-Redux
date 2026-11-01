@@ -102,6 +102,12 @@ DOMAIN,gimg.staticimgs.com
 DOMAIN,spot-webws.wsbridge.com
 DOMAIN,fx-webws.wsbridge.com
 
+# Gate prediction-market WebSocket, including public trade/bookticker/lifecycle feeds.
+# https://www.gate.com/prediction
+# Official frontend: wss://prediction-ws.gateio.ws/v1/ws/prediction/web
+# Preserve the same proxy policy as the other Gate business endpoints.
+DOMAIN,prediction-ws.gateio.ws
+
 # Gate avatars, coin icons and the aggregated-search frontend distribution.
 # https://www.gate.com/docs/miniapp/manual/en/
 # https://static.panpno.com/micro-fe/prod/aggregated_search/static/js/main.4a5fa4be.js
