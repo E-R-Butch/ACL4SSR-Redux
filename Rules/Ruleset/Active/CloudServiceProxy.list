@@ -1,5 +1,10 @@
 # 云服务代理
 
+# Nektony license-management API (/lm/lapi/) embedded in App Cleaner & Uninstaller.
+# Preserve its observed proxy route; unauthenticated 403 responses are not license tests.
+# https://nektony.com/privacy-policy (licensed-user data is separate from program improvement)
+DOMAIN,apk2.nektony.com
+
 # Pearlhash public pool website and statistics API; this does not cover Stratum hosts.
 # https://pearlhash.xyz/
 # Direct samples timed out on one DNS answer; retain the observed proxy path.

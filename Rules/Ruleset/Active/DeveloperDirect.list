@@ -16,6 +16,17 @@ DOMAIN,mirrors.iu13.net
 # App-version sharing is documented separately; this is not a telemetry-free claim.
 DOMAIN,updatest.app
 
+# Nektony Sparkle feed/update packages and the VLC, Keka, Mos public appcasts.
+# App Cleaner & Uninstaller checks these feeds when scanning installed-app updates.
+# https://nektony.com/help/app-cleaner
+# https://download.nektony.com/pro-support/v3/app-cleaner/update/update.xml
+# Valid metadata on all four hosts; repeated 4 MiB Nektony DMG ranges were stable directly.
+# Dedicated Nektony reporting and licensing hosts have separate policies.
+DOMAIN,download.nektony.com
+DOMAIN,update.videolan.org
+DOMAIN,update.keka.io
+DOMAIN,mos.caldis.me
+
 # Google Open Source Insights package metadata and dependency graphs used by Tirith.
 # https://docs.deps.dev/api/v3/
 # Repeated valid API responses were stable directly; this is not a telemetry endpoint.

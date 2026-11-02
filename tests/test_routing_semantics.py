@@ -203,6 +203,7 @@ class RoutingSemanticsTests(unittest.TestCase):
             "2620:149:af1::10", "2620:149:af6::10", "2a01:b740:a30:2000::171",
             "2403:300:a16:1000::31", "2403:300:a30:1000::11", "2403:300:a30:1000::41",
             "2403:300:a0e:2000::141", "2403:300:a0e:1000::301",
+            "2403:300:a0e:1000::81", "2403:300:a0e:2000::181", "2403:300:a0e:1000::11",
         )
         for config_path in sorted((ROOT / "Config").glob("*.ini")):
             networks = []
@@ -302,6 +303,12 @@ class RoutingSemanticsTests(unittest.TestCase):
             "f2pool.zendesk.com": "🎯 全球直连",
             "api.oaistatsig.com": "REJECT",
             "tattle.api.osano.com": "REJECT",
+            "stc.nektony.com": "REJECT",
+            "apk2.nektony.com": "🚀 节点选择",
+            "download.nektony.com": "🎯 全球直连",
+            "update.videolan.org": "🎯 全球直连",
+            "update.keka.io": "🎯 全球直连",
+            "mos.caldis.me": "🎯 全球直连",
             "stunserver.stunprotocol.org": "REJECT",
             "stun.syncthing.net": "REJECT",
             "global.stun.twilio.com": "🚀 节点选择",
@@ -647,6 +654,11 @@ class RoutingSemanticsTests(unittest.TestCase):
                 "gavatar.staticimgs.com.example", "icon.gateimg.com.example",
                 "gateio.ws", "other.gateio.ws", "other.prediction-ws.gateio.ws",
                 "prediction-ws.gateio.ws.example", "web3-fomox-ws-prod.w3-api.com",
+                "nektony.com", "other.nektony.com", "other.apk2.nektony.com",
+                "stc.nektony.com.example", "download.nektony.com.example",
+                "other.update.videolan.org", "update.videolan.org.example",
+                "keka.io", "other.keka.io", "other.update.keka.io",
+                "caldis.me", "other.caldis.me", "other.mos.caldis.me",
                 "static.gateio.com",
                 "other.bsbsb.top", "bsbsb.top.example",
                 "other.okx.com.cdn.cloudflare.net", "unrelated.cdn.cloudflare.net",
