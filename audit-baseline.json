@@ -1,9 +1,10 @@
 {
   "note": "Reviewed rule conflicts that the ini order intentionally accepts. See README '规则优先级与已知取舍'. Refresh with: python3 scripts/audit_rules.py --update-baseline",
-  "count": 72,
+  "count": 73,
   "accepted": [
     "duplicate|Rules/Core/ProxyGFWlist.list|DOMAIN-SUFFIX,admob.com|Rules/Outputs/MergedADBan.list|DOMAIN-SUFFIX,admob.com|🛑 广告拦截",
     "duplicate|Rules/Core/ProxyGFWlist.list|DOMAIN-SUFFIX,ads-twitter.com|Rules/Outputs/MergedADBan.list|DOMAIN-SUFFIX,ads-twitter.com|🛑 广告拦截",
+    "duplicate|Rules/Core/ProxyGFWlist.list|DOMAIN-SUFFIX,bilibili.tv|Rules/Ruleset/Active/ChinaMedia.list|DOMAIN-SUFFIX,bilibili.tv|🌏 国内媒体",
     "duplicate|Rules/Core/ProxyGFWlist.list|DOMAIN-SUFFIX,crashlytics.com|Rules/Ruleset/Active/AppleReject.list|DOMAIN-SUFFIX,crashlytics.com|🔒 隐私保护",
     "duplicate|Rules/Core/ProxyGFWlist.list|DOMAIN-SUFFIX,googlecommerce.com|Rules/Outputs/MergedADBan.list|DOMAIN-SUFFIX,googlecommerce.com|🛑 广告拦截",
     "duplicate|Rules/Core/ProxyGFWlist.list|DOMAIN-SUFFIX,incloak.com|Rules/Outputs/MergedADBan.list|DOMAIN-SUFFIX,incloak.com|🛑 广告拦截",

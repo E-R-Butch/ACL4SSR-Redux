@@ -4,7 +4,7 @@ import re
 import tempfile
 import unittest
 
-from scripts import validate_rules
+from scripts import audit_rules, validate_rules
 
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
@@ -32,6 +32,24 @@ class RoutingSemanticsTests(unittest.TestCase):
             path = pathlib.Path(directory) / "config.ini"
             path.write_text(text, encoding="utf-8")
             return validate_rules.validate_ini(path)
+
+    def test_bilibili_keeps_explicit_media_policy_before_gfwlist(self):
+        # An upstream GFWList addition must not silently change the existing
+        # service policy. Its exact overlap is reviewed in audit-baseline.json.
+        ordered = audit_rules.collect_ranked_rules(self.text.splitlines())
+        for host in ("bilibili.tv", "www.bilibili.tv", "bilibili.com", "www.bilibili.com"):
+            with self.subTest(host=host):
+                winner = next(rule for rule in ordered if (
+                    rule["type"] == "DOMAIN" and host == rule["value"] or
+                    rule["type"] == "DOMAIN-SUFFIX" and
+                    (host == rule["value"] or host.endswith("." + rule["value"])) or
+                    rule["type"] == "DOMAIN-KEYWORD" and rule["value"] in host
+                ))
+                self.assertEqual(winner["target"], "🌏 国内媒体")
+                self.assertEqual(audit_rules.source_name(winner), "Rules/Ruleset/Active/ChinaMedia.list")
+        self.assertEqual(
+            validate_rules.group_selectors(self.definitions["🌏 国内媒体"])[0], "[]DIRECT"
+        )
 
     def test_original_claude_indirect_direct_route_is_rejected(self):
         text = self.text.replace("🎭 Claude`select`[]🎭 Claude 自动", "🎭 Claude`select`[]🚀 节点选择")
