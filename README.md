@@ -109,6 +109,8 @@ https://raw.githubusercontent.com/E-R-Butch/ACL4SSR-Redux/master/Config/ACL4SSR_
 
 `ProxyGFWlist.list`、`ChinaIp.list`、`ChinaIpV6.list`、`BanEasy*.list` 由每日同步生成，其中的条目被更早的规则覆盖属于预期（自动同步会把它们写回来），不要手工删除；`scripts/audit_rules.py` 的基线负责把这些已知条目与新增冲突区分开。
 
+2026-11-04 复核 [GFWList 新增的 `bilibili.tv`](https://github.com/gfwlist/gfwlist/commit/e1ff22048acbf77bd7b21906355c47e44d3ecda5)：保留其生成条目，同时保留现有 `ChinaMedia.list` 的优先级，首个命中仍为「🌏 国内媒体」（默认 DIRECT，可手动选择代理）。此处只把这一条已复核的重叠加入基线，并用分流回归测试固定原有行为，不代表验证了国际站的地区可用性；其它新增冲突仍需单独复核。
+
 ## 📦 Provider 生成与再平衡
 
 `scripts/split_providers.py` 把广告与隐私这面单独抽出来做全局去重和多文件再平衡，产物由客户端以 `rule-provider` + `RULE-SET` 引用：
