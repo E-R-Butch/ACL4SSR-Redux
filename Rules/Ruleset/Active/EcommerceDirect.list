@@ -10,3 +10,15 @@ DOMAIN,cas.avalon.perfdrive.com
 
 # Ozon 帮助中心；不扩大到其他 Ozon 业务
 DOMAIN,global-help.ozon.com
+
+# eSIM.GG public coverage, account entry, and rates API.
+# https://esim.gg/rates/world-map
+# Keep the three service hosts on the same route. Public pages and rates were verified directly.
+DOMAIN,esim.gg
+DOMAIN,account.esim.gg
+DOMAIN,api.esim.gg
+
+# Toss static assets include the flag icons used by the eSIM.GG storefront.
+# https://tossmini-docs.toss.im/tds-react-native/components/asset/
+# The referenced PNG and a 4 MiB PDF range were verified directly.
+DOMAIN,static.toss.im

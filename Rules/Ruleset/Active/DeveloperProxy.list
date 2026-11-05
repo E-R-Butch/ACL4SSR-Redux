@@ -1,5 +1,10 @@
 # 开发代理
 
+# GHFast relays public GitHub downloads and Git Smart HTTP.
+# https://ghfast.top/
+# A pinned public Git revision timed out directly and yielded valid packs through the proxy.
+DOMAIN,ghfast.top
+
 # Exa hosted Search/Fetch MCP; initialize, tools/list and web_fetch_exa verified.
 # https://exa.ai/docs/get-started/exa-mcp
 # Both paths worked; actual fetch calls had lower median latency through the proxy.

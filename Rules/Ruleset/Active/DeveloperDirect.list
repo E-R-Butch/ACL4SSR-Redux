@@ -1,5 +1,11 @@
 # 开发直连
 
+# Public telecom and networking discussions and guides.
+# Both sites returned usable pages in repeated direct transfers.
+DOMAIN,forum.naixi.net
+DOMAIN,www.wenziwanka.com
+DOMAIN,www\\.wenziwanka.com
+
 # Btrfs official documentation; repeated complete manual-page transfers favor direct.
 # https://btrfs.readthedocs.io/en/latest/
 DOMAIN,btrfs.readthedocs.io

@@ -310,6 +310,14 @@ class RoutingSemanticsTests(unittest.TestCase):
 
     def test_web_service_routes_preserve_privacy_blocks_and_dedicated_ai_policies(self):
         expected = {
+            "ghfast.top": "🚀 节点选择",
+            "esim.gg": "🎯 全球直连",
+            "account.esim.gg": "🎯 全球直连",
+            "api.esim.gg": "🎯 全球直连",
+            "forum.naixi.net": "🎯 全球直连",
+            "www.wenziwanka.com": "🎯 全球直连",
+            r"www\\.wenziwanka.com": "🎯 全球直连",
+            "static.toss.im": "🎯 全球直连",
             "cdn.cookielaw.org": "🎯 全球直连",
             "cookies-data.onetrust.io": "🎯 全球直连",
             "geolocation.onetrust.com": "🎯 全球直连",
