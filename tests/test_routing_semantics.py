@@ -570,6 +570,7 @@ class RoutingSemanticsTests(unittest.TestCase):
             self.assertEqual(first_policy("www.google-analytics.com"), "🛑 广告拦截")
             self.assertEqual(first_policy("appsgrowthpromo-pa.clients6.google.com"), "REJECT")
             for host in (
+                "dl.google.com",
                 "drive.google.com", "accounts.google.com", "contacts.google.com", "ogs.google.com",
                 "addons-pa.clients6.google.com", "taskassist-pa.clients6.google.com",
                 "signaler-pa.clients6.google.com", "peoplestack-pa.clients6.google.com",
