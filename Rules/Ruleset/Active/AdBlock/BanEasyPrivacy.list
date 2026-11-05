@@ -1,7 +1,7 @@
 # 广告列表 adblock rules
 # 内容：EasyPrivacy列表，隐私保护，屏蔽隐私追踪
 # 来源：https://easylist-downloads.adblockplus.org/easyprivacy.txt
-# 数量：40673条
+# 数量：40676条
 
 DOMAIN-SUFFIX,0.myikas.com
 DOMAIN-SUFFIX,0.net.easyjet.com
@@ -14667,7 +14667,6 @@ DOMAIN-SUFFIX,hopeful.coh.org
 DOMAIN-SUFFIX,horacemann.actonservice.com
 DOMAIN-SUFFIX,horizon-track.globo.com
 DOMAIN-SUFFIX,horizon.globo.com
-DOMAIN-SUFFIX,horizoneurope.ukri.org
 DOMAIN-SUFFIX,horizononline.actonservice.com
 DOMAIN-SUFFIX,hospitality.redbull.racing
 DOMAIN-SUFFIX,host.roxiapp.com
@@ -16892,6 +16891,7 @@ DOMAIN-SUFFIX,jrucbb.guestreservations.com
 DOMAIN-SUFFIX,jrxrit.europcar.de
 DOMAIN-SUFFIX,jrzgcz.ciociariaoggi.it
 DOMAIN-SUFFIX,jrzgcz.latinaoggi.eu
+DOMAIN-SUFFIX,js-error-tracer-api.cafe24.com
 DOMAIN-SUFFIX,js.verisoul.ai
 DOMAIN-SUFFIX,jscoinminer.com
 DOMAIN-SUFFIX,jshkyh.29cm.co.kr
@@ -18581,6 +18581,7 @@ DOMAIN-SUFFIX,logtake.weidian.com
 DOMAIN-SUFFIX,logx-experimentation.iherb.com
 DOMAIN-SUFFIX,logx.optimizely.com
 DOMAIN-SUFFIX,lokalwerben.t-online.de
+DOMAIN-SUFFIX,loki-ingest.fox.com
 DOMAIN-SUFFIX,loobmf.hardloop.fr
 DOMAIN-SUFFIX,look-ahead.nurturemarketing.com
 DOMAIN-SUFFIX,loopcybersec.com
@@ -21624,6 +21625,7 @@ DOMAIN-SUFFIX,metrics.jungheinrich-profishop.co.uk
 DOMAIN-SUFFIX,metrics.kadcyla.com
 DOMAIN-SUFFIX,metrics.kaercher.com
 DOMAIN-SUFFIX,metrics.kao.com
+DOMAIN-SUFFIX,metrics.kapa.ai
 DOMAIN-SUFFIX,metrics.kawai-juku.ac.jp
 DOMAIN-SUFFIX,metrics.kayosports.com.au
 DOMAIN-SUFFIX,metrics.kempinski.com
@@ -24759,6 +24761,7 @@ DOMAIN-SUFFIX,processusmetier.ricoh.fr
 DOMAIN-SUFFIX,procroanalytics.com
 DOMAIN-SUFFIX,procurement.cipscomms.org
 DOMAIN-SUFFIX,prod-events.nykaa.com
+DOMAIN-SUFFIX,prod-foxkit.kts.fox
 DOMAIN-SUFFIX,prod.ew.srp.navigacloud.com
 DOMAIN-SUFFIX,prod.fennec.atp.fox
 DOMAIN-SUFFIX,prod.nitrosniffer.ottogroup.io
