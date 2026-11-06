@@ -310,6 +310,10 @@ class RoutingSemanticsTests(unittest.TestCase):
 
     def test_web_service_routes_preserve_privacy_blocks_and_dedicated_ai_policies(self):
         expected = {
+            "api.adoptium.net": "🎯 全球直连",
+            "services.gradle.org": "🎯 全球直连",
+            "plugins.gradle.org": "🎯 全球直连",
+            "plugins-artifacts.gradle.org": "🎯 全球直连",
             "ghfast.top": "🚀 节点选择",
             "esim.gg": "🎯 全球直连",
             "account.esim.gg": "🎯 全球直连",

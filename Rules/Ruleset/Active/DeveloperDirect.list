@@ -1,5 +1,18 @@
 # 开发直连
 
+# Adoptium Temurin release metadata and the binary redirect entry point.
+# https://api.adoptium.net/q/swagger-ui/
+# Both API responses and release redirects completed reliably over direct connections.
+DOMAIN,api.adoptium.net
+
+# Gradle Wrapper distribution entry, Plugin Portal metadata, and plugin binaries.
+# https://docs.gradle.org/current/userguide/gradle_wrapper.html
+# https://plugins.gradle.org/docs/mirroring
+# Direct metadata requests and identical 4 MiB plugin JAR ranges were faster.
+DOMAIN,services.gradle.org
+DOMAIN,plugins.gradle.org
+DOMAIN,plugins-artifacts.gradle.org
+
 # Public telecom and networking discussions and guides.
 # Both sites returned usable pages in repeated direct transfers.
 DOMAIN,forum.naixi.net
