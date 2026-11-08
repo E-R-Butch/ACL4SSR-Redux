@@ -1,6 +1,6 @@
 # 内容：设备与应用内置遥测（HaGeZi native 追踪器清单）
 # 来源：https://raw.githubusercontent.com/hagezi/dns-blocklists/main/wildcard/native.apple.txt , https://raw.githubusercontent.com/hagezi/dns-blocklists/main/wildcard/native.samsung.txt , https://raw.githubusercontent.com/hagezi/dns-blocklists/main/wildcard/native.xiaomi.txt , https://raw.githubusercontent.com/hagezi/dns-blocklists/main/wildcard/native.huawei.txt , https://raw.githubusercontent.com/hagezi/dns-blocklists/main/wildcard/native.oppo-realme.txt , https://raw.githubusercontent.com/hagezi/dns-blocklists/main/wildcard/native.vivo.txt , https://raw.githubusercontent.com/hagezi/dns-blocklists/main/wildcard/native.winoffice.txt , https://raw.githubusercontent.com/hagezi/dns-blocklists/main/wildcard/native.tiktok.txt , https://raw.githubusercontent.com/hagezi/dns-blocklists/main/wildcard/native.amazon.txt , https://raw.githubusercontent.com/hagezi/dns-blocklists/main/wildcard/native.lgwebos.txt , https://raw.githubusercontent.com/hagezi/dns-blocklists/main/wildcard/native.roku.txt
-# 数量：3179条
+# 数量：3183条
 
 DOMAIN-SUFFIX,0001-metrics1-data-hicloud-com.geac.dbankedge.cn
 DOMAIN-SUFFIX,0001-metrics1-drcn-dt-dbankcloud-cn.geac.dbankedge.cn
@@ -1237,6 +1237,7 @@ DOMAIN-SUFFIX,frontier.byteoversea.com
 DOMAIN-SUFFIX,frontier.capcutw.us
 DOMAIN-SUFFIX,frontier.capcutw.us.edgesuite.net
 DOMAIN-SUFFIX,frontier.us.capcut.com
+DOMAIN-SUFFIX,fxltsbl.com
 DOMAIN-SUFFIX,g.bing.com
 DOMAIN-SUFFIX,g00.msn.com
 DOMAIN-SUFFIX,ga-ad-lgsmartad-com.aws-prd.net
@@ -1355,6 +1356,7 @@ DOMAIN-SUFFIX,huosai.xiaomi.com
 DOMAIN-SUFFIX,hybrid.miui.com
 DOMAIN-SUFFIX,i-cn01a.ocloud.heytapmobi.com
 DOMAIN-SUFFIX,i-in.browser.heytapmobile.com
+DOMAIN-SUFFIX,i-insurance.finzfin.com
 DOMAIN-SUFFIX,i-sg.browser.heytapmobile.com
 DOMAIN-SUFFIX,i-sg01a.ocloud.heytapmobi.com
 DOMAIN-SUFFIX,i-th.browser.heytapmobile.com
@@ -2122,6 +2124,7 @@ DOMAIN-SUFFIX,nz-info-lgsmartad-com.aws-prd.net
 DOMAIN-SUFFIX,o.xbox.com
 DOMAIN-SUFFIX,o2o.api.xiaomi.com
 DOMAIN-SUFFIX,obus-cn.dc.heytapmobi.com
+DOMAIN-SUFFIX,obus-conf-cn.heytapmobi.com
 DOMAIN-SUFFIX,obus-conf-fr.heytapmobile.com
 DOMAIN-SUFFIX,obus-conf-in.heytapmobile.com
 DOMAIN-SUFFIX,obus-conf-sg.heytapmobile.com
@@ -2319,6 +2322,7 @@ DOMAIN-SUFFIX,pt-rdx2-lgtvsdp-com.aws-prd.net
 DOMAIN-SUFFIX,ptmi.gitv.pandora.xiaomi.com
 DOMAIN-SUFFIX,pull.mitv.pandora.xiaomi.com
 DOMAIN-SUFFIX,puma-api.ptqy.gitv.tv
+DOMAIN-SUFFIX,push-ads-cn.heytapmobi.com
 DOMAIN-SUFFIX,push-dc-us.heytapmobile.com
 DOMAIN-SUFFIX,push.heytapmobile.com
 DOMAIN-SUFFIX,py-ad-lgsmartad-com.aws-prd.net
