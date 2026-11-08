@@ -1,0 +1,10 @@
+# Apple Intelligence / ChatGPT extension OHTTP relay
+# OpenAI OAuth 之后，系统用这些中继把授权码换成凭据并写入钥匙串。
+# 中继必须与 OpenAI 组走同一节点，否则表现为「登录窗口成功、设置页没反应」。
+# 未验证的 HTTP 探测不能判定 PCC 状态，只按中继主机归类，不要扩展到整个 Apple 分配段。
+# https://support.apple.com/101555
+DOMAIN,apple-relay.apple.com
+DOMAIN,apple-relay.cloudflare.com
+DOMAIN,apple-relay.fastly-edge.com
+DOMAIN,apple-relay.mask.apple-dns.net
+DOMAIN,cp4.cloudflare.com

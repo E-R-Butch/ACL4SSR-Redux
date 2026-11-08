@@ -309,6 +309,12 @@ class RoutingSemanticsTests(unittest.TestCase):
             self.assertLess(last_domain, first_google_ip)
 
     def test_web_service_routes_preserve_privacy_blocks_and_dedicated_ai_policies(self):
+        # 只按精确主机放行的条目：父域另有策略，合成 child.<host> 会命中父域规则而不是这条。
+        exact_only_hosts = {
+            "apple-relay.apple.com",
+            "apple-relay.cloudflare.com",
+            "cp4.cloudflare.com",
+        }
         expected = {
             "api.adoptium.net": "🎯 全球直连",
             "services.gradle.org": "🎯 全球直连",
@@ -453,7 +459,11 @@ class RoutingSemanticsTests(unittest.TestCase):
             "harmless-tapir-303.convex.cloud": "🚀 节点选择",
             "s3proxy-alp2-covers.cdn-zlib.sk": "🚀 节点选择",
             "gateway.fe2.apple-dns.net": "🍎 苹果服务",
-            "apple-relay.fastly-edge.com": "🚀 节点选择",
+            "apple-relay.apple.com": "🤖 OpenAI",
+            "apple-relay.cloudflare.com": "🤖 OpenAI",
+            "apple-relay.fastly-edge.com": "🤖 OpenAI",
+            "apple-relay.mask.apple-dns.net": "🤖 OpenAI",
+            "cp4.cloudflare.com": "🤖 OpenAI",
             "ohttp-relay1.fastly-edge.com": "🍎 苹果服务",
             "ocsp.usertrust.com": "🎯 全球直连",
             "ocsp.comodoca.com": "🎯 全球直连",
@@ -525,6 +535,15 @@ class RoutingSemanticsTests(unittest.TestCase):
 
             for host, policy in expected.items():
                 with self.subTest(config=config_path.name, service=host):
+                    self.assertEqual(first_policy(host), policy)
+
+            # 精确主机只改自己；同名子域继续跟随父域策略（Apple 组 / Cloudflare 组）。
+            for host, policy in {
+                "child.apple-relay.apple.com": "🍎 苹果服务",
+                "child.apple-relay.cloudflare.com": "🚀 节点选择",
+                "child.cp4.cloudflare.com": "🚀 节点选择",
+            }.items():
+                with self.subTest(config=config_path.name, exact_only_child=host):
                     self.assertEqual(first_policy(host), policy)
 
             # The API exception must not move Steam downloads/images or Windows probes to proxy.
@@ -668,7 +687,8 @@ class RoutingSemanticsTests(unittest.TestCase):
             for host in (
                 "random.zendesk.com", "unverified.onetrust.io", "unverified.onetrust.com",
                 "unverified.cookielaw.org", "unverified.jibecdn.com", "unverified.icims.com",
-                "unverified.oaistatsig.com", *("child." + host for host in expected),
+                "unverified.oaistatsig.com",
+                *("child." + host for host in expected if host not in exact_only_hosts),
                 "other.chub.ai", "charhub.io", "other.charhub.io",
                 "static.cloudflareinsights.com.example", "odo.chub.ai.example",
                 "other.online-metrix.net", "cnouyi.pizza", "other.cnouyi.pizza",
