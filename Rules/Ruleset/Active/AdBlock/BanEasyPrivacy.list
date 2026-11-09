@@ -1,7 +1,7 @@
 # 广告列表 adblock rules
 # 内容：EasyPrivacy列表，隐私保护，屏蔽隐私追踪
 # 来源：https://easylist-downloads.adblockplus.org/easyprivacy.txt
-# 数量：40676条
+# 数量：40694条
 
 DOMAIN-SUFFIX,0.myikas.com
 DOMAIN-SUFFIX,0.net.easyjet.com
@@ -5048,6 +5048,7 @@ DOMAIN-SUFFIX,analytics-fe.digital-cloud-prem.medallia.com
 DOMAIN-SUFFIX,analytics-fe.digital-cloud-prem.medallia.eu
 DOMAIN-SUFFIX,analytics-fe.digital-cloud.medallia.ca
 DOMAIN-SUFFIX,analytics-fe.digital-cloud.medallia.com
+DOMAIN-SUFFIX,analytics-fe.digital-cloud.medallia.eu
 DOMAIN-SUFFIX,analytics-gw.games.wanmei.com
 DOMAIN-SUFFIX,analytics-hub.3plearning.com
 DOMAIN-SUFFIX,analytics-ipv6.tiktokw.us
@@ -5765,6 +5766,7 @@ DOMAIN-SUFFIX,apfbrk.butorline.hu
 DOMAIN-SUFFIX,apharponloun.com
 DOMAIN-SUFFIX,aphxav.green-acres.it
 DOMAIN-SUFFIX,api-analytics-prd.pelcro.com
+DOMAIN-SUFFIX,api-engage-us.sitecorecloud.io
 DOMAIN-SUFFIX,api-hotmart-tracking-manager.hotmart.com
 DOMAIN-SUFFIX,api-js.mixpanel.com
 DOMAIN-SUFFIX,api-metric.gosweb.gosuslugi.ru
@@ -7587,6 +7589,7 @@ DOMAIN-SUFFIX,bopmkf.lolahome.es
 DOMAIN-SUFFIX,boqufs.2nn.jp
 DOMAIN-SUFFIX,boss.openapp.link
 DOMAIN-SUFFIX,bot.asksyllable.com
+DOMAIN-SUFFIX,bot.cdn.adeo.cloud
 DOMAIN-SUFFIX,bot.stackbots.com
 DOMAIN-SUFFIX,bot.streaktrivia.com
 DOMAIN-SUFFIX,botb.rtl2.de
@@ -8209,6 +8212,7 @@ DOMAIN-SUFFIX,cdn.9gtb.com
 DOMAIN-SUFFIX,cdn.arcstudiopro.com
 DOMAIN-SUFFIX,cdn.dfsdk.com
 DOMAIN-SUFFIX,cdn.eaec.fpfis.tech.ec.europa.eu
+DOMAIN-SUFFIX,cdn.ltba.io
 DOMAIN-SUFFIX,cdn.net.dz.jumia.com
 DOMAIN-SUFFIX,cdn.net.elogia.net
 DOMAIN-SUFFIX,cdn.polarbyte.com
@@ -8695,6 +8699,7 @@ DOMAIN-SUFFIX,collect.vans.com.cn
 DOMAIN-SUFFIX,collect.verify.lnearn.com
 DOMAIN-SUFFIX,collect2.allianz.ch
 DOMAIN-SUFFIX,collectfront.nector.io
+DOMAIN-SUFFIX,collection.cyberprocurement.com
 DOMAIN-SUFFIX,collection.mola.tv
 DOMAIN-SUFFIX,collection.saga.co.uk
 DOMAIN-SUFFIX,collections.equifax.com
@@ -10994,6 +10999,7 @@ DOMAIN-SUFFIX,dmuwlm.fonteynspas.com
 DOMAIN-SUFFIX,dmvbpz.swimoutlet.com
 DOMAIN-SUFFIX,dmw2pzbenclyd.cloudfront.net
 DOMAIN-SUFFIX,dmxhgf4zuwdvu.cloudfront.net
+DOMAIN-SUFFIX,dn-analytics.alketech.eu
 DOMAIN-SUFFIX,dn34cbtcv9mef.cloudfront.net
 DOMAIN-SUFFIX,dna.uol.com.br
 DOMAIN-SUFFIX,dncxgm.pegadorfashion.com
@@ -23321,6 +23327,7 @@ DOMAIN-SUFFIX,obs.du89buildings.com
 DOMAIN-SUFFIX,obs.esnlocco.com
 DOMAIN-SUFFIX,obs.greencolumnblog.com
 DOMAIN-SUFFIX,obs.jollyoutdoorjogger.com
+DOMAIN-SUFFIX,obs.protoroundprince.com
 DOMAIN-SUFFIX,obs.sd4823.spglobal.com
 DOMAIN-SUFFIX,obs.system1onesource.com
 DOMAIN-SUFFIX,observe-nexus.pointandplace.com
@@ -23948,6 +23955,7 @@ DOMAIN-SUFFIX,p.iforge.app
 DOMAIN-SUFFIX,p.imgur.gg
 DOMAIN-SUFFIX,p.jmlp.app
 DOMAIN-SUFFIX,p.logbox.io
+DOMAIN-SUFFIX,p.marktplaats.net
 DOMAIN-SUFFIX,p.marqueplace.com
 DOMAIN-SUFFIX,p.mdb.tools
 DOMAIN-SUFFIX,p.meilentrio.de
@@ -24362,8 +24370,10 @@ DOMAIN-SUFFIX,pixel.mtrcs.samba.tv
 DOMAIN-SUFFIX,pixel.newscred.com
 DOMAIN-SUFFIX,pixel.nine.com.au
 DOMAIN-SUFFIX,pixel.nudgify.com
+DOMAIN-SUFFIX,pixel.optimeeze.data.adeo.cloud
 DOMAIN-SUFFIX,pixel.patch.com
 DOMAIN-SUFFIX,pixel.poptok.com
+DOMAIN-SUFFIX,pixel.profound.click
 DOMAIN-SUFFIX,pixel.propublica.org
 DOMAIN-SUFFIX,pixel.pub.lilyai.net
 DOMAIN-SUFFIX,pixel.quantserve.com
@@ -24872,6 +24882,7 @@ DOMAIN-SUFFIX,pt.crossmediaservices.com
 DOMAIN-SUFFIX,pt.dwcdn.net
 DOMAIN-SUFFIX,pt.ispot.tv
 DOMAIN-SUFFIX,pt.legalstart.fr
+DOMAIN-SUFFIX,pt.wisernotify.com
 DOMAIN-SUFFIX,ptlpel.tui.at
 DOMAIN-SUFFIX,ptmcos.beginning.kr
 DOMAIN-SUFFIX,ptrenx.vidaxl.com.au
@@ -25775,6 +25786,7 @@ DOMAIN-SUFFIX,rum.cdnpure.com
 DOMAIN-SUFFIX,rum.condenastdigital.com
 DOMAIN-SUFFIX,rum.corewebvitals.io
 DOMAIN-SUFFIX,rum.cronitor.io
+DOMAIN-SUFFIX,rum.haystack.es
 DOMAIN-SUFFIX,rum.hlx.page
 DOMAIN-SUFFIX,rum.ingress.layer0.co
 DOMAIN-SUFFIX,rum.layer0.co
@@ -25976,6 +25988,7 @@ DOMAIN-SUFFIX,s4.parkeren-haarlem.nl
 DOMAIN-SUFFIX,s4.parkeren-utrecht.nl
 DOMAIN-SUFFIX,s46849916.sc.origins.en25.com
 DOMAIN-SUFFIX,s4e8.cascades.com
+DOMAIN-SUFFIX,s4vrsde.www.arturia.com
 DOMAIN-SUFFIX,s5.charliehebdo.fr
 DOMAIN-SUFFIX,s615419487.sc.origins.en25.com
 DOMAIN-SUFFIX,s861531437.sc.origins.en25.com
@@ -31637,6 +31650,7 @@ DOMAIN-SUFFIX,sst.carwow
 DOMAIN-SUFFIX,sst.colemanfurniture.com
 DOMAIN-SUFFIX,sst.cooperativa.cl
 DOMAIN-SUFFIX,sst.fdiintelligence.com
+DOMAIN-SUFFIX,sst.leroymerlin.pl
 DOMAIN-SUFFIX,sst.shopware.com
 DOMAIN-SUFFIX,sst.vrijopnaam.nl
 DOMAIN-SUFFIX,sstat.3pagen.at
@@ -33968,6 +33982,7 @@ DOMAIN-SUFFIX,tag.shopping-feed.com
 DOMAIN-SUFFIX,tag.statshop.fr
 DOMAIN-SUFFIX,tag.triboomedia.it
 DOMAIN-SUFFIX,tag.unifyintent.com
+DOMAIN-SUFFIX,tag.web.onesdata.com
 DOMAIN-SUFFIX,tag.weezmo.com
 DOMAIN-SUFFIX,tagcommander.laredoute.be
 DOMAIN-SUFFIX,tagcommander.laredoute.ch
@@ -33976,6 +33991,7 @@ DOMAIN-SUFFIX,tagged-events.outbound-links.js
 DOMAIN-SUFFIX,tagged-events.revenue.js
 DOMAIN-SUFFIX,tagger.ope.scmp.com
 DOMAIN-SUFFIX,tagger.opecloud.com
+DOMAIN-SUFFIX,tagging.conde.digital
 DOMAIN-SUFFIX,tagging.shiftdigitalapps.io
 DOMAIN-SUFFIX,tagging.sliponline.nl
 DOMAIN-SUFFIX,tagging.steelseries.com
@@ -36143,6 +36159,7 @@ DOMAIN-SUFFIX,track.abrdnjapan.co.uk
 DOMAIN-SUFFIX,track.abrdnnewindia.co.uk
 DOMAIN-SUFFIX,track.abrdnpit.co.uk
 DOMAIN-SUFFIX,track.addevent.com
+DOMAIN-SUFFIX,track.adzeb.com
 DOMAIN-SUFFIX,track.aimroas.com
 DOMAIN-SUFFIX,track.americansongwriter.com
 DOMAIN-SUFFIX,track.asia-focus.co.uk
@@ -36866,6 +36883,7 @@ DOMAIN-SUFFIX,tracking.online.nl.adp.com
 DOMAIN-SUFFIX,tracking.online.wisc.edu
 DOMAIN-SUFFIX,tracking.opentable.com
 DOMAIN-SUFFIX,tracking.oppd.com
+DOMAIN-SUFFIX,tracking.optimeeze.data.adeo.cloud
 DOMAIN-SUFFIX,tracking.orientladies.de
 DOMAIN-SUFFIX,tracking.osteuropaladies.de
 DOMAIN-SUFFIX,tracking.oswegohealth.org
