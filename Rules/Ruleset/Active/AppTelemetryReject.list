@@ -1,6 +1,6 @@
 # 内容：设备与应用内置遥测（HaGeZi native 追踪器清单）
 # 来源：https://raw.githubusercontent.com/hagezi/dns-blocklists/main/wildcard/native.apple.txt , https://raw.githubusercontent.com/hagezi/dns-blocklists/main/wildcard/native.samsung.txt , https://raw.githubusercontent.com/hagezi/dns-blocklists/main/wildcard/native.xiaomi.txt , https://raw.githubusercontent.com/hagezi/dns-blocklists/main/wildcard/native.huawei.txt , https://raw.githubusercontent.com/hagezi/dns-blocklists/main/wildcard/native.oppo-realme.txt , https://raw.githubusercontent.com/hagezi/dns-blocklists/main/wildcard/native.vivo.txt , https://raw.githubusercontent.com/hagezi/dns-blocklists/main/wildcard/native.winoffice.txt , https://raw.githubusercontent.com/hagezi/dns-blocklists/main/wildcard/native.tiktok.txt , https://raw.githubusercontent.com/hagezi/dns-blocklists/main/wildcard/native.amazon.txt , https://raw.githubusercontent.com/hagezi/dns-blocklists/main/wildcard/native.lgwebos.txt , https://raw.githubusercontent.com/hagezi/dns-blocklists/main/wildcard/native.roku.txt
-# 数量：3183条
+# 数量：3187条
 
 DOMAIN-SUFFIX,0001-metrics1-data-hicloud-com.geac.dbankedge.cn
 DOMAIN-SUFFIX,0001-metrics1-drcn-dt-dbankcloud-cn.geac.dbankedge.cn
@@ -121,7 +121,6 @@ DOMAIN-SUFFIX,activity.browser.intl.miui.com
 DOMAIN-SUFFIX,activity.hybrid.xiaomi.com
 DOMAIN-SUFFIX,activity.windows.com
 DOMAIN-SUFFIX,ad-drcn.media.dbankcloud.cn
-DOMAIN-SUFFIX,ad-drcn.media.dbankcloud.ru
 DOMAIN-SUFFIX,ad-format-i18n.tiktokv.com
 DOMAIN-SUFFIX,ad-format-ie.tiktokv.eu
 DOMAIN-SUFFIX,ad-format-ru.tiktokv.com
@@ -424,14 +423,11 @@ DOMAIN-SUFFIX,api-analytics-qa.samsungknox.com
 DOMAIN-SUFFIX,api-analytics.samsungknox.com
 DOMAIN-SUFFIX,api-cn.cdo.heytapmobi.com
 DOMAIN-SUFFIX,api-gl.cdo.heytapmobi.com
-DOMAIN-SUFFIX,api-gl.cdo.heytapmobile.com
-DOMAIN-SUFFIX,api-id.cdo.heytapmobile.com
 DOMAIN-SUFFIX,api-id.game.heytapmobi.com
 DOMAIN-SUFFIX,api-id.game.heytapmobile.com
 DOMAIN-SUFFIX,api-id.play.heytapmobile.com
 DOMAIN-SUFFIX,api-id.theme.heytapmobi.com
 DOMAIN-SUFFIX,api-id.theme.heytapmobile.com
-DOMAIN-SUFFIX,api-in.cdo.heytapmobile.com
 DOMAIN-SUFFIX,api-rec.stellar.intl.miui.com
 DOMAIN-SUFFIX,api-samsung.swypeconnect.com
 DOMAIN-SUFFIX,api.accelerator.intl.miui.com
@@ -470,6 +466,12 @@ DOMAIN-SUFFIX,api.xmpush.global.xiaomi.com
 DOMAIN-SUFFIX,api.xmpush.xiaomi.com
 DOMAIN-SUFFIX,apisnd.heytapmobi.com
 DOMAIN-SUFFIX,apkrep.ff.avast.sec.miui.com
+DOMAIN-SUFFIX,apm-ap.yun.hihonor.com
+DOMAIN-SUFFIX,apm-eu.yun.hihonor.com
+DOMAIN-SUFFIX,apm-fr.yun.hihonor.com
+DOMAIN-SUFFIX,apm-ru.yun.hihonor.com
+DOMAIN-SUFFIX,apm-sg.yun.hihonor.com
+DOMAIN-SUFFIX,apm.yun.hihonor.com
 DOMAIN-SUFFIX,app-events.infoapps.apple.com
 DOMAIN-SUFFIX,app.greengurad.sec.miui.com
 DOMAIN-SUFFIX,app.migc.xiaomi.com
@@ -640,9 +642,7 @@ DOMAIN-SUFFIX,browser-sdk-in.heytapmobile.com
 DOMAIN-SUFFIX,browser-sdk-ru.heytapmobile.com
 DOMAIN-SUFFIX,browser.miui.com
 DOMAIN-SUFFIX,browsercfg-drcn.cloud.dbankcloud.cn
-DOMAIN-SUFFIX,browserfiles.heytapmobile.com
 DOMAIN-SUFFIX,bs-ad-lgsmartad-com.aws-prd.net
-DOMAIN-SUFFIX,bsf.sc.heytapmobile.com
 DOMAIN-SUFFIX,bsp-di-in.heytapmobile.com
 DOMAIN-SUFFIX,bsp.sasdc.pandora.xiaomi.com
 DOMAIN-SUFFIX,bss.pandora.xiaomi.com
@@ -726,6 +726,7 @@ DOMAIN-SUFFIX,cdn.fds-ssl.api.xiaomi.com
 DOMAIN-SUFFIX,cdn.fds.api.xiaomi.com
 DOMAIN-SUFFIX,cdn1.static.home.miui.com
 DOMAIN-SUFFIX,cdna.sec.miui.com
+DOMAIN-SUFFIX,cdo.heytapmobile.com
 DOMAIN-SUFFIX,cdpbeacon.lgtvcommon.com
 DOMAIN-SUFFIX,cdpbeacon2.lgtvcommon.com
 DOMAIN-SUFFIX,ceuswatcab01.blob.core.windows.net
@@ -906,23 +907,17 @@ DOMAIN-SUFFIX,conf-in-dc.heytapdl.com
 DOMAIN-SUFFIX,conf-in-dc.heytapmobile.com
 DOMAIN-SUFFIX,conf-sg-dc.heytapdl.com
 DOMAIN-SUFFIX,confiant.msn.com
-DOMAIN-SUFFIX,conn-service-cn-01.allawntech.com
 DOMAIN-SUFFIX,conn-service-cn-03.allawntech.com
 DOMAIN-SUFFIX,conn-service-cn-04.allawntech.com
 DOMAIN-SUFFIX,conn-service-cn-05.allawntech.com
 DOMAIN-SUFFIX,conn-service-cn-07.allawntech.com
 DOMAIN-SUFFIX,conn-service-cn-08.allawntech.com
-DOMAIN-SUFFIX,conn-service-eu-01.allawnos.com
-DOMAIN-SUFFIX,conn-service-eu-02.allawnos.com
 DOMAIN-SUFFIX,conn-service-eu-03.allawnos.com
 DOMAIN-SUFFIX,conn-service-eu-04.allawnos.com
 DOMAIN-SUFFIX,conn-service-eu-05.allawnos.com
 DOMAIN-SUFFIX,conn-service-eu-07.allawnos.com
 DOMAIN-SUFFIX,conn-service-eu-08.allawnos.com
 DOMAIN-SUFFIX,conn-service-gl-01.allawntech.com
-DOMAIN-SUFFIX,conn-service-gl-03.allawntech.com
-DOMAIN-SUFFIX,conn-service-gl-04.allawntech.com
-DOMAIN-SUFFIX,conn-service-in-01.allawnos.com
 DOMAIN-SUFFIX,conn-service-in-03.allawnos.com
 DOMAIN-SUFFIX,conn-service-in-04.allawnos.com
 DOMAIN-SUFFIX,conn-service-in-05.allawnos.com
@@ -1279,6 +1274,7 @@ DOMAIN-SUFFIX,gr-ad-lgsmartad-com.aws-prd.net
 DOMAIN-SUFFIX,gr-info-lgsmartad-com.aws-prd.net
 DOMAIN-SUFFIX,gr-rdx2-lgtvsdp-com.aws-prd.net
 DOMAIN-SUFFIX,graffiti-tags.apple.com
+DOMAIN-SUFFIX,grayr.abx.ipd.hihonor.com
 DOMAIN-SUFFIX,grs-dbankcloud-asia-dra.appacc-region.dbankedge.cn
 DOMAIN-SUFFIX,grs-dbankcloud-asia-dra.appacc.dbankedge.cn
 DOMAIN-SUFFIX,grs-dbankcloud-com-dra.appacc-region.dbankedge.cn
@@ -1327,6 +1323,7 @@ DOMAIN-SUFFIX,h6.msn.com
 DOMAIN-SUFFIX,haohuo.snssdk.com
 DOMAIN-SUFFIX,hd.xiaomi.com
 DOMAIN-SUFFIX,heyue.xiaomi.com
+DOMAIN-SUFFIX,hihonor.api.useinsider.com
 DOMAIN-SUFFIX,hisearch-dra-dt-dbankcloud-com-dra.appacc-region.dbankedge.cn
 DOMAIN-SUFFIX,hisearch-dra-dt-dbankcloud-com-dra.appacc.dbankedge.cn
 DOMAIN-SUFFIX,hisearch-dra-dt-dbankcloud-com-dra.edge.dbankedge.cn
@@ -1532,6 +1529,7 @@ DOMAIN-SUFFIX,js1.cdn.applicationinsights.io
 DOMAIN-SUFFIX,js1.tst.applicationinsights.io
 DOMAIN-SUFFIX,js2.cdn.applicationinsights.io
 DOMAIN-SUFFIX,js2.tst.applicationinsights.io
+DOMAIN-SUFFIX,jscatch-sg-frontend.heytapmobile.com
 DOMAIN-SUFFIX,jupiter.intl.sys.miui.com
 DOMAIN-SUFFIX,jupiter.rus.sys.miui.com
 DOMAIN-SUFFIX,jupiter.sys.miui.com
@@ -1931,7 +1929,6 @@ DOMAIN-SUFFIX,metric.appex-rf.msn.com
 DOMAIN-SUFFIX,metrics-dra.dt.dbankcloud.cn
 DOMAIN-SUFFIX,metrics-dra.dt.dbankcloud.com
 DOMAIN-SUFFIX,metrics-drcn.dt.dbankcloud.cn
-DOMAIN-SUFFIX,metrics-drcn.dt.dbankcloud.com
 DOMAIN-SUFFIX,metrics-dre.data.dbankcloud.cn
 DOMAIN-SUFFIX,metrics-dre.dt.dbankcloud.cn
 DOMAIN-SUFFIX,metrics.apple.com
@@ -2130,6 +2127,8 @@ DOMAIN-SUFFIX,obus-conf-in.heytapmobile.com
 DOMAIN-SUFFIX,obus-conf-sg.heytapmobile.com
 DOMAIN-SUFFIX,obus-conf-us.heytapmobile.com
 DOMAIN-SUFFIX,obus-config-cn.heytapmobi.com
+DOMAIN-SUFFIX,obus-config-in.heytapmobile.com
+DOMAIN-SUFFIX,obus-config-sg.heytapmobile.com
 DOMAIN-SUFFIX,obus-dc-eu.heytapmobile.com
 DOMAIN-SUFFIX,obus-dc-ru.heytapmobile.com
 DOMAIN-SUFFIX,obus-dc-us.heytapmobile.com
@@ -2155,6 +2154,8 @@ DOMAIN-SUFFIX,obus-dctech-sg.heytapmobile.com
 DOMAIN-SUFFIX,obus-dcyitai-cn.heytapmobi.com
 DOMAIN-SUFFIX,obus-dcyitai-in.heytapmobi.com
 DOMAIN-SUFFIX,obus-dcyitai-sg.heytapmobile.com
+DOMAIN-SUFFIX,obus-hid-in.heytapmobile.com
+DOMAIN-SUFFIX,obus-hid-sg.heytapmobile.com
 DOMAIN-SUFFIX,obus-jssdk-cn.heytapmobi.com
 DOMAIN-SUFFIX,obus-jssdk-fr.heytapmobile.com
 DOMAIN-SUFFIX,obus-jssdk-in.heytapmobile.com
@@ -2168,6 +2169,7 @@ DOMAIN-SUFFIX,omes-sec.heytapmobi.com
 DOMAIN-SUFFIX,omes-sec.heytapmobile.com
 DOMAIN-SUFFIX,oms-analytics.trafficmanager.net
 DOMAIN-SUFFIX,onrt-stsdk.vivoglobal.com
+DOMAIN-SUFFIX,opay.heytapmobile.com
 DOMAIN-SUFFIX,open.snssdk.com
 DOMAIN-SUFFIX,openapi.vip.ptqy.gitv.tv
 DOMAIN-SUFFIX,openlocation-drcn-platform-dbankcloud-com-drcn.appacc.dbankedge.cn
@@ -2359,11 +2361,10 @@ DOMAIN-SUFFIX,redirect.pandora.xiaomi.com
 DOMAIN-SUFFIX,regi.di.atlas.samsung.com
 DOMAIN-SUFFIX,register.xmpush.global.xiaomi.com
 DOMAIN-SUFFIX,rel.msn.com
-DOMAIN-SUFFIX,report-eu.uc.heytapmobile.com
-DOMAIN-SUFFIX,report-in.opay.heytapmobile.com
-DOMAIN-SUFFIX,report-in.uc.heytapmobile.com
-DOMAIN-SUFFIX,report-sg.opay.heytapmobile.com
-DOMAIN-SUFFIX,report-sg.uc.heytapmobile.com
+DOMAIN-SUFFIX,remoteconfig-dra.platform.hihonorcloud.com
+DOMAIN-SUFFIX,remoteconfig-drcn.platform.hihonorcloud.com
+DOMAIN-SUFFIX,remoteconfig-dre.platform.hihonorcloud.com
+DOMAIN-SUFFIX,remoteconfig-uat-drcn.platform.hihonorcloud.com
 DOMAIN-SUFFIX,report.diagnostic.networking.aws.dev
 DOMAIN-SUFFIX,report.gras.samsungdm.com
 DOMAIN-SUFFIX,report.n.xiaomi.com
@@ -2372,6 +2373,7 @@ DOMAIN-SUFFIX,resolver.mi.xiaomi.com
 DOMAIN-SUFFIX,resolver.msg.global.xiaomi.net
 DOMAIN-SUFFIX,rmads.eu.msn.com
 DOMAIN-SUFFIX,rmads.msn.com
+DOMAIN-SUFFIX,rms-behavior-collect-drcn.hihonorcdn.com
 DOMAIN-SUFFIX,rnd-cbgpas01.huawei.com
 DOMAIN-SUFFIX,ro-ad-lgsmartad-com.aws-prd.net
 DOMAIN-SUFFIX,ro-info-lgsmartad-com.aws-prd.net
@@ -2638,6 +2640,7 @@ DOMAIN-SUFFIX,sau-server-eu.allawnos.com
 DOMAIN-SUFFIX,sau-server-in.allawnos.com
 DOMAIN-SUFFIX,sau-server-sg.allawnos.com
 DOMAIN-SUFFIX,sau-server-us.allawnos.com
+DOMAIN-SUFFIX,sc.heytapmobile.com
 DOMAIN-SUFFIX,sca.samsung.com
 DOMAIN-SUFFIX,sd-ad-lgsmartad-com.aws-prd.net
 DOMAIN-SUFFIX,sdfp.snssdk.com
@@ -2968,6 +2971,7 @@ DOMAIN-SUFFIX,ua-info-lgsmartad-com.aws-prd.net
 DOMAIN-SUFFIX,ua-rdx2-lgtvsdp-com.aws-prd.net
 DOMAIN-SUFFIX,uba.huaweicloud.com
 DOMAIN-SUFFIX,ubacollect-drcn.cloud.dbankcloud.cn
+DOMAIN-SUFFIX,uc.heytapmobile.com
 DOMAIN-SUFFIX,udc.msn.com
 DOMAIN-SUFFIX,ug-ad-lgsmartad-com.aws-prd.net
 DOMAIN-SUFFIX,ug-sg.byteoversea.com

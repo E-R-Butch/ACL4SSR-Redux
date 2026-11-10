@@ -1,7 +1,7 @@
 # 广告列表 adblock rules
 # 内容：EasyPrivacy列表，隐私保护，屏蔽隐私追踪
 # 来源：https://easylist-downloads.adblockplus.org/easyprivacy.txt
-# 数量：40694条
+# 数量：40695条
 
 DOMAIN-SUFFIX,0.myikas.com
 DOMAIN-SUFFIX,0.net.easyjet.com
@@ -22890,6 +22890,7 @@ DOMAIN-SUFFIX,natsp.xing.com
 DOMAIN-SUFFIX,navfja.answear.hu
 DOMAIN-SUFFIX,navigation-timing.meinestadt.de
 DOMAIN-SUFFIX,navigator-analytics.tweakwise.com
+DOMAIN-SUFFIX,naxos.lastampausa.com
 DOMAIN-SUFFIX,nbcnews.black.news
 DOMAIN-SUFFIX,nbcxa65t001z.net.jumia.ug
 DOMAIN-SUFFIX,nbfopy.jjshouse.com
