@@ -14,6 +14,9 @@ DOMAIN,f2pool.zendesk.com
 # Exact root and www hosts; retain the service direct route without widening subdomains.
 DOMAIN,bsbsb.top
 DOMAIN,www.bsbsb.top
+# Official alternate API; direct segment queries return the same payload faster.
+# https://github.com/hanydd/BilibiliSponsorBlock/blob/master/ota/servers.json
+DOMAIN,bsbsb.cc
 
 # Evoxt public website/control panel; repeated home-page and stylesheet transfers favor direct.
 # https://evoxt.com/
