@@ -1,5 +1,10 @@
 # Hardware Direct
 
+# Samsung FOTA version manifest; valid XML is faster directly with a firmware-client UA.
+# https://github.com/samloader/samloader/blob/master/samloader/versionfetch.py
+# This exact host does not cover separate firmware binary download services.
+DOMAIN,fota-cloud-dn.ospserver.net
+
 # Bambu Studio HMS error descriptions and recovery-action dictionary.
 # https://github.com/bambulab/BambuStudio/blob/master/src/slic3r/GUI/HMS.cpp
 # Complete JSON transfers succeeded on both paths; direct median times were lower.

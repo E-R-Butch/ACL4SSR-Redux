@@ -1,5 +1,9 @@
 # 开发代理
 
+# DataTables table-component JS/CSS CDN; direct JS transfers timed out repeatedly.
+# https://cdn.datatables.net/
+DOMAIN,cdn.datatables.net
+
 # npm official registry metadata and package tarballs; direct connections timed out.
 # https://docs.npmjs.com/cli/v11/using-npm/registry/
 DOMAIN-SUFFIX,npmjs.org

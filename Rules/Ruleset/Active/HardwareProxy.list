@@ -1,5 +1,24 @@
 # Hardware Proxy
 
+# Third-party firmware catalogs: Samsung, Xiaomi, Apple IPSW and LG KDZ.
+# https://samfw.com/ lists MiFirm, IPSW Pro and LGROM as related projects.
+# Repeated valid static-resource transfers favor proxy; SamFw requires a web challenge.
+# Exact hosts include the escaped spellings observed in client logs.
+DOMAIN,samfw.com
+DOMAIN,samfw\.com
+DOMAIN,samfrew.com
+DOMAIN,samfrew\.com
+DOMAIN,mifirm.net
+DOMAIN,ipsw.pro
+DOMAIN,ipsw\.pro
+DOMAIN,lgrom.com
+
+# SamFrew download host: provisionally retain the existing proxy path.
+# Root health checks are not firmware-throughput measurements; no payload speed claim.
+# https://samfrew.com/pricing
+DOMAIN,download.samfrew.com
+DOMAIN,download.samfrew\.com
+
 # NVIDIA software update/package distribution, including NVIDIA App installers.
 # https://nvidia.custhelp.com/app/answers/detail/a_id/5799
 # Valid installer byte-range transfers favor proxies; preserve update functionality.

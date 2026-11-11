@@ -28,3 +28,8 @@ DOMAIN,console.evoxt.com
 # https://novixlink.com/en/contact-us
 # Repeated SDK downloads favor direct; no conversation or message was submitted.
 DOMAIN,chat.novixlink.com
+
+# DMCA copyright-protection badges and helper script, sharing one asset host.
+# https://www.dmca.com/Badges.aspx
+# Badge payloads matched on both paths with little proxy benefit; prefer direct.
+DOMAIN,images.dmca.com
