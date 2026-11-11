@@ -1,5 +1,9 @@
 # 开发代理
 
+# npm official registry metadata and package tarballs; direct connections timed out.
+# https://docs.npmjs.com/cli/v11/using-npm/registry/
+DOMAIN-SUFFIX,npmjs.org
+
 # GHFast relays public GitHub downloads and Git Smart HTTP.
 # https://ghfast.top/
 # A pinned public Git revision timed out directly and yielded valid packs through the proxy.
