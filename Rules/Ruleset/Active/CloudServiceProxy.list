@@ -147,3 +147,10 @@ DOMAIN,2img.net
 DOMAIN,illipro.net
 DOMAIN,i.servimg.com
 DOMAIN,illiweb.com
+
+# Stripe/Link shared styles, fonts and scripts; exact asset hosts.
+# https://docs.stripe.com/ips
+# https://support.link.com/
+# Valid CSS/font transfers favor proxy, consistent with the existing Stripe route.
+DOMAIN,a300.stripecdn.com
+DOMAIN,b.stripecdn.com

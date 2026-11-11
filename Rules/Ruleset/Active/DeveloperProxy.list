@@ -1,5 +1,17 @@
 # 开发代理
 
+# Nous Portal's recommended-model mirror and model inference gateway.
+# https://github.com/NousResearch/hermes-agent/blob/main/hermes_cli/models.py
+# https://hermes-agent.nousresearch.com/docs/integrations/nous-portal
+# Complete recommendation and public model-catalog JSON transfers favor proxy.
+DOMAIN,web-assets.nousresearch.com
+DOMAIN,inference-api.nousresearch.com
+
+# OpenDesign's shared file/image host, referenced by the public website.
+# https://open-design.ai/
+# Matching preview-image transfers favor proxy; a direct icon request timed out.
+DOMAIN,r.open-design.ai
+
 # DataTables table-component JS/CSS CDN; direct JS transfers timed out repeatedly.
 # https://cdn.datatables.net/
 DOMAIN,cdn.datatables.net
