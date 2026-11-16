@@ -1,7 +1,7 @@
 # 广告列表 adblock rules
 # 内容：中文广告与隐私域名增量（anti-AD 减去本项目已覆盖部分与热门站点）
 # 来源：https://raw.githubusercontent.com/privacy-protection-tools/anti-AD/master/anti-ad-domains.txt + https://tranco-list.eu/top-1m.csv.zip
-# 数量：12619条
+# 数量：12612条
 
 DOMAIN-SUFFIX,000dn.com
 DOMAIN-SUFFIX,0013.cc
@@ -87,7 +87,6 @@ DOMAIN-SUFFIX,114lm.com
 DOMAIN-SUFFIX,114park.com
 DOMAIN-SUFFIX,11599jgj.com
 DOMAIN-SUFFIX,116b.com
-DOMAIN-SUFFIX,1178.shucong.com
 DOMAIN-SUFFIX,1188.com
 DOMAIN-SUFFIX,1200555.com
 DOMAIN-SUFFIX,12291.com
@@ -105,6 +104,7 @@ DOMAIN-SUFFIX,12381236.com
 DOMAIN-SUFFIX,123compteur.com
 DOMAIN-SUFFIX,123count.com
 DOMAIN-SUFFIX,123counters.com
+DOMAIN-SUFFIX,123date.me
 DOMAIN-SUFFIX,123lm.com
 DOMAIN-SUFFIX,123ppk.com
 DOMAIN-SUFFIX,123stat.com
@@ -2638,7 +2638,6 @@ DOMAIN-SUFFIX,coloradoserves.com
 DOMAIN-SUFFIX,colorandnoise.com
 DOMAIN-SUFFIX,colorfulneon.com
 DOMAIN-SUFFIX,colorfulpet.com
-DOMAIN-SUFFIX,colorsonchain.com
 DOMAIN-SUFFIX,colossalclouds.com
 DOMAIN-SUFFIX,colossalcoat.com
 DOMAIN-SUFFIX,colossalcry.com
@@ -2786,6 +2785,7 @@ DOMAIN-SUFFIX,copytweaks.com
 DOMAIN-SUFFIX,copyvibes.com
 DOMAIN-SUFFIX,coralcranes.com
 DOMAIN-SUFFIX,coralreverie.com
+DOMAIN-SUFFIX,coralwatches.com
 DOMAIN-SUFFIX,core-cen-54.com
 DOMAIN-SUFFIX,corechina.net
 DOMAIN-SUFFIX,coremotives.com
@@ -4201,7 +4201,6 @@ DOMAIN-SUFFIX,feiyun.info
 DOMAIN-SUFFIX,felinesocial.com
 DOMAIN-SUFFIX,femalecook.com
 DOMAIN-SUFFIX,fen.dkdlsj.com
-DOMAIN-SUFFIX,fencesync.com
 DOMAIN-SUFFIX,fengche.cpv6.com
 DOMAIN-SUFFIX,fengying5.com
 DOMAIN-SUFFIX,fengyx.com
@@ -5518,7 +5517,6 @@ DOMAIN-SUFFIX,itsmatchtime.com
 DOMAIN-SUFFIX,itspsmup.com
 DOMAIN-SUFFIX,itssprout.com
 DOMAIN-SUFFIX,itsup.com
-DOMAIN-SUFFIX,itsviral.net
 DOMAIN-SUFFIX,itw.me
 DOMAIN-SUFFIX,iuiweb.com
 DOMAIN-SUFFIX,iutr.uozwys.top
@@ -6999,7 +6997,6 @@ DOMAIN-SUFFIX,massrelevance.com
 DOMAIN-SUFFIX,master-push.com
 DOMAIN-SUFFIX,master-push.net
 DOMAIN-SUFFIX,masterenter.com
-DOMAIN-SUFFIX,masterstats.com
 DOMAIN-SUFFIX,mastertop100.org
 DOMAIN-SUFFIX,match.c8.net.ua
 DOMAIN-SUFFIX,matching.targeterra.com
@@ -8056,7 +8053,6 @@ DOMAIN-SUFFIX,pearpouch.com
 DOMAIN-SUFFIX,peasy.so
 DOMAIN-SUFFIX,peatfarming.com
 DOMAIN-SUFFIX,pebblemedia.be
-DOMAIN-SUFFIX,pebx.pl
 DOMAIN-SUFFIX,pecash.com
 DOMAIN-SUFFIX,pedropanther.com
 DOMAIN-SUFFIX,peep1alea.com
@@ -8148,7 +8144,6 @@ DOMAIN-SUFFIX,pix.tagcdn.com
 DOMAIN-SUFFIX,pixanalytics.com
 DOMAIN-SUFFIX,pixel-hk.pixelinteractivemedia.com
 DOMAIN-SUFFIX,pixeledhub.com
-DOMAIN-SUFFIX,pixeleze.com
 DOMAIN-SUFFIX,pixelinteractivemedia.com
 DOMAIN-SUFFIX,pixelmoonstudio.com
 DOMAIN-SUFFIX,pixelrevenue.com
@@ -8349,7 +8344,6 @@ DOMAIN-SUFFIX,procuratio.nu
 DOMAIN-SUFFIX,producecopy.com
 DOMAIN-SUFFIX,producepickle.com
 DOMAIN-SUFFIX,productsurfer.com
-DOMAIN-SUFFIX,proext.com
 DOMAIN-SUFFIX,profanstee.com
 DOMAIN-SUFFIX,profitrumour.com
 DOMAIN-SUFFIX,profitsfly.com
@@ -8703,6 +8697,7 @@ DOMAIN-SUFFIX,rdiul.com
 DOMAIN-SUFFIX,rdtuijian.com
 DOMAIN-SUFFIX,reachforce.com
 DOMAIN-SUFFIX,reachjunction.com
+DOMAIN-SUFFIX,reactful.com
 DOMAIN-SUFFIX,reactjspdf.com
 DOMAIN-SUFFIX,reactor.xingye.work
 DOMAIN-SUFFIX,reactwizard.com
@@ -8731,7 +8726,6 @@ DOMAIN-SUFFIX,rebelhen.com
 DOMAIN-SUFFIX,rebelswing.com
 DOMAIN-SUFFIX,rebootrewire.com
 DOMAIN-SUFFIX,receiptcent.com
-DOMAIN-SUFFIX,recenc.com
 DOMAIN-SUFFIX,receptivereaction.com
 DOMAIN-SUFFIX,recessrain.com
 DOMAIN-SUFFIX,recipepile.net
@@ -9620,7 +9614,6 @@ DOMAIN-SUFFIX,socialtrack.co
 DOMAIN-SUFFIX,socialvibe.com
 DOMAIN-SUFFIX,sociaplus.com
 DOMAIN-SUFFIX,socketviking.net
-DOMAIN-SUFFIX,sockpacks.com
 DOMAIN-SUFFIX,socktheboat.com
 DOMAIN-SUFFIX,socsi.in
 DOMAIN-SUFFIX,sodacharts.com
@@ -10310,7 +10303,6 @@ DOMAIN-SUFFIX,teleylm.com
 DOMAIN-SUFFIX,teljari.is
 DOMAIN-SUFFIX,tempertrick.com
 DOMAIN-SUFFIX,template.liusha.info
-DOMAIN-SUFFIX,tempowraps.com
 DOMAIN-SUFFIX,temptteam.com
 DOMAIN-SUFFIX,tend.io
 DOMAIN-SUFFIX,tendata.net
@@ -11349,7 +11341,6 @@ DOMAIN-SUFFIX,welt-der-links.de
 DOMAIN-SUFFIX,wenshenbang.com
 DOMAIN-SUFFIX,weq.me
 DOMAIN-SUFFIX,wescam.info
-DOMAIN-SUFFIX,wesiedu.com
 DOMAIN-SUFFIX,west001.com
 DOMAIN-SUFFIX,westsideglobe.com
 DOMAIN-SUFFIX,weyyae.com
@@ -12089,6 +12080,7 @@ DOMAIN-SUFFIX,x.zhuyuanp.top
 DOMAIN-SUFFIX,x57772.com
 DOMAIN-SUFFIX,x8ad.com
 DOMAIN-SUFFIX,xalzny.xyz
+DOMAIN-SUFFIX,xapi.ozon.com.kz
 DOMAIN-SUFFIX,xau.sxmutan.com
 DOMAIN-SUFFIX,xavingtsun.com
 DOMAIN-SUFFIX,xavua.com
@@ -12597,6 +12589,7 @@ DOMAIN-SUFFIX,zwaar.org
 DOMAIN-SUFFIX,zx-adnet.com
 DOMAIN-SUFFIX,zx.baosmx.com
 DOMAIN-SUFFIX,zxcs.ggwan.com
+DOMAIN-SUFFIX,zxcs.linghit.com
 DOMAIN-SUFFIX,zxcvb23.com
 DOMAIN-SUFFIX,zxh.bzshzx.com
 DOMAIN-SUFFIX,zxl.qzbxfs.com
