@@ -1,5 +1,10 @@
 # 开发直连
 
+# Sidrune's Chinese-language site and API share this exact host.
+# The public model catalogue returned identical data over both routes.
+# https://docs.sidrune.ai/terms-and-conditions/terms
+DOMAIN,cn.sidrune.ai
+
 # Adoptium Temurin release metadata and the binary redirect entry point.
 # https://api.adoptium.net/q/swagger-ui/
 # Both API responses and release redirects completed reliably over direct connections.

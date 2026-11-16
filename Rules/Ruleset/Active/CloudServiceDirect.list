@@ -1,3 +1,8 @@
+# Airwallex checkout and its payment SDK use these exact hosts.
+# Both SDKs downloaded successfully over local IPv4 and IPv6 connections.
+DOMAIN,checkout.airwallex.com
+DOMAIN,static.airwallex.com
+
 # Pearl mainnet Blockbook status and fee-estimation API; exact service host only.
 # https://blockbook.pearlresearch.ai/api/v2
 # Both paths returned valid data; repeated fee estimates were faster directly.
