@@ -1,7 +1,7 @@
 # 广告列表 adblock rules
 # 内容：EasyPrivacy列表，隐私保护，屏蔽隐私追踪
 # 来源：https://easylist-downloads.adblockplus.org/easyprivacy.txt
-# 数量：40721条
+# 数量：40727条
 
 DOMAIN-SUFFIX,0.myikas.com
 DOMAIN-SUFFIX,0.net.easyjet.com
@@ -4660,6 +4660,7 @@ DOMAIN-SUFFIX,ads-trk.vidible.tv
 DOMAIN-SUFFIX,ads.dandelionchocolate.jp
 DOMAIN-SUFFIX,ads.tikpage.com
 DOMAIN-SUFFIX,ads.tvp.pl
+DOMAIN-SUFFIX,adsagentclientafd-b7hqhjdrf3fpeqh2.b01.azurefd.net
 DOMAIN-SUFFIX,adscore.com
 DOMAIN-SUFFIX,adsdk.yandex.ru
 DOMAIN-SUFFIX,adservice.google
@@ -9858,6 +9859,7 @@ DOMAIN-SUFFIX,data.campaigns.therecroom.com
 DOMAIN-SUFFIX,data.canon.club-news.com.hk
 DOMAIN-SUFFIX,data.cart.metrobyt-mobile.com
 DOMAIN-SUFFIX,data.carts.t-mobile.com
+DOMAIN-SUFFIX,data.cdnbasket.net
 DOMAIN-SUFFIX,data.charles-colby.com
 DOMAIN-SUFFIX,data.chelseafc.com
 DOMAIN-SUFFIX,data.circulate.com
@@ -24035,6 +24037,7 @@ DOMAIN-SUFFIX,paeppk.spar-mit.com
 DOMAIN-SUFFIX,page-events-ustats.udemy.com
 DOMAIN-SUFFIX,page.asraymond.com
 DOMAIN-SUFFIX,page.care.salinasvalleyhealth.com
+DOMAIN-SUFFIX,page.cdnbasket.net
 DOMAIN-SUFFIX,page.e.silverfernfarms.com
 DOMAIN-SUFFIX,page.email.key.com
 DOMAIN-SUFFIX,page.email.trinity-health.org
@@ -38630,11 +38633,13 @@ DOMAIN-SUFFIX,videostats.kakao.com
 DOMAIN-SUFFIX,vidfiles.net.mydays.de
 DOMAIN-SUFFIX,view.americanbuildings.com
 DOMAIN-SUFFIX,view.aon.com
+DOMAIN-SUFFIX,view.cdnbasket.net
 DOMAIN-SUFFIX,view.centria.com
 DOMAIN-SUFFIX,view.fujitv.co.jp
 DOMAIN-SUFFIX,view.kirbybuildingsystems.com
 DOMAIN-SUFFIX,view.metlspan.com
 DOMAIN-SUFFIX,view.nucorbuildingsystems.com
+DOMAIN-SUFFIX,view.publitas.com
 DOMAIN-SUFFIX,viewer.pandasuite.io
 DOMAIN-SUFFIX,views.arabnews.com
 DOMAIN-SUFFIX,views.asurascans.com
@@ -39398,6 +39403,7 @@ DOMAIN-SUFFIX,wt.generali.de
 DOMAIN-SUFFIX,wt.generalibewegtdeutschland.de
 DOMAIN-SUFFIX,wt.generalihealthsolutions.de
 DOMAIN-SUFFIX,wt.netze-bw.de
+DOMAIN-SUFFIX,wt.omnisendlink.com
 DOMAIN-SUFFIX,wt.oscaro.com
 DOMAIN-SUFFIX,wt.vhb.de
 DOMAIN-SUFFIX,wt.viagogo.net
