@@ -62,7 +62,7 @@ Rules/
 scripts/
 ├── fetch_assets.py      # 事务式同步 GFWList / China / AdBlock 上游数据
 ├── build_rules.py       # 可复现地构建广告和隐私成品规则
-├── sync_guard.py        # 自动同步后的轻量护栏，拦截空文件/异常小文件/错误页
+├── sync_guard.py        # 同步护栏：域名规模检查、IP 覆盖守恒与新增地址待审
 ├── dedupe_rules.py      # 去除 .list 文件内重复有效规则
 ├── audit_rules.py       # 按主配置匹配顺序审计被前序规则挡死的规则与私有规则泄漏
 ├── validate_rules.py    # 校验配置引用、YAML、规则类型和 CIDR 语义
@@ -108,6 +108,14 @@ https://raw.githubusercontent.com/E-R-Butch/ACL4SSR-Redux/master/Config/ACL4SSR_
 - **Google 域名统一走代理**：`ProxyManual.list` 的 `DOMAIN-KEYWORD,google` 覆盖所有含 `google` 的域名，`gstatic.cn` 同样在代理列表内。确需直连的例外单独维护，例如 `GoogleFCM.list` 的 FCM 推送端点，以及 `UnBan.list` 里逐条列出的主机。
 
 `ProxyGFWlist.list`、`ChinaIp.list`、`ChinaIpV6.list`、`BanEasy*.list` 由每日同步生成，其中的条目被更早的规则覆盖属于预期（自动同步会把它们写回来），不要手工删除；`scripts/audit_rules.py` 的基线负责把这些已知条目与新增冲突区分开。
+
+### 中国 IP 同步护栏
+
+`ChinaIp.list` / `ChinaIpV6.list` 以已发布的 Git `HEAD` 地址集合为基线。护栏严格校验 CIDR、地址族和 `no-resolve` 形式，再比较完整覆盖集合。上游的等价聚合或拆分可通过检查；发布时将既有集合等价压缩，保留原来的规则类型、动作与主配置优先级。
+
+上游提供严格超集时，新增覆盖进入待审报告，当前发布继续使用既有地址集合，其他域名、广告和隐私规则按原流程同步。报告包含精确新增/缺失 CIDR、地址数量和输入哈希。Actions 日志每类最多展示 20 条 CIDR，完整报告写入该步骤摘要；本地 JSON 默认保存到临时目录中的 `acl4ssr-ip-review.json`，可用 `python3 scripts/sync_guard.py --ip-review-report /tmp/ip-review.json` 指定仓库外路径。
+
+任意既有地址缺失、覆盖替换、格式错误、空文件、异常文件或缺少 `HEAD` 基线都会中止同步；域名的最小数量、下降与增长比例护栏保持生效。所有目标通过检查、完整报告成功保存后，才写入压缩后的 IP 清单。新增覆盖须逐项复核并通过单独的规则变更纳入已发布基线。日志和报告中的待审 CIDR 仅用于审查。
 
 2026-11-04 复核 [GFWList 新增的 `bilibili.tv`](https://github.com/gfwlist/gfwlist/commit/e1ff22048acbf77bd7b21906355c47e44d3ecda5)：保留其生成条目，同时保留现有 `ChinaMedia.list` 的优先级，首个命中仍为「🌏 国内媒体」（默认 DIRECT，可手动选择代理）。此处只把这一条已复核的重叠加入基线，并用分流回归测试固定原有行为，不代表验证了国际站的地区可用性；其它新增冲突仍需单独复核。
 

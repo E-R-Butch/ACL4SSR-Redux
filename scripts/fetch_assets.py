@@ -298,6 +298,12 @@ def process_ip(content, is_v6=False):
         line = raw_line.strip()
         if not line or line.startswith("#"):
             continue
+        # Require actual CIDRs before canonicalization: bare hosts, scoped IPv6
+        # and dotted netmasks must not become apparently valid generated rules.
+        prefix_length = line.rsplit("/", 1)[-1]
+        if (line.count("/") != 1 or "%" in line
+                or not prefix_length.isascii() or not prefix_length.isdigit()):
+            raise ValueError(f"Expected IPv{version} CIDR, got {line}")
         network = ipaddress.ip_network(line, strict=True)
         if network.version != version:
             raise ValueError(f"Expected IPv{version} network, got {line}")
