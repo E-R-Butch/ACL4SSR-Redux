@@ -129,7 +129,7 @@ DOMAIN,jp1.stun.twilio.com
 DOMAIN,sg1.stun.twilio.com
 DOMAIN,us1.stun.twilio.com
 DOMAIN,stun.nextcloud.com
-# Schlund's alias returned STUN Binding success on both advertised IPv4 addresses.
+# Schlund UDP/3478: mainland China direct timed out, Singapore proxy returned STUN success.
 DOMAIN,stun.schlund.de
 
 # SafeTrade independent exchange website; existing proxy direction, no account testing.
