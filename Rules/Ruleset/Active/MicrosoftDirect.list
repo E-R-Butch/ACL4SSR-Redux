@@ -1,5 +1,9 @@
 # Microsoft Direct
 # OneDrive 继续由专用规则组优先命中
+# Bing image host observed in Microsoft Store traffic. The sampled JPEGs were
+# identical on mainland China direct and the Singapore proxy.
+DOMAIN,ts1.tc.mm.bing.net
+
 DOMAIN-KEYWORD,1drv
 DOMAIN-KEYWORD,microsoft
 DOMAIN-SUFFIX,aadrm.com
