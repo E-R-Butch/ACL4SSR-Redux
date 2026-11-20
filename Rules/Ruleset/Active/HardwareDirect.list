@@ -1,5 +1,10 @@
 # Hardware Direct
 
+# Synology's public software download host. The 2 MiB Windows Drive Client
+# EXE and MSI ranges matched between mainland China direct and Singapore proxy.
+# https://archive.synology.com/download/Utility/SynologyDriveClient/4.2.1-20062
+DOMAIN,global.synologydownload.com
+
 # Samsung FOTA version manifest; valid XML is faster directly with a firmware-client UA.
 # https://github.com/samloader/samloader/blob/master/samloader/versionfetch.py
 # This exact host does not cover separate firmware binary download services.
