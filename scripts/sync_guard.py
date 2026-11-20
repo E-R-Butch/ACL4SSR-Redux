@@ -68,14 +68,15 @@ def read_head_text(rel_path):
     result = subprocess.run(
         ["git", "show", f"HEAD:{rel_path}"],
         cwd=REPO_ROOT,
-        text=True,
         stdout=subprocess.PIPE,
         stderr=subprocess.DEVNULL,
         check=False,
     )
     if result.returncode != 0:
         return None
-    return result.stdout
+    # Preserve the blob's line endings for byte-exact published-file fallback.
+    # Decoding failures propagate to the guards as invalid baseline errors.
+    return result.stdout.decode("utf-8")
 
 
 def looks_like_error_page(text):
@@ -101,7 +102,10 @@ def validate_target(rel_path, min_rules):
     if rule_count < min_rules:
         errors.append(f"{rel_path}: only {rule_count} effective rule(s), expected at least {min_rules}")
 
-    head_text = read_head_text(rel_path)
+    try:
+        head_text = read_head_text(rel_path)
+    except UnicodeError as error:
+        return errors + [f"{rel_path}: invalid published HEAD baseline: {error}"]
     if head_text is not None:
         previous_count = count_effective_rules(head_text)
         log(f"{rel_path}: previous baseline {previous_count} effective rule(s)")
@@ -181,14 +185,14 @@ def render_ip_rules(head_text, networks, version):
 
 
 def review_ip_target(rel_path, version):
-    """Plan an equivalent baseline compaction; quarantine every new address."""
+    """Compact the published baseline; hold all upstream coverage changes."""
     path = REPO_ROOT / rel_path
     if path.is_symlink() or not path.is_file():
         return [f"{rel_path}: missing or non-regular generated rule file"], None, None
-    head_text = read_head_text(rel_path)
-    if head_text is None:
-        return [f"{rel_path}: missing published HEAD baseline; manual review required"], None, None
     try:
+        head_text = read_head_text(rel_path)
+        if head_text is None:
+            return [f"{rel_path}: missing published HEAD baseline; manual review required"], None, None
         text = path.read_text(encoding="utf-8")
         previous = parse_ip_rules(head_text, version)
         candidate = parse_ip_rules(text, version)
@@ -199,22 +203,26 @@ def review_ip_target(rel_path, version):
     report = {
         "path": rel_path,
         "ip_version": version,
-        "status": "rejected_missing_coverage" if missing else "held_for_review" if added else "equivalent",
+        "status": "held_for_review" if missing or added else "equivalent",
+        "output_policy": "retain_published_file" if missing else "equivalent_compaction",
         "baseline_sha256": hashlib.sha256(head_text.encode("utf-8")).hexdigest(),
         "candidate_sha256": hashlib.sha256(text.encode("utf-8")).hexdigest(),
         "published_rule_count": count_effective_rules(head_text),
         "candidate_rule_count": count_effective_rules(text),
-        "retained_rule_count": len(previous),
+        "retained_rule_count": count_effective_rules(head_text) if missing else len(previous),
         # Decimal strings preserve full IPv6 precision in JSON consumers.
         "retained_address_count": str(sum(network.num_addresses for network in previous)),
         "added_address_count": str(sum(network.num_addresses for network in added)),
         "missing_address_count": str(sum(network.num_addresses for network in missing)),
         "pending_additions": [str(network) for network in added],
+        # These addresses are absent upstream and remain in the published set.
+        "pending_removals": [str(network) for network in missing],
         "missing_coverage": [str(network) for network in missing],
     }
     log(f"{rel_path}: {report['candidate_rule_count']} candidate rule(s); "
-        f"retaining {report['retained_address_count']} published address(es) in {len(previous)} CIDR(s)")
-    for label, networks in (("pending additions", added), ("missing coverage", missing)):
+        f"retaining {report['retained_address_count']} published address(es) "
+        f"in {report['retained_rule_count']} rule(s) ({report['output_policy']})")
+    for label, networks in (("pending additions", added), ("pending removals (retained)", missing)):
         if networks:
             log(f"{rel_path}: {label}: {len(networks)} CIDR(s), "
                 f"{sum(network.num_addresses for network in networks)} address(es)")
@@ -222,9 +230,9 @@ def review_ip_target(rel_path, version):
                 log(f"  {network}")
             if len(networks) > MAX_REVIEW_LOG_NETWORKS:
                 log("  Full CIDR difference is in the IP review report and Actions step summary.")
-    if missing:
-        return [f"{rel_path}: upstream lost published address coverage; manual review required"], None, report
-    return [], render_ip_rules(head_text, previous, version), report
+    # Valid upstream removals are review evidence, never an instruction to
+    # delete published coverage or block independently valid domain updates.
+    return [], head_text if missing else render_ip_rules(head_text, previous, version), report
 
 
 def write_ip_review_report(path, reports, errors):
@@ -242,8 +250,9 @@ def write_ip_review_report(path, reports, errors):
             raise ValueError("IP review report exceeds Actions summary limit; manual review required")
         with open(summary_path, "a", encoding="utf-8") as summary:
             summary.write("## China IP coverage review\n\n"
-                          "Policy: preserve published coverage and require review of new addresses. "
-                          "Missing coverage or validation errors block this sync.\n\n"
+                          "Policy: preserve the complete published address set. "
+                          "Upstream additions and removals require review; removed addresses remain published. "
+                          "Invalid inputs or other validation errors block this sync.\n\n"
                           "```json\n" + payload + "```\n")
 
 
@@ -277,7 +286,7 @@ def main(argv=None):
 
     # Only rewrite active IP files after every IP and domain guard has passed.
     for rel_path, replacement in replacements.items():
-        (REPO_ROOT / rel_path).write_text(replacement, encoding="utf-8")
+        (REPO_ROOT / rel_path).write_bytes(replacement.encode("utf-8"))
     log("Sync guard completed successfully!")
 
 

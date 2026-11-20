@@ -5,6 +5,7 @@ import json
 import os
 import pathlib
 import random
+import subprocess
 import tempfile
 import unittest
 from unittest import mock
@@ -15,6 +16,7 @@ from scripts import fetch_assets, sync_guard
 V4 = "Rules/Ruleset/Active/China/ChinaIp.list"
 V6 = "Rules/Ruleset/Active/China/ChinaIpV6.list"
 DOMAIN = "Rules/Core/ProxyGFWlist.list"
+READ_HEAD_TEXT = sync_guard.read_head_text
 
 
 def rules(*cidrs, version=4):
@@ -88,24 +90,109 @@ class IPGuardTests(unittest.TestCase):
         self.assertEqual(report["pending_additions"], ["192.0.2.128/25", "198.51.100.0/24"])
         self.assertEqual(report["added_address_count"], "384")
 
-    def test_one_address_loss_fails_even_with_bigger_total_and_equal_rule_count(self):
+    def test_one_address_removal_is_held_even_with_bigger_total_and_equal_rule_count(self):
         self.prepare(rules("192.0.2.0/24", "203.0.113.7/32"), rules("192.0.2.0/24", "198.51.100.0/24"))
         errors, replacement, report = self.review()
-        self.assertTrue(errors)
-        self.assertIsNone(replacement)
+        self.assertEqual(errors, [])
+        self.assertEqual(replacement, rules("192.0.2.0/24", "203.0.113.7/32"))
+        self.assertEqual(report["status"], "held_for_review")
+        self.assertEqual(report["pending_removals"], ["203.0.113.7/32"])
         self.assertEqual(report["missing_coverage"], ["203.0.113.7/32"])
         self.assertEqual(report["missing_address_count"], "1")
         self.assertEqual(report["pending_additions"], ["198.51.100.0/24"])
 
-    def test_equal_size_replacement_and_subset_fail(self):
+    def test_equal_size_replacement_and_subset_retain_complete_baseline(self):
         for candidate in (rules("198.51.100.0/24"), rules("192.0.2.0/25")):
             with self.subTest(candidate=candidate):
                 target = self.prepare(rules("192.0.2.0/24"), candidate)
                 errors, replacement, report = self.review()
-                self.assertTrue(errors)
-                self.assertIsNone(replacement)
-                self.assertTrue(report["missing_coverage"])
-                self.assertEqual(target.read_text(), candidate)
+                self.assertEqual(errors, [])
+                self.assertEqual(replacement, rules("192.0.2.0/24"))
+                self.assertEqual(report["status"], "held_for_review")
+                self.assertTrue(report["pending_removals"])
+                self.run_guard({V4: 1000})
+                self.assertEqual(target.read_text(), rules("192.0.2.0/24"))
+
+    def test_nov20_ipv6_removal_and_addition_keep_published_coverage_and_domain_sync(self):
+        baseline = rules("2402:9e80::/48", "2406:bdc0::/32", version=6)
+        candidate = rules("2402:9e80::/48", "2402:9e80:7::/48", version=6)
+        target = self.prepare(baseline, candidate, V6)
+        self.prepare(rules("192.0.2.0/24"), rules("192.0.2.0/23"))
+        domain_candidate = "DOMAIN-SUFFIX,a.example\nDOMAIN-SUFFIX,b.example\n"
+        domain = self.prepare("DOMAIN-SUFFIX,a.example\n", domain_candidate, DOMAIN)
+        summary = self.root / "summary.md"
+        with mock.patch.dict(os.environ, {"GITHUB_STEP_SUMMARY": str(summary)}):
+            self.run_guard({V4: 1000, V6: 100, DOMAIN: 1})
+        self.assertEqual(target.read_text(), baseline)
+        self.assertEqual((self.root / V4).read_text(), rules("192.0.2.0/24"))
+        self.assertEqual(domain.read_text(), domain_candidate)
+        report = json.loads(self.report_path.read_text())
+        self.assertEqual(report["errors"], [])
+        v6 = next(item for item in report["ip_reviews"] if item["ip_version"] == 6)
+        self.assertEqual(v6["pending_removals"], ["2406:bdc0::/32"])
+        self.assertEqual(v6["pending_additions"], ["2402:9e80:7::/48"])
+        self.assertEqual(v6["missing_address_count"], str(2**96))
+        self.assertEqual(v6["retained_address_count"], str(2**96 + 2**80))
+        self.assertIn("2406:bdc0::/32", summary.read_text())
+        self.assertIn("removed addresses remain published", summary.read_text())
+        # A second sync still holds the same upstream changes for review.
+        self.head[V6] = target.read_text()
+        target.write_text(candidate)
+        self.run_guard({V4: 1000, V6: 100, DOMAIN: 1})
+        self.assertEqual(target.read_text(), baseline)
+
+    def test_removal_retains_published_text_byte_for_byte(self):
+        baseline = ("# Keep this exact header\n\n"
+                    "IP-CIDR6,2001:db8::/33,no-resolve\n"
+                    "IP-CIDR6,2001:db8:8000::/33,no-resolve\n"
+                    "# Preserve trailing comment and missing final newline")
+        target = self.prepare(baseline, rules("2001:db8::/33", version=6), V6)
+        self.run_guard({V6: 100})
+        self.assertEqual(target.read_bytes(), baseline.encode("utf-8"))
+        report = json.loads(self.report_path.read_text())["ip_reviews"][0]
+        self.assertEqual(report["retained_rule_count"], 2)
+        self.assertEqual(report["output_policy"], "retain_published_file")
+
+    def commit_raw_baseline(self, path, content):
+        target = self.root / path
+        target.parent.mkdir(parents=True, exist_ok=True)
+        target.write_bytes(content)
+        def git(*args):
+            subprocess.run(["git", "-C", str(self.root), *args], check=True,
+                           stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        git("init", "-q")
+        git("-c", "core.autocrlf=false", "add", "--", path)
+        git("-c", "user.name=IP Guard Tests", "-c", "user.email=ip-guard@example.invalid",
+            "commit", "-qm", "test baseline")
+        return target
+
+    def test_git_blob_crlf_and_missing_final_newline_are_retained_exactly(self):
+        baseline = (b"# Published CRLF header\r\n\r\n"
+                    b"IP-CIDR6,2001:db8::/32,no-resolve\r\n"
+                    b"IP-CIDR6,2406:bdc0::/32,no-resolve")
+        target = self.commit_raw_baseline(V6, baseline)
+        target.write_text(rules("2001:db8::/32", version=6))
+        with mock.patch.object(sync_guard, "read_head_text", READ_HEAD_TEXT):
+            self.run_guard({V6: 100})
+        self.assertEqual(target.read_bytes(), baseline)
+
+    def test_invalid_utf8_git_baseline_remains_fatal(self):
+        target = self.commit_raw_baseline(V6, b"# invalid UTF-8: \xff\n")
+        candidate = rules("2001:db8::/32", version=6)
+        target.write_text(candidate)
+        with mock.patch.object(sync_guard, "read_head_text", READ_HEAD_TEXT), self.assertRaises(SystemExit):
+            self.run_guard({V6: 100})
+        self.assertEqual(target.read_text(), candidate)
+        self.assertTrue(json.loads(self.report_path.read_text())["errors"])
+
+    def test_removal_fallback_cannot_mask_other_invalid_inputs(self):
+        baseline = rules("2001:db8::/32", "2406:bdc0::/32", version=6)
+        candidate = rules("2001:db8::/32", version=6)
+        target = self.prepare(baseline, candidate, V6)
+        self.prepare(rules("192.0.2.0/24"), "<html>upstream unavailable</html>\n")
+        with self.assertRaises(SystemExit):
+            self.run_guard({V4: 1000, V6: 100})
+        self.assertEqual(target.read_text(), candidate)
 
     def test_invalid_cidr_rule_type_family_options_and_error_page_fail(self):
         cases = [
@@ -177,7 +264,12 @@ class IPGuardTests(unittest.TestCase):
         self.assertEqual(report["pending_additions"], ["2001:db9::/32"])
         self.assertEqual(report["retained_address_count"], str(2**96))
         self.prepare(baseline, rules("2001:db8::/33", version=6), V6)
-        self.assertTrue(self.review(V6)[0])
+        errors, replacement, report = self.review(V6)
+        self.assertEqual(errors, [])
+        self.assertEqual(replacement, baseline)
+        self.assertEqual(report["output_policy"], "retain_published_file")
+        self.assertEqual(report["retained_rule_count"], 2)
+        self.assertEqual(report["pending_removals"], ["2001:db8:8000::/33"])
 
     def test_report_and_summary_include_all_additions_while_log_is_bounded(self):
         candidate = rules("192.0.2.0/32", *[f"198.51.100.{i}/32" for i in range(0, 80, 2)])
@@ -202,7 +294,7 @@ class IPGuardTests(unittest.TestCase):
     def test_bad_ipv6_leaves_valid_ipv4_untouched(self):
         candidate = rules("192.0.2.0/24")
         target = self.prepare(rules("192.0.2.0/25"), candidate)
-        self.prepare(rules("2001:db8::/32", version=6), rules("2001:db9::/32", version=6), V6)
+        self.prepare(rules("2001:db8::/32", version=6), "IP-CIDR6,2001:db8::1/32,no-resolve\n", V6)
         with self.assertRaises(SystemExit):
             self.run_guard({V4: 1000, V6: 100})
         self.assertEqual(target.read_text(), candidate)
