@@ -5,6 +5,12 @@
 # https://archive.synology.com/download/Utility/SynologyDriveClient/4.2.1-20062
 DOMAIN,global.synologydownload.com
 
+# NVIDIA downloads. The .com host redirects mainland traffic to the .cn mirror;
+# the FrameView installer ranges and the licensing PDF matched proxy downloads.
+# https://www.nvidia.com/en-gb/geforce/technologies/frameview/
+DOMAIN,images.nvidia.com
+DOMAIN,images.nvidia.cn
+
 # Samsung FOTA version manifest; valid XML is faster directly with a firmware-client UA.
 # https://github.com/samloader/samloader/blob/master/samloader/versionfetch.py
 # This exact host does not cover separate firmware binary download services.

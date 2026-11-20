@@ -4,6 +4,10 @@
 # identical on mainland China direct and the Singapore proxy.
 DOMAIN,ts1.tc.mm.bing.net
 
+# Bing China search frontend. Mainland connections returned search results
+# over both HTTPS/TCP and HTTP/3 on UDP/443.
+DOMAIN,s1.tc.bing.net
+
 DOMAIN-KEYWORD,1drv
 DOMAIN-KEYWORD,microsoft
 DOMAIN-SUFFIX,aadrm.com
