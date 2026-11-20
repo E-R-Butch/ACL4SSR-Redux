@@ -5,3 +5,20 @@ DOMAIN,app.jibecdn.com
 DOMAIN,assets.jibecdn.com
 DOMAIN,cms.jibecdn.com
 DOMAIN,cdn02.icims.com
+
+# Danaher Workday portal, client origin and CDN served valid content on China direct.
+# The CDN bundle was much slower but matched the proxy download. Include escaped hostnames from the logs.
+# https://danaher.wd1.myworkdayjobs.com/en-US/DanaherJobs
+DOMAIN,danaher.wd1.myworkdayjobs.com
+DOMAIN,www.myworkday.com
+DOMAIN,www\.myworkday.com
+DOMAIN,www.myworkdaycdn.com
+DOMAIN,www\.myworkdaycdn.com
+
+# Advancy CareersHub, static assets and CAPTCHA. Tested on China direct.
+# Keep the analytics hostname covered by the explicit deny in the main INI.
+# https://advancy.recruitee.com/
+DOMAIN,advancy.recruitee.com
+DOMAIN,careers.recruiteecdn.com
+DOMAIN,captcha-base.recruiteecdn.com
+DOMAIN,captcha-assets.recruiteecdn.com

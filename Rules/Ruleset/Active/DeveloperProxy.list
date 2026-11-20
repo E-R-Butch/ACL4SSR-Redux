@@ -1,5 +1,11 @@
 # 开发代理
 
+# RARLAB WinRAR installers: direct HTTP responses stalled during transfer,
+# while the Singapore proxy completed the installer binaries. Cover the log spelling.
+# https://www.rarlab.com/download.htm
+DOMAIN,www.rarlab.com
+DOMAIN,www\.rarlab.com
+
 # Nous Portal's recommended-model mirror and model inference gateway.
 # https://github.com/NousResearch/hermes-agent/blob/main/hermes_cli/models.py
 # https://hermes-agent.nousresearch.com/docs/integrations/nous-portal
