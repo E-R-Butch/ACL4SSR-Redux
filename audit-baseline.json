@@ -1,6 +1,6 @@
 {
   "note": "Reviewed rule conflicts that the ini order intentionally accepts. See README '规则优先级与已知取舍'. Refresh with: python3 scripts/audit_rules.py --update-baseline",
-  "count": 73,
+  "count": 74,
   "accepted": [
     "duplicate|Rules/Core/ProxyGFWlist.list|DOMAIN-SUFFIX,admob.com|Rules/Outputs/MergedADBan.list|DOMAIN-SUFFIX,admob.com|🛑 广告拦截",
     "duplicate|Rules/Core/ProxyGFWlist.list|DOMAIN-SUFFIX,ads-twitter.com|Rules/Outputs/MergedADBan.list|DOMAIN-SUFFIX,ads-twitter.com|🛑 广告拦截",
@@ -8,6 +8,7 @@
     "duplicate|Rules/Core/ProxyGFWlist.list|DOMAIN-SUFFIX,crashlytics.com|Rules/Ruleset/Active/AppleReject.list|DOMAIN-SUFFIX,crashlytics.com|🔒 隐私保护",
     "duplicate|Rules/Core/ProxyGFWlist.list|DOMAIN-SUFFIX,googlecommerce.com|Rules/Outputs/MergedADBan.list|DOMAIN-SUFFIX,googlecommerce.com|🛑 广告拦截",
     "duplicate|Rules/Core/ProxyGFWlist.list|DOMAIN-SUFFIX,incloak.com|Rules/Outputs/MergedADBan.list|DOMAIN-SUFFIX,incloak.com|🛑 广告拦截",
+    "duplicate|Rules/Core/ProxyGFWlist.list|DOMAIN-SUFFIX,mc.yandex.ru|Rules/Outputs/MergedPrivacy.list|DOMAIN-SUFFIX,mc.yandex.ru|🔒 隐私保护",
     "duplicate|Rules/Core/ProxyGFWlist.list|DOMAIN-SUFFIX,onedrive.com|Rules/Ruleset/Active/OneDrive.list|DOMAIN-SUFFIX,onedrive.com|Ⓜ️ 微软云盘",
     "duplicate|Rules/Core/ProxyGFWlist.list|DOMAIN-SUFFIX,onedrive.live.com|Rules/Ruleset/Active/OneDrive.list|DOMAIN-SUFFIX,onedrive.live.com|Ⓜ️ 微软云盘",
     "duplicate|Rules/Core/ProxyGFWlist.list|DOMAIN-SUFFIX,steamstatic.com|Rules/Ruleset/Active/GameDirect.list|DOMAIN-SUFFIX,steamstatic.com|🎮 游戏直连",

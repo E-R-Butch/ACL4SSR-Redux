@@ -51,6 +51,39 @@ class RoutingSemanticsTests(unittest.TestCase):
             validate_rules.group_selectors(self.definitions["🌏 国内媒体"])[0], "[]DIRECT"
         )
 
+    def test_yandex_metrica_keeps_privacy_policy_before_gfwlist(self):
+        # Preserve the existing privacy route when GFWList also lists Metrica.
+        for config in sorted((ROOT / "Config").glob("*.ini")):
+            lines = config.read_text(encoding="utf-8").splitlines()
+            ordered = audit_rules.collect_ranked_rules(lines)
+
+            def first_domain_match(host):
+                return next((
+                    rule for rule in ordered if (
+                        rule["type"] == "DOMAIN" and host == rule["value"] or
+                        rule["type"] == "DOMAIN-SUFFIX" and
+                        (host == rule["value"] or host.endswith("." + rule["value"])) or
+                        rule["type"] == "DOMAIN-KEYWORD" and rule["value"] in host
+                    )
+                ), None)
+
+            for host in ("mc.yandex.ru", "api.mc.yandex.ru"):
+                with self.subTest(config=config.name, host=host):
+                    winner = first_domain_match(host)
+                    self.assertIsNotNone(winner)
+                    self.assertEqual(winner["target"], "🔒 隐私保护")
+                    self.assertEqual(winner["raw"], "DOMAIN-SUFFIX,mc.yandex.ru")
+                    self.assertEqual(audit_rules.source_name(winner), "Rules/Outputs/MergedPrivacy.list")
+
+            with self.subTest(config=config.name):
+                sibling = first_domain_match("disk.yandex.ru")
+                self.assertIsNotNone(sibling)
+                self.assertEqual(sibling["target"], "🚀 节点选择")
+                for host in ("yandex.ru", "notmc.yandex.ru", "mc.yandex.ru.example"):
+                    self.assertIsNone(first_domain_match(host), host)
+                groups = validate_rules.parse_custom_group_definitions(lines)
+                self.assertEqual(validate_rules.group_selectors(groups["🔒 隐私保护"])[0], "[]REJECT-DROP")
+
     def test_original_claude_indirect_direct_route_is_rejected(self):
         text = self.text.replace("🎭 Claude`select`[]🎭 Claude 自动", "🎭 Claude`select`[]🚀 节点选择")
         self.assertTrue(any("reaches DIRECT" in error for error in self.check_mutation(text)))
