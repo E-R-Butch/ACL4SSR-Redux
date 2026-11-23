@@ -1,7 +1,7 @@
 # 广告列表 adblock rules
 # 内容：EasyPrivacy列表，隐私保护，屏蔽隐私追踪
 # 来源：https://easylist-downloads.adblockplus.org/easyprivacy.txt
-# 数量：40748条
+# 数量：40755条
 
 DOMAIN-SUFFIX,0.myikas.com
 DOMAIN-SUFFIX,0.net.easyjet.com
@@ -146,6 +146,7 @@ DOMAIN-SUFFIX,69-74.net.jumia.sn
 DOMAIN-SUFFIX,6dp0i7.ru
 DOMAIN-SUFFIX,6nwp0r33a71m.app.dev.cardahealth.com
 DOMAIN-SUFFIX,6pal.consobaby.com
+DOMAIN-SUFFIX,6s83mz9kbtrj.com
 DOMAIN-SUFFIX,6swu.cpa-france.org
 DOMAIN-SUFFIX,6ynyejkv0j1s.app.tapmyback.com
 DOMAIN-SUFFIX,704g8xh7qfzx.www.intercity.technology
@@ -3899,6 +3900,7 @@ DOMAIN-SUFFIX,a8wristcut.ike-sunshine.co.jp
 DOMAIN-SUFFIX,a8x.piece-kaitori.jp
 DOMAIN-SUFFIX,a9643.actonservice.com
 DOMAIN-SUFFIX,a9d8e7b6i5s.andgino.jp
+DOMAIN-SUFFIX,a9f3k7z2m1.com
 DOMAIN-SUFFIX,aa-aem.hamamatsu.com
 DOMAIN-SUFFIX,aa-metrics.aircard.jp
 DOMAIN-SUFFIX,aa-metrics.airpayment.jp
@@ -4542,7 +4544,6 @@ DOMAIN-SUFFIX,adhudg.nec-lavie.jp
 DOMAIN-SUFFIX,adi.ni.com
 DOMAIN-SUFFIX,aditude.cloud
 DOMAIN-SUFFIX,adixkr.culturekings.com.au
-DOMAIN-SUFFIX,adl.bankofthewest.com
 DOMAIN-SUFFIX,adl.kkguan.com
 DOMAIN-SUFFIX,adlc-exchange.toast.com
 DOMAIN-SUFFIX,adless.io
@@ -5117,7 +5118,6 @@ DOMAIN-SUFFIX,analytics.animexx.de
 DOMAIN-SUFFIX,analytics.api.justeattakeaway.com
 DOMAIN-SUFFIX,analytics.apnewsregistry.com
 DOMAIN-SUFFIX,analytics.app.funnelish.com
-DOMAIN-SUFFIX,analytics.archive.org
 DOMAIN-SUFFIX,analytics.argeton.com
 DOMAIN-SUFFIX,analytics.arunraghavan.net
 DOMAIN-SUFFIX,analytics.asml.com
@@ -5499,6 +5499,7 @@ DOMAIN-SUFFIX,analytics.sayprimer.com
 DOMAIN-SUFFIX,analytics.scorpion.co
 DOMAIN-SUFFIX,analytics.seagate.com
 DOMAIN-SUFFIX,analytics.shareaholic.com
+DOMAIN-SUFFIX,analytics.shelbyklein.com
 DOMAIN-SUFFIX,analytics.shop.hisense.com
 DOMAIN-SUFFIX,analytics.shopncaasports.com
 DOMAIN-SUFFIX,analytics.shorte.st
@@ -6916,6 +6917,7 @@ DOMAIN-SUFFIX,ateveq.street-beat.ru
 DOMAIN-SUFFIX,atgt.grafana.com
 DOMAIN-SUFFIX,atgtfj.bettermusic.com.au
 DOMAIN-SUFFIX,athena-event-provider.n11.com
+DOMAIN-SUFFIX,athena.archive.org
 DOMAIN-SUFFIX,athl.lsusports.net
 DOMAIN-SUFFIX,athlete.uninterrupted.com
 DOMAIN-SUFFIX,ati-a1.946d001b783803c1.xhst.bbci.co.uk
@@ -7167,6 +7169,7 @@ DOMAIN-SUFFIX,axp.yourbigsky.com
 DOMAIN-SUFFIX,axp.yourcentralvalley.com
 DOMAIN-SUFFIX,axp.yourerie.com
 DOMAIN-SUFFIX,axpjcp.tennis-point.co.uk
+DOMAIN-SUFFIX,ayc0zsm69431gfebd.info.com
 DOMAIN-SUFFIX,aydtkb.pikabu.ru
 DOMAIN-SUFFIX,aygccr.eonet.jp
 DOMAIN-SUFFIX,ayleaf.petersofkensington.com.au
@@ -7975,6 +7978,7 @@ DOMAIN-SUFFIX,byjpsr.bobags.com.br
 DOMAIN-SUFFIX,bykwtf.victoriassecret.ae
 DOMAIN-SUFFIX,byqdtp.interpark.com
 DOMAIN-SUFFIX,bysfnu.bodeboca.com
+DOMAIN-SUFFIX,bytes.media
 DOMAIN-SUFFIX,byxcbk.ipekevi.com
 DOMAIN-SUFFIX,bzaxgk.ecctur.com
 DOMAIN-SUFFIX,bzclk.baidu.com
@@ -8226,24 +8230,19 @@ DOMAIN-SUFFIX,cdn-eu.usefathom.com
 DOMAIN-SUFFIX,cdn-rum.ngenix.net
 DOMAIN-SUFFIX,cdn-vitals.com
 DOMAIN-SUFFIX,cdn.9gtb.com
-DOMAIN-SUFFIX,cdn.a9f3k7z2m1.com
 DOMAIN-SUFFIX,cdn.arcstudiopro.com
 DOMAIN-SUFFIX,cdn.dfsdk.com
 DOMAIN-SUFFIX,cdn.eaec.fpfis.tech.ec.europa.eu
 DOMAIN-SUFFIX,cdn.ltba.io
-DOMAIN-SUFFIX,cdn.m2z7r9k4p1.com
 DOMAIN-SUFFIX,cdn.net.dz.jumia.com
 DOMAIN-SUFFIX,cdn.net.elogia.net
 DOMAIN-SUFFIX,cdn.polarbyte.com
 DOMAIN-SUFFIX,cdn.prod.euid.eu
-DOMAIN-SUFFIX,cdn.q4x8n6b2t5.com
 DOMAIN-SUFFIX,cdn.ravm.tv
 DOMAIN-SUFFIX,cdn.seonintelligence.com
 DOMAIN-SUFFIX,cdn.sy-d.io
-DOMAIN-SUFFIX,cdn.t2037ulzqct5.com
 DOMAIN-SUFFIX,cdn.usefathom.com
 DOMAIN-SUFFIX,cdn.visits.dqapis.com
-DOMAIN-SUFFIX,cdn.x7k9m2q4z8r1.com
 DOMAIN-SUFFIX,cdn1.skrill.com
 DOMAIN-SUFFIX,cdn7.baunetz.de
 DOMAIN-SUFFIX,cdnhst.xyz
@@ -12934,6 +12933,7 @@ DOMAIN-SUFFIX,financialservices.teranet.ca
 DOMAIN-SUFFIX,find.api.micloud.xiaomi.net.iberostar.com
 DOMAIN-SUFFIX,findthetruth.allergyai.com
 DOMAIN-SUFFIX,findyourinfluence.actonservice.com
+DOMAIN-SUFFIX,fingerprint.blockifyapp.com
 DOMAIN-SUFFIX,fingerprinter-production.herokuapp.com
 DOMAIN-SUFFIX,finley.fecinc.com
 DOMAIN-SUFFIX,finley.finleyusa.com
@@ -16418,6 +16418,7 @@ DOMAIN-SUFFIX,insight.redflashgroup.com
 DOMAIN-SUFFIX,insight.velocify.com
 DOMAIN-SUFFIX,insight.wittkieffer.com
 DOMAIN-SUFFIX,insights-mxp-cdn.coursecareers.com
+DOMAIN-SUFFIX,insights-tag.convertkit.com
 DOMAIN-SUFFIX,insights.53.com
 DOMAIN-SUFFIX,insights.academy.com
 DOMAIN-SUFFIX,insights.affilimate.com
@@ -16996,6 +16997,7 @@ DOMAIN-SUFFIX,jyyqzt.sledstore.se
 DOMAIN-SUFFIX,jyyzvb.careerindex.jp
 DOMAIN-SUFFIX,jzauch.motostorm.it
 DOMAIN-SUFFIX,jzgfhr.nordicnest.com
+DOMAIN-SUFFIX,jzkdrpijw30voy0.club
 DOMAIN-SUFFIX,jzoxch.menswearhouse.com
 DOMAIN-SUFFIX,jzprtb.1stdibs.com
 DOMAIN-SUFFIX,jzq915.playmobil.com
@@ -18958,6 +18960,7 @@ DOMAIN-SUFFIX,m.wishmindr.com
 DOMAIN-SUFFIX,m1.stadiumgoods.com
 DOMAIN-SUFFIX,m2.washmen.com
 DOMAIN-SUFFIX,m2t.actonservice.com
+DOMAIN-SUFFIX,m2z7r9k4p1.com
 DOMAIN-SUFFIX,m3ds.subarumetropolitain.com
 DOMAIN-SUFFIX,m3uef4b38brmbntdzx.franchiseplus.nl
 DOMAIN-SUFFIX,m4zoxtrcea1k.controlconceptsusa.com
@@ -25034,6 +25037,7 @@ DOMAIN-SUFFIX,q.nasdaq.com
 DOMAIN-SUFFIX,q.skiplino.com
 DOMAIN-SUFFIX,q0losid.com
 DOMAIN-SUFFIX,q4l5gz6lqog6.www.eventus.io
+DOMAIN-SUFFIX,q4x8n6b2t5.com
 DOMAIN-SUFFIX,q777.sfchronicle.com
 DOMAIN-SUFFIX,q88.actonservice.com
 DOMAIN-SUFFIX,qa-branch-app.liketoknow.it
@@ -27683,6 +27687,7 @@ DOMAIN-SUFFIX,sinceregarden.sincere-garden.jp
 DOMAIN-SUFFIX,sinfo.awrostamani.com
 DOMAIN-SUFFIX,sinfo.dtcidev.co
 DOMAIN-SUFFIX,singleplatform.actonservice.com
+DOMAIN-SUFFIX,sink.archive.org
 DOMAIN-SUFFIX,sink.gw.booking.com
 DOMAIN-SUFFIX,sinkou.tireshop.com.br
 DOMAIN-SUFFIX,sinmo.chasecenter.com
@@ -33993,6 +33998,7 @@ DOMAIN-SUFFIX,t2.aboutyou.de
 DOMAIN-SUFFIX,t2.click.subway.com
 DOMAIN-SUFFIX,t2.hulu.com
 DOMAIN-SUFFIX,t2.t2b.click
+DOMAIN-SUFFIX,t2037ulzqct5.com
 DOMAIN-SUFFIX,t3e.firstchoice.co.uk
 DOMAIN-SUFFIX,t4e.sainsburys.co.uk
 DOMAIN-SUFFIX,t570.wiltonbulletin.com
@@ -40205,6 +40211,7 @@ DOMAIN-SUFFIX,x.gldn.io
 DOMAIN-SUFFIX,x.timesunion.com
 DOMAIN-SUFFIX,x.weather.com
 DOMAIN-SUFFIX,x.xtar.io
+DOMAIN-SUFFIX,x7k9m2q4z8r1.com
 DOMAIN-SUFFIX,x88s.pandasuite.io
 DOMAIN-SUFFIX,x9.shinobi.jp
 DOMAIN-SUFFIX,xaguwy.thomas-muenz.ru
