@@ -24,6 +24,10 @@ DOMAIN,forum.naixi.net
 DOMAIN,www.wenziwanka.com
 DOMAIN,www\\.wenziwanka.com
 
+# RIPE NCC's RIPEstat public routing data API. Network Info queries completed reliably over direct connections.
+# https://stat.ripe.net/docs/data-api/ripestat-data-api
+DOMAIN,stat.ripe.net
+
 # Btrfs official documentation; repeated complete manual-page transfers favor direct.
 # https://btrfs.readthedocs.io/en/latest/
 DOMAIN,btrfs.readthedocs.io

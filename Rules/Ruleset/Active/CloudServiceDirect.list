@@ -29,6 +29,11 @@ DOMAIN,bsbsb.cc
 DOMAIN,evoxt.com
 DOMAIN,console.evoxt.com
 
+# ByteVirt public VPS website and Looking Glass. Both pages loaded reliably over direct connections.
+# https://bytevirt.com/store/la-china-optimized-cn2-gia
+DOMAIN,bytevirt.com
+DOMAIN,lg.bytevirt.com
+
 # NovixLink's Chatwoot customer-support component, loaded by its official contact page.
 # https://novixlink.com/en/contact-us
 # Repeated SDK downloads favor direct; no conversation or message was submitted.
