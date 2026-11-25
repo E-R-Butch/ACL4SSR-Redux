@@ -1,5 +1,10 @@
 # 开发直连
 
+# NuGet package downloads. Public .nupkg files passed ZIP and manifest checks
+# over mainland China direct and matched the Singapore proxy downloads.
+# https://learn.microsoft.com/en-us/nuget/reference/ps-reference/ps-ref-install-package
+DOMAIN,globalcdn.nuget.org
+
 # Sidrune's Chinese-language site and API share this exact host.
 # The public model catalogue returned identical data over both routes.
 # https://docs.sidrune.ai/terms-and-conditions/terms

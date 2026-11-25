@@ -52,6 +52,11 @@ DOMAIN,api.paradox-interactive.com
 DOMAIN,revocation-prod.paradox-interactive.com
 
 # 游戏下载
+# Official Rockstar Games Launcher download. Two installer byte ranges
+# matched over mainland China direct and Singapore proxy.
+# https://support.rockstargames.com/articles/4extB4aITvMKdDEZzsFAwE/rockstar-games-launcher-download
+DOMAIN,gamedownloads.rockstargames.com
+
 DOMAIN-SUFFIX,dl.steam.ksyna.com
 DOMAIN-SUFFIX,st.dl.eccdnx.com
 DOMAIN-SUFFIX,st.dl.bscstorage.net
