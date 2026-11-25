@@ -1,7 +1,7 @@
 # 广告列表 adblock rules
 # 内容：中文广告与隐私域名增量（anti-AD 减去本项目已覆盖部分与热门站点）
 # 来源：https://raw.githubusercontent.com/privacy-protection-tools/anti-AD/master/anti-ad-domains.txt + https://tranco-list.eu/top-1m.csv.zip
-# 数量：14281条
+# 数量：14276条
 
 DOMAIN-SUFFIX,000dn.com
 DOMAIN-SUFFIX,0013.cc
@@ -385,7 +385,6 @@ DOMAIN-SUFFIX,5kmm.top
 DOMAIN-SUFFIX,5min.win
 DOMAIN-SUFFIX,5u941.com
 DOMAIN-SUFFIX,5ubei.com
-DOMAIN-SUFFIX,5vobauua3ojpklx.icu
 DOMAIN-SUFFIX,5wapp.com
 DOMAIN-SUFFIX,600zi.com
 DOMAIN-SUFFIX,60608787.com
@@ -1892,7 +1891,6 @@ DOMAIN-SUFFIX,bidfilter.com
 DOMAIN-SUFFIX,bidphysics.com
 DOMAIN-SUFFIX,bidsimulator.com
 DOMAIN-SUFFIX,bidtoolads.com
-DOMAIN-SUFFIX,bigcattracks.com
 DOMAIN-SUFFIX,bigcooe.xyz
 DOMAIN-SUFFIX,bigdpnwootelc.website
 DOMAIN-SUFFIX,bigfishapparel.com
@@ -2188,7 +2186,6 @@ DOMAIN-SUFFIX,bungeesleeves.com
 DOMAIN-SUFFIX,burgersalt.com
 DOMAIN-SUFFIX,burjam.com
 DOMAIN-SUFFIX,burn5tilt.com
-DOMAIN-SUFFIX,burnbubble.com
 DOMAIN-SUFFIX,burningclock.com
 DOMAIN-SUFFIX,burpee.xyz
 DOMAIN-SUFFIX,burstbeacon.com
@@ -2370,7 +2367,6 @@ DOMAIN-SUFFIX,cannonchange.com
 DOMAIN-SUFFIX,canopylabs.com
 DOMAIN-SUFFIX,canvasandsocks.com
 DOMAIN-SUFFIX,canwi.mobi
-DOMAIN-SUFFIX,canyonpizza.net
 DOMAIN-SUFFIX,caoliuzx.tk
 DOMAIN-SUFFIX,caoys1998.xyz
 DOMAIN-SUFFIX,capacitygrid.com
@@ -2996,7 +2992,6 @@ DOMAIN-SUFFIX,coremotives.com
 DOMAIN-SUFFIX,coreprotector.org
 DOMAIN-SUFFIX,corgibeachday.com
 DOMAIN-SUFFIX,coro.benbaisteel.com
-DOMAIN-SUFFIX,correctedcode.com
 DOMAIN-SUFFIX,cos1999.top
 DOMAIN-SUFFIX,cosmi.io
 DOMAIN-SUFFIX,cosmicsculptor.com
@@ -3144,7 +3139,6 @@ DOMAIN-SUFFIX,cryptaloot.pro
 DOMAIN-SUFFIX,crypticgenius.com
 DOMAIN-SUFFIX,crypto-coins.com
 DOMAIN-SUFFIX,crypto-coins.info
-DOMAIN-SUFFIX,crypto-webminer.com
 DOMAIN-SUFFIX,cryptobara.com
 DOMAIN-SUFFIX,cryptoloot.pro
 DOMAIN-SUFFIX,cryptonoter.com
@@ -4667,6 +4661,7 @@ DOMAIN-SUFFIX,fitgreatest.com
 DOMAIN-SUFFIX,fitnessmapper.com
 DOMAIN-SUFFIX,fitnesssponsor.com
 DOMAIN-SUFFIX,fitwithalpine.com
+DOMAIN-SUFFIX,fiveplusthree.com
 DOMAIN-SUFFIX,fivesidedsquare.com
 DOMAIN-SUFFIX,fixcounter.com
 DOMAIN-SUFFIX,fixionmedia.com
@@ -4843,6 +4838,7 @@ DOMAIN-SUFFIX,freestudio.info
 DOMAIN-SUFFIX,freetellafriend.com
 DOMAIN-SUFFIX,freetrafficsystem.com
 DOMAIN-SUFFIX,freeusersonline.com
+DOMAIN-SUFFIX,freewebcams.com
 DOMAIN-SUFFIX,freezingbuilding.com
 DOMAIN-SUFFIX,frequentflesh.com
 DOMAIN-SUFFIX,freshcounter.com
@@ -4898,6 +4894,7 @@ DOMAIN-SUFFIX,fuelx.com
 DOMAIN-SUFFIX,fugetech.com
 DOMAIN-SUFFIX,fuk.xckxjtbg.com
 DOMAIN-SUFFIX,fukt.link
+DOMAIN-SUFFIX,fulllab.com.br
 DOMAIN-SUFFIX,fullrestore.net
 DOMAIN-SUFFIX,fullstacknir.com
 DOMAIN-SUFFIX,fumblingform.com
@@ -8130,6 +8127,7 @@ DOMAIN-SUFFIX,monkeyapes.com
 DOMAIN-SUFFIX,monkeystyping.com
 DOMAIN-SUFFIX,monkeytracker.cz
 DOMAIN-SUFFIX,monstermemes.com
+DOMAIN-SUFFIX,monsy.com
 DOMAIN-SUFFIX,monthlyhat.com
 DOMAIN-SUFFIX,moogos.com
 DOMAIN-SUFFIX,mooncrustpizza.com
@@ -10808,7 +10806,6 @@ DOMAIN-SUFFIX,snxyf.com
 DOMAIN-SUFFIX,snyu.com
 DOMAIN-SUFFIX,snzfj.net
 DOMAIN-SUFFIX,sobin.wang
-DOMAIN-SUFFIX,socialbackyard.com
 DOMAIN-SUFFIX,sociallist.org
 DOMAIN-SUFFIX,sociallyscared.com
 DOMAIN-SUFFIX,socialprofitmachine.com
@@ -11706,7 +11703,6 @@ DOMAIN-SUFFIX,tingyunfenxi.com
 DOMAIN-SUFFIX,tinker.com
 DOMAIN-SUFFIX,tinvshqgogwhm.online
 DOMAIN-SUFFIX,tinybluewhale.com
-DOMAIN-SUFFIX,tinybodega.com
 DOMAIN-SUFFIX,tinyclues.com
 DOMAIN-SUFFIX,tinycounter.com
 DOMAIN-SUFFIX,tinystat.ir
@@ -12488,7 +12484,6 @@ DOMAIN-SUFFIX,virtualpushplatform.com
 DOMAIN-SUFFIX,virtualvincent.com
 DOMAIN-SUFFIX,visam.info
 DOMAIN-SUFFIX,visibility-stats.com
-DOMAIN-SUFFIX,visibli.com
 DOMAIN-SUFFIX,visionary-business-52.com
 DOMAIN-SUFFIX,visionary-data-intuition.com
 DOMAIN-SUFFIX,visionary-enterprise-ingenuity.com
