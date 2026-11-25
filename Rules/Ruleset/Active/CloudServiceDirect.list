@@ -34,6 +34,15 @@ DOMAIN,console.evoxt.com
 DOMAIN,bytevirt.com
 DOMAIN,lg.bytevirt.com
 
+# Gamer520's public website. Match the ordinary host and the observed escaped host.
+# The homepage loaded over repeated direct connections.
+DOMAIN,www.gamer520.com
+DOMAIN,www\.gamer520.com
+
+# Image hosts referenced by the Gamer520 homepage. Matching images loaded reliably over direct connections.
+DOMAIN,ig.freer.blog
+DOMAIN,img.odbgo.com
+
 # NovixLink's Chatwoot customer-support component, loaded by its official contact page.
 # https://novixlink.com/en/contact-us
 # Repeated SDK downloads favor direct; no conversation or message was submitted.

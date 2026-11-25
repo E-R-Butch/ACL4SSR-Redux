@@ -1,5 +1,16 @@
 # 云服务代理
 
+# ImageHub content delivery nodes. The same direct IPv4 edge timed out on both hosts.
+# https://v1.imagehub.cc/
+# https://s1.imagehub.cc/
+DOMAIN,v1.imagehub.cc
+DOMAIN,s1.imagehub.cc
+
+# PanstarCloud's public site. Both paths returned a browser challenge to curl;
+# preserve its existing proxy path until a direct page load can be verified.
+# https://panstar.ai/
+DOMAIN,panstar.ai
+
 # Nektony license-management API (/lm/lapi/) embedded in App Cleaner & Uninstaller.
 # Preserve its observed proxy route; unauthenticated 403 responses are not license tests.
 # https://nektony.com/privacy-policy (licensed-user data is separate from program improvement)
