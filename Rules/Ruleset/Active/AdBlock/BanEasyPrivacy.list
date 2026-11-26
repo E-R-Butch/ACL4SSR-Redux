@@ -1,7 +1,7 @@
 # 广告列表 adblock rules
 # 内容：EasyPrivacy列表，隐私保护，屏蔽隐私追踪
 # 来源：https://easylist-downloads.adblockplus.org/easyprivacy.txt
-# 数量：40756条
+# 数量：40759条
 
 DOMAIN-SUFFIX,0.myikas.com
 DOMAIN-SUFFIX,0.net.easyjet.com
@@ -14379,6 +14379,7 @@ DOMAIN-SUFFIX,gtgvze.chintai.net
 DOMAIN-SUFFIX,gtm.diamond.jp
 DOMAIN-SUFFIX,gtm.lercio.it
 DOMAIN-SUFFIX,gtm.mandesager.dk
+DOMAIN-SUFFIX,gtm.mozilla.org
 DOMAIN-SUFFIX,gtm.wise.com
 DOMAIN-SUFFIX,gtm.xtb.com
 DOMAIN-SUFFIX,gtmfsstatic.getgoogletagmanager.com
@@ -16381,6 +16382,7 @@ DOMAIN-SUFFIX,ingest.in.signoz.cloud
 DOMAIN-SUFFIX,ingest.make.rvapps.io
 DOMAIN-SUFFIX,ingest.make.rvohealth.com
 DOMAIN-SUFFIX,ingest.promptwatch.com
+DOMAIN-SUFFIX,ingest.t3.codes
 DOMAIN-SUFFIX,ingesteer.services-prod.nsvcs.net
 DOMAIN-SUFFIX,ingredients.firmenich.com
 DOMAIN-SUFFIX,ingress.linktr.ee
@@ -37267,6 +37269,7 @@ DOMAIN-SUFFIX,travel.stage.x.unikoom.com
 DOMAIN-SUFFIX,travel.x.unikoom.com
 DOMAIN-SUFFIX,travelmarketreport.actonservice.com
 DOMAIN-SUFFIX,traxex.gannettdigital.com
+DOMAIN-SUFFIX,trc-events.taboola.com
 DOMAIN-SUFFIX,trc.gpcdn.pl
 DOMAIN-SUFFIX,trccvt.dhc.co.jp
 DOMAIN-SUFFIX,trck.accredible.com
