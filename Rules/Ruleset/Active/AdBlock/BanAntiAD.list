@@ -1,7 +1,7 @@
 # 广告列表 adblock rules
 # 内容：中文广告与隐私域名增量（anti-AD 减去本项目已覆盖部分与热门站点）
 # 来源：https://raw.githubusercontent.com/privacy-protection-tools/anti-AD/master/anti-ad-domains.txt + https://tranco-list.eu/top-1m.csv.zip
-# 数量：12641条
+# 数量：12635条
 
 DOMAIN-SUFFIX,000dn.com
 DOMAIN-SUFFIX,0013.cc
@@ -898,6 +898,7 @@ DOMAIN-SUFFIX,adnext.pl
 DOMAIN-SUFFIX,adoftheyear.com
 DOMAIN-SUFFIX,adomik.com
 DOMAIN-SUFFIX,adonnews.com
+DOMAIN-SUFFIX,adoperator.com
 DOMAIN-SUFFIX,adoptim.com
 DOMAIN-SUFFIX,adorableanger.com
 DOMAIN-SUFFIX,adorableattention.com
@@ -2544,6 +2545,7 @@ DOMAIN-SUFFIX,clubcollector.com
 DOMAIN-SUFFIX,clubdetiroelpicarcho.com
 DOMAIN-SUFFIX,clue6load.com
 DOMAIN-SUFFIX,clumsycar.com
+DOMAIN-SUFFIX,clutchcourses.com
 DOMAIN-SUFFIX,cm.he2d.com
 DOMAIN-SUFFIX,cm.mct01.com
 DOMAIN-SUFFIX,cm.netseer.com
@@ -2978,6 +2980,7 @@ DOMAIN-SUFFIX,cunda.ai
 DOMAIN-SUFFIX,curatedtea.com
 DOMAIN-SUFFIX,curbminers.com
 DOMAIN-SUFFIX,curiouschalk.com
+DOMAIN-SUFFIX,curiousmetal.com
 DOMAIN-SUFFIX,curioussuccess.com
 DOMAIN-SUFFIX,curl7bike.com
 DOMAIN-SUFFIX,curlycannon.com
@@ -3344,7 +3347,6 @@ DOMAIN-SUFFIX,dollarpuzzle.com
 DOMAIN-SUFFIX,dollarthrill.com
 DOMAIN-SUFFIX,dolphin.ftimg.net
 DOMAIN-SUFFIX,dolphin4.ftimg.net
-DOMAIN-SUFFIX,dolphinplate.com
 DOMAIN-SUFFIX,dolphinsrule.com
 DOMAIN-SUFFIX,domainadvertising.com
 DOMAIN-SUFFIX,domainanalytics.net
@@ -4230,7 +4232,6 @@ DOMAIN-SUFFIX,fileshareengine.com
 DOMAIN-SUFFIX,filexan.com
 DOMAIN-SUFFIX,filitrac.com
 DOMAIN-SUFFIX,fillthemap.com
-DOMAIN-SUFFIX,filmcomm.net
 DOMAIN-SUFFIX,filtercutter.com
 DOMAIN-SUFFIX,final-aws-01.com
 DOMAIN-SUFFIX,final-azr-01.com
@@ -4415,7 +4416,6 @@ DOMAIN-SUFFIX,freestudio.info
 DOMAIN-SUFFIX,freetellafriend.com
 DOMAIN-SUFFIX,freetrafficsystem.com
 DOMAIN-SUFFIX,freeusersonline.com
-DOMAIN-SUFFIX,freewebcams.com
 DOMAIN-SUFFIX,freezingbuilding.com
 DOMAIN-SUFFIX,frequentflesh.com
 DOMAIN-SUFFIX,freshcounter.com
@@ -4661,7 +4661,6 @@ DOMAIN-SUFFIX,gixmo.dk
 DOMAIN-SUFFIX,gjreg.code.weddingeeos.com
 DOMAIN-SUFFIX,gl.ink
 DOMAIN-SUFFIX,glamhawk.com
-DOMAIN-SUFFIX,glasscoyote.com
 DOMAIN-SUFFIX,glb12pkgr.com
 DOMAIN-SUFFIX,glb21pkgr.com
 DOMAIN-SUFFIX,glbtracker.com
@@ -5491,7 +5490,6 @@ DOMAIN-SUFFIX,ircftp.net
 DOMAIN-SUFFIX,irelandroad.com
 DOMAIN-SUFFIX,iridescentdusk.com
 DOMAIN-SUFFIX,iridiumsergeiprogenitor.info
-DOMAIN-SUFFIX,iron0walk.com
 DOMAIN-SUFFIX,ironbeast.io
 DOMAIN-SUFFIX,irpush.com
 DOMAIN-SUFFIX,iryazan.ru
@@ -5530,7 +5528,6 @@ DOMAIN-SUFFIX,iuiweb.com
 DOMAIN-SUFFIX,iutr.uozwys.top
 DOMAIN-SUFFIX,iuuff.com
 DOMAIN-SUFFIX,ivgl.czyiming.club
-DOMAIN-SUFFIX,ivoryandcrow.com
 DOMAIN-SUFFIX,ivwbox.de
 DOMAIN-SUFFIX,ivykiosk.com
 DOMAIN-SUFFIX,iwanttodeliver.com
@@ -7720,6 +7717,7 @@ DOMAIN-SUFFIX,nytlog.com
 DOMAIN-SUFFIX,nyzda.top
 DOMAIN-SUFFIX,nz04com.com
 DOMAIN-SUFFIX,nzydzsw.com
+DOMAIN-SUFFIX,o.socoms.net
 DOMAIN-SUFFIX,o091i.com
 DOMAIN-SUFFIX,o7h.net
 DOMAIN-SUFFIX,oa129.com
@@ -8316,6 +8314,7 @@ DOMAIN-SUFFIX,prettytube.net
 DOMAIN-SUFFIX,previousplayground.com
 DOMAIN-SUFFIX,pri12mel.com
 DOMAIN-SUFFIX,priceypies.com
+DOMAIN-SUFFIX,pricklydebt.com
 DOMAIN-SUFFIX,pricklyplant.com
 DOMAIN-SUFFIX,pricklypollution.com
 DOMAIN-SUFFIX,prideproms.com
@@ -8323,6 +8322,7 @@ DOMAIN-SUFFIX,primetag.net
 DOMAIN-SUFFIX,pristinecanyon.com
 DOMAIN-SUFFIX,pristinegale.com
 DOMAIN-SUFFIX,privacy.clion.agency
+DOMAIN-SUFFIX,privacybee.com
 DOMAIN-SUFFIX,privacypolicy.trgr.be
 DOMAIN-SUFFIX,privacyprotector.com
 DOMAIN-SUFFIX,private.dmscookie.com
@@ -8404,7 +8404,6 @@ DOMAIN-SUFFIX,pubgenius.io
 DOMAIN-SUFFIX,pubghio.fun
 DOMAIN-SUFFIX,pubimgs.com
 DOMAIN-SUFFIX,public.demo.securecloudsandbox.com
-DOMAIN-SUFFIX,public.porn.fr
 DOMAIN-SUFFIX,public6.com
 DOMAIN-SUFFIX,publicsofa.com
 DOMAIN-SUFFIX,publiempresa.es
@@ -8643,7 +8642,6 @@ DOMAIN-SUFFIX,raab3frog.com
 DOMAIN-SUFFIX,rabbit.mtadvert.com
 DOMAIN-SUFFIX,rabbitboots.com
 DOMAIN-SUFFIX,rabbitbreath.com
-DOMAIN-SUFFIX,rabbitrifle.com
 DOMAIN-SUFFIX,radarstats.com
 DOMAIN-SUFFIX,radexports.com
 DOMAIN-SUFFIX,radiantcanopy.com
@@ -8776,7 +8774,6 @@ DOMAIN-SUFFIX,regularplants.com
 DOMAIN-SUFFIX,regulatesleet.com
 DOMAIN-SUFFIX,rehabilitatereason.com
 DOMAIN-SUFFIX,reifenquick.de
-DOMAIN-SUFFIX,reinvigorate.net
 DOMAIN-SUFFIX,reitingi.lv
 DOMAIN-SUFFIX,rejestr.org
 DOMAIN-SUFFIX,rekuyy.com
@@ -9800,7 +9797,6 @@ DOMAIN-SUFFIX,ss.subo.me
 DOMAIN-SUFFIX,ss.swagger1.com
 DOMAIN-SUFFIX,ss2.he2d.com
 DOMAIN-SUFFIX,ss229.com
-DOMAIN-SUFFIX,ssacdn.com
 DOMAIN-SUFFIX,ssf.51dmn.top
 DOMAIN-SUFFIX,ssh.hbhtbn.com
 DOMAIN-SUFFIX,ssh.hxlif.com
@@ -10516,7 +10512,6 @@ DOMAIN-SUFFIX,topicalcartel.com
 DOMAIN-SUFFIX,topicjungle.com
 DOMAIN-SUFFIX,topitme.com
 DOMAIN-SUFFIX,toplaunch.net
-DOMAIN-SUFFIX,toplist100.org
 DOMAIN-SUFFIX,topmalaysia.com
 DOMAIN-SUFFIX,topratedwaterfilter.com
 DOMAIN-SUFFIX,topsecretapp.net
@@ -12447,7 +12442,6 @@ DOMAIN-SUFFIX,yule.fulevmy.com
 DOMAIN-SUFFIX,yumcs.xiaohuau.xyz
 DOMAIN-SUFFIX,yumi06.com
 DOMAIN-SUFFIX,yumimobi.com
-DOMAIN-SUFFIX,yummymacaroni.com
 DOMAIN-SUFFIX,yun.lvehaisen.com
 DOMAIN-SUFFIX,yun.yuyiya.com
 DOMAIN-SUFFIX,yunbofangbt.com
